@@ -1,0 +1,259 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>23367</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Circle.java</CENTER></H3><HR>
+<PRE>
+<A NAME="5"></A>public <FONT color="#c8c2a7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match45074-0.html#5',2,'match45074-top.html#5',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class Circle extends Shape {
+    final static double PI = 3.14;
+    protected double radius;
+
+    public Circle() {
+        super();
+        this.radius = 0;
+    }
+
+    public Circle</B></FONT>(double radius) {
+        super();
+        if(radius &gt;= 0) {
+			this.radius = radius;
+		} else {
+			this.radius = 0;
+		}
+    }
+
+    public Circle(double radius, String color, boolean filled) {
+        super(color, filled);
+		if(radius &gt;= 0) {
+			this.radius = radius;
+		} else {
+<A NAME="4"></A>			this.radius = 0;
+		}
+        
+    <FONT color="#151b8d"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match45074-0.html#4',2,'match45074-top.html#4',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>}
+
+    /**
+     * @return the radius
+     */
+    public double getRadius() {
+        return radius;
+    }
+
+    /**
+     * @param radius the radius to set
+     */
+    public void setRadius(double radius) {
+		if(radius &gt;= 0) {
+			this.radius = radius;
+		}</B></FONT>
+    }
+    
+    /**
+     * @return Area
+     */
+    public double getArea() {
+		return Math.PI * this.radius * this.radius;
+        // return Math.round(Math.PI * this.radius * this.radius * 100.0) / 100.0;
+    }
+
+<A NAME="6"></A>    /**
+     * @return Perimeter
+     */
+    public <FONT color="#50ebec"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match45074-0.html#6',2,'match45074-top.html#6',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>double getPerimeter() {
+		return Math.PI * this.radius * 2.0;
+        // return Math.round(Math.PI * this.radius * 2.0 * 100.0) / 100.0;
+    }
+    
+    public String toString() {
+        return &quot;Circle[radius=&quot; + this.radius + &quot;,color=&quot; + this.getColor() + &quot;,filled=&quot; + this.isFilled() + &quot;]&quot;;
+    }
+
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>Rectangle.java</CENTER></H3><HR>
+<PRE>
+<A NAME="2"></A>public <FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match45074-0.html#2',2,'match45074-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class Rectangle extends Shape {
+    protected double width;
+    protected double length;
+
+    public Rectangle() {
+        super();
+        this.width = 0;
+        this.length = 0;
+    }
+
+    public Rectangle(double width, double length) {
+		super();
+		if(width &gt;= 0 &amp;&amp; length &gt;= 0) {
+			this.width = width;
+			this.length = length;
+		} else {
+			this.width = 0;
+			this.length = 0;
+		}
+    }
+
+    public Rectangle(double width, double length, String color, boolean filled) {
+        super(color, filled);
+        if(width &gt;= 0 &amp;&amp; length &gt;= 0) {
+			this.width = width;
+			this.length = length;
+		} else {
+			this.width = 0;
+			this.length = 0;
+		}
+    }
+
+    /**
+     * @return the width
+     */
+    public double getWidth() {
+        return width;
+    }
+    
+    /**
+     * @param width the width to set
+     */
+    public void</B></FONT> setWidth(double width) {
+		if(width &gt;= 0) {
+			this.width = width;
+		}
+    }
+
+    /**
+     * @return the length
+     */
+    public double getLength() {
+        return length;
+    }
+
+    /**
+     * @param length the length to set
+     */
+    public void setLength(double length) {
+		if(length &gt;= 0) {
+<A NAME="3"></A>			this.length = length;
+		}
+        
+    <FONT color="#6cc417"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match45074-0.html#3',2,'match45074-top.html#3',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>}
+
+    /**
+     * @return Area
+     */
+    public double getArea() {
+		return this.width * this.length;
+        // return Math.round(this.width * this.length * 100.0) / 100.0;
+    }
+
+    /**
+     * @return Perimeter
+     */
+    public double getPerimeter() {
+		return 2.0 * (this.width + this.length);
+        // return Math.round( 2.0 * (this.width + this.length) * 100.0) / 100.0;
+    }
+    
+    public String toString() {
+        return &quot;Rectangle[width=&quot; + this.width + &quot;,length=&quot; + this.length + &quot;,color=&quot; + this.getColor() + &quot;,filled=&quot; + this.isFilled() + &quot;]&quot;;
+    }
+
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>Square.java</CENTER></H3><HR>
+<PRE>
+public class Square extends Rectangle {
+
+    public Square() {
+        super();
+        this.width = 0;
+        this.length = 0;
+    }
+
+    public Square(double side) {
+        super(side, side);
+    <font color="#C0C0C0"><EM>}
+
+    public Square(double side, String color, boolean filled) {
+        super(side, side, color, filled);
+    }
+
+    /**
+     * @return the side
+     */
+    public double getSide() {
+        return this.width;
+    }
+    
+    /**
+<A NAME="0"></A>     * @param side the width and length to set
+     */
+    public void</EM></font> setSide(double side) {
+        <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match45074-0.html#0',2,'match45074-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>if(side &gt;= 0) {
+			this.width = side;
+			this.length = side;
+		} else {
+			this.width = 0;
+			this.length = 0;
+		}
+    }
+
+    /**
+     * @param side the width to set
+     */
+    public void setWidth(double side) {
+        if(side &gt;= 0) {
+			this.width = side;
+			this</B></FONT>.length = side;
+		}
+    }
+
+    /**
+     * @param length the length to set
+<A NAME="1"></A>     */
+    public void setLength(double side) {
+        if(side &gt;= 0) {
+			<FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match45074-0.html#1',2,'match45074-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>this.width = side;
+			this.length = side;
+		}
+    }
+
+	/**
+     * @return Area
+     */
+    public double getArea() {
+		return this.width * this.width;
+        // return Math.round(this.width * this.width * 100.0) / 100.0;
+    }
+
+    /**
+     * @return Perimeter
+     */
+    public double getPerimeter() {
+		return 4.0 * this.width;
+        // return Math.round(4.0 * this.width * 100.0) / 100.0;
+    }
+	
+    public String toString() {
+        return &quot;Square[side=&quot; + this.width + &quot;,color=&quot; + this.getColor() + &quot;,filled=&quot; + this.isFilled() + &quot;]&quot;;
+    }
+
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

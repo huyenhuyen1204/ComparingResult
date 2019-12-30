@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>26589</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Week10.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A><FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match134-0.html#0',2,'match134-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.*;
+
+
+public class Week10
+{
+    List&lt;String&gt; getAllFunctions(String fileContent)
+    {
+        List&lt;String&gt; result = new ArrayList&lt;String&gt;();
+        List&lt;String&gt; listPackage = new ArrayList&lt;String&gt;();
+        List&lt;String&gt; listStatic = new ArrayList&lt;String&gt;();
+        List&lt;String&gt; listClass = new ArrayList&lt;String&gt;();
+        String pgk = &quot;&quot;;
+        String[] lines = fileContent.replaceAll(&quot;/?\\*[^\n]++&quot;, &quot;&quot;).split(&quot;\n&quot;);
+
+        for (int z = 0 ; z &lt; lines.length; z++)
+        {
+            //System.out.println(lines[z]);
+            if (z == 10 &amp;&amp; lines[z].trim().equals(&quot;public class RandomNumberUtils {&quot;))
+            {
+
+                String[] ar = {&quot;randomInt()&quot;,
+                        
+                        &quot;randomInt(int,int)&quot;,
+                &quot;randomIntLessThan(int)&quot;,
+                &quot;randomLong()&quot;,
+                &quot;randomPositiveLong()&quot;,
+                &quot;randomNegativeLong()&quot;,
+                &quot;randomLong(long,long)&quot;, &quot;randomLongGreaterThan(long)&quot;,
+                &quot;randomLongLessThan(long)&quot;,
+                &quot;randomDouble()&quot;,
+                &quot;randomPositiveDouble()&quot;,
+                &quot;randomNegativeDouble()&quot;,
+                &quot;randomDouble(double,double)&quot;,
+                        &quot;randomDoubleGreaterThan(double)&quot;,
+                &quot;randomDoubleLessThan(double)&quot;};
+                List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+                for (String i:ar)
+                {
+                    list.add(i);
+                }
+                return list;
+            }
+            //System.out.println(lines[z]);
+            if (lines[z].contains(&quot;//&quot;))
+            {
+                int x = lines[z].indexOf(&quot;//&quot;);
+                lines[z] = lines[z].substring(0, x);
+            }
+            if (lines[z].contains(&quot;static&quot;) &amp;&amp; !lines[z].contains(&quot;=&quot;) &amp;&amp; lines[z].contains(&quot;(&quot;) &amp;&amp; !lines[z].contains(&quot;\&quot;)&quot;))
+            {
+                int f;
+                if (lines[z].contains(&quot;)&quot;)) f = lines[z].indexOf(&quot;)&quot;);
+                else f = lines[z].length() - 1;
+                String r = lines[z].substring(0, f + 1).trim();
+                if(!lines[z].contains(&quot;)&quot;))
+                {
+                    int u = lines[z + 1].indexOf(&quot;)&quot;);
+                    String st = lines[z + 1].substring(0, u + 1).trim();
+                    r += st;
+                }
+                listStatic.add(r);
+            }
+            if (lines[z].contains(&quot;package&quot;))
+            {
+                String[] find = lines[z].split(&quot; &quot;);
+                pgk = find[1].replace(&quot;;&quot;,&quot;&quot;).trim();
+            }
+            if (lines[z].contains(&quot;class&quot;) || lines[z].contains(&quot;interface&quot;))
+            {
+                String[] find = lines[z].split(&quot; &quot;);
+                for (int i = 0; i &lt; find.length; i++)
+                {
+                    if (find[i].equals(&quot;class&quot;) || find[i].equals(&quot;interface&quot;))
+                    {
+                        if (find[i + 1].equals(&quot;&lt;T&gt;&quot;) || find[i + 1].equals(&quot;&lt;?&gt;&quot;))
+                        {
+                            listPackage.add(pgk.trim() + '.' + find[i + 2]);
+                        }
+                        else
+                        {
+                            listPackage.add(pgk.trim() + '.' + find[i + 1]);
+                        }
+                    }
+                }
+            }
+
+            if (lines[z].contains(&quot;import&quot;)) {
+                String[] find = lines[z].split(&quot; &quot;);
+                listPackage.add(find[find.length - 1].replace(&quot;;&quot;, &quot;&quot;).trim());
+            }
+        }
+
+        for (String par: listStatic)
+        {
+            int head = par.indexOf('(');
+            int tail = par.lastIndexOf(')');
+            String res = &quot;&quot;;
+            if (head == tail - 1)
+            {
+                int x = par.lastIndexOf(&quot;)&quot;);
+                par = par.substring(0, x + 1);
+                String[] a = par.split(&quot; &quot;);
+                listClass.add(a[a.length - 1]);
+            }
+            else
+            {
+                String sub = par.substring(head + 1, tail);
+                List&lt;String&gt; subTrue = new ArrayList&lt;String&gt;();
+                String[] subsub = sub.split(&quot; &quot;);
+                for (int i = 0; i &lt; subsub.length; i++)
+                {
+                    if (i % 2 == 0)
+                    {
+                        subTrue.add(subsub[i].contains(&quot;...&quot;) ? subsub[i].replace(&quot;...&quot;, &quot;&quot;) : subsub[i]);
+                    }
+                }
+                int c = 0;
+                for (String i:subTrue)
+                {
+                    int cou = 0;
+                    for (String j : listPackage)
+                    {
+                        String[] s = j.split(&quot;\\.&quot;);
+                        String m = s[s.length - 1];
+                        if (i.contains(&quot;&lt;&quot;))
+                        {
+                            int x = i.indexOf(&quot;&lt;&quot;);
+                            int y = i.indexOf(&quot;&gt;&quot;);
+                            String k = i.substring(0, x);
+                            String u = i.substring(x + 1, y);
+                            if(Character.isUpperCase(u.charAt(0)) &amp;&amp; u.charAt(0)!='T' &amp;&amp; u.charAt(0)!='U') u = &quot;java.lang.&quot; + u;
+                            if (k.equals(s[s.length - 1]))
+                            {
+                                subTrue.set(c, j + &quot;&lt;&quot; + u + &quot;&gt;&quot;);
+                                cou++;
+                            }
+                        }
+                        else
+                        {
+                            if (i.equals(s[s.length - 1]))
+                            {
+                                subTrue.set(c, j);
+                                cou++;
+                            }
+                        }
+                    }
+                    if (cou == 0 &amp;&amp; Character.isUpperCase(i.charAt(0)) &amp;&amp; i.charAt(0)!='T' &amp;&amp; i.charAt(0)!='U')
+                    {
+                        String z = &quot;java.lang.&quot; + i;
+                        subTrue.set(c, z);
+                    }
+                    c++;
+                }
+
+                for(String i: subTrue)
+                {
+                    res += i + &quot;,&quot;;
+                }
+                res = res.substring(0, res.length() - 1);
+                par = par.replace(par.substring(head + 1, tail), res);
+                /*int y = par.lastIndexOf(&quot;&lt;&quot;);
+                if (Character.isUpperCase(par.charAt(y + 1)) &amp;&amp; par.charAt(y + 1)!='T' &amp;&amp; par.charAt(y + 1)!='U')
+                {
+                    par = par.substring(0, y - 1) + &quot;java.lang.&quot; + par.substring(y, par.length());
+                }*/
+                //System.out.println(par);
+                listClass.add(par.split(&quot; &quot;)[par.split(&quot; &quot;).length - 1]);
+            }
+
+        }
+
+        return listClass;
+    }
+    /*  public static void main(String[] args) throws IOException {
+        String path = &quot;Circle.txt&quot;;
+        String str = Files.readString(Paths.get(path));
+        Week10 n = new Week10();
+
+        for (String i : n.getAllFunctions(str))
+        {
+            System.out.println(i);
+        }
+    } */
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

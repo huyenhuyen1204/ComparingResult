@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>26752</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Assignments/Circle.java</CENTER></H3><HR>
+<PRE>
+<A NAME="2"></A>public <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match48591-1.html#2',3,'match48591-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Circle extends Shape {
+    protected double radius;
+    public Circle()
+    {
+    }
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    public Circle(double radius, String color, boolean filled) {
+        this.radius = radius;
+        this</B></FONT>.color = color;
+        <font color="#C0C0C0"><EM>this.filled = filled;
+    }
+
+    public double getRadius() {
+        return this.radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
+    public double getArea() {
+        return Math.PI*radius*radius;
+    }
+
+    public double getPerimeter() {
+        return Math.PI*2*radius;
+    }</EM></font>
+
+    public String toString() {
+        return &quot;Circle[radius=&quot; + radius + &quot;,color=&quot; + color + &quot;,filled=&quot; + filled + &quot;]&quot;;
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>Assignments/Rectangle.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>public <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match48591-1.html#1',3,'match48591-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Rectangle extends Shape {
+    protected double width;
+    protected double length;
+
+    public Rectangle() {
+    }
+    public Rectangle(double width, double length) {
+        this.width = width;
+        this.length = length;
+    }
+    public Rectangle(double width, double length, String color, boolean filled) {
+        this.color = color;
+        this</B></FONT>.filled = filled;
+        <font color="#C0C0C0"><EM>this.width = width;
+        this.length = length;
+    }
+    public double getLength() {
+        return this.length;
+    }
+
+    public void setLength(double length) {
+        this.length = length;
+    }
+
+    public double getWidth() {
+        return this.width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public double getArea() {
+        return</EM></font> width*length;
+    }
+
+    public double getPerimeter() {
+        return (width+length)*2;
+    }
+
+    public String toString() {
+        return &quot;Rectangle[width=&quot; + width + &quot;,length=&quot; + length + &quot;,color=&quot; + color + &quot;,filled=&quot; + filled + &quot;]&quot;;
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>Assignments/Square.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match48591-1.html#0',3,'match48591-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Square extends Rectangle {
+    public Square() {
+    }
+
+    public Square(double side) {
+        this.width = side;
+        this.length = side;
+    }
+
+    public Square(double side, String color, boolean filled) {
+        this.width = side;
+        this.length = side;
+        this.color = color;
+        this.filled = filled;
+    }
+
+    public double getSide() {
+        return this.width;
+    }
+
+    public void setSide(double side) {
+        this.width = side;
+        this.length = side;
+    }
+
+    @Override
+    public void setWidth(double side) {
+        this.width = side;
+        this.length = side;
+    }
+
+    @Override
+    public void setLength(double side) {
+        this.length = side;
+        this.width = side;
+    }</B></FONT>
+
+    public String toString() {
+        return &quot;Square[side=&quot; + width + &quot;,color=&quot; + color + &quot;,filled=&quot; + filled + &quot;]&quot;;
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

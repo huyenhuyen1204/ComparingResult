@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>18726</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>src/Person.java</CENTER></H3><HR>
+<PRE>
+public class Person {
+    //Attributes
+    private String name;
+    private String address;
+
+    //Constructor
+    public Person() {}
+    public <font color="#C0C0C0"><EM>Person(String name, String address) {
+        this.name = name;
+        this.address = address;
+    }
+
+    //Getter
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    //Setter
+    public void setName(String name) {
+<A NAME="0"></A>        this.name = name;
+    }</EM></font>
+
+    public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match43944-0.html#0',2,'match43944-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>void setAddress(String address) {
+        this.address = address;
+    }
+
+    //Method
+    @Override
+    public String toString() {
+        return (&quot;Person[name=&quot; + this.name + &quot;,address=&quot; + this.address + &quot;]&quot;);
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>src/Student.java</CENTER></H3><HR>
+<PRE>
+public class Student extends Person {
+    //Attributes
+    private String program;
+    private int year;
+    private double fee;
+
+    //Constructor
+    public Student() {
+    }
+
+    public Student(String name, String address, String program, int year, double fee) {
+        this.setName(name);
+        this.setAddress(address);
+        this.program = program;
+        this.year = year;
+        this.fee = fee;
+    }
+
+    //Getter
+    public String getProgram() {
+<A NAME="1"></A>        return program;
+    }
+
+    public <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match43944-0.html#1',2,'match43944-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>double getFee() {
+        return fee;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    //Setter
+    public void setProgram(String program) {
+        this.program = program;
+    }
+
+    public void setFee(double fee) {
+        this</B></FONT>.fee = fee;
+    <font color="#C0C0C0"><EM>}
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    //Method
+    @Override
+    public String toString() {
+        return (&quot;Student[&quot; + super.toString() + &quot;,program=&quot; + this.program + &quot;,year=&quot; + this.year + &quot;,fee=&quot; + this.fee + &quot;]&quot;);
+    }
+}</EM></font>
+</PRE>
+
+</BODY>
+</HTML>

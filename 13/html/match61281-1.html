@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>29908</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Week8_Task2.java</CENTER></H3><HR>
+<PRE>
+/**
+ * Created by CCNE on 29/10/2019.
+<A NAME="0"></A> */
+
+
+<FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match61281-0.html#0',2,'match61281-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>import java.io.*;
+import java.lang.*;
+public class Week8_Task2 {
+
+    public void NPEx(Object object) throws NullPointerException{
+         if(object==null){
+             throw new NullPointerException(&quot;Lỗi Null Pointer&quot;);
+         }</B></FONT>
+    }
+    public void AIOoBEx(int arr[], int x) throws  ArrayIndexOutOfBoundsException{
+        if(x&gt;arr.length){
+            throw new ArrayIndexOutOfBoundsException(&quot;Lỗi Array Index Out of Bounds&quot;);
+        }
+    }
+    public void ArithEx(int x , int y) throws ArithmeticException{
+        if(y==0){
+            throw new ArithmeticException(&quot;Lỗi Arithmetic&quot;);
+        }
+
+    }
+<A NAME="4"></A>    public void FNFEx(File file) throws FileNotFoundException
+    {
+        if (file == null) throw new FileNotFoundException(&quot;Lỗi File Not Found&quot;);
+    <FONT color="#151b8d"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match61281-0.html#4',2,'match61281-top.html#4',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>}
+
+
+    public void IOEx(File file) throws IOException
+    {
+        if (file == null) throw new IOException(&quot;Lỗi IO&quot;);
+    }
+    public String NPExTest(){
+        Object object=null;
+        try{
+            NPEx(object);
+            return &quot;Không có lỗi&quot;;
+        }  catch(NullPointerException e){
+            return e.getMessage();
+<A NAME="2"></A>        }
+    }</B></FONT>
+
+    public <FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match61281-0.html#2',2,'match61281-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>String AIOoBExTest(){
+        int arr[] = new int[5];
+        int x=6;
+        try{
+            AIOoBEx(arr,x);
+            return &quot;Không có lỗi&quot;;
+        } catch(ArrayIndexOutOfBoundsException e){
+            return e.getMessage();
+<A NAME="3"></A>        }
+    }</B></FONT>
+
+    public <FONT color="#6cc417"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match61281-0.html#3',2,'match61281-top.html#3',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>String ArithExTest(){
+        int x =1, y=0;
+        try{
+            ArithEx(x,y);
+            return &quot;Không có lỗi&quot;;
+<A NAME="1"></A>        }catch(ArithmeticException e){
+            return e.getMessage();
+        }</B></FONT>
+    <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match61281-0.html#1',2,'match61281-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>}
+
+    public String FNFExTest()
+    {
+        File file = null;
+        try
+        {
+            FNFEx(file);
+            return &quot;Không có lỗi&quot;;
+        }
+        catch (FileNotFoundException e)
+<A NAME="5"></A>        {
+            return e.getMessage();
+        }</B></FONT>
+    <FONT color="#c8c2a7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match61281-0.html#5',2,'match61281-top.html#5',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>}
+
+    public String IOExTest()
+    {
+        File file = null;
+        try
+        {
+            IOEx(file);
+            return &quot;Không có lỗi&quot;;
+        }
+        catch (IOException e)
+        {
+            return e.getMessage();
+        }
+    }
+
+
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

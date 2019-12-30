@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>30881</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Division.java</CENTER></H3><HR>
+<PRE>
+<A NAME="4"></A>import java.lang.ArithmeticException;
+public <FONT color="#151b8d"><A HREF="javascript:ZweiFrames('match57137-1.html#4',3,'match57137-top.html#4',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Division extends BinaryExpression {
+    public Division(Expression left, Expression right){
+        super(left, right);
+    }
+
+    public String toString(){
+        return &quot;(&quot; + this.left.toString() + &quot; / &quot; + this.right.toString() + &quot;)&quot;;
+    }
+    public double evaluate() throws ArithmeticException{
+        if(this.right.evaluate()==0) throw new ArithmeticException(&quot;Lỗi chia cho 0&quot;);
+        else{
+            return (this.left.evaluate()/this.right.evaluate());
+        }
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>ExpressionTest.java</CENTER></H3><HR>
+<PRE>
+public class ExpressionTest {
+    public static void main(String[] args){
+<A NAME="1"></A>        Numeral n = new Numeral(20);
+        Square sq = new Square(n);
+        Addition ad = new Addition(n, sq);
+        Subtraction su = new Subtraction(new <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match57137-1.html#1',3,'match57137-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>Numeral(3), new Numeral(-5));
+        Multiplication mu = new Multiplication(new Numeral(0), new Numeral(-6));
+        Division di = new Division(su, mu);
+        System.out.println(di</B></FONT>.toString());
+        System.out.println(di.evaluate());
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>Multiplication.java</CENTER></H3><HR>
+<PRE>
+<A NAME="5"></A>public <FONT color="#c8c2a7"><A HREF="javascript:ZweiFrames('match57137-1.html#5',3,'match57137-top.html#5',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Multiplication extends BinaryExpression {
+    public Multiplication(Expression left, Expression right){
+        super(left, right);
+    }
+    public String toString(){
+        return (&quot;(&quot; + this.left.toString() + &quot; * &quot; + this.right.toString() + &quot;)&quot;);
+    }
+    public double</B></FONT> evaluate(){
+        return this.right.evaluate()*this.left.evaluate();
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>Numeral.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match57137-1.html#0',3,'match57137-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Numeral extends Expression {
+    private  double value;
+
+    public Numeral(double value){
+        this.value = value;
+    }
+    public Numeral(){
+        this.value=0;
+    }
+
+    public String toString(){
+        return String</B></FONT>.format(String.valueOf(this.value)).replaceAll(&quot;\\.0+$&quot;, &quot;&quot;);
+    }
+    public double evaluate(){
+        return this.value;
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>Square.java</CENTER></H3><HR>
+<PRE>
+<A NAME="3"></A>public <FONT color="#6cc417"><A HREF="javascript:ZweiFrames('match57137-1.html#3',3,'match57137-top.html#3',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Square extends Expression {
+    private Expression expression;
+
+    public Square(Expression expression){
+        this.expression=expression;
+    }
+
+    public String toString(){
+        return (&quot;(&quot;+expression.toString()+&quot;) ^ 2&quot;);
+    }
+    public double evaluate(){
+        return this.expression.evaluate()*this.expression.evaluate();
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>Subtraction.java</CENTER></H3><HR>
+<PRE>
+<A NAME="2"></A>public <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match57137-1.html#2',3,'match57137-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Subtraction extends BinaryExpression {
+    public Subtraction(Expression left, Expression right){
+        super(left, right);
+    }
+
+    public String toString(){
+        return (&quot;(&quot;+left.toString()+&quot; - &quot;+right.toString()+&quot;)&quot;);
+    }
+    public double evaluate(){
+        return (this.left.evaluate()-this.right.evaluate());
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

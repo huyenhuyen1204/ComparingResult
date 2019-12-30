@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>33383</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/Week11.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>import java.util.ArrayList;
+<FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match65690-1.html#0',3,'match65690-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>import java.util.List;
+
+public class Week11 {
+    public static &lt;T extends Comparable&lt;T&gt;&gt; List&lt;T&gt; sortGeneric(List&lt;T&gt; arr) {
+        for (int i = 0; i &lt; arr.size(); i++) {
+            for (int j = i + 1; j &lt; arr.size(); j++)
+                if (arr.get(i).compareTo(arr.get(j)) &gt; 0) {
+                    T tmp = arr.get(i);
+                    arr.set(i, arr.get(j));
+                    arr.set(j, tmp);
+                }
+        }
+        return arr;
+    }
+    /*public static void main(String[] args){
+        List&lt;Person&gt; arr = new ArrayList&lt;Person&gt;();
+        arr.add(new Person(&quot;Nguyen A&quot;, 22, &quot;abc&quot;));
+        arr.add(new Person(&quot;Nguyen A&quot;, 20, &quot;def&quot;));
+        arr.add(new Person(&quot;Le B&quot;, 20, &quot;asd&quot;));
+        arr = sortGeneric(arr);
+        for (Person i : arr)
+            System.out.print(i.getName() + &quot; &quot; + i.getAge() + &quot; &quot; + i.getAddress() + '\n');
+    }*/
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

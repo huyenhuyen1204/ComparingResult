@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>21770</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Staff.java</CENTER></H3><HR>
+<PRE>
+public <font color="#C0C0C0"><EM>class Staff extends Person
+{
+    private String school ;
+    private double pay ;
+
+    public Staff (String name , String address , String school , double pay)
+    {
+        super(name , address) ;
+        this.school = school ;
+        this.pay = pay ;
+    }
+
+    public String getSchool() {
+        return school;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
+
+    public double getPay() {
+        return pay;
+    }
+
+    public void setPay(double pay) {
+        this.pay = pay;
+    }</EM></font>
+
+    public String toString()
+<A NAME="1"></A>    {
+        String tmp = super.toString() ;
+        return &quot;Staff[&quot; + tmp + &quot;,school=&quot; + school + &quot;,pay=&quot; + pay + &quot;]&quot; ;
+    <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match44349-1.html#1',3,'match44349-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>}
+
+    public static void main (String args[])
+    {
+        Staff s1 = new Staff(&quot;tri&quot; , &quot;thanh xuan&quot; , &quot;uet&quot; , 2.2) ;
+        System.out.println(s1.toString());
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>Student.java</CENTER></H3><HR>
+<PRE>
+public <font color="#C0C0C0"><EM>class Student extends Person
+{
+    private String program ;
+    private int year ;
+    private double fee ;
+
+    public Student (String name,String address ,String program , int year , double fee)
+    {
+        super(name,address) ;
+        this.year = year ;
+        this.fee = fee ;
+        this.program = program ;
+    }
+
+    public String getProgram ()
+    {
+        return program ;
+    }
+
+    public void setProgram(String program) {
+        this.program = program;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }</EM></font>
+
+    public void setFee(double fee) {
+        this.fee = fee;
+    }
+
+    public double getFee() {
+        return fee;
+    }
+
+    public String toString()
+<A NAME="0"></A>    {
+        String tmp = super.toString() ;
+        return &quot;Student[&quot; + tmp + &quot;,program=&quot; + program + &quot;,year=&quot; + year + &quot;,fee=&quot; +fee + ']' ;
+    <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match44349-1.html#0',3,'match44349-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>}
+
+    public static void main (String args[])
+    {
+        Student s1 = new Student(&quot;Tri&quot;, &quot;Thanh Xuan&quot; , &quot;CNTT&quot; , 2000 , 2.0) ;
+        System.out.println(s1.toString());
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

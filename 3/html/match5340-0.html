@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>9305</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>StudentManagement.java</CENTER></H3><HR>
+<PRE>
+public class StudentManagement {
+
+    int index = 0;
+<A NAME="0"></A>
+    Student[] s = new Student[100];
+
+    public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match5340-1.html#0',3,'match5340-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>StudentManagement() {}
+
+    public static boolean sameGroup(Student s1, Student s2)
+    {
+        return s1.getGroup().equals(s2.getGroup());
+    }
+
+    public void addStudent(Student newStudent)
+    {
+        if (index &lt; 100)
+            s[index++] = newStudent;</B></FONT>
+    <font color="#C0C0C0"><EM>}
+
+    public String studentsByGroup() {
+        String str = &quot;&quot;;
+        boolean[] checkedGr = new boolean[index];
+        for (int i = 0; i &lt; index; i++)
+            checkedGr[i] = false;
+        for (int i = 0; i &lt; index; i++)
+<A NAME="1"></A>        {
+            if</EM></font> (!checkedGr[i]) 
+            {
+                String <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match5340-1.html#1',3,'match5340-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>g = s[i].getGroup();
+                str = str + g + &quot;\n&quot;;
+                for (int j = 0; j &lt; index; j++)
+                {
+                    if (<font color="#C0C0C0"><EM>s</B></FONT>[j].getGroup().equals(g))
+                    {
+                        str = str + s[j].getInfo() + &quot;\n&quot;;
+                        checkedGr[j] = true;
+                    }
+                }
+            }
+        }
+	    return str;
+    }
+
+    public void</EM></font> removeStudent(String id) {
+        for (int i = 0; i &lt; index; ++i)
+        {
+<A NAME="2"></A>            if (s[i].getId().equals(id))
+            {
+                for (int j = i; j &lt; index; j++) {
+                    <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match5340-1.html#2',3,'match5340-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>s[j] = s[j + 1];
+                }
+                s[--index] = null;
+                i = -1;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+
+
+        Student s1 = new Student(&quot;Nguyen Van An&quot;, &quot;17020001&quot;, &quot;17020001@vnu.edu.vn&quot;);
+        s1.setGroup(&quot;K64CA&quot;);
+        Student s2 = new Student(&quot;Nguyen Van E&quot;, &quot;17020002&quot;, &quot;17020001@vnu.edu.vn&quot;);
+        Student s3 = new Student</B></FONT>(&quot;Nguyen Van B&quot;, &quot;17020003&quot;, &quot;17020001@vnu.edu.vn&quot;);
+        s3.setGroup(&quot;K63CB&quot;);
+        Student s4 = new Student(&quot;Nguyen Van C&quot;, &quot;17020004&quot;, &quot;17020001@vnu.edu.vn&quot;);
+        Student <font color="#C0C0C0"><EM>s5 = new Student(&quot;Nguyen Van B&quot;, &quot;17020005&quot;, &quot;17020001@vnu.edu.vn&quot;);
+        s5.setGroup(&quot;K63CB&quot;);
+
+        StudentManagement StudManage = new StudentManagement();
+
+        StudManage.addStudent(s1);
+        StudManage.addStudent(s1);
+        StudManage.addStudent(s2);
+        StudManage.addStudent(s3);
+        StudManage.addStudent(s4);
+        StudManage.addStudent(s2);
+        StudManage.addStudent(s5);
+
+        System.out.println(StudManage.studentsByGroup());
+        System</EM></font>.out.println(&quot;------------&quot;);
+
+        String test1 = new String(&quot;17020001&quot;);
+
+        StudManage.removeStudent(test1);
+
+        StudManage.addStudent(s3);
+        StudManage.removeStudent(new String(&quot;17020002&quot;));
+
+        System.out.println(StudManage.studentsByGroup());
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>4800</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/BinaryExpression.java</CENTER></H3><HR>
+<PRE>
+public abstract class BinaryExpression extends Expression {
+<A NAME="0"></A>    protected Expression left;
+    protected Expression right;
+
+    public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match58398-1.html#0',3,'match58398-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>void setLeft(Expression left){
+        this.left = left;
+    }
+    public Expression getLeft(){
+        return this.left;
+    }
+    public void setRight(Expression right){
+        this.right = right;
+    }</B></FONT>
+    public Expression getRight(){
+        return this.right;
+    }
+
+
+    public BinaryExpression(Expression left, Expression right){
+        this.left = left;
+        this.right = right;
+    }
+
+}
+</PRE>
+<HR>
+<H3><CENTER>src/Division.java</CENTER></H3><HR>
+<PRE>
+import java.lang.ArithmeticException;
+
+public <font color="#C0C0C0"><EM>class Division extends BinaryExpression {
+
+    public Division(Expression left, Expression right) {
+        super(left, right);
+    }
+    @Override
+    public String toString() {
+        return String.format(&quot;(%s / %s)&quot;, left.toString(), right.toString());
+    }
+
+<A NAME="2"></A>    @Override
+    public double evaluate() {
+        if (right.evaluate() &lt;= 0.001 &amp;&amp; right</EM></font>.evaluate() &gt;= 0
+                || <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match58398-1.html#2',3,'match58398-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>right.evaluate() &gt;= -0.001 &amp;&amp; right.evaluate() &lt;= 0) {
+            throw new ArithmeticException(&quot;Lỗi chia cho 0&quot;);
+        }
+        return left.evaluate() / right.evaluate();
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>src/Square.java</CENTER></H3><HR>
+<PRE>
+public class Square extends Expression  {
+    private Expression expression;
+<A NAME="1"></A>
+    public Square(Expression expression){
+        this.expression = expression;
+    <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match58398-1.html#1',3,'match58398-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>}
+
+    public Expression getExpression() {
+        return expression;
+    }
+
+    public void setExpression(Expression expression) {
+        this.expression = expression;
+    }
+
+    @Override
+    public String toString() {
+        return</B></FONT> Double.toString(this.evaluate());
+    }
+
+    @Override
+    public double evaluate() {
+        return this.getExpression().evaluate()*this.getExpression().evaluate();
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

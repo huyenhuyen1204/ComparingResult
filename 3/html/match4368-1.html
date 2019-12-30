@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>8706</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>StudentManagement.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>import java.util.ArrayList;
+
+public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match4368-0.html#0',2,'match4368-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class StudentManagement {
+    Student[] students = new Student[100];
+    int numOfStudent = 0;
+
+    public static boolean sameGroup(Student s1, Student s2) {
+        return s1.getGroup().equals(s2.getGroup());
+    }
+
+    public void addStudent(Student newStudent) {
+        students</B></FONT>[numOfStudent] = newStudent;
+        numOfStudent++;
+    }
+
+    public String studentsByGroup() {
+        ArrayList&lt;String&gt; groups = new ArrayList&lt;String&gt;();
+        String list = &quot;&quot;;
+
+        for(int i = 0; i &lt; numOfStudent; i++){
+            if(!groups.contains(students[i].getGroup())){
+                groups.add(students[i].getGroup());
+            }
+        }
+
+<A NAME="1"></A>        for (int i = 0; i &lt; groups.size(); i++) {
+            list += groups.get(i) + &quot;\n&quot;;
+            for (int j = 0; j &lt; numOfStudent; j++) {
+                if (<FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match4368-0.html#1',2,'match4368-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>students[j].getGroup().equals(groups.get(i)))
+                    list += students[j].getInfo() + &quot;\n&quot;;
+            }
+        }
+        return list;
+    }
+
+    public void removeStudent(String id) {
+        for (int i = 0; i &lt; numOfStudent; i++) {
+            if (id.equals(students[i].getId())) {
+                for (int j = i; j &lt; numOfStudent; j++) students[j] = students[j+1];</B></FONT>
+                numOfStudent--;
+                return;
+            }
+        }
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>19733</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Week4Test.java</CENTER></H3><HR>
+<PRE>
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.nio.file.StandardWatchEventKinds;
+
+public class Week4Test{
+<A NAME="0"></A>    @Test
+    public void testMax2Int1(){
+        Week4 wk = new Week4();
+        <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match7342-1.html#0',3,'match7342-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>Assert.assertEquals(4,wk.max2Int(1,4));
+    }
+
+    @Test
+    public void testMax2Int2(){
+        Assert.assertEquals(1,Week4.max2Int(0,1));
+    }
+
+    @Test
+    public void testMax2Int3(){
+        Assert.assertEquals(5,Week4.max2Int(-6,5));
+    }
+
+    @Test
+    public void testMax2Int4(){
+        Assert.assertEquals(-7,Week4.max2Int(-10,-7));
+    }
+
+    @Test
+    public void testMax2Int5(){
+        Assert.assertEquals(0,Week4.max2Int(-10,0));
+    }
+
+    @Test
+    public void testMinArray1(){
+        int[] a = {10,4,3,5,6,7,4,1,7,4};
+        Assert.assertEquals(1,Week4.minArray(a));
+    }
+
+    @Test
+    public void testMinArray2(){
+        int[] a = {0,9,5,-2,-10};
+        Assert.assertEquals(-10,Week4.minArray(a));
+    }
+
+    @Test
+    public void testMinArray3(){
+        int[] a = {-90,-100};
+        Assert.assertEquals(-100,Week4.minArray(a));
+    }
+
+    @Test
+    public void testMinArray4(){
+        int[] a = {-23,0,-10,-99,-75,-100,1,10};
+        Assert.assertEquals(-100,Week4.minArray(a));
+    }
+
+    @Test
+    public void testMinArray5(){
+        int[] a = {0};
+        Assert.assertEquals(0,Week4.minArray(a));
+    }
+
+    @Test
+    public void testCalculateBMI1(){
+        Assert.assertEquals(&quot;Béo phì&quot;, Week4.calculateBMI(75,1.7));
+    }
+
+    @Test
+    public void testCalculateBMI2(){
+        Assert.assertEquals(&quot;Bình thường&quot;,Week4.calculateBMI(65.2,1.7));
+    }
+
+    @Test
+    public void testCalculateBMI3(){
+        Assert.assertEquals(&quot;Bình thường&quot;,Week4.calculateBMI(62.25,1.65));
+    }
+
+    @Test
+    public void testCalculateBMI4(){
+        Assert.assertEquals(&quot;Thiếu cân&quot;,Week4.calculateBMI(53.2,1.7));
+    }
+
+    @Test
+    public void testCalculateBMI5(){
+        Assert.assertEquals(&quot;Bình thường&quot;,Week4.calculateBMI(53.4,1.7));
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

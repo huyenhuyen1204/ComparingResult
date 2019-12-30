@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>33211</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/Week11.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A><FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match65180-1.html#0',3,'match65180-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>import java.util.*;
+
+public class Week11 {
+    public static &lt;T&gt; List&lt;T&gt; sortGeneric(List&lt;T&gt; array){
+        array.sort(new Sort());
+        return array;
+    }
+
+    public static void main(String[] args) {
+
+    }
+}
+class Person {
+
+    private String name;
+    private int age;
+    private String address;
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    @Override
+    public String toString() {
+        return this.name + &quot; &quot; + this.age + &quot; &quot; + this.address;
+    }
+
+    public Person(String name, int age, String address) {
+        this.name = name;
+        this.address = address;
+        this.age = age;
+    }
+
+    public Person(){
+
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+class Sort implements Comparator{
+    public int compare(Object a, Object b) {
+        if(a instanceof  Person) {
+            if ( ((Person) a).getName().equals(((Person) b).getName())) {
+                return ((Person) a).getAge() - ((Person) b).getAge();
+            } else {
+                return ((Person) a).getName().compareTo(((Person) b).getName());
+            }
+        }
+
+        if(a instanceof Integer){
+            return (Integer)a - (Integer)b;
+        }
+
+        return ((String) a).compareTo((String)b);
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

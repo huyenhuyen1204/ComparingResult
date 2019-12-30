@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>8180</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>StudentManagement.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match1790-0.html#0',2,'match1790-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class StudentManagement {
+    private  static Student[] students = new Student[100];
+    private  static int count = 0;
+
+    public static boolean sameGroup(Student s1, Student s2) {
+        String a=s1.getGroup();
+        String b=s2.getGroup();
+        if ( a.equals(b) ) {
+            return true;
+        }
+            return false;
+
+    }
+
+    public static void addStudent(Student newStudent) {
+        students</B></FONT>[count] = newStudent;
+        count++;
+    <font color="#C0C0C0"><EM>}
+
+    public static String studentsByGroup() {
+        String list = &quot;&quot;;
+        int[] c = new int[count];
+        for (int i = 0; i &lt; count; i++) {
+            c[i] = 1;
+<A NAME="1"></A>        }
+        for (int j = 0; j &lt; count; j++) {
+            if</EM></font> (c[j] == 1) {
+                String <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match1790-0.html#1',2,'match1790-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>gr = students[j].getGroup();
+                list += gr + &quot;\n&quot; + students[j].getInfo() + &quot;\n&quot;;
+                c[j] = 0;
+
+                for (int k = j + 1; k &lt; count; k++)
+                    if ( <font color="#C0C0C0"><EM>students</B></FONT>[k].getGroup().equals(gr) ) {
+                        list += students[k].getInfo() + &quot;\n&quot;;
+                        c[k] = 0;
+                    }
+            }
+        }
+        return list;
+    }
+<A NAME="2"></A>
+    public static void removeStudent(String id){
+        int i=0</EM></font>;
+        <FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match1790-0.html#2',2,'match1790-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>while (i&lt;count){
+            //từ vị trí đầu tiên
+            if(students[i].getId().equals(id)){
+                //nếu có id=id đã cho thì từ vị đó đến cuối mảng students-1 thì
+                for (int j=i; j&lt;count-1; j++) {
+                    students[j] = students[j + 1];
+                }
+                count--;
+            }
+            else i++;
+        }
+
+        //mỗi sinh viên chỉ có 1 id tương đương mỗi id = 1 sinh viên nên vòng này sẽ xóa những sinh viên trùng id và chỉ lấy sv đầu tiên.
+        i = 0;
+        while (i &lt; count - 1) {
+            id = students[i].getId();
+            int t = i + 1;
+            while (t &lt; count) {
+                if (students[t].getId().equals(id)) {
+                    for (int j = t ; j &lt; count - 1; j++) {
+                        students[j] = students[j + 1];
+                    }
+                    count--;
+                }
+                else t++;
+            }
+            i++;
+        }</B></FONT>
+    <font color="#C0C0C0"><EM>}
+
+        public static void main (String[] args)
+        {
+
+
+            Student s1 = new Student(&quot;a&quot;, &quot;1&quot;, &quot;1&quot;);
+            Student s2 = new Student</EM></font>(&quot;b&quot;, &quot;2&quot;, &quot;2&quot;);
+            Student s3 = new Student(&quot;c&quot;, &quot;3&quot;, &quot;3&quot;);
+            Student s4 = new Student(&quot;d&quot;, &quot;4&quot;, &quot;4&quot;);
+            Student s5=new Student(s1);
+            Student s7=new Student(s3);
+            s1.setGroup(&quot;K62CC&quot;);
+            s2.setGroup(&quot;K62CC&quot;);
+            <font color="#C0C0C0"><EM>s3.setGroup(&quot;K62CC&quot;);
+            Student s6=new Student(s1);
+            s6.setName(&quot;e&quot;);
+            addStudent(s1); //a 1 CC
+            addStudent(s2); //b 2 CC
+            addStudent(s3); //c 3 CC
+            addStudent(s4); //d 4 CB
+            addStudent(s5); //a 1 CB
+            addStudent(s6); //e 1 CC
+            addStudent(s7); //c 3 CB
+
+
+            removeStudent(&quot;3&quot;);
+            System.out.println(studentsByGroup</EM></font>());
+
+        }
+
+    }
+
+</PRE>
+
+</BODY>
+</HTML>

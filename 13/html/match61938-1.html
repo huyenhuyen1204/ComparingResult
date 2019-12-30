@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>4918</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Week8_Task2.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A><FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match61938-0.html#0',2,'match61938-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Week8_Task2 {
+
+    /**
+     * Phuong thuc nem ngoai le: NullPointerException
+     *
+     * @return mot ngoai le
+     */
+    public boolean NPEx() {
+        //TODO: Truy cap vao mot doi tuong co gia tri null
+        String test = null;
+        return test.equals(null);
+    }
+
+    /**
+     * Phuong thuc nem ngoai le: ArrayIndexOutOfBoundsException
+     *
+     * @return mot ngoai le
+     */
+    public int AIOoBEx() {
+        //TODO: Truy cap vao vi tri chi muc khong ton tai trong mot mang
+        int[] test = {1, 2, 3};
+        return test[3];
+    }
+
+    /**
+     * Phuong thuc nem ngoai le: ArithmeticException
+     *
+     * @return mot ngoai le
+     */
+    public int ArithEx() {
+        //TODO: Thuc hien phep chi cho 0
+        int a = 1;
+        int b = 0;
+        return a / b;
+    }
+
+    /**
+     * Phuong thuc nem ngoai le: FileNotFoundException
+     *
+     * @return mot ngoai le
+     */
+    public void FNFEx() throws FileNotFoundException {
+        //TODO: Su dung lop FileReader doc noi dung mot tep khong ton tai
+        File file = new File(&quot;&quot;);
+        FileReader fr = new FileReader(file);
+    }
+
+    /**
+     * Phuong thuc nem ngoai le: IOException
+     *
+     * @return mot ngoai le
+     */
+    public void IOEx() throws IOException {
+        //TODO: Cac ngoai le lien quan den van de Vao/Ra cua file
+        File file = new File(&quot;&quot;);
+        FileReader fr = new FileReader(file);
+    }</B></FONT>
+
+    /**
+     * Phuong thuc bat ngoai le: NullPointerException
+     *
+     * @return ten ngoai le
+     */
+    public <font color="#C0C0C0"><EM>String NPExTest() {
+        try {
+            NPEx();
+        } catch (NullPointerException e) {
+            return &quot;Lỗi Null Pointer&quot;;
+        }
+
+        return &quot;Không có lỗi&quot;;
+    }
+
+    /**
+     * Phuong thuc bat ngoai le: ArrayIndexOutOfBoundsException
+     *
+     * @return ten ngoai le
+     */
+    public String AIOoBExTest() {
+        try {
+            AIOoBEx();
+        } catch (ArrayIndexOutOfBoundsException e) {
+            return &quot;Lỗi Array Index Out of Bounds&quot;;
+        }
+
+        return &quot;Không có lỗi&quot;;
+    }
+
+    /**
+     * Phuong thuc bat ngoai le: ArithmeticException
+     *
+     * @return ten ngoai le
+     */
+    public String ArithExTest() {
+        try {
+            ArithEx();
+        } catch (ArithmeticException e) {
+            return &quot;Lỗi Arithmetic&quot;;
+        }
+
+        return &quot;Không có lỗi&quot;;
+    }
+
+    /**
+     * Phuong thuc bat ngoai le: FileNotFoundException
+     *
+     * @return ten ngoai le
+     */
+    public String FNFExTest() {
+        try {
+            FNFEx();
+        } catch (FileNotFoundException e) {
+            return &quot;Lỗi File Not Found&quot;;
+        }
+        return &quot;Không có lỗi&quot;;
+    }
+
+    /**
+     * Phuong thuc bat ngoai le: IOException
+     *
+     * @return ten ngoai le
+     */
+    public String IOExTest() {
+        try {
+            IOEx();
+        } catch (IOException e) {
+            return &quot;Lỗi IO&quot;;
+        }
+        return &quot;Không có lỗi&quot;;
+    }</EM></font>
+}
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>18223</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>van/Week4Test.java</CENTER></H3><HR>
+<PRE>
+import org.junit.Test;
+import static org.junit.Assert.*;
+public class Week4Test {
+    @Test
+    public void testMax2Int1(){
+        int <font color="#C0C0C0"><EM>a=1;
+        int b=2;
+        int expResult=2;
+        int result=Week4.max2Int(a,b);
+        assertEquals</EM></font>(expResult,result);
+    }
+
+    @Test
+    public void testMax2Int2(){
+        int <font color="#C0C0C0"><EM>a=8;
+        int b=8;
+        int expResult=8;
+        int result=Week4.max2Int(a,b);
+        assertEquals</EM></font>(expResult,result);
+    }
+
+    @Test
+    public void testMax2Int3(){
+        int <font color="#C0C0C0"><EM>a=15;
+        int b=-10;
+        int expResult=15;
+        int result=Week4.max2Int(a,b);
+        assertEquals</EM></font>(expResult,result);
+    }
+
+    @Test
+    public void testMax2Int4(){
+        int <font color="#C0C0C0"><EM>a=-1;
+        int b=29;
+        int expResult=29;
+        int result=Week4.max2Int(a,b);
+        assertEquals</EM></font>(expResult,result);
+    }
+
+    @Test
+    public void testMax2Int5(){
+        int <font color="#C0C0C0"><EM>a=6;
+        int b=10;
+        int expResult=10;
+        int result=Week4.max2Int(a,b);
+        assertEquals</EM></font>(expResult,result);
+    }
+
+    @Test
+    public void testMinArray1(){
+        int[] <font color="#C0C0C0"><EM>arr={2,7,15,43,5};
+        int expResult=2;
+        int result=Week4.minArray(arr);
+        assertEquals</EM></font>(expResult,result);
+    }
+
+    @Test
+    public void testMinArray2(){
+        int[] <font color="#C0C0C0"><EM>arr={51,45,34,3,54,34,7};
+        int expResult=3;
+        int result=Week4.minArray(arr);
+        assertEquals</EM></font>(expResult,result);
+    }
+
+    @Test
+    public void testMinArray3(){
+        int[] <font color="#C0C0C0"><EM>arr={24,43,78,23,76,38,90,5};
+<A NAME="0"></A>        int expResult=5;
+        int result=Week4.minArray(arr);
+        assertEquals</EM></font>(expResult,result);
+    <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match29588-0.html#0',2,'match29588-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>}
+
+    @Test
+    public void testMinArray4(){
+        int[] arr={75,45,35,394};
+        int expResult=35;
+        int result=Week4.minArray(arr);
+        assertEquals(expResult,result);
+    }
+
+    @Test
+    public void testMinArray5(){
+        int[] arr={65,9,753,1,37};
+        int expResult=1;
+        int result=Week4.minArray(arr);
+        assertEquals(result,expResult);
+
+    }
+
+    @Test
+    public void testCalculateBMI1(){
+        double weight=45.0;
+        double height=1.55;
+        String expResult=&quot;Bình thường&quot;;
+        String result=Week4.calculateBMI(weight,height);
+        assertEquals(expResult,result);
+    }
+
+    @Test
+    public void testCalculateBMI2(){
+        double weight=76.0;
+        double height=1.58;
+        String expResult=&quot;Béo phì&quot;;
+        String result=Week4.calculateBMI(weight,height);
+        assertEquals(expResult,result);
+    }
+
+    @Test
+    public void testCalculateBMI3(){
+        double weight=60;
+        double height=1.58;
+        String expResult=&quot;Thừa cân&quot;;
+        String result=Week4.calculateBMI(weight,height);
+        assertEquals(expResult,result);
+    }
+
+    @Test
+    public void testCalculateBMI4(){
+        double weight=70.0;
+        double height=1.6;
+        String expResult=&quot;Béo phì&quot;;
+        String result=Week4.calculateBMI(weight,height);
+        assertEquals(expResult,result);
+    }
+
+    @Test
+    public void testCalculateBMI5(){
+        double weight=56;
+        double height=1.55;
+        String expResult=&quot;Thừa cân&quot;;
+        String result=Week4.calculateBMI(weight,height);
+        assertEquals(expResult,result);
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

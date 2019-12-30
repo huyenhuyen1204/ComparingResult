@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>17276</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>java/Week4.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A><FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match23154-0.html#0',2,'match23154-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>import java.util.Arrays;
+public class Week4 {
+
+    public static int max2Int(int a, int b) {
+        if (a&gt;=b) return a;
+        else return b;
+
+    }
+
+    public static int</B></FONT> minArray(int[] arr) {
+
+        Arrays.sort(arr);
+        return arr[0];
+
+    }
+
+    /*public static double LamTron(double a) {
+        a = (double)Math.round(a*10)/10;
+        return a;
+    }*/
+
+    public static String calculateBMI(double weight, double height) {
+
+<A NAME="1"></A>        String sol;
+        Double BMI = weight/(height*height);
+        BMI = (double)Math.round(BMI*10.0)/10.0;
+        <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match23154-0.html#1',2,'match23154-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>if(BMI &lt; 18.5 ) sol = &quot;Thiếu cân&quot;;
+        else {
+            if(BMI &gt;= 18.5 &amp;&amp; BMI &lt;= 22.9) sol = &quot;Bình thường&quot;;
+            else {
+                if(BMI &gt;= 23 &amp;&amp; BMI &lt;= 24.9) sol = &quot;Thừa cân&quot;;
+                else {
+                    sol = &quot;Béo phì&quot;;
+                }
+            }
+        }
+
+        return sol;
+
+    }
+    /*public static void main(String[] args) {
+        System.out.println(calculateBMI(54,1.65));
+    }*/
+}</B></FONT>
+
+</PRE>
+<HR>
+<H3><CENTER>java/Week4Test.java</CENTER></H3><HR>
+<PRE>
+<A NAME="2"></A>import org.junit.Test;
+<FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match23154-0.html#2',2,'match23154-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>import org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
+
+public class Week4Test {
+<A NAME="4"></A>    @Test
+    public void testMax2Int1(){
+        Week4 a = new Week4</B></FONT>();
+        <FONT color="#151b8d"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match23154-0.html#4',2,'match23154-top.html#4',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>assertEquals(a.max2Int(1, 2), 2);
+    }
+
+<A NAME="5"></A>    @Test
+    public void testMax2Int2(){
+        Week4 a = new Week4</B></FONT>();
+        <FONT color="#c8c2a7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match23154-0.html#5',2,'match23154-top.html#5',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>assertEquals(a.max2Int(1, 5),5);
+    }
+
+<A NAME="6"></A>    @Test
+    public void testMax2Int3(){
+        Week4 a = new Week4</B></FONT>();
+        <FONT color="#50ebec"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match23154-0.html#6',2,'match23154-top.html#6',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>assertEquals(a.max2Int(1, 5),5);
+    }
+
+<A NAME="7"></A>    @Test
+    public void testMax2Int4(){
+        Week4 a = new Week4</B></FONT>();
+        <FONT color="#c58917"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match23154-0.html#7',2,'match23154-top.html#7',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>assertEquals(a.max2Int(1, 5),5);
+    }
+
+<A NAME="3"></A>    @Test
+    public void testMax2Int5(){
+        Week4 a = new Week4</B></FONT>();
+        <FONT color="#6cc417"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match23154-0.html#3',2,'match23154-top.html#3',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>assertEquals(a.max2Int(1, 5),5);
+    }
+
+<A NAME="8"></A>    @Test
+    public void testMinArray1(){
+        Week4 A = new Week4();
+        int Arr[] = <FONT color="#bce954"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match23154-0.html#8',2,'match23154-top.html#8',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>{</B></FONT>1,4,6,34,6};
+        assertEquals(A.minArray(Arr),1);
+    }
+
+<A NAME="9"></A>    @Test
+    public void testMinArray2(){
+        Week4 A = new Week4();
+        int Arr[] = <FONT color="#f88017"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match23154-0.html#9',2,'match23154-top.html#9',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>{</B></FONT>1,4,6,34,6};
+        assertEquals(A.minArray(Arr),1);
+    }
+
+<A NAME="10"></A>    @Test
+    public void testMinArray3(){
+        Week4 A = new Week4();
+        int Arr[] = <FONT color="#b041ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match23154-0.html#10',2,'match23154-top.html#10',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>{</B></FONT>1,4,6,34,6};
+        assertEquals(A.minArray(Arr),1);
+    }
+
+<A NAME="11"></A>    @Test
+    public void testMinArray4(){
+        Week4 A = new Week4();
+        int Arr[] = <FONT color="#571b7e"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match23154-0.html#11',2,'match23154-top.html#11',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>{</B></FONT>1,4,6,34,6};
+        assertEquals(A.minArray(Arr),1);
+    }
+
+<A NAME="12"></A>    @Test
+    public void testMinArray5(){
+        Week4 A = new Week4();
+        int Arr[] = <FONT color="#3b9c9c"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match23154-0.html#12',2,'match23154-top.html#12',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>{</B></FONT>1,4,6,34,6};
+        assertEquals(A.minArray(Arr),1);
+    }
+
+<A NAME="13"></A>    @Test
+    public void testCalculateBMI1(){
+        Week4 BMI = new Week4</B></FONT>();
+        <FONT color="#842dce"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match23154-0.html#13',2,'match23154-top.html#13',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>assertEquals(BMI.calculateBMI(54,1.65),&quot;Bình thường&quot;);
+    }
+
+<A NAME="14"></A>    @Test
+    public void testCalculateBMI2(){
+        Week4 BMI = new Week4</B></FONT>();
+        <FONT color="#f52887"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match23154-0.html#14',2,'match23154-top.html#14',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>assertEquals(BMI.calculateBMI(30,1.65),&quot;Thiếu cân&quot;);
+    }
+
+<A NAME="15"></A>    @Test
+    public void testCalculateBMI3(){
+        Week4 BMI = new Week4</B></FONT>();
+        <FONT color="#3bb9ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match23154-0.html#15',2,'match23154-top.html#15',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>assertEquals(BMI.calculateBMI(30,1.65),&quot;Thiếu cân&quot;);
+    }
+
+<A NAME="16"></A>    @Test
+    public void testCalculateBMI4(){
+        Week4 BMI = new Week4</B></FONT>();
+        <FONT color="#3090c7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match23154-0.html#16',2,'match23154-top.html#16',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>assertEquals(BMI.calculateBMI(30,1.65),&quot;Thiếu cân&quot;);
+    }
+
+    @Test
+    public void testCalculateBMI5(){
+        Week4 BMI = new Week4</B></FONT>();
+        assertEquals(BMI.calculateBMI(30,1.65),&quot;Thiếu cân&quot;);
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

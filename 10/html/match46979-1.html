@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>25809</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Circle.java</CENTER></H3><HR>
+<PRE>
+
+
+public class Circle extends Shape{
+    protected double radius = 1.0;
+    protected String color = &quot;red&quot;;
+    protected final double PI = 3.14;
+    public Circle(){};
+    public Circle(double _radius){
+        this.radius = _radius;
+    }
+    public Circle(double _radius, String _color, boolean _filled){
+        radius = _radius;
+        color = _color;
+        filled = _filled;
+    }
+    public double getRadius(){
+        return radius;
+    }
+    public String getColor(){
+        return color;
+    }
+    public void setRadius(double _radius){
+        radius = _radius;
+    }
+<A NAME="2"></A>    public void setColor(String _color){
+        color = _color;
+    }
+    <FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match46979-0.html#2',2,'match46979-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>@Override
+    public double getArea(){
+        return Math.PI*radius*radius;
+    }
+
+    @Override
+    public double getPerimeter() {
+        return 2*Math.PI*radius;
+    }
+    @Override
+    public String toString(){
+        return &quot;Circle[radius=&quot; + radius + &quot;,color=&quot; + color + &quot;,filled=&quot; + filled + ']';
+    }
+
+}</B></FONT>
+
+</PRE>
+<HR>
+<H3><CENTER>Rectangle.java</CENTER></H3><HR>
+<PRE>
+
+
+import java.util.Scanner;
+
+<A NAME="0"></A>public class Rectangle extends Shape {
+    protected double width;
+    protected double length;
+    public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match46979-0.html#0',2,'match46979-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>Rectangle(){};
+    public Rectangle( double _width, double _length){
+        width = _width;
+        length = _length;
+    }
+    public Rectangle(double _with, double _length, String _color, boolean _filled){
+        color = _color;
+        filled = _filled;
+        width = _with;
+        length = _length;
+    }
+    public double getWidth(){
+        return</B></FONT> width;
+    }
+
+    public double getLength() {
+        return length;
+    }
+    public void setWidth(double _width){
+        width = _width;
+    }
+
+<A NAME="3"></A>    public void setLength(double length) {
+        this.length = length;
+    }
+    <FONT color="#6cc417"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match46979-0.html#3',2,'match46979-top.html#3',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>@Override
+    public double getArea() {
+        return width*length;
+    }
+
+    @Override
+    public double getPerimeter() {
+        return 2*(width + length);
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Rectangle[width=&quot; + width + &quot;,length=&quot; + length + &quot;,color=&quot; + color + &quot;,filled=&quot; + filled + &quot;]&quot;;
+    }</B></FONT>
+
+    public static void main(String[] args) {
+        Scanner Cin = new Scanner(System.in);
+        double width = Cin.nextInt();
+        double length = Cin.nextInt();
+        String color = Cin.next();
+        Boolean filled = Cin.hasNextBoolean();
+        Rectangle temp = new Rectangle(width, length, color, filled);
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>Square.java</CENTER></H3><HR>
+<PRE>
+
+
+
+public class Square extends Rectangle {
+    public Square(){};
+    public Square(double side){
+        length = side;
+        width = side;
+    }
+    public Square(double side, String _color, boolean _filled){
+        length = side;
+        width = side;
+        color = color;
+        filled = _filled;
+    }
+    public void setSide(double size){
+        length = size;
+        width = size;
+<A NAME="1"></A>    }
+    public double getSide(){
+        return length;
+    <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match46979-0.html#1',2,'match46979-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>}
+
+    @Override
+    public void setWidth(double _width) {
+        width = _width;
+        length = _width;
+    }
+    @Override
+    public void setLength(double _length){
+        width = _length;
+        length = _length;
+    }
+    @Override
+    public String toString(){
+        return &quot;Square[side=&quot; + length + &quot;,color=&quot; + color + &quot;,filled=&quot; +filled + &quot;]&quot;;
+    }</B></FONT>
+
+    public static void main(String[] args) {
+
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

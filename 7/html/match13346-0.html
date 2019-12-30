@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>16234</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Week4Test.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A><FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match13346-1.html#0',3,'match13346-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>import org.junit.Test;
+
+public class Week4Test {
+    @Test
+    public void testMax2Int1(){
+        int x=max2Int(1,2);
+        assertEquals(x,2);
+    }
+
+    @Test
+    public void testMax2Int2(){
+        int x=max2Int(1,1);
+        assertEquals(x,1);
+    }
+
+    @Test
+    public void testMax2Int3(){
+        int x=max2Int(100,101);
+        assertEquals(x,101);
+    }
+
+    @Test
+    public void testMax2Int4(){
+        int x=max2Int(-1,1);
+        assertEquals(x,1);
+    }
+
+    @Test
+    public void testMax2Int5(){
+        int x=max2Int(-2,-1);
+        assertEquals(x,-1);
+    }
+
+    @Test
+    public void testMinArray1(){
+        int[] a={0,1};
+        int x=minArray(a);
+        assertEquals(0,x);
+    }
+
+    @Test
+    public void testMinArray2(){
+        int[] a={0,1,2};
+        int x=minArray(a);
+        assertEquals(0,x);
+    }
+
+    @Test
+    public void testMinArray3(){
+        int[] a={1,2,-3,4,5};
+        int x=minArray(a);
+        assertEquals(-3,x);
+    }
+
+    @Test
+    public void testMinArray4(){
+<A NAME="1"></A>        int[] a=new</B></FONT> int[100];
+        for (int i=0; i &lt; 100; i++)
+            a[i]=i;
+        int <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match13346-1.html#1',3,'match13346-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>x=minArray(a);
+        assertEquals(0,x);
+    }
+
+    @Test
+    public void testMinArray5(){
+<A NAME="2"></A>        int[] a=new</B></FONT> int[100];
+        for (int i=0; i &lt; 100; i++)
+            a[i]=-i;
+        int <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match13346-1.html#2',3,'match13346-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>x=minArray(a);
+        assertEquals(-99,x);
+    }
+
+    @Test
+    public void testCalculateBMI1(){
+        String x=calculateBMI(50,1.70);
+        assertEquals(&quot;Thiếu cân&quot;,x);
+    }
+
+    @Test
+    public void testCalculateBMI2(){
+        String x=calculateBMI(53,1.71);
+        assertEquals(&quot;Thiếu cân&quot;,x);
+    }
+
+    @Test
+    public void testCalculateBMI3(){
+        String x=calculateBMI(56,1.71);
+        assertEquals(&quot;Bình thường&quot;,x);
+    }
+
+    @Test
+    public void testCalculateBMI4(){
+        String x=calculateBMI(53,1.72);
+        assertEquals(&quot;Thiếu cân&quot;,x);
+    }
+
+    @Test
+    public void testCalculateBMI5(){
+        String x=calculateBMI(55,1.73);
+        assertEquals(&quot;Thiếu cân&quot;,x);
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

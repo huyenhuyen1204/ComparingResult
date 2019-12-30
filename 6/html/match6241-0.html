@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>14228</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>BT/Fraction.java</CENTER></H3><HR>
+<PRE>
+
+
+class Fraction {
+    private int numerator;
+    private int denominator;
+
+    public <font color="#C0C0C0"><EM>void setNumerator(int numerator) {
+        this.numerator = numerator;
+    }
+    public int getNumerator() {
+        return numerator;
+    }
+    public void setDenominator(int denominator) {
+        if(denominator==0) this.denominator=1;
+        else</EM></font> this.denominator= denominator;
+    }
+    public int getDenominator()
+    {
+        return denominator;
+    }
+    public Fraction() {
+        this.denominator = 1;
+    }
+
+    public Fraction(int numerator, int denominator) {
+        this.numerator = numerator;
+        if (denominator == 0) {
+            this.denominator = 1;
+        } else {
+            this.denominator = denominator;
+        }
+    }
+    public int UCLN(int num1, int num2) {
+        while ( num1 != 0){
+            int tmp;
+            tmp = num2 % num1;
+            num2 = num1;
+            num1 = tmp;
+        }
+        <font color="#C0C0C0"><EM>return num2;
+    }
+
+    public Fraction reduce() {
+        int ucln = UCLN(numerator, denominator);
+        this.numerator/=ucln;
+        this.denominator/=ucln;
+        return this;
+    }
+<A NAME="0"></A>
+    // add
+    public Fraction</EM></font> add(Fraction other) {
+        int <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match6241-1.html#0',3,'match6241-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>new_numerator = this.getNumerator() * other.getDenominator() + other.getNumerator() * this.getDenominator();
+        int new_denominator = this.getDenominator() * other.getDenominator();
+        Fraction sumOfFraction = new Fraction(new_numerator, new_denominator);
+        sumOfFraction.reduce();
+        return sumOfFraction;
+        //System.out.println(&quot;Tổng hai phân số = &quot; + sumOfFraction.numerator + &quot;/&quot; + sumOfFraction.denominator);
+    }
+
+    public Fraction subtract(Fraction other) {
+        int new_numerator = this.getNumerator() * other.getDenominator() - other.getNumerator() * this.getDenominator();
+        int new_denominator = this.getDenominator() * other.getDenominator();
+        Fraction differenceOfFraction = new Fraction(new_numerator, new_denominator);
+        differenceOfFraction.reduce();
+        return differenceOfFraction;
+        //System.out.println(&quot;Hiệu hai phân số = &quot; + differenceOfFraction.numerator + &quot;/&quot; + differenceOfFraction.denominator);
+    }
+
+    // multiple
+    public Fraction multiply(Fraction other) {
+        int new_numerator = this.getNumerator() * other.getNumerator();
+        int new_denominator = this.getDenominator() * other.getDenominator();
+        Fraction productOfFraction = new Fraction(new_numerator, new_denominator);
+        productOfFraction.reduce();
+        return productOfFraction;
+        //System.out.println(&quot;Tích hai phân số = &quot; + productOfFraction.numerator + &quot;/&quot; + productOfFraction.denominator);
+    }
+
+    // divide
+    public Fraction divide(Fraction other) {
+        if (other</B></FONT>.getNumerator()==0)
+        {
+<A NAME="1"></A>            return this;
+        }
+        else {
+            int <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match6241-1.html#1',3,'match6241-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>new_numerator = this.getNumerator() * other.getDenominator();
+            int new_denominator = this.getDenominator() * other.getNumerator();
+            Fraction quotientOfFraction = new Fraction(new_numerator, new_denominator);
+            quotientOfFraction.reduce();
+            return</B></FONT> quotientOfFraction;
+            //System.out.println(&quot;Thương hai phân số = &quot; + quotientOfFraction.numerator + &quot;/&quot; + quotientOfFraction.denominator);
+        }
+    }
+    public boolean equals(Object obj) {
+        if (obj instanceof Fraction) {
+            Fraction other = (Fraction) obj;
+            if(this.numerator*other.denominator == this.denominator*other.numerator) return true;
+        }
+        return false;
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

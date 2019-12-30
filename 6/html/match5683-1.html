@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>13625</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Fraction.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match5683-0.html#0',2,'match5683-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class Fraction{
+    private int numerator,denominator;
+
+    public int getDenominator() {
+        return denominator;
+    }
+
+    public int getNumerator() {
+        return numerator;
+    }
+
+    public void setDenominator(int denominator) {
+        if(denominator !=0) this.denominator = denominator;
+    }
+
+    public void setNumerator(int numerator) {
+        this.numerator = numerator;
+    }
+    public Fraction(){
+        denominator =1;
+    }
+
+    public Fraction(int numerator,int denominator){
+       if(denominator != 0){
+           this.denominator = denominator;
+           this.numerator = numerator;
+       }
+       else this.denominator=1;
+    }
+
+    public  Fraction reduce(){
+        int n = Gcd(this.numerator,this.denominator);
+        this.numerator/=n;
+        this.denominator/=n;
+        if(this.denominator &lt; 0){
+            this.numerator=-this.numerator;
+            this.denominator = -this.denominator;
+        }
+        return this;
+    }
+
+    public int Gcd(int a,int b){
+        int gcd=1;
+        if(a==b) return a;
+        if( a &lt; b){
+            for(int i=Math.abs(a); i &gt;=1; i--){
+                if (b% i==0 &amp;&amp; a % i==0) return i;
+            }
+        }
+        else if (b &lt; a){
+            for(int i=Math.abs(b); i &gt;=1; i--){
+                if (b% i==0&amp;&amp; a % i==0) return i;
+            }
+        }
+        return gcd;
+    }
+
+    public Fraction add(Fraction f){
+        int n = this.numerator* f.denominator + this.denominator*f.numerator;
+        int d = this.denominator* f.denominator;
+        this.denominator = d;
+        this.numerator = n;
+        return this;
+    }
+
+    public Fraction subtract(Fraction f){
+        int n = this.numerator* f.denominator - this.denominator*f.numerator;
+        int d = this.denominator* f.denominator;
+        this.denominator = d;
+        this.numerator = n;
+        return this;
+    }
+
+    public Fraction multiply(Fraction f){
+        int n = this.numerator* f.numerator;
+        int d = this.denominator* f.denominator;
+        this.denominator = d;
+        this.numerator = n;
+        return this;
+    }
+
+    public Fraction divide(Fraction f){
+        if(f.numerator != 0){
+            int n = this.numerator* f.denominator ;
+            int d = this.denominator* f.numerator;
+            this.denominator = d;
+            this.numerator = n;
+        }
+        return this;
+    }
+    public boolean equals(Object object) {
+        if (object instanceof Fraction) {
+            Fraction other = (Fraction) object;
+            other.reduce();
+            this.reduce();
+            if (this.numerator == other.numerator&amp;&amp; this.denominator== other.denominator) return true;
+            else return false;
+        }
+        else return false;
+    }
+
+    public static void main(String[] args) {
+        Fraction a = new Fraction(2,-30);
+        a.reduce();
+        System.out.printf(&quot;%d %d&quot;, a.getNumerator(),a.getDenominator());
+    }
+
+
+
+
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

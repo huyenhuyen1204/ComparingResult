@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>5593</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/Addition.java</CENTER></H3><HR>
+<PRE>
+<A NAME="2"></A>public <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match58438-1.html#2',3,'match58438-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Addition extends BinaryExpression{
+
+    public Addition(Expression left, Expression right) {
+        super(left, right);
+    }
+
+    public double evaluate(){
+        return left.evaluate() + right.evaluate();
+<A NAME="3"></A>    }</B></FONT>
+
+    @Override
+    public <FONT color="#6cc417"><A HREF="javascript:ZweiFrames('match58438-1.html#3',3,'match58438-top.html#3',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>String toString() {
+        if(right instanceof Multiplication || right instanceof Division || left instanceof  Multiplication || left instanceof Division ){
+            return &quot;(&quot; + left.toString() + &quot;) + (&quot; + right.toString() + &quot;)&quot;;
+        }
+        return left.toString() + &quot; + &quot; + right.toString();
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>src/Division.java</CENTER></H3><HR>
+<PRE>
+public <font color="#C0C0C0"><EM>class Division extends BinaryExpression {
+
+    public Division(Expression left, Expression right){
+        super(left, right);
+    }
+
+    @Override
+    public String toString() {
+        return left.toString() + &quot; / &quot; + right</EM></font>.toString();
+<A NAME="1"></A>    }
+
+    @Override
+    public <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match58438-1.html#1',3,'match58438-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>double evaluate(){
+        if (right.evaluate() == 0) {
+            throw new java.lang.ArithmeticException(&quot;Lỗi chia cho 0&quot;);
+        }
+        else {
+            return left.evaluate() / right.evaluate();
+        }
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>src/ExpressionTest.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match58438-1.html#0',3,'match58438-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class ExpressionTest {
+    public static void main(String[] args) {
+        Expression sqr = new Square(new Numeral(10));
+        Expression sub = new Subtraction(sqr, new Numeral(3));
+        Expression mul = new Multiplication(new Numeral(5), new Numeral(-3));
+        Expression add = new Addition(sub, mul);
+        System.out.println(new Square(add).toString());
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

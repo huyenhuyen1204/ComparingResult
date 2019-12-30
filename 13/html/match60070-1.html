@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>30772</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Week8_Task2.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A><FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match60070-0.html#0',2,'match60070-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>import java.io.*;
+
+public class Week8_Task2 {
+    public boolean NPEx(Object o) throws NullPointerException {
+        return o.equals(&quot;A&quot;);
+    }
+    public String NPExTest() {
+        Object o=null;
+        try {
+            NPEx(o);
+            return &quot;Không có lỗi&quot;;
+        } catch (NullPointerException npex) {
+            return &quot;Lỗi Null Pointer&quot;;
+        }
+    }</B></FONT>
+    public void AIOoBEx(Object[] o) throws ArrayIndexOutOfBoundsException {
+        String str = (String)o[7];
+<A NAME="1"></A>    }
+    public String AIOoBExTest() {
+        Object[] o = new Object[1];
+        <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match60070-0.html#1',2,'match60070-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>try {
+            AIOoBEx(o);
+            return &quot;Không có lỗi&quot;;
+        } catch (ArrayIndexOutOfBoundsException aioobex) {
+            return &quot;Lỗi Array Index Out of Bounds&quot;;
+        }
+    }
+    public int ArithEx(int a, int b) throws ArithmeticException {
+        return a/b;
+    }
+    public String ArithExTest() {
+        int a = 7, b = 0;
+        try {
+            ArithEx(a, b);
+            return &quot;Không có lỗi&quot;;
+        } catch (ArithmeticException arithex) {
+            return &quot;Lỗi Arithmetic&quot;;
+        }
+    }
+    public void FNFEx(String s) throws FileNotFoundException {
+        FileReader fr =  new FileReader</B></FONT>(s);
+<A NAME="3"></A>    }
+    public String FNFExTest() {
+        String str = &quot;E:\\abcxyz.txt&quot;;
+        <FONT color="#6cc417"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match60070-0.html#3',2,'match60070-top.html#3',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>try {
+            FNFEx(str);
+            return &quot;Không có lỗi&quot;;
+        }catch (FileNotFoundException fnfex) {
+            return &quot;Lỗi File Not Found&quot;;
+        }
+<A NAME="2"></A>    }
+    public void IOEx(File f) throws IOException {
+        FileReader fr = new FileReader</B></FONT>(f);
+    <FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match60070-0.html#2',2,'match60070-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>}
+    public String IOExTest() {
+        File f = new File(&quot;&quot;);
+        try {
+            IOEx(f);
+            return &quot;Không có lỗi&quot;;
+        } catch (IOException ioex) {
+            return &quot;Lỗi IO&quot;;
+        }
+    }</B></FONT>
+}
+</PRE>
+
+</BODY>
+</HTML>

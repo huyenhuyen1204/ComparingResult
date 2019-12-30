@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>33342</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Person.java</CENTER></H3><HR>
+<PRE>
+public  <font color="#C0C0C0"><EM>class Person implements Comparable&lt;Person&gt; {
+    //Attributes
+    String name;
+    int age;
+    String address;
+
+    //Set and Get
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+<A NAME="0"></A>    }</EM></font>
+
+    //Constructor
+    public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match65459-1.html#0',3,'match65459-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>Person(String name, int age, String address) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }
+
+    public Person() {
+
+    }
+    @Override
+    public int compareTo(Person p) {
+        int ret = name.compareTo(p.name);
+        if (ret == 0) {
+            ret = Integer.compare(age, p.getAge());
+        }
+        return ret;
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

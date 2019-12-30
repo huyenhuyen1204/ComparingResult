@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>16277</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>w4_assignment/Week4Test.java</CENTER></H3><HR>
+<PRE>
+import org.junit.*;
+import static junit.framework.TestCase.assertEquals;
+public class Week4Test {
+    private Week4 test;
+    public void init(){
+        test = new Week4();
+    }
+    @Test
+    public void testMax2Int1(){
+        assertEquals(4 , test.max2Int(4 ,3));
+    }
+
+    @Test
+    public void testMax2Int2(){
+        assertEquals(8000 , test.max2Int(7 ,8000));
+    }
+
+    @Test
+    public void testMax2Int3(){
+        assertEquals(1 , test.max2Int(0 ,1));
+    }
+
+    @Test
+    public void testMax2Int4(){
+        assertEquals(10 , test.max2Int(10 ,3));
+    }
+<A NAME="0"></A>
+    @Test
+    public void testMax2Int5(){
+        <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match26175-0.html#0',2,'match26175-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>assertEquals(22 , test.max2Int(22 ,5));
+    }
+
+    @Test
+    public void testMinArray1(){
+        int arr[] = {321,12,9,812,2,3,4};
+        int result = test.minArray(arr);
+        assertEquals(2 , result);
+    }
+
+    @Test
+    public void testMinArray2(){
+        int arr[] = {0,12,236,8,9,23412};
+        int result = test.minArray(arr);
+        assertEquals(0 , result);
+    }
+
+    @Test
+    public void testMinArray3(){
+        int arr[] = {1233,12,6,8,9,123,45,234,111};
+        int result = test.minArray(arr);
+        assertEquals(6 , result);
+    }
+
+    @Test
+    public void testMinArray4(){
+        int arr[] = {33,12,60,88,90,10,11,12,13,14};
+        int result = test.minArray(arr);
+        assertEquals(10 , result);
+    }
+
+    @Test
+    public void testMinArray5(){
+        int arr[] = {30,12,60,80,99};
+        int result = test.minArray(arr);
+        assertEquals(12 , result);
+    }
+
+    @Test
+    public void testCalculateBMI1(){
+        String result = test.calculateBMI(52 , 1.65);
+        assertEquals(&quot;Bình thường&quot; , result);
+    }
+
+    @Test
+    public void testCalculateBMI2(){
+        String result = test.calculateBMI(52 , 1.75);
+        assertEquals(&quot;Thiếu cân&quot; , result);
+    }
+
+    @Test
+    public void testCalculateBMI3(){
+        String result = test.calculateBMI(60 , 1.60);
+        assertEquals(&quot;Thừa cân&quot; , result);
+    }
+
+    @Test
+    public void testCalculateBMI4(){
+        String result = test.calculateBMI(90 , 1.70);
+        assertEquals(&quot;Béo phì&quot; , result);
+    }
+
+    @Test
+    public void testCalculateBMI5(){
+        String result = test.calculateBMI(62 , 1.75);
+        assertEquals(&quot;Bình thường&quot; , result);
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>9014</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>StudentManagement.java</CENTER></H3><HR>
+<PRE>
+import java.util.*;
+public class StudentManagement {
+
+    // TODO: khai bao thuoc tinh students la array chua cac doi tuong thuoc lop Student (max. 100)
+    public  static int stt=0;
+    public  static  Student[] students;
+    public  StudentManagement()
+    {
+        this.students = new Student[100];
+        this.stt = 0;
+    }
+
+    public static boolean sameGroup(Student s1, Student s2) {
+        if((s1.getGroup()).equals(s2.getGroup()))
+        {
+            return true;
+        }
+        else return false; // xoa dong nay sau khi cai dat
+    }
+
+    public static void addStudent(Student newStudent){
+        if(stt==100)
+        {
+            System.out.println(&quot;ERROR&quot;);
+        }
+        else {
+            students[stt]=newStudent;
+            stt++;
+        }
+    }
+
+    public static <font color="#C0C0C0"><EM>String studentsByGroup() {
+        String s = &quot;&quot;;
+            for(int i=0;i&lt;stt;i++)
+            {
+<A NAME="0"></A>                if(s.indexOf(students[i].getGroup())==-1)
+                {
+                    s</EM></font>+=students[i].getGroup()+&quot;\n&quot;+students[i].getInfo()+&quot;\n&quot;;
+                    <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match1555-1.html#0',3,'match1555-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>for (int j=i+1;j&lt;stt;j++)
+                    {
+                        if(sameGroup(students[i],students[j])==true)
+                        {
+                            s+=students[j].getInfo()+&quot;\n&quot;;
+                        }
+
+                    }</B></FONT>
+                }
+
+            }
+            if(s.equals(&quot;&quot;)==true)
+            {
+<A NAME="1"></A>                return null;
+            }
+            else return s;
+    <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match1555-1.html#1',3,'match1555-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>}
+
+    public static void removeStudent(String id) {
+        // TODO:
+        for (int i=0;i&lt;stt;i++)
+        {
+            if(students[i].getId().equals(id))
+            {
+                for (int j=i;j&lt;stt-1;j++)
+                {
+                    students[j]=students[j+1];
+                }
+                stt--;
+                break;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+//        Student stu1=new Student(&quot;Nguyen Van A&quot;,&quot;17020001&quot;,&quot;17020001@vnu.edu.vn&quot;);
+//        Student stu2=new Student(&quot;Nguyen Van B&quot;,&quot;17020002&quot;,&quot;17020002@vnu.edu.vn&quot;);
+//        Student stu3=new Student(&quot;Nguyen Van C&quot;,&quot;17020003&quot;,&quot;17020003@vnu.edu.vn&quot;);
+//        Student stu4=new Student(&quot;Nguyen Van D&quot;,&quot;17020004&quot;,&quot;17020004@vnu.edu.vn&quot;);
+//
+//        addStudent(stu1);
+//        addStudent(stu2);
+//        addStudent(stu3);
+//        addStudent(stu4);
+//        String ss=studentsByGroup();
+//        System.out.println(ss);
+//        removeStudent(&quot;17020003&quot;);
+//        String s1=studentsByGroup();
+//        System.out.println(s1);
+
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

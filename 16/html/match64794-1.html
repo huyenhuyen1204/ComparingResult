@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>30537</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Person.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public class Person implements Comparable&lt;Person&gt;{
+    private String <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match64794-0.html#0',2,'match64794-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>name;
+    private int age;
+    private String address;
+    public Person(){}
+    public Person(String name, int age, String address){
+        this.age = age;
+        this.address = address;
+        this.name = name;
+    }</B></FONT>
+    public  <font color="#C0C0C0"><EM>String getName(){
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @Override
+    public int</EM></font> compareTo(Person o) {
+        if (!name.equals(o.name)){
+            return (name.compareTo(o.name));
+        }
+        else{
+            if (age &gt; o.age){
+                return 1;
+            }
+            else{
+                return -1;
+            }
+        }
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>Week11.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>import java.util.List;
+
+public class Week11 {
+    public static &lt;T extends Comparable&gt; List&lt;<FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match64794-0.html#1',2,'match64794-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>T&gt; sortGeneric(List&lt;T&gt; t){
+        for (int i = 0; i &lt; t.size() - 1; i++){
+            for (int j = i + 1; j &lt; t.size(); j++){
+                if (t.get(i).compareTo(t.get(j)) &gt; 0){
+                    T temp = t.get(i);
+                    t.set(i, t.get(j));
+                    t.set(j, temp);
+                }
+            }
+        }
+        return t;
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

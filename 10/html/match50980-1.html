@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>20745</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Circle.java</CENTER></H3><HR>
+<PRE>
+public class Circle extends Shape {
+    protected double radius;
+    protected double PI = Math.PI;
+
+    public Circle(){}
+
+    public Circle(double radius){
+        <font color="#C0C0C0"><EM>this.radius = radius;
+    }
+
+    public Circle(double radius, String color, boolean filled) {
+        super(color, filled);
+        this.radius = radius;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double radius) {
+<A NAME="4"></A>        this.radius = radius;
+    }</EM></font>
+
+    <FONT color="#151b8d"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match50980-0.html#4',2,'match50980-top.html#4',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>@Override
+    public double getArea() {
+        return (PI * radius * radius);
+    }
+
+    @Override
+    public double getPerimeter() {
+        return (2 * PI * radius);
+    }
+
+    @Override
+    public String toString() {
+        return</B></FONT> (&quot;Circle[radius=&quot; + this.radius + &quot;,color=&quot; + super.getColor() +&quot;,filled=&quot; + super.isFilled() +&quot;]&quot;);
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>Main.java</CENTER></H3><HR>
+<PRE>
+public class Main {
+<A NAME="5"></A>    public static void main(String[] args) {
+        Shape s1 = new Circle(5.5, &quot;RED&quot;, false);
+        //System.out.println(s1);
+        <FONT color="#c8c2a7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match50980-0.html#5',2,'match50980-top.html#5',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>System.out.println(s1.getArea());
+        System.out.println(s1.getPerimeter());
+        System.out.println(s1.getColor());
+        System.out.println(s1.isFilled());
+        //System.out.println(s1.getRadius());
+
+        Circle c1 = (Circle)s1;
+       // System.out.println(c1);
+        System.out.println(c1.getArea());
+        System.out.println(c1.getPerimeter());
+        System.out.println(c1.getColor());
+        System.out.println(c1.isFilled());
+        System.out.println(c1</B></FONT>.getRadius());
+<A NAME="2"></A>
+       // Shape s2 = new Shape();
+
+        Shape <FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match50980-0.html#2',2,'match50980-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>s3 = new Rectangle(1.0, 2.0, &quot;RED&quot;, false);
+        //System.out.println(s3);
+        System.out.println(s3.getArea());
+        System.out.println(s3.getPerimeter());
+        System.out.println(s3</B></FONT>.getColor());
+        //System.out.println(s3.getLength());
+
+        Rectangle r1 = (Rectangle)s3;
+        //System.out.println(r1);
+        System.out.println(r1.getArea());
+        System.out.println(r1.getColor());
+        System.out.println(r1.getLength());
+<A NAME="3"></A>
+        Shape s4 = new Square(6.6);
+        //System.out.println(s4);
+        <FONT color="#6cc417"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match50980-0.html#3',2,'match50980-top.html#3',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>System.out.println(s4.getArea());
+        System.out.println(s4.getColor());
+        System.out.println(s4.getPerimeter());
+
+        Rectangle r2 = (Rectangle)s4;
+       // System.out.println(r2);
+        System.out.println(r2.getArea());
+        System.out.println(r2.getColor());
+<A NAME="0"></A>        System.out.println(r2.getPerimeter());
+        System.out.println(r2</B></FONT>.getLength() + &quot;\n****************\n&quot;);
+
+        Square <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match50980-0.html#0',2,'match50980-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>sq1 = new Square(7, &quot;Red&quot;, true);
+        //System.out.println(sq1);
+        System.out.println(sq1.getArea());
+        System.out.println(sq1.getColor());
+        System.out.println(sq1.getSide());
+        System</B></FONT>.out.println(sq1.getLength());
+        System.out.println(sq1.getPerimeter());
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>Rectangle.java</CENTER></H3><HR>
+<PRE>
+public class Rectangle extends Shape{
+    protected double width;
+    protected double length;
+
+    public Rectangle(){}
+
+    public Rectangle(double width, double length) {
+        <font color="#C0C0C0"><EM>this.width = width;
+        this.length = length;
+    }
+
+    public Rectangle(double width, double length, String color, boolean filled) {
+        super(color, filled);
+        this.width = width;
+        this.length = length;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public double getLength() {
+        return length;
+    }
+
+    public void setLength(double length) {
+<A NAME="1"></A>        this.length = length;
+    }</EM></font>
+
+    <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match50980-0.html#1',2,'match50980-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>@Override
+    public double getArea() {
+        return (this.length * this.width);
+    }
+
+    @Override
+    public double getPerimeter() {
+        return (2 * (this.length + this.width));
+    }
+
+    @Override
+    public String toString() {
+        return</B></FONT> (&quot;Rectangle[width=&quot; + this.width + &quot;,length=&quot; + this.length + &quot;,color=&quot; + super.getColor() + &quot;,filled=&quot; + super.isFilled() + &quot;]&quot;);
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

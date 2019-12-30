@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>10275</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>src/StudentManagement.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match1824-0.html#0',2,'match1824-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class StudentManagement {
+    public static Student students[]=new Student[100];
+    public static int dem=0;
+
+
+
+    public static boolean sameGroup(Student s1, Student s2) {
+
+        String l1=s1.getGroup();
+        String l2=s2.getGroup();
+        if(l1.equals(l2))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public static void addStudent(Student newStudent){
+
+        students[dem]=newStudent;
+        dem++;
+        return</B></FONT>;
+
+    <font color="#C0C0C0"><EM>}
+
+    public static  String studentsByGroup() {
+
+
+        String danhsach = &quot;&quot;;
+        int kiemtra[] = new int[dem];
+        for (int i=0; i&lt;dem; ++i) kiemtra[i]=1;
+
+        for (int i=0; i&lt;dem; ++i)
+<A NAME="1"></A>        {
+            if</EM></font> (kiemtra[i] == 1)
+            {
+                String <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match1824-0.html#1',2,'match1824-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>group = students[i].getGroup();
+                danhsach += group + &quot;\n&quot; + students[i].getInfo() + &quot;\n&quot;;
+                kiemtra[i] = 0;
+
+                for (int j=i+1; j&lt;dem; ++j)
+                    if (<font color="#C0C0C0"><EM>students</B></FONT>[j].getGroup().equals(group))
+                    {
+                        danhsach += students[j].getInfo() + &quot;\n&quot;;
+                        kiemtra[j] = 0;
+                    }
+            }
+        }
+        return danhsach;
+
+
+
+    }
+
+<A NAME="2"></A>    public static void removeStudent(String id) {
+
+        int i=0</EM></font>;
+        <FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match1824-0.html#2',2,'match1824-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>while (i&lt;dem)
+        {
+            if (students[i].getId().equals(id))
+            {
+                for (int j=i ; j &lt; dem-1; ++j)
+                {
+                    students[j] = students[j+1];
+                }
+                --dem;
+            }
+            else ++i;
+        }
+
+        i = 0;
+
+        while (i &lt; dem - 1)
+        {
+            id = students[i].getId();
+            int k = i+1;
+            while (k &lt; dem)
+            {
+                if (students[k].getId().equals(id))
+                {
+                    for (int j=k ; j &lt; dem-1; ++j)
+                    {
+                        students[j] = students[j+1];
+                    }
+                    --dem;
+                }
+                else ++k;
+            }
+            ++i;
+        }
+
+        return;
+
+    }
+
+    public static void main(String[] args) {
+
+        Student s1 = new Student(&quot;NVA&quot;, &quot;17020000&quot;, &quot;1701@vnu.edu.vn&quot;);
+        Student s2 = new Student</B></FONT>(&quot;XYZ&quot;, &quot;17020001&quot;, &quot;1702@vnu.edu.vn&quot;);
+        Student <font color="#C0C0C0"><EM>s3 = new Student(&quot;ABC&quot;, &quot;17020002&quot;, &quot;1703@vnu.edu.vn&quot;);
+        Student s4 = new Student(&quot;BBB&quot;, &quot;17020003&quot;, &quot;1704@vnu.edu.vn&quot;);
+        s1.setGroup(&quot;K62CC&quot;);
+        s2.setGroup(&quot;K62CC&quot;);
+        addStudent(s1);
+        addStudent(s2);
+        addStudent(s3);
+        addStudent(s4);
+        addStudent(s4);
+        addStudent</EM></font>(s3);
+        removeStudent(&quot;17020001&quot;);
+        System.out.println(studentsByGroup());
+
+
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>8008</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>StudentManagement.java</CENTER></H3><HR>
+<PRE>
+import java.util.ArrayList;
+import java.util.List;
+
+public class StudentManagement {
+
+    public Student[] students;
+    public int n;
+    public StudentManagement() {
+        this.students = new Student[100];
+<A NAME="0"></A>        this.n = 0;
+    }
+
+    public static <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match5372-1.html#0',3,'match5372-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>boolean sameGroup(Student s1, Student s2) {
+        return s1.getGroup().equals(s2.getGroup());
+    }
+
+    public void addStudent(Student newStudent) {
+        if (n &lt; 100) students[n++] = newStudent;
+    }</B></FONT>
+<A NAME="1"></A>
+    public String studentsByGroup() {
+        StringBuilder my_list = new StringBuilder(&quot;&quot;);
+        List&lt;<FONT color="#f63526"><A HREF="javascript:ZweiFrames('match5372-1.html#1',3,'match5372-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>String&gt; my_groups = new ArrayList&lt;&gt;();
+        for (int i = 0; i &lt; n; i++) {
+            if</B></FONT> (!<font color="#C0C0C0"><EM>my_groups.contains(students[i].getGroup())) {
+                my_groups.add(students[i].getGroup());
+                my_list.append(students[i].getGroup());
+                my_list.append(&quot;\n&quot;);
+                my_list.append(students[i].getInfo());
+                my_list</EM></font>.append(&quot;\n&quot;);
+                if (i &lt; n - 1)
+                    for (int j = i + 1; j &lt; n; j++) {
+                        if (sameGroup(students[i], students[j])) {
+                            my_list.append(students[j].getInfo());
+                            my_list.append(&quot;\n&quot;);
+                        }
+                    }
+            }
+        }
+        return my_list.toString();
+<A NAME="2"></A>    }
+
+    public void removeStudent(String id) {
+        <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match5372-1.html#2',3,'match5372-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>for (int i = 0; i &lt; n; i++) {
+            if (students[i].getId().equals(id)) {
+                for (int j = i; j &lt; n - 1; j++) {
+                    students[j] = students[j+1];
+                }</B></FONT>
+                n--;
+                break;
+            }
+        }
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

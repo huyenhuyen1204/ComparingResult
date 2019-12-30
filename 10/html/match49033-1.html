@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>20065</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>huy/Square.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>
+
+
+public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match49033-0.html#0',2,'match49033-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class Square extends Rectangle{
+    
+   
+    public Square() {
+    }
+
+    public Square(double side) {
+        this.length = side;
+        this.width = side;
+    }
+
+    public Square(double side, String color, boolean filled) {
+        super.color = color;
+        super.filled = filled;
+        this.length = side;
+        this.width = side;
+    }
+
+    
+    public double getSide() {
+        return this.width;
+    }
+
+    public void setSide(double side) {
+        this.length = side;
+        this.width = side;
+    }
+
+    public void setLength(double length) {
+        this.length = length; 
+        this.width = length;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+        this.length = width;
+    }
+
+    public String toString() {
+        
+        return &quot;Square[&quot; + &quot;side=&quot; + this.length + &quot;,color=&quot; + color + &quot;,filled=&quot; +filled + &quot;]&quot;;
+    }
+    
+    
+    
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

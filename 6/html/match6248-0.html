@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>16055</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/Fraction.java</CENTER></H3><HR>
+<PRE>
+public class Fraction {
+    private int numerator;
+    private int denominator;
+
+    public <font color="#C0C0C0"><EM>int getNumerator(){
+        return numerator;
+    }
+    public void setNumerator(int numerator) {
+        this.numerator = numerator;
+    }
+
+    public int getDenominator(){
+        return denominator;
+    }
+    public void setDenominator(int denominator) {
+        if (denominator != 0) {
+            this</EM></font>.denominator = denominator;
+<A NAME="0"></A>        }
+    }
+
+    public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match6248-1.html#0',3,'match6248-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>Fraction(){
+        this.numerator = 1;
+        this.denominator = 1;
+    }
+
+    public Fraction(int numerator, int denominator){
+        this.numerator = numerator;
+        if (denominator != 0) {
+            this.denominator = denominator;
+        }
+        else{
+            this.denominator = 1;
+            this.numerator = 1;
+        }
+    }
+
+    static int</B></FONT> UCLN(int a, int b) {
+        int ucln = 1;
+        if (a &gt; b) {
+            for (int i = 1; i &lt;= b; i++) {
+                if (b % i == 0 &amp;&amp; a % i == 0) {
+                    ucln = i;
+                }
+            }
+        } else {
+            for (int i = 1; i &lt;= a; i++) {
+                if (a % i == 0 &amp;&amp; b % i == 0) {
+                    ucln = i;
+<A NAME="1"></A>                }
+            }
+        }
+        <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match6248-1.html#1',3,'match6248-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>return ucln;
+    }
+
+    public Fraction reduce(){
+        int ucln = UCLN(this.getNumerator(), this.getDenominator());
+        Fraction frac = new Fraction(this.getNumerator(), this.getDenominator());
+        frac.setNumerator(this.getNumerator()/ ucln);
+        frac.setDenominator(this.getDenominator()/ ucln);
+        this.setNumerator(frac.getNumerator());
+        this.setDenominator(frac.getDenominator());
+        return frac;
+    }
+
+    public Fraction add(Fraction frac2){
+        Fraction frac = new Fraction(1,1);
+        frac.setNumerator(this.numerator * frac2.getDenominator() + this.denominator * frac2.getNumerator());
+        frac.setDenominator(this.denominator * frac2.getDenominator());
+        this.setNumerator(frac.getNumerator());
+        this.setDenominator(frac.getDenominator());
+        return frac;
+    }
+
+    public Fraction subtract(Fraction frac2){
+        Fraction frac = new Fraction(1, 1);
+        frac.setNumerator(this.numerator * frac2.getDenominator() - this.denominator * frac2.getNumerator());
+        frac.setDenominator(this.denominator * frac2.getDenominator());
+        this.setNumerator(frac.getNumerator());
+        this.setDenominator(frac.getDenominator());
+        return frac;
+    }
+
+    public Fraction multiply(Fraction frac2){
+        Fraction frac = new Fraction(1, 1);
+        frac.setNumerator(this.numerator * frac2.getNumerator());
+        frac.setDenominator(this.denominator * frac2.getDenominator());
+        this.setNumerator(frac.getNumerator());
+        this.setDenominator(frac</B></FONT>.getDenominator());
+        return frac;
+    }
+<A NAME="2"></A>
+    public Fraction divide(Fraction frac2){
+        Fraction frac = new Fraction(1, 1);
+        if (<FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match6248-1.html#2',3,'match6248-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>frac2.getNumerator() != 0) {
+            frac.setNumerator(this.numerator * frac2.getDenominator());
+            frac.setDenominator(this.denominator * frac2.getNumerator());
+            this.setNumerator(frac.getNumerator());
+            this.setDenominator(frac.getDenominator());
+            return frac;
+        }
+        return frac;
+    }
+
+    public boolean equals(Object obj) {
+        if (obj instanceof Fraction) {
+            Fraction other = (Fraction) obj;
+            Fraction frac = new Fraction(this.getNumerator(), this.getDenominator());
+            if (frac.subtract(other).numerator == 0){
+                return</B></FONT> true;
+            }
+            else{
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
+    }
+<A NAME="3"></A>
+    public static void main(String[] args) {
+        Fraction frac1 = new Fraction(2,6);
+        Fraction <FONT color="#6cc417"><A HREF="javascript:ZweiFrames('match6248-1.html#3',3,'match6248-top.html#3',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>frac2 = new Fraction(1,5);
+        Fraction frac3 = new Fraction(1, 2);
+        frac1.reduce();
+        System.out.println(frac1.getNumerator()+ &quot; &quot; + frac1</B></FONT>.getDenominator());
+        frac1.add(frac2);
+        System.out.println(frac1.getNumerator()+ &quot; &quot; + frac1.getDenominator());
+        frac1.subtract(frac3);
+        System.out.println(frac1.getNumerator()+ &quot; &quot; + frac1.getDenominator());
+        frac1.multiply(frac2);
+        System.out.println(frac1.getNumerator()+ &quot; &quot; + frac1.getDenominator());
+        frac1.divide(frac3);
+        System.out.println(frac1.getNumerator()+ &quot; &quot; + frac1.getDenominator());
+
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

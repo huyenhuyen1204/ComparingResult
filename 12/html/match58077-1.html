@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>28094</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Exeption/Division.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>
+
+public <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match58077-0.html#1',2,'match58077-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class Division extends BinaryExpression {
+    public Division ( Expression left , Expression right){
+        super(left , right);
+    }
+    public String toString(){
+        return &quot;(&quot; + this.left.toString() + &quot; / &quot; + this.right.toString() + &quot;)&quot;;
+    }
+    public double evaluate(){
+        double a = (this</B></FONT>.left.evaluate() / this.right.evaluate() );
+        if(Double.isNaN(a) || Double.isInfinite(a)){
+            throw new ArithmeticException(&quot;Lỗi chia cho 0&quot;);
+        }
+        return a;
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>Exeption/Multiplication.java</CENTER></H3><HR>
+<PRE>
+<A NAME="2"></A>
+
+public <FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match58077-0.html#2',2,'match58077-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class Multiplication extends BinaryExpression {
+
+ public Multiplication ( Expression left , Expression right){
+        super(left , right);
+    }
+    public String toString(){
+        return &quot;(&quot; + this.left.toString() + &quot; * &quot; + this.right.toString() + &quot;)&quot;;
+    }
+    public double evaluate(){
+        return this.left.evaluate() * this.right.evaluate();
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>Exeption/Subtraction.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>
+
+public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match58077-0.html#0',2,'match58077-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class Subtraction extends BinaryExpression {
+    public Subtraction (Expression left , Expression right){
+        super(left , right);
+    }
+    public String toString(){
+        return &quot;(&quot; + this.left.toString() + &quot; - &quot; + this.right.toString() + &quot;)&quot;;
+    }
+    public double evaluate(){
+        return this.left.evaluate() - this.right.evaluate();
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

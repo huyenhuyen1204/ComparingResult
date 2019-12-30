@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>16809</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>r4/Week4.java</CENTER></H3><HR>
+<PRE>
+public class Week4 {
+
+    public static int max2Int(int a, int b) {
+        if(a&gt;b) return a;
+        else return b;
+    <font color="#C0C0C0"><EM>}
+
+    public static int minArray(int[] arr) {
+        int min=arr[0];
+        for (int i=1 ; i&lt;arr.length ; i++){
+            if (arr[i]&lt;min) min=arr[i];
+        }
+        return min;
+    }
+
+
+<A NAME="0"></A>    public static String calculateBMI(double weight, double height) {
+        String BMI</EM></font>;
+        float bmi= (float) (weight/(height*height));
+        <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match23169-0.html#0',2,'match23169-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>if(bmi&lt;18.5000) BMI=&quot;Thiếu cân&quot;;
+        else if(bmi &gt;= 18.5000 &amp;&amp; bmi &lt;= 22.9000) BMI=&quot;Bình thường&quot;;
+        else if(bmi &gt; 22.9000 &amp;&amp; bmi &lt;= 24.9000) BMI=&quot;Thừa cân&quot;;
+        else BMI=&quot;Béo phì&quot;;
+        return BMI;
+    }
+
+
+}</B></FONT>
+
+</PRE>
+<HR>
+<H3><CENTER>r4/Week4Test.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>﻿<FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match23169-0.html#1',2,'match23169-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class Week4Test {
+
+    @Test
+    public void max2Int1() {
+        Week4 Wtest=new Week4();
+        assertEquals(3, Wtest.max2Int(2,3));
+    }
+
+    @Test
+    public void max2Int2() {
+        Week4 Wtest=new Week4();
+        assertEquals(3, Wtest.max2Int(3,3));
+    }
+
+    @Test
+    public void max2Int3() {
+        Week4 Wtest=new Week4();
+        assertEquals(120, Wtest.max2Int(12,120));
+    }
+
+    @Test
+    public void max2Int4() {
+        Week4 Wtest=new Week4();
+        assertEquals(1, Wtest.max2Int(1,0));
+    }
+
+    @Test
+    public void max2Int5() {
+        Week4 Wtest=new Week4();
+        assertEquals(1, Wtest.max2Int(0,1));
+    }
+
+    @Test
+    public void minArray1() {
+        int[] arr = new</B></FONT> int[]{1, 2, 3, 4, 5};
+        Week4 Wtest=new Week4();
+        assertEquals(1, Wtest.minArray(arr));
+    }
+
+    @Test
+    public void minArray2() {
+        int[] arr = new int[]{1, 2, 3, 4, 5,1,6,7,8};
+        Week4 Wtest=new Week4();
+        assertEquals(1, Wtest.minArray(arr));
+    }
+
+    @Test
+    public void minArray3() {
+        int[] arr = new int[]{0, 2, 6, 10, 23, 59};
+        Week4 Wtest=new Week4();
+        assertEquals(0, Wtest.minArray(arr));
+    }
+
+    @Test
+    public void minArray4() {
+        int[] arr = new int[]{9, 8, 8 ,10};
+        Week4 Wtest=new Week4();
+        assertEquals(8, Wtest.minArray(arr));
+    }
+
+    @Test
+<A NAME="2"></A>    public void minArray5() {
+        int[] arr = new int[]{100, 1022, 3102, 40, 5210};
+        Week4 Wtest=new Week4();
+        <FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match23169-0.html#2',2,'match23169-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>assertEquals(40, Wtest.minArray(arr));
+    }
+
+    @Test
+    public void calculateBMI1() {
+        Week4 Wtest=new Week4();
+        assertEquals(&quot;Bình thường&quot;, Wtest.calculateBMI(60,1.6));
+    }
+
+    @Test
+    public void calculateBMI2() {
+        Week4 Wtest=new Week4();
+        assertEquals(&quot;Bình thường&quot;, Wtest.calculateBMI(60,1.7));
+    }
+
+    @Test
+    public void calculateBMI3() {
+        Week4 Wtest=new Week4();
+        assertEquals(&quot;Thiếu cân&quot;, Wtest.calculateBMI(50,1.7));
+    }
+
+    @Test
+    public void calculateBMI4() {
+        Week4 Wtest=new Week4();
+        assertEquals(&quot;Béo phì&quot;, Wtest.calculateBMI(60,1.5));
+    }
+
+    @Test
+    public void calculateBMI5() {
+        Week4 Wtest=new Week4();
+        assertEquals(&quot;Thừa cân&quot;, Wtest.calculateBMI(80,1.8));
+    }
+
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

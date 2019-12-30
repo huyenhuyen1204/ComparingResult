@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>19880</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Person.java</CENTER></H3><HR>
+<PRE>
+public class Person {
+<A NAME="1"></A>    private String name;
+    private String address;
+
+    public <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match44126-0.html#1',2,'match44126-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>void setAddress(String address) {
+        this.address = address;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getAddress() {
+        return address;
+    }
+    public String getName() {
+        return name;
+    }</B></FONT>
+    public Person(){
+
+    }
+
+    public Person(String name, String address){
+        this.setName(name);
+        this.setAddress(address);
+    }
+
+    public String toString(){
+        return &quot;Person[name=&quot; + this.getName() +&quot;,address=&quot; + this.getAddress() +&quot;]&quot;;
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>Student.java</CENTER></H3><HR>
+<PRE>
+public class Student extends Person{
+    private String program;
+<A NAME="0"></A>    private int year;
+    private double fee;
+
+    public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match44126-0.html#0',2,'match44126-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>void setYear(int year) {
+        this.year = year;
+    }
+    public void setProgram(String program) {
+        this.program = program;
+    }
+    public void setFee(double fee) {
+        this.fee = fee;
+    }
+    public int getYear() {
+        return year;
+    }
+    public String getProgram() {
+        return program;
+    }
+    public double getFee() {
+        return fee;
+    }</B></FONT>
+
+    public Student(String name, String address, String program, int year, double fee){
+        this.setName(name);
+        this.setAddress(address);
+        this.setProgram(program);
+        this.setYear(year);
+        this.setFee(fee);
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Student[&quot; + super.toString() + &quot;,program=&quot; + this.getProgram() +&quot;,year=&quot;
+                + this.getYear() + &quot;,fee=&quot; + this.getFee() + &quot;]&quot;;
+    }
+
+//    public static void main(String[] args) {
+//        Staff A = new Staff(&quot;Phong&quot;, &quot;Dong Anh&quot;, &quot;VNU&quot;, 11000000);
+//        Student B = new Student(args[0], args[1], args[2],  )
+//        System.out.println(A.toString());
+//        System.out.println(B.toString());
+//    }
+}
+</PRE>
+
+</BODY>
+</HTML>

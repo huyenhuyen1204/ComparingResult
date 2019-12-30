@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>17899</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Week4Test.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>/**
+ * Created by CCNE on 30/09/2019.
+ */
+<FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match12727-0.html#0',2,'match12727-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>import org.junit.Test;
+
+
+public class Week4Test {
+    @Test
+    public void testMax2Int1(){
+        int a=1, b=2;
+        int max2int=max2Int(a,b);
+        assertEquals(b, max2int);
+    }
+
+    @Test
+    public void testMax2Int2(){
+        int a=6, b=2;
+        int max2int=max2Int(a,b);
+        assertEquals(a, max2int);
+    }
+
+    @Test
+    public void testMax2Int3(){
+        int a=8, b=10;
+        int max2int=max2Int(a,b);
+        assertEquals(b, max2int);
+    }
+
+    @Test
+    public void testMax2Int4(){
+        int a=2, b=4;
+        int max2int=max2Int(a,b);
+        assertEquals(b, max2int);
+    }
+
+    @Test
+    public void testMax2Int5(){
+        int a=10, b=2;
+        int max2int=max2Int(a,b);
+        assertEquals(a, max2int);
+    }
+
+    @Test
+    public void testMinArray1(){
+        int arr = {1, 2, 3,4, 5}
+        int minarr = minArray(arr);
+        assertEquals(1, minarr);
+    }
+
+    @Test
+    public void testMinArray2(){
+        int arr = {5, 8, 4, 9, 5}
+        int minarr = minArray(arr);
+        assertEquals(4, minarr);
+    }
+
+    @Test
+    public void testMinArray3(){
+        int arr = {10, 2, 13, 4, 7, 9}
+        int minarr = minArray(arr);
+        assertEquals(2, minarr);
+    }
+
+    @Test
+    public void testMinArray4(){
+        int arr = {11, 23, 3 ,4 , 15, 18, 9}
+        int minarr = minArray(arr);
+        assertEquals(3, minarr);
+    }
+
+<A NAME="1"></A>    @Test
+    public void testMinArray5(){
+        int arr = {</B></FONT>-2, 2, 13, 4, 5}
+        int <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match12727-0.html#1',2,'match12727-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>minarr = minArray(arr);
+        assertEquals(-2, minarr);
+    }
+
+    @Test
+    public void testCalculateBMI1(){
+        double weight = 57, height= 1.6;
+        String a = calculateBMI(weight, height);
+        assertEquals(&quot;Bình thường&quot;, a);
+    }
+
+    @Test
+    public void testCalculateBMI2(){
+        double weight = 60, height= 1.6;
+        String a = calculateBMI(weight, height);
+        assertEquals(&quot;Thừa cân&quot;, a);
+    }
+
+    @Test
+    public void testCalculateBMI3(){
+        double weight = 70, height= 1.5;
+        String a = calculateBMI(weight, height);
+        assertEquals(&quot;Béo phì&quot;, a);
+    }
+
+    @Test
+    public void testCalculateBMI4(){
+        double weight = 40, height= 1.7;
+        String a = calculateBMI(weight, height);
+        assertEquals(&quot;Thiếu cân&quot;, a);
+    }
+
+    @Test
+    public void testCalculateBMI5(){
+        double weight = 57, height= 1.71;
+        String a = calculateBMI(weight, height);
+        assertEquals(&quot;Bình thường&quot;, a);
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

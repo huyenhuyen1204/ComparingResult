@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>4003</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/Week8_Task2.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A><FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match60885-1.html#0',3,'match60885-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Week8_Task2 {
+    public boolean NPEx(Boolean b) throws NullPointerException{
+        return b;
+    }
+    public String NPExTest(){
+        Boolean b = null;
+        try{
+            NPEx(b);
+
+        }catch (NullPointerException e){
+            return &quot;Lỗi Null Pointer&quot;;
+        }
+        return &quot;Không có lỗi&quot;;
+    }
+    public int AIOoBEx(int[] a) throws ArrayIndexOutOfBoundsException{
+        return a[a.length];
+    }
+    public String AIOoBExTest(){
+        int[] a = new int[1];
+        try {
+            AIOoBEx(a);
+        }catch (ArrayIndexOutOfBoundsException e){
+            return &quot;Lỗi Array Index Out of Bounds&quot;;
+        }
+        return &quot;Không có lỗi&quot;;
+    }
+    public int ArithEx(int a, int b) throws ArithmeticException{
+        return a / b;
+    }
+    public String ArithExTest(){
+        int a = 1, b = 0;
+        try {
+            ArithEx(a, b);
+        }catch (ArithmeticException e){
+            return &quot;Lỗi Arithmetic&quot;;
+        }
+        return &quot;Không có lỗi&quot;;
+    }
+    public String FNFEx(String path) throws FileNotFoundException{
+        FileReader fileReader = new FileReader(path);
+        return fileReader.toString();
+    }
+    public String FNFExTest(){
+        String path = &quot;/1213.txt&quot;;
+        try {
+            FNFEx(path);
+        }catch (FileNotFoundException e){
+            return &quot;Lỗi File Not Found&quot;;
+        }
+        return &quot;Không có lỗi&quot;;
+    }
+    public String IOEx(String path) throws IOException {
+        FileReader fileReader = new FileReader(path);
+        return fileReader.toString();
+    }
+    public String IOExTest(){
+        String path = &quot;/1213.txt&quot;;
+        try {
+            IOEx(path);
+        }catch (IOException e){
+            return &quot;Lỗi IO&quot;;
+        }
+        return &quot;Không có lỗi&quot;;
+    }
+//    public static void main(String[] args) {
+//        Week8_Task2 e = new Week8_Task2();
+//        String s = e.NPExTest();System.out.println(s);
+//        s = e.AIOoBExTest();System.out.println(s);
+//        s = e.ArithExTest();System.out.println(s);
+//        s = e.FNFExTest();System.out.println(s);
+//        s = e.IOExTest();System.out.println(s);
+//    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

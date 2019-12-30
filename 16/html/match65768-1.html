@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>31229</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Person.java</CENTER></H3><HR>
+<PRE>
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by Minology on 10:26 SA
+ */
+
+public class Person implements Comparable&lt;Person&gt; {
+<A NAME="0"></A>    private String name;
+    private int age;
+    private String address;
+    public Person(){<FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match65768-0.html#0',2,'match65768-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>}
+
+    public Person(String name, int age, String address) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    @Override
+    public int compareTo(Person o) {
+        if (this</B></FONT>.name.compareTo(o.name) &lt; 0) return -1;
+        if (this.name.compareTo(o.name) &gt; 0) return 1;
+        if (this.age &lt; o.age) return -1;
+        if (this.age &gt; o.age) return 1;
+        return 0;
+    }
+
+    /**public static void main(String[] args) {
+        List&lt;Person&gt; people = new ArrayList&lt;&gt;();
+        people.add(new Person(&quot;C&quot;, 20, &quot;HEYY&quot;));
+        people.add(new Person(&quot;B&quot;, 15, &quot;HEY&quot;));
+        people.add(new Person(&quot;Z&quot;, 15, &quot;HEY&quot;));
+        people.add(new Person(&quot;A&quot;, 16, &quot;HEY&quot;));
+        people.add(new Person(&quot;Nguyen A&quot;, 18, &quot;HEY&quot;));
+        people.add(new Person(&quot;A&quot;, 15, &quot;HEY&quot;));
+        people.add(new Person(&quot;Nguyen A&quot;, 15, &quot;HEY&quot;));
+        people.add(new Person(&quot;A&quot;, 10, &quot;HEY&quot;));
+        people.add(new Person(&quot;Le B&quot;, 15, &quot;HEY&quot;));
+        people.add(new Person(&quot;A&quot;, 12, &quot;HEY&quot;));
+        people.add(new Person(&quot;A&quot;, 15, &quot;HEY&quot;));
+        Week11.sortGeneric(people);
+        for(int i = 0; i &lt; people.size(); ++i){
+            System.out.println(people.get(i));
+        }
+
+    }*/
+}
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>21186</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Cylinder.java</CENTER></H3><HR>
+<PRE>
+public class Cylinder extends Circle {
+<A NAME="0"></A>   private  double height=1.0;
+   public Cylinder(){
+	   this.height = 1.0;
+   <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match36723-0.html#0',2,'match36723-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>}
+   public Cylinder(double radius){
+	   super.setRadius(radius);
+   }
+   public Cylinder(double radius,double height)
+   {
+	  super.setRadius(radius);
+	  this.height = height;
+   }
+   public Cylinder(double radius,double height,String color)
+   {
+	   super</B></FONT>.setRadius(radius);
+	   this.height = height;
+	   super.setColor(color);
+   }
+   public double getHeight()
+   {
+	   return this.height;
+   }
+   public void setHeight(double height)
+<A NAME="1"></A>   {
+	  this.height = height;   
+   }
+   public <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match36723-0.html#1',2,'match36723-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>double getVolume()
+   {
+	   return this.height*super.getArea();
+   }
+   public String toString()
+   {
+	  return  &quot;Cylinder[&quot; + super.toString() + &quot;,height=&quot; + this.height + &quot;]&quot;;
+   }
+   public double getArea()
+   {
+	   return super.getArea()*2+2*PI*getRadius()*height;	   
+   } 
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

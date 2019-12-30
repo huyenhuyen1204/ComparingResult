@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>20699</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Student.java</CENTER></H3><HR>
+<PRE>
+public <font color="#C0C0C0"><EM>class Student extends Person{
+    private String program;
+    private int year;
+    private double fee;
+    public Student(String _name, String _add, String pro,int yy, double _fee ){
+        super(_name,_add);
+        this.program = pro;
+        this.year = yy;
+        this.fee = _fee;
+    }
+    public String getProgram(){
+        return this.program;
+    }
+    public void setProgram(String pro){
+        this.program = pro;
+    }</EM></font>
+    public <font color="#C0C0C0"><EM>void setYear(int yy){
+        this.year = yy;
+    }
+    public double getFee(){
+        return this.fee;
+    }
+    public void setFee(double _fee){
+        this.fee = _fee;
+    }</EM></font>
+    public int getYear(){
+        return this.year;
+    }
+    @Override
+<A NAME="0"></A>    public String toString(){
+        return &quot;Student[Person[name=&quot;+ this.getName() + &quot;,address=&quot;  + this.getAddress() +&quot;],program=&quot; + this.program + &quot;,year=&quot; +this.year +&quot;,fee=&quot; + this.fee +&quot;]&quot;;
+    }
+    public static <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match43592-1.html#0',3,'match43592-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>void main(String[] args) {
+        Student t1 = new Student(&quot;abc&quot;, &quot;bca&quot;,&quot;pri&quot;, 3, 3.14);
+        System.out.println(t1.toString());
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

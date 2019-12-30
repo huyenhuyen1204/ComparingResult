@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>10447</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>StudentManagement.java</CENTER></H3><HR>
+<PRE>
+public class StudentManagement {
+
+    Student[] <font color="#C0C0C0"><EM>students = new Student[100];
+    int size = 0;
+
+    public void addStudent(Student newStudent){
+        this.students[size++] = newStudent;
+    }
+
+    public static boolean sameGroup(Student s1, Student s2){
+        return s1.getGroup().equals(s2.getGroup());
+    }</EM></font>
+
+    public <font color="#C0C0C0"><EM>String studentsByGroup(){
+<A NAME="0"></A>        String result = &quot;&quot;;
+        for(int i = 0 ; i &lt; size; i++){
+            if (!result.contains(students[i].getGroup())){
+                result</EM></font> += <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match4315-0.html#0',2,'match4315-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>students[i].getGroup() + &quot;\n&quot;;
+                for (int j = i ; j &lt; size; j++){
+                    if (sameGroup(students[i], students[j])){
+                        result += students[j].getInfo() + &quot;\n&quot;;
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
+    public void removeStudent(String id){
+        for(int i = 0; i &lt; size; i++){
+            if (students[i].getId().equals(id)){
+                for (int j = i; j &lt; size - 1; j++){
+                    students[j] = students[j+1];
+                }</B></FONT>
+                students[--size] = null;
+                break;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Student s1 =  new Student(&quot;Nguyen Van An&quot;, &quot;17020001&quot;, &quot;17020001@vnu.edu.vn&quot;);
+        s1.setGroup(&quot;K62CC&quot;);
+        Student s2 = new Student(&quot;Nguyen Van B&quot;, &quot;17020002&quot;, &quot;17020002@vnu.edu.vn&quot;);
+        <font color="#C0C0C0"><EM>s2.setGroup(&quot;K62CC&quot;);
+        Student s3 = new Student(&quot;Nguyen Van C&quot;, &quot;17020003&quot;, &quot;17020003@vnu.edu.vn&quot;);
+        s3.setGroup(&quot;K62CB&quot;);
+        Student s4 = new Student(&quot;Nguyen Van D&quot;, &quot;17020004&quot;, &quot; 17020004@vnu.edu.vn&quot;);
+        s4.setGroup(&quot;K62CB&quot;);
+
+        StudentManagement self = new StudentManagement();
+
+//        self.addStudent(s1);
+//        self.addStudent(s2);
+//        self.addStudent(s3);
+//        self.addStudent(s4);
+
+        System.out.println(self</EM></font>.studentsByGroup());
+
+//        self.removeStudent(&quot;17020001&quot;);
+//
+//        System.out.println(self.studentsByGroup());
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

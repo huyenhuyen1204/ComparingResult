@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>21143</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>EX1/Circle.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>
+
+public <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match41488-1.html#1',3,'match41488-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Circle {
+    protected final double PI = 3.14;
+    private double radius = 1.0;
+    private String color = &quot;red&quot;;
+
+    public Circle() {}
+
+    public Circle</B></FONT>(double radius) {
+        <font color="#C0C0C0"><EM>this.radius = radius;
+    }
+
+    public Circle(double radius, String color) {
+        this.radius = radius;
+        this.color = color;
+    }
+
+    public double getRadius() {
+<A NAME="2"></A>        return this.radius;
+    }</EM></font>
+
+    public <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match41488-1.html#2',3,'match41488-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>void setRadius(double radius) {
+        this.radius = radius;
+    }
+
+    public String getColor() {
+        return this.color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public double getArea() {
+        return</B></FONT> this.PI * getRadius() * getRadius();
+    }
+
+    public String toString() {
+        return &quot;Circle[radius=&quot; + getRadius() + &quot;,color=&quot; + getColor() + &quot;]&quot;;
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>EX1/CircleTestDriver.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>
+
+public class CircleTestDriver {
+    public static <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match41488-1.html#0',3,'match41488-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>void main(String[] args) {
+        Circle c = new Circle();
+        System.out.println(c.toString());
+        System.out.println(c</B></FONT>.getArea());
+        System.out.println(c.getColor());
+        System.out.println(c.getRadius());
+        c.setColor(&quot;green&quot;);
+        System.out.println(c.toString());
+        c.setRadius(3.0);
+        System.out.println(c.toString());
+        Cylinder t = new Cylinder(1.0, 2.0);
+        System.out.println(t.getVolume());
+        System.out.println(t.toString());
+        System.out.println(t.getArea());
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

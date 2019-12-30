@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>32414</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>week11/Person.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match65292-0.html#0',2,'match65292-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class Person implements Comparable&lt;Person&gt; {
+    private String name;
+    private int age;
+    private String address;
+
+    public Person() {
+
+    }
+
+    public Person(String name, int age, String address) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }</B></FONT>
+
+    public <font color="#C0C0C0"><EM>String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+<A NAME="1"></A>    }
+
+    public int</EM></font> compareTo(Person o) {
+        <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match65292-0.html#1',2,'match65292-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>if (this.getName().compareTo(o.getName()) != 0) {
+            return this.getName().compareTo(o.getName());
+        }
+        return this.getAge() - o.getAge();
+    }</B></FONT>
+
+
+    public static void main(String[] args) {
+        Person Person1 = new Person(&quot;nguyen a&quot;, 22,&quot;..&quot;);
+        Person Person2 = new Person(&quot;nguyen a&quot;, 20,&quot;..&quot;);
+        Person Person3 = new Person(&quot;le b&quot;, 20,&quot;..&quot;);
+        Person1.compareTo(Person3);
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>week11/Week11.java</CENTER></H3><HR>
+<PRE>
+<A NAME="2"></A>import java.awt.*;
+<FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match65292-0.html#2',2,'match65292-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class Week11 {
+    public static &lt;T&gt; List&lt;T&gt; sortGeneric(List&lt;T&gt; list){
+        Collections.sort(list, new Comparator&lt;T&gt;() {
+            @Override
+            public int compare(T o1, T o2) {
+                if (o1 instanceof Integer){
+                    return (Integer)o1 - (Integer)o2;
+                }
+                else if (o1 instanceof Double){
+                    return (int)((Double)o1 - (Double)o2);
+                }
+                else if (o1 instanceof Float){
+                    return (int)((Float)o1 - (Float)o2);
+                }
+                else if (o1 instanceof Character){
+                    return</B></FONT> (int)((Character)o1-(Character)o2);
+                }
+<A NAME="3"></A>                else if (o1 instanceof Person){
+                    return ((Person)o1).compareTo((Person)o2);
+                }
+                else return ((String)o1).compareTo(((String)o2))<FONT color="#6cc417"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match65292-0.html#3',2,'match65292-top.html#3',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>;
+            }
+        });
+                return list;
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

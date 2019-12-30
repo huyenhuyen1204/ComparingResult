@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>9127</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>src/Fraction.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>public <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match5710-0.html#1',2,'match5710-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class Fraction {
+    private int numerator, denominator = 1;
+
+    public int getNumerator(){
+        return numerator;
+    }
+
+    public int getDenominator(){
+        return denominator;
+    }
+
+    public void setDenominator(int denominator) {
+        if (denominator != 0) this.denominator = denominator;
+    }
+
+    public void setNumerator(int numerator) {
+        this.numerator = numerator;
+    }
+
+    public Fraction(int numerator, int denominator) {
+        if (denominator != 0) {
+            this.numerator = numerator;
+            this.denominator = denominator;
+        }
+    }</B></FONT>
+
+    public <font color="#C0C0C0"><EM>Fraction reduce() {
+        int temp = GCD_LCM.gcd(numerator,denominator);
+        numerator = numerator / temp;
+        denominator = denominator / temp;
+        return this;
+    }
+<A NAME="2"></A>
+    public Fraction add (Fraction other) {
+        if</EM></font> (this.denominator == other.denominator) {
+            <FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match5710-0.html#2',2,'match5710-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>this.numerator += other.numerator;
+        }
+        else {
+            int temp = GCD_LCM.lcm(this.denominator, other.denominator);
+            this.numerator = temp / this.denominator * this.numerator +
+                                temp / other.denominator * other.numerator;
+            this.denominator = temp;
+        }
+        return this;
+    }
+
+    public Fraction subtract (Fraction other) {
+        if (this.denominator == other.denominator) {
+            this.numerator -= other.numerator;
+        }
+        else {
+            int temp = GCD_LCM.lcm(this.denominator, other.denominator);
+            this.numerator = temp / this.denominator * this.numerator -
+                    temp / other.denominator * other.numerator;
+            this.denominator = temp;
+        }
+        return this;
+    }
+
+    public Fraction multiply (Fraction other) {
+        this.numerator = this.numerator * other.numerator;
+        this.denominator = this. denominator * other.denominator;
+        return this;
+    }
+
+    public Fraction divide(Fraction other) {
+        if (other.numerator != 0) {
+            this.numerator = this.numerator * other.denominator;
+            this.denominator = this. denominator * other.numerator;
+        }
+        return this;
+    }
+
+    public boolean equals(Object obj) {
+        if (obj instanceof Fraction) {
+            Fraction other = (Fraction) obj;
+            int temp = GCD_LCM.lcm(this.denominator,other.denominator);
+            return ((temp / this.denominator * this.numerator) == (temp / other.denominator * other.numerator));
+        }
+        return false;
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>src/GCD_LCM.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match5710-0.html#0',2,'match5710-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class GCD_LCM {
+    public static int gcd(int a, int b) {
+        if (b == 0) return a;
+        if (a &gt; b) return gcd (b, a % b);
+        else return gcd(a, b % a);
+    }
+
+    public static int lcm(int a, int b) {
+        if ((a % b) == 0) return a;
+        else
+            if ((b % a) == 0) return b;
+                else return a * b / gcd(a,b);
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

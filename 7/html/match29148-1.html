@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>13730</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Week4.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match29148-0.html#0',2,'match29148-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class Week4 {
+
+    public static int max2Int(int a, int b) {
+        if (a &gt; b) return a;
+        return b;
+    }
+
+    public static int minArray(int[] arr) {
+        int mn = Integer</B></FONT>.MAX_VALUE;
+        for(int v : arr){
+            if (v &lt; mn) mn = v;
+        }
+        return mn;
+<A NAME="1"></A>    }
+
+    public static String calculateBMI(double weight, double height) {
+        <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match29148-0.html#1',2,'match29148-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>if (25 * height * height &lt;= weight) return &quot;Béo phì&quot;;
+        if (23 * height * height &lt;= weight) return &quot;Thừa cân&quot;;
+        if (37 * height * height &lt;= weight * 2 + 1e-7) return &quot;Bình thường&quot;;
+        return &quot;Thiếu cân&quot;;
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

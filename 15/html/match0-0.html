@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>33181</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Week10.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A><FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match0-1.html#0',3,'match0-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Week10 {
+    public static List&lt;String&gt; getAllFunctions(String fileContent){
+            List&lt;String&gt; ans = new ArrayList&lt;String&gt;();
+            List&lt;String&gt; methodName = new ArrayList&lt;String&gt;();
+            List&lt;String&gt;  bien = new ArrayList&lt;String&gt;();
+
+            String s = new String();
+            boolean ok1 = false, ok2 = false;
+
+            String res = new String();
+            s = fileContent;
+            s += '\n';
+
+            String tempp = new String();
+            int noww = 0;
+            while (noww &lt; s.length()) {
+                if (s.charAt(noww) == '\n'){
+                    if (ok1 == false &amp;&amp; ok2 == false) res += tempp;
+                    res += '\n';
+                    tempp = &quot;&quot;;
+                    ok2 = false;
+                }
+                else if (ok1 == true) {
+                    if (noww &lt; s.length() - 1 &amp;&amp; s.charAt(noww) == '*' &amp;&amp; s.charAt(noww + 1) == '/') {
+                        ok1 = false;
+                        tempp += ' ';
+                        ++noww;
+                    }
+                } else {
+                    if (noww &lt; s.length() - 1 &amp;&amp; s.charAt(noww) == '/' &amp;&amp; s.charAt(noww + 1) == '/')
+                        ok2 = true;
+                    else if (noww &lt; s.length() - 1 &amp;&amp; s.charAt(noww) == '/' &amp;&amp; s.charAt(noww + 1) == '*') {
+                        ok1 = true;
+                        ++noww;
+                    } else if (ok2 == false)
+                        tempp += s.charAt(noww);
+                }
+                ++noww;
+            }
+
+            String regex = &quot;(static) +([,\\w\\&lt;\\&gt;\\[\\]]+\\s+)*[\\w\\&lt;\\&gt;\\[\\]]+\\s+(\\w+) *\\(([^\\)]*)\\) *(\\{?|[^;])&quot;;
+            Pattern pattern = Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(res);
+
+            int soluong = 0;
+            while (matcher.find()) {
+                methodName.add(matcher.group(3));
+                bien.add(matcher.group(4));
+                //System.out.println(matcher.group(4));
+                ++soluong;
+            }
+
+            ////////////////////////////////////////////////////////////////////////////////////////
+
+            List&lt;String&gt; listOfImport = new ArrayList&lt;String&gt;();
+            List&lt;String&gt; listOfTail = new ArrayList&lt;String&gt;();
+            regex = &quot;(import\\s+)([a-zA-Z.]+)&quot;;
+            pattern = Pattern.compile(regex);
+            matcher = pattern.matcher(res);
+            while (matcher.find()){
+                //System.out.println(matcher.group(2));
+                String tempString = matcher.group(2);
+                listOfImport.add(tempString);
+            }
+
+            regex = &quot;([a-zA-Z]+)\\s+&quot;;
+            pattern = Pattern.compile(regex);
+            for (int i = 0; i &lt; listOfImport.size(); i++){
+                String tempString = listOfImport.get(i) + &quot; &quot;;
+                matcher = pattern.matcher(tempString);
+                matcher.find();
+                listOfTail.add(matcher.group(1));
+                //System.out.println(matcher.group(1));
+            }
+            ////////////////////////////////////////////////////////////////////////////////////////
+
+            regex = &quot;package\\s+([a-zA-Z.]+);&quot;;
+            String packageName = &quot;&quot;;
+            List&lt;String&gt; listOfClass = new ArrayList&lt;String&gt;();
+
+            pattern = Pattern.compile(regex);
+            matcher = pattern.matcher(res);
+            if (matcher.find())
+                packageName = matcher.group(1);
+
+            regex = &quot;(class|interface)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\{&quot;;
+            pattern = Pattern.compile(regex);
+            matcher = pattern.matcher(res);
+            if (packageName != &quot;&quot;) while (matcher.find()){
+                listOfClass.add(matcher.group(2));
+                //System.out.println(matcher.group(2));
+            }
+            ////////////////////////////////////////////////////////////////////////////////////////
+        //System.out.println(bien.get(0));
+            for (int i = 0; i &lt; soluong; i++){
+                int trangthai = 0;
+                String temp = methodName.get(i) + &quot;(&quot;;
+                String now = &quot;&quot;;
+
+                for (int j = 0; j &lt; bien.get(i).length(); j++)
+                    if (bien.get(i).charAt(j) == ',') {
+                        temp += ',';
+                        now = &quot;&quot;;
+                        trangthai = 0;
+                    }
+                    else if (bien.get(i).charAt(j) == '&lt;'){
+                        trangthai = 3;
+                        if (!now.equals(&quot;&quot;)) {
+                            boolean isJavaLang = true;
+                            for (int k = 0; k &lt; listOfTail.size(); k++)
+                                if (now.equals(listOfTail.get(k))) {
+                                    now = listOfImport.get(k);
+                                    isJavaLang = false;
+                                    break;
+                                }
+                            for (int k = 0; k &lt; listOfClass.size(); k++)
+                                if (now.equals(listOfClass.get(k))){
+                                    now = packageName + &quot;.&quot; + now;
+                                    isJavaLang = false;
+                                    break;
+                                }
+                            if (isJavaLang &amp;&amp; !now.equals(&quot;?&quot;) &amp;&amp; !now.equals(&quot;T&quot;) &amp;&amp; !now.equals(&quot;boolean&quot;) &amp;&amp; !now.equals(&quot;T[]&quot;) &amp;&amp; !now.equals(&quot;int&quot;) &amp;&amp; !now.equals(&quot;long&quot;) &amp;&amp; !now.equals(&quot;double&quot;)) now = &quot;java.lang.&quot; + now;
+                            temp += now;
+                            now = &quot;&quot;;
+                            temp += '&lt;';
+                        }
+                    }
+                    else if (bien.get(i).charAt(j) == '&gt;'){
+                        trangthai = 4;
+                        if (!now.equals(&quot;&quot;)) {
+                            boolean isJavaLang = true;
+                            for (int k = 0; k &lt; listOfTail.size(); k++)
+                                if (now.equals(listOfTail.get(k))) {
+                                    now = listOfImport.get(k);
+                                    isJavaLang = false;
+                                    break;
+                                }
+                            for (int k = 0; k &lt; listOfClass.size(); k++)
+                                if (now.equals(listOfClass.get(k))){
+                                    now = packageName + &quot;.&quot; + now;
+                                    isJavaLang = false;
+                                    break;
+                                }
+                            if (isJavaLang &amp;&amp; !now.equals(&quot;?&quot;) &amp;&amp; !now.equals(&quot;T&quot;) &amp;&amp; !now.equals(&quot;boolean&quot;) &amp;&amp; !now.equals(&quot;T[]&quot;) &amp;&amp; !now.equals(&quot;int&quot;) &amp;&amp; !now.equals(&quot;long&quot;) &amp;&amp; !now.equals(&quot;double&quot;)) now = &quot;java.lang.&quot; + now;
+                            temp += now;
+                            now = &quot;&quot;;
+                            temp += '&gt;';
+                        }
+                    }
+                    else if (bien.get(i).charAt(j) == ' ' || bien.get(i).charAt(j) == '\n'){
+                        if (trangthai == 1) {
+                            trangthai = 2;
+                            //System.out.println(now);
+                            boolean isJavaLang = true;
+                            for (int k = 0; k &lt; listOfTail.size(); k++)
+                                if (now.equals(listOfTail.get(k))) {
+                                    now = listOfImport.get(k);
+                                    isJavaLang = false;
+                                    break;
+                                }
+                            for (int k = 0; k &lt; listOfClass.size(); k++)
+                                if (now.equals(listOfClass.get(k))){
+                                    now = packageName + &quot;.&quot; + now;
+                                    isJavaLang = false;
+                                    break;
+                                }
+                            //System.out.println(isJavaLang);
+                            if (isJavaLang &amp;&amp; !now.equals(&quot;?&quot;) &amp;&amp; !now.equals(&quot;T&quot;) &amp;&amp; !now.equals(&quot;boolean&quot;) &amp;&amp; !now.equals(&quot;T[]&quot;) &amp;&amp; !now.equals(&quot;int&quot;) &amp;&amp; !now.equals(&quot;long&quot;) &amp;&amp; !now.equals(&quot;double&quot;)) now = &quot;java.lang.&quot; + now;
+                            temp += now;
+                            now = &quot;&quot;;
+                        }
+                    }
+                    else if (bien.get(i).charAt(j) != '.'){
+                        if (trangthai == 0)
+                            trangthai = 1;
+                        now += bien.get(i).charAt(j);
+                    }
+
+                temp += &quot;)&quot;;
+                ans.add(temp);
+            }
+
+            return ans;
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>2808</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/Circle.java</CENTER></H3><HR>
+<PRE>
+<A NAME="2"></A>public <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match30539-1.html#2',3,'match30539-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Circle {
+    private double radius=1;
+    private String color=&quot;red&quot;;
+    protected final double PI=3.14;
+    public Circle(){};
+    public Circle</B></FONT>(double radius){
+        <font color="#C0C0C0"><EM>this.radius=radius;
+    }
+    public Circle(double radius, String color){
+        this.radius=radius;
+        this.color=color;
+    }
+
+    public double getRadius() {
+        return this.radius;
+    }
+
+    public String getColor() {
+        return this.color;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+    public double getArea(){
+        return radius*radius*PI;
+    }
+    public String toString(){
+        return</EM></font> &quot;Circle[radius=&quot;+getRadius()+&quot;,color=&quot;+getColor()+&quot;]&quot;;
+    }
+
+}
+</PRE>
+<HR>
+<H3><CENTER>src/Cylinder.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match30539-1.html#0',3,'match30539-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Cylinder extends Circle {
+    private double height=1;
+    public Cylinder(){};
+    public Cylinder(double radius){
+        setHeight(radius);
+<A NAME="1"></A>    }
+    public Cylinder</B></FONT>(double height,double radius,String color){
+        setRadius(radius);
+        <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match30539-1.html#1',3,'match30539-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>setColor(color);
+        setHeight(height);
+    }
+    public Cylinder(double height,double radius){
+        setRadius(radius);
+        setHeight(height);
+    }
+
+    public double getHeight() {
+        return this.height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }</B></FONT>
+
+    public String toString(){
+        return &quot;Cylinder[&quot;+super.toString()+&quot;,height=&quot;+getHeight()+&quot;]&quot;;
+    }
+    public double getArea(){
+        return 2*PI*getRadius()*(getRadius()+getHeight());
+    }
+    public double getVolume(){
+        return 2*2*PI*getHeight();
+    }
+
+    public static void main(String[] args){
+        Circle circle = new Circle();
+        System.out.println(circle.getColor());
+        Cylinder cylinder = new Cylinder(1,3);
+        System.out.println(cylinder.getArea());
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

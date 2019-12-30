@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>31263</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Generic/Person.java</CENTER></H3><HR>
+<PRE>
+//package Generic;
+
+<A NAME="0"></A>import java.util.Scanner;
+import java.util.List;
+
+public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match65651-1.html#0',3,'match65651-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Person implements Comparable&lt;Person&gt;
+{
+    protected String name;
+    protected int age;
+    protected String address;
+
+    public Person()
+    {
+
+    }
+    public Person(String name, int age, String address)
+    {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }</B></FONT>
+    public <font color="#C0C0C0"><EM>String getName()
+    {
+        return this.name;
+    }
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+    public String getAddress()
+    {
+        return this.address;
+    }
+    public void serAddress(String address)
+    {
+        this.address = address;
+    }
+    public int getAge()
+    {
+        return this.age;
+    }
+    public void setAge(int age)
+<A NAME="1"></A>    {
+        this.age = age;
+    }</EM></font>
+    public <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match65651-1.html#1',3,'match65651-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>int compareTo(Person person)
+    {
+        if (!name.equals(person.name))
+        {
+            return (name.compareTo(person.name));
+        }
+        else
+        {
+            if (age &gt; person.age)
+            {
+                return 1;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+    }
+    /*public static void main(String[] args)
+    {
+        Scanner scan = new Scanner(System.in)
+        int i,j;
+        List&lt;Person&gt; ListofPeople = new List&lt;Person&gt;;
+        while(true)
+        {
+            String name = scan.next();
+            int age = scan.nextInt();
+            String address = scan.next();
+            Person person = new Person(name,age,address);
+            ListofPeople.add(person);
+        }
+        System.out.println(Test.sortGeneric(ListofPeople extends Comparable&lt;Person&gt;));
+    }*/
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>Generic/Week11.java</CENTER></H3><HR>
+<PRE>
+//package Generic;
+
+import java.util.List;
+import java.util.Collections;
+
+public class Week11
+{
+    public static &lt;Type&gt; List SwapElement(List&lt;Type&gt; list,int i,int j)
+    {
+        if (i != j)
+        {
+            Collections.swap(list,i,j);
+        }
+        return list;
+    }
+    public static &lt;Type extends Comparable&lt;Type&gt;&gt; List sortGeneric(List&lt;Type&gt; arr)
+    {
+        int i,j;
+        for (i = 0;i &lt; arr.size() - 1;i++)
+<A NAME="2"></A>        {
+            for (j = i + 1;j &lt; arr.size();j++)
+            {
+                if (<FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match65651-1.html#2',3,'match65651-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>arr.get(i).compareTo(arr.get(j)) &gt; 0)
+                {
+                    SwapElement(arr,i,j);
+                }
+            }
+        }
+        return arr;
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

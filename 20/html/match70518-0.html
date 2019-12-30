@@ -1,0 +1,241 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>27019</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>khiem/Circle.java</CENTER></H3><HR>
+<PRE>
+<A NAME="4"></A>public <FONT color="#151b8d"><A HREF="javascript:ZweiFrames('match70518-1.html#4',3,'match70518-top.html#4',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Circle extends Shape {
+    protected double radius;
+    protected Point center;
+    public Circle(){
+
+    }
+    public Circle(double radius){
+        this.radius = radius;
+    }
+    public Circle</B></FONT>(double radius, String color, boolean filled) {
+        super(color, filled);
+        this.radius = radius;
+    <font color="#C0C0C0"><EM>}
+    public Circle(Point center, double radius, String color, boolean filled){
+        super(color, filled);
+        this.radius = radius;
+        this.center = center;
+    }
+    public double getRadius() {
+        return this.radius;
+    }
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }</EM></font>
+    public void setCenter(Point center) {
+        this.center = center;
+    }
+<A NAME="5"></A>    public Point getCenter() {
+        return center;
+    }
+    public <FONT color="#c8c2a7"><A HREF="javascript:ZweiFrames('match70518-1.html#5',3,'match70518-top.html#5',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>int hashCode() {
+        return 1;
+    }
+    public boolean equals(Object ss) {
+        if(ss instanceof Circle){
+            Circle cc = (Circle) ss;
+            if(this</B></FONT>.center.equals(cc.center) &amp;&amp; this.radius == cc.getRadius()) return true;
+        }
+        return false;
+    }
+
+    public double getArea(){
+        return this.radius*this.radius*Math.PI;
+    }
+    public double getPerimeter(){
+        return this.radius*2*Math.PI;
+    }
+    public String toString(){
+        double re1 = (double)Math.round(this.radius*10)/10;
+        return &quot;Circle[center=&quot;+this.center.toString()+&quot;,radius=&quot;+re1+&quot;,color=&quot;+this.getColor()+&quot;,filled=&quot;+this.isFilled()+&quot;]&quot;;
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>khiem/Layer.java</CENTER></H3><HR>
+<PRE>
+<font color="#C0C0C0"><EM>import java.util.*;
+
+public class Layer {
+    private List&lt;Shape&gt; shapes = new ArrayList&lt;Shape&gt;();
+    public void addShape(Shape sp){
+        shapes.add(sp);
+    }
+    public void</EM></font> removeCircles(){
+        int vt = shapes.size();
+        int i = 0;
+        while(i&lt;vt){
+            if(shapes.get(i) instanceof Circle){
+                shapes.remove(i);
+                vt-=1;
+            }
+<A NAME="6"></A>            else i+=1;
+        }
+        return;
+    <FONT color="#50ebec"><A HREF="javascript:ZweiFrames('match70518-1.html#6',3,'match70518-top.html#6',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>}
+    public String getInfo(){
+        String re = &quot;Layer of crazy shapes: \n&quot;;
+        for(int i=0; i&lt;shapes.size()-1; i++){
+<A NAME="7"></A>            re += shapes.get(i).toString()+&quot;\n&quot;;
+        }</B></FONT>
+        re += shapes.get(shapes.size()-1).toString();
+        <FONT color="#c58917"><A HREF="javascript:ZweiFrames('match70518-1.html#7',3,'match70518-top.html#7',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>return re;
+    }
+    public void removeDuplicates(){
+       for(int i= shapes.size()-1; i&gt;=0; i--){
+           for(int j = shapes.size()-1; j&gt;i; j--){
+               if(shapes.get(i).equals(shapes.get(j))){
+                   shapes.remove(j);
+               }
+           }
+        }
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>khiem/Point.java</CENTER></H3><HR>
+<PRE>
+<font color="#C0C0C0"><EM>import java.lang.Math;
+
+public class Point {
+    private double x;
+    private double y;
+    public Point(double x , double y){
+        this.x = x;
+        this.y = y;
+    }
+<A NAME="2"></A>    public double getX() {
+        return x;
+    }</EM></font>
+    public <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match70518-1.html#2',3,'match70518-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>double getY() {
+        return y;
+    }
+    public void setX(double x) {
+        this.x = x;
+    }
+    public void setY(double y) {
+        this.y = y;
+    }
+    public double</B></FONT> distance(Point ss){
+        double x_sub = this.x - ss.x;
+<A NAME="3"></A>        double y_sub = this.y - ss.y;
+        double re = Math.sqrt(x_sub*x_sub + y_sub*y_sub);
+        return re;
+    <FONT color="#6cc417"><A HREF="javascript:ZweiFrames('match70518-1.html#3',3,'match70518-top.html#3',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>}
+    public boolean equals(Object ss){
+        if(ss instanceof Point){
+            Point pp = (Point) ss;
+            if(this.x == pp.x &amp;&amp; this.y == pp.y) return true;
+        }
+        return false;
+    }
+    public int hashCode(){
+        return</B></FONT> 1;
+    }
+    public String toString(){
+        double re1= (double)Math.round(this.x*10)/10;
+        double re2= (double)Math.round(this.y*10)/10;
+        return &quot;(&quot;+re1+&quot;,&quot;+re2+&quot;)&quot;;
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>khiem/Rectangle.java</CENTER></H3><HR>
+<PRE>
+public class Rectangle extends Shape {
+    protected double width;
+    protected double length;
+    protected Point topLeft;
+
+    public Rectangle() {
+
+    }
+
+    public Rectangle(double width, double length) {
+        <font color="#C0C0C0"><EM>this.width = width;
+        this.length = length;
+    }
+    public Rectangle(double width, double length, String color, boolean filled) {
+        super(color, filled);
+        this.width = width;
+        this.length = length;
+    }
+<A NAME="0"></A>    public Rectangle(Point topLeft, double width, double length, String color, boolean filled){
+        super(color, filled);
+        this</EM></font>.width = width;
+        <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match70518-1.html#0',3,'match70518-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>this.length = length;
+        this.topLeft = topLeft;
+    }
+    public double getWidth() {
+        return this.width;
+    }
+
+    public double getLength() {
+        return this.length;
+    }
+
+    public void setLength(double length) {
+        this.length = length;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }</B></FONT>
+
+    public void setTopLeft(Point topLeft) {
+<A NAME="1"></A>        this.topLeft = topLeft;
+    }
+
+    public <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match70518-1.html#1',3,'match70518-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>Point getTopLeft() {
+        return topLeft;
+    }
+
+    public boolean equals(Object ss){
+        if(ss instanceof Rectangle){
+            Rectangle rr = (Rectangle) ss;
+            if(this</B></FONT>.topLeft.equals(rr.topLeft) &amp;&amp; this.length == rr.getLength() &amp;&amp; this.width == rr.getWidth()) return true;
+        }
+        return false;
+    }
+
+    public int hashCode() {
+        return 1;
+    }
+
+    public double getArea() {
+        return this.width * this.length;
+    }
+
+    public double getPerimeter() {
+        return 2 * (this.width + this.length);
+    }
+
+    public String toString() {
+        double re1 = (double)Math.round(this.width*10)/10;
+        double re2 = (double)Math.round(this.length*10)/10;
+        return &quot;Rectangle[topLeft=&quot;+this.topLeft.toString()+&quot;,width=&quot; + re1 + &quot;,length=&quot; + re2 + &quot;,color=&quot; + this.getColor() + &quot;,filled=&quot; + this.isFilled() + &quot;]&quot;;
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

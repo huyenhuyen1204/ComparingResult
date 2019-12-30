@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>19503</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Circle.java</CENTER></H3><HR>
+<PRE>
+<A NAME="2"></A>import java.util.Queue;
+<FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match31910-1.html#2',3,'match31910-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>import java.util.Stack;
+
+public class Circle {
+    private double radius = 1.0;
+    private String color = &quot;red&quot;;
+    protected final double PI = 3.14;
+
+    public Circle(){}
+    public Circle</B></FONT>(double radius){
+        <font color="#C0C0C0"><EM>this.radius = radius;
+    }
+    public Circle(double radius, String color){
+        this.color = color;
+        this.radius = radius;
+    }
+
+    public double getRadius(){return radius;}</EM></font>
+
+    public void setRadius(double radius){
+        this.radius = radius;
+    }
+
+    public String getColor(){return color;}
+
+    public void setColor(String color){
+        this.color = color;
+    }
+
+    public double getArea(){
+        double Area = Math.pow(radius,2.)*PI;
+        return Area;
+    }
+
+    public String toString(){
+        String s = new String();
+        s += (&quot;Circle[radius=&quot;+this.radius+&quot;,color=&quot;+this.color+&quot;]&quot;);
+        return s;
+    }
+}
+
+
+</PRE>
+<HR>
+<H3><CENTER>Cylinder.java</CENTER></H3><HR>
+<PRE>
+import java.util.concurrent.CyclicBarrier;
+
+public class Cylinder extends Circle {
+    private double height = 1.0;
+
+    public Cylinder(){}
+    public Cylinder(double radius){
+        super(radius);
+    <font color="#C0C0C0"><EM>}
+
+    public Cylinder(double radius, double height, String color){
+        super(radius,color);
+        this.height = height;
+    }
+
+    public Cylinder(double radius, double height){
+        super(radius);
+        this.height = height;
+    }
+
+    public double getHeight(){return height;}
+
+    public void setHeight(double height){
+<A NAME="0"></A>        this.height = height;
+    }</EM></font>
+
+    public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match31910-1.html#0',3,'match31910-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>double getVolume(){
+        double Volume = (Math.pow(this.getRadius(),2.)*PI)*this.height;
+        return Volume;
+    }
+
+    public String toString(){
+        String s = new</B></FONT> String();
+        s += (&quot;Cylinder[&quot;+super.toString()+&quot;,height=&quot;+this.height+&quot;]&quot;);
+        return s;
+<A NAME="1"></A>    }
+
+    public double getArea(){
+        double area = 2*PI*this.getRadius()*this.height + 2*PI*<FONT color="#f63526"><A HREF="javascript:ZweiFrames('match31910-1.html#1',3,'match31910-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>Math.pow(this.getRadius(),2.);
+        return area;
+    }
+
+    public static void main(String[] args){
+        Cylinder cy = new Cylinder</B></FONT>(5.,6.);
+        Cylinder cy1 = new Cylinder(6.,7.,&quot;red&quot;);
+        System.out.print(cy1.toString());
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

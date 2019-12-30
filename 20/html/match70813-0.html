@@ -1,0 +1,263 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>26964</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Circle.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>
+
+<FONT color="#f63526"><A HREF="javascript:ZweiFrames('match70813-1.html#1',3,'match70813-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>import java.util.Objects;
+
+public class Circle extends Shape {
+    protected Point center;
+    protected double radius;
+    public Circle(){};
+    public Circle(double radius )
+    {
+        this.radius=radius;
+    }
+    public Circle(double radius ,String color,boolean filled)
+    {
+        super(color,filled);
+        this.radius=radius;
+    }
+    public Circle(Point a,double radius ,String color,boolean filled)
+    {
+        super(color,filled);
+        this</B></FONT>.center=a;
+        <font color="#C0C0C0"><EM>this.radius=radius;
+
+    }
+
+    public Point getCenter() {
+        return center;
+    }
+
+    public void setCenter(Point center) {
+        this.center = center;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }</EM></font>
+
+
+    @Override
+    public double getArea() {
+        double a= this.radius*this.radius;
+        return a*3.14;
+    <font color="#C0C0C0"><EM>}
+
+    @Override
+    public double getPerimeter() {
+        return 2*3.14*this.getRadius();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;</EM></font>
+        if (o == null || getClass() != o.getClass()) <font color="#C0C0C0"><EM>return false;
+        Circle circle = (Circle) o;
+        return Double.compare(circle.radius, radius) == 0 &amp;&amp;
+                center.equals(circle.center);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(center, radius);
+    }</EM></font>
+
+    @Override
+    public String toString() {
+        String s = &quot;Circle[center=&quot;+this.center.toString()+&quot;,radius=&quot;+this.radius+&quot;,color=&quot;+this.color+&quot;,filled=&quot;+this.filled+&quot;]&quot;;
+
+        return s;
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>Layer.java</CENTER></H3><HR>
+<PRE>
+
+
+import java.util.ArrayList;
+<font color="#C0C0C0"><EM>import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+
+public class Layer {
+    private List&lt;Shape&gt; shapes=new ArrayList</EM></font>&lt;&gt;();
+    public Layer(){};
+    public <font color="#C0C0C0"><EM>void addShape(Shape a){
+        shapes.add(a);
+    }
+    public void removeCircles()
+<A NAME="2"></A>    {
+        for(int i=0;i&lt;shapes</EM></font>.size();i++)
+        {
+            <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match70813-1.html#2',3,'match70813-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>if(shapes.get(i) instanceof Circle)
+            {
+                shapes.remove(i);
+                i--;
+            }
+        }
+    }
+    public String getInfo()
+    {
+        String s=&quot;Layer of crazy shapes: \n&quot;;
+        for (int i=0;i&lt;shapes.size()-1;i++)
+        {
+            s+=shapes</B></FONT>.get(i).toString();
+            s+=&quot;\n&quot;;
+<A NAME="3"></A>
+        }
+        s+=shapes.get(shapes.size()-1);
+        <FONT color="#6cc417"><A HREF="javascript:ZweiFrames('match70813-1.html#3',3,'match70813-top.html#3',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>return s;
+    }
+   public void removeDuplicates()
+    {
+        for(int i=0;i&lt;shapes.size()-1;i++)
+        {
+            for(int j=i+1;j&lt;shapes.size();j++)
+            {
+                if(shapes.get(i) instanceof Circle&amp;&amp;shapes</B></FONT>.get(j) instanceof Circle)
+                {
+                    if(shapes.get(i).equals(shapes.get(j))==true)
+                    {
+                        shapes.remove(j);
+                    }
+                }
+                if(shapes.get(i) instanceof Rectangle&amp;&amp;shapes.get(j) instanceof Rectangle)
+                {
+                    if(shapes.get(i).equals(shapes.get(j))==true)
+                    {
+                        shapes.remove(j);
+                    }
+                }
+                if(shapes.get(i) instanceof Square&amp;&amp;shapes.get(j) instanceof Square)
+                {
+                    if(shapes.get(i).equals(shapes.get(j))==true)
+                    {
+                        shapes.remove(j);
+                    }
+                }
+            }
+        }
+    }
+ /*public void removeDuplicates()
+ {
+     Set&lt;Shape&gt; set = new LinkedHashSet&lt;Shape&gt;();
+     set.addAll(shapes);
+     shapes.clear();
+     shapes.addAll(set);
+ }*/
+}
+</PRE>
+<HR>
+<H3><CENTER>Rectangle.java</CENTER></H3><HR>
+<PRE>
+
+
+import java.util.Objects;
+
+public class Rectangle extends Shape {
+    protected Point topLeft;
+    protected double width;
+    protected double length;
+    public Rectangle(){};
+    public Rectangle(double width,double length)
+    {
+        <font color="#C0C0C0"><EM>this.width=width;
+        this.length=length;
+    }
+    public Rectangle(double width,double length,String color,boolean filled)
+    {
+        super(color, filled);
+        this.width=width;
+        this.length=length;
+    }
+    public Rectangle(Point a,double width,double length,String color,boolean filled)
+    {
+        super</EM></font>(color, filled);
+        this.topLeft=a;
+        this.width=width;
+        <font color="#C0C0C0"><EM>this.length=length;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public double getLength() {
+        return length;
+    }
+
+    public void setLength(double length) {
+        this.length = length;
+    }
+
+    public Point getTopLeft() {
+        return topLeft;
+    }</EM></font>
+
+    public void setTopLeft(Point topLeft) {
+        this.topLeft = topLeft;
+    }
+
+
+    @Override
+    public double getArea() {
+        return (this.getWidth()*this.getLength());
+    }
+<A NAME="0"></A>
+    @Override
+    public double getPerimeter() {
+        return 2*(<FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match70813-1.html#0',3,'match70813-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>this.getWidth()+this.getLength());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Rectangle rectangle = (Rectangle) o;
+        return Double.compare(rectangle.width, width) == 0 &amp;&amp;
+                Double.compare(rectangle.length, length) == 0 &amp;&amp;
+                topLeft.equals(rectangle.topLeft);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects</B></FONT>.hash(topLeft, width, length);
+    }
+
+    @Override
+    public String toString() {
+        String s =  &quot;Rectangle[topLeft=&quot;+this.topLeft.toString()+&quot;,width=&quot;+this.width+&quot;,length=&quot;+this.length+&quot;,color=&quot;+this.color+&quot;,filled=&quot;+this.filled+&quot;]&quot;;
+        return s;
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

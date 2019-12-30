@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>29756</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Division.java</CENTER></H3><HR>
+<PRE>
+public <font color="#C0C0C0"><EM>class Division extends BinaryExpression {
+    public Division(Expression left, Expression right) {
+        super(left, right);
+    }
+
+<A NAME="2"></A>    @Override
+    public String toString() {
+        return &quot;(&quot; + left.toString() + &quot; / &quot; + right</EM></font>.toString() + &quot;)&quot; ;
+    <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match58038-1.html#2',3,'match58038-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>}
+
+    @Override
+    public double evaluate() {
+        if (right.evaluate() == 0)
+            throw new ArithmeticException(&quot;Lỗi chia cho 0&quot;);
+        else return left.evaluate() / right.evaluate();
+    }
+
+
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>ExpressionTest.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match58038-1.html#0',3,'match58038-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class ExpressionTest {
+    public static void main(String[] argv) {
+        // ((((10) ^ 2 + -3) + (5 * -3))) ^ 2 / 2;
+        Expression a1 = new Numeral(10);
+
+        Expression b = new Square(a1);
+
+        Expression c = new Addition</B></FONT>(b, new Numeral(-3));
+<A NAME="1"></A>
+        Expression a2 = new Numeral(5);
+
+        Expression a3 = new Multiplication(a2, new <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match58038-1.html#1',3,'match58038-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>Numeral(-3));
+
+        Expression d = new Addition(c, a3);
+
+        Expression e = new Square(d);
+
+        Expression f = new Division</B></FONT>(e, new Numeral(0));
+
+        System.out.println(e.toString()); // + &quot; &quot; + f.evaluate());
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

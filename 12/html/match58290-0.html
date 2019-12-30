@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>4537</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>BinaryExpression.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>//package com.company;
+
+abstract public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match58290-1.html#0',3,'match58290-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class BinaryExpression extends Expression {
+    protected Expression left;
+    protected Expression right;
+    public BinaryExpression(Expression left,Expression right){
+        this.left=left;this.right=right;
+    }
+    @Override
+    abstract public String</B></FONT> toString();
+    abstract public double evaluate();
+}
+</PRE>
+<HR>
+<H3><CENTER>Division.java</CENTER></H3><HR>
+<PRE>
+//package com.company;
+import java.lang.ArithmeticException;
+public <font color="#C0C0C0"><EM>class Division extends BinaryExpression{
+        public Division(Expression left,Expression right){
+            super(left,right);
+        }
+        @Override
+        public String toString() {
+            return &quot;(&quot;+left.toString()+&quot; / &quot;+right</EM></font>.toString()+&quot;)&quot;;
+        }
+<A NAME="4"></A>        @Override
+        public double evaluate(){
+            try {
+                <FONT color="#151b8d"><A HREF="javascript:ZweiFrames('match58290-1.html#4',3,'match58290-top.html#4',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>if ( right.evaluate()==0)
+                throw new  ArithmeticException();
+                else return (left.evaluate())/(right.evaluate());</B></FONT>
+            } catch (ArithmeticException e) {
+                System.out.println(&quot;Lỗi chia cho 0&quot;);
+            }
+            return 0;
+        }
+}
+</PRE>
+<HR>
+<H3><CENTER>ExpressionTest.java</CENTER></H3><HR>
+<PRE>
+<A NAME="2"></A>//package com.company;
+public <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match58290-1.html#2',3,'match58290-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class ExpressionTest {
+    public static void main(String[]args){
+        Numeral n1 = new Numeral(10.0);
+        Numeral n2 = new Numeral(3);
+        Numeral n3 = new Numeral(4);
+<A NAME="3"></A>        Numeral n4 = new Numeral</B></FONT>(3);
+        Square s1 = new Square(n1);
+        Multiplication m1= new Multiplication(n3,n4);
+        Subtraction s11= new <FONT color="#6cc417"><A HREF="javascript:ZweiFrames('match58290-1.html#3',3,'match58290-top.html#3',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>Subtraction(s1,n2);
+        Addition a1= new Addition(m1,s11);
+         Square s2= new Square(a1);
+        System.out.println(s2</B></FONT>.evaluate());
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>Numeral.java</CENTER></H3><HR>
+<PRE>
+//package com.company;
+
+public class Numeral extends Expression {
+    private double value;
+<A NAME="1"></A>    public Numeral(){}
+    public Numeral(double value){
+        this.value=value;
+    <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match58290-1.html#1',3,'match58290-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>}
+    public double getValue() {
+        return value;
+    }
+    public void setValue(double value) {
+        this.value = value;
+    }
+    @Override
+    public String toString(){
+        return Integer.toString((int) value);
+    }
+    @Override
+    public double evaluate() {
+        return value;
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>31189</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>ExpressionTest.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match58021-0.html#0',2,'match58021-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class ExpressionTest {
+    public static void main(String[] args) {
+        Expression n1 = new Numeral(1);
+        Expression n2 = new Numeral(2);
+        Expression n3 = new Numeral(3);
+        Expression n4 = new Numeral(4);
+        Expression n5 = new Numeral(0);
+
+        Expression a12 = new Addition(n1, n2);
+        Expression s34 = new Subtraction(n3, n4);
+        Expression sqr5 = new Square(n5);
+
+        Expression m = new Multiplication(a12, s34);
+        Expression d = new Division</B></FONT>(m, sqr5);
+
+        System.out.println(d);
+        System.out.println(d.evaluate());
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>17188</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Week4.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match27279-1.html#0',3,'match27279-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Week4 {
+
+    public static int max2Int(int a, int b){
+        boolean bol = (a &gt;= b) ;
+        if (bol) return a ;
+        else return b ;
+    }
+
+    public static int minArray(int[] arr){
+        int n = arr</B></FONT>.length ;
+            int <font color="#C0C0C0"><EM>kmin = arr[0] ;
+            for(int i = 0 ; i &lt; n; i++){
+                if (kmin &gt; arr[i]) kmin = arr[i] ;
+            }
+            return kmin ;
+    }
+
+    public static String calculateBMI(double weight, double height){
+            double BMI = (</EM></font>double) Math.round((weight / (height * height)) * 10) / 10;
+            System.out.println(BMI);
+            <font color="#C0C0C0"><EM>if (BMI &lt; 18.5) return &quot;Thiếu cân&quot; ;
+            else if (BMI &gt;= 18.5 &amp;&amp; BMI &lt;= 24.9) return &quot;Bình thường&quot;;
+            else if (BMI &gt;= 23 &amp;&amp; BMI &lt;= 24.9) return  &quot;Thừa cân&quot;;
+            else return &quot;Béo phì&quot;;
+    }
+
+}</EM></font>
+
+</PRE>
+
+</BODY>
+</HTML>

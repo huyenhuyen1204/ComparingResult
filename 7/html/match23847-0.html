@@ -1,0 +1,266 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>17805</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Week4.java</CENTER></H3><HR>
+<PRE>
+public class Week4 {
+
+    public static int max2Int(int a, int b) {
+        if(a&gt;b){
+            return a;
+        }
+        return b;
+
+    }
+
+
+    public static int minArray(int[] arr) {
+        int n=arr.length,<font color="#C0C0C0"><EM>min=99999;
+        for(int i=0;i&lt;n;i++){
+            if(arr[i]&lt;min) min=arr[i];
+        }
+        return min;
+    }
+
+
+    public static String calculateBMI(double weight, double height) {
+        double BMI;
+<A NAME="0"></A>        BMI</EM></font>=weight/(height*height);
+        BMI=(double)Math.round(BMI*10)/10;
+        String a;
+        <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match23847-1.html#0',3,'match23847-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>if(BMI&lt;18.9) a = &quot;Thiếu cân&quot;;
+        else if(BMI&gt;=18.9 &amp;&amp; BMI&lt;23) a = &quot;Bình thường&quot;;
+        else if(BMI&gt;=23 &amp;&amp; BMI&lt;24.9) a = &quot;Thừa cân&quot;;
+        else a = &quot;Béo phì&quot;;
+        return a;
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>Week4Test.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A><FONT color="#f63526"><A HREF="javascript:ZweiFrames('match23847-1.html#1',3,'match23847-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>import org.junit.Assert;
+
+import java.util.Random;
+
+public class Week4Test {
+
+    public void testMax2Int1(){
+        Random temp = new Random();
+        int c = temp.nextInt();
+        int d= temp.nextInt();
+        Assert.assertEquals(Math.max(c, d), Week4.max2Int (c,d));
+    }
+
+
+    public void testMax2Int2(){
+        Random temp = new Random();
+        int c = temp.nextInt();
+        int d= temp.nextInt();
+        Assert.assertEquals(Math.max(c, d), Week4.max2Int (c,d));
+    }
+
+
+    public void testMax2Int3(){
+        Random temp = new Random();
+        int c = temp.nextInt();
+        int d= temp.nextInt();
+        Assert.assertEquals(Math.max(c, d), Week4.max2Int (c,d));
+    }
+
+
+    public void testMax2Int4(){
+        Random temp = new Random();
+        int c = temp.nextInt();
+        int d= temp.nextInt();
+        Assert.assertEquals(Math.max(c, d), Week4.max2Int (c,d));
+    }
+
+
+    public void testMax2Int5(){
+        Random temp = new Random();
+        int c = temp.nextInt();
+        int d= temp.nextInt();
+        Assert.assertEquals(Math.max(c, d), Week4.max2Int (c,d));
+    }
+
+
+    public void testMinArray1(){
+<A NAME="2"></A>        Random temp = new Random(100);
+        Random sc =new</B></FONT> Random();
+        int n = temp.nextInt();
+        int[] <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match23847-1.html#2',3,'match23847-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>arr = new int[n];
+        for(int i=0;i&lt;n;i++){
+            arr[i]=sc.nextInt();
+        }
+        int min=99999;
+        for(int i=0;i&lt;n;i++){
+            if(arr[i]&lt;min) min=arr[i];
+        }
+        Assert.assertEquals(min, Week4.minArray(arr));
+
+    }
+
+
+    public void testMinArray2(){
+<A NAME="3"></A>        Random temp = new Random(100);
+        Random sc =new</B></FONT> Random();
+        int n = temp.nextInt();
+        int[] <FONT color="#6cc417"><A HREF="javascript:ZweiFrames('match23847-1.html#3',3,'match23847-top.html#3',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>arr = new int[n];
+        for(int i=0;i&lt;n;i++){
+            arr[i]=sc.nextInt();
+        }
+        int min=99999;
+        for(int i=0;i&lt;n;i++){
+            if(arr[i]&lt;min) min=arr[i];
+        }
+        Assert.assertEquals(min, Week4.minArray(arr));
+    }
+
+
+    public void testMinArray3(){
+<A NAME="4"></A>        Random temp = new Random(100);
+        Random sc =new</B></FONT> Random();
+        int n = temp.nextInt();
+        int[] <FONT color="#151b8d"><A HREF="javascript:ZweiFrames('match23847-1.html#4',3,'match23847-top.html#4',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>arr = new int[n];
+        for(int i=0;i&lt;n;i++){
+            arr[i]=sc.nextInt();
+        }
+        int min=99999;
+        for(int i=0;i&lt;n;i++){
+            if(arr[i]&lt;min) min=arr[i];
+        }
+        Assert.assertEquals(min, Week4.minArray(arr));
+    }
+
+
+    public void testMinArray4(){
+<A NAME="5"></A>        Random temp = new Random(100);
+        Random sc =new</B></FONT> Random();
+        int n = temp.nextInt();
+        int[] <FONT color="#c8c2a7"><A HREF="javascript:ZweiFrames('match23847-1.html#5',3,'match23847-top.html#5',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>arr = new int[n];
+        for(int i=0;i&lt;n;i++){
+            arr[i]=sc.nextInt();
+        }
+        int min=99999;
+        for(int i=0;i&lt;n;i++){
+            if(arr[i]&lt;min) min=arr[i];
+        }
+        Assert.assertEquals(min, Week4.minArray(arr));
+    }
+
+
+    public void testMinArray5(){
+<A NAME="6"></A>        Random temp = new Random(100);
+        Random sc =new</B></FONT> Random();
+        int n = temp.nextInt();
+        int[] <FONT color="#50ebec"><A HREF="javascript:ZweiFrames('match23847-1.html#6',3,'match23847-top.html#6',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>arr = new int[n];
+        for(int i=0;i&lt;n;i++){
+            arr[i]=sc.nextInt();
+        }
+        int min=99999;
+        for(int i=0;i&lt;n;i++){
+            if(arr[i]&lt;min) min=arr[i];
+        }
+        Assert.assertEquals(min, Week4.minArray(arr));
+    }
+
+
+    public void testCalculateBMI1(){
+        Random temp = new Random();
+        double weight = temp.nextDouble();
+<A NAME="7"></A>        double height = temp.nextDouble();
+        double BMI</B></FONT>;
+        String a;
+        <FONT color="#c58917"><A HREF="javascript:ZweiFrames('match23847-1.html#7',3,'match23847-top.html#7',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>BMI=weight/(height*height);
+        BMI=(double)Math.round(BMI*10)/10;
+        if(BMI&lt;18.9)  a = &quot;Thiếu cân&quot;;
+        else if(BMI&gt;=18.9 &amp;&amp; BMI&lt;23) a = &quot;Bình thường&quot;;
+        else if(BMI&gt;=23 &amp;&amp; BMI&lt;24.9) a = &quot;Thừa cân&quot;;
+        else a=&quot;Béo phì&quot;;
+        Assert.assertEquals(a, Week4.calculateBMI(weight,height));
+
+    }
+
+
+    public void testCalculateBMI2(){
+        Random temp = new Random();
+        double weight = temp.nextDouble();
+<A NAME="8"></A>        double height = temp.nextDouble();
+        double BMI</B></FONT>;
+        String a;
+        <FONT color="#bce954"><A HREF="javascript:ZweiFrames('match23847-1.html#8',3,'match23847-top.html#8',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>BMI=weight/(height*height);
+        BMI=(double)Math.round(BMI*10)/10;
+        if(BMI&lt;18.9)  a = &quot;Thiếu cân&quot;;
+        else if(BMI&gt;=18.9 &amp;&amp; BMI&lt;23) a = &quot;Bình thường&quot;;
+        else if(BMI&gt;=23 &amp;&amp; BMI&lt;24.9) a = &quot;Thừa cân&quot;;
+        else a=&quot;Béo phì&quot;;
+        Assert.assertEquals(a, Week4.calculateBMI(weight,height));
+    }
+
+
+    public void testCalculateBMI3(){
+        Random temp = new Random();
+        double weight = temp.nextDouble();
+<A NAME="9"></A>        double height = temp.nextDouble();
+        double BMI</B></FONT>;
+        String a;
+        <FONT color="#f88017"><A HREF="javascript:ZweiFrames('match23847-1.html#9',3,'match23847-top.html#9',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>BMI=weight/(height*height);
+        BMI=(double)Math.round(BMI*10)/10;
+        if(BMI&lt;18.9)  a = &quot;Thiếu cân&quot;;
+        else if(BMI&gt;=18.9 &amp;&amp; BMI&lt;23) a = &quot;Bình thường&quot;;
+        else if(BMI&gt;=23 &amp;&amp; BMI&lt;24.9) a = &quot;Thừa cân&quot;;
+        else a=&quot;Béo phì&quot;;
+        Assert.assertEquals(a, Week4.calculateBMI(weight,height));
+    }
+
+
+    public void testCalculateBMI4(){
+        Random temp = new Random();
+        double weight = temp.nextDouble();
+<A NAME="10"></A>        double height = temp.nextDouble();
+        double BMI</B></FONT>;
+        String a;
+        <FONT color="#b041ff"><A HREF="javascript:ZweiFrames('match23847-1.html#10',3,'match23847-top.html#10',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>BMI=weight/(height*height);
+        BMI=(double)Math.round(BMI*10)/10;
+        if(BMI&lt;18.9)  a = &quot;Thiếu cân&quot;;
+        else if(BMI&gt;=18.9 &amp;&amp; BMI&lt;23) a = &quot;Bình thường&quot;;
+        else if(BMI&gt;=23 &amp;&amp; BMI&lt;24.9) a = &quot;Thừa cân&quot;;
+        else a=&quot;Béo phì&quot;;
+        Assert.assertEquals(a, Week4.calculateBMI(weight,height));
+    }
+
+
+    public void testCalculateBMI5(){
+        Random temp = new Random();
+        double weight = temp.nextDouble();
+<A NAME="11"></A>        double height = temp.nextDouble();
+        double BMI</B></FONT>;
+        String a;
+        <FONT color="#571b7e"><A HREF="javascript:ZweiFrames('match23847-1.html#11',3,'match23847-top.html#11',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>BMI=weight/(height*height);
+        BMI=(double)Math.round(BMI*10)/10;
+        if(BMI&lt;18.9)  a = &quot;Thiếu cân&quot;;
+        else if(BMI&gt;=18.9 &amp;&amp; BMI&lt;23) a = &quot;Bình thường&quot;;
+        else if(BMI&gt;=23 &amp;&amp; BMI&lt;24.9) a = &quot;Thừa cân&quot;;
+        else a=&quot;Béo phì&quot;;
+        Assert.assertEquals(a, Week4.calculateBMI(weight,height));
+    }
+}</B></FONT> 
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>31064</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Week8_Task2.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A><FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match61178-0.html#0',2,'match61178-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>import java.io.*;
+import java.util.*;
+public class Week8_Task2 {
+    static String res;
+    static String NPEx(String s) throws NullPointerException {
+        if (s == null) throw new NullPointerException(&quot;Lỗi Null Pointer&quot;);
+        else {
+            if (s.equals(&quot;OK&quot;))return(&quot;OK&quot;);
+            else return(&quot;not OK&quot;);
+        }
+
+    }
+
+    static String NPExTest() {
+        try {
+            res = NPEx(null);
+        } catch (Exception e) {return(e.getMessage());};
+        return res;
+    }
+
+    static String AIOoBEx(int[] arr, int x) throws NullPointerException {
+        if (x &gt;= arr.length) throw new ArrayIndexOutOfBoundsException(&quot;Lỗi Array Index Out of Bounds&quot;);
+        else {
+            return(String.valueOf(arr[x]));
+        }
+
+    }
+
+    static String AIOoBExTest() {
+        try {
+            int a[] = {1,2,3,4,5};
+            res = AIOoBEx(a, 5);
+        } catch (Exception e) {return(e.getMessage());};
+        return res;
+    }
+
+    static String ArithEx(int a, int b) throws NullPointerException {
+        if (b == 0) throw new ArithmeticException(&quot;Lỗi Arithmetic&quot;);
+        else {
+            return(String.valueOf(a/b));
+        }
+
+    }
+
+    static String ArithExTest() {
+        try {
+            res = ArithEx(4,0 );
+        } catch (Exception e) {return(e.getMessage());};
+
+        return res;
+    }
+
+
+    static String FNFEx(String path) throws FileNotFoundException {
+        try {
+            FileReader in = new FileReader(path);
+            res = String.valueOf(in.read());
+
+        } catch (FileNotFoundException e) {
+            throw new FileNotFoundException(&quot;Lỗi File Not Found&quot;);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return res;
+    }
+
+    static String FNFExTest() {
+        try {
+            res = FNFEx(&quot;abc/def&quot;);
+        } catch (Exception e) {return(e.getMessage());};
+
+        return res;
+    }
+
+    static String IOEx() throws IOException {
+        File file;
+        BufferedReader fs = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            fs.close();
+            res = String.valueOf(fs.readLine());
+            res = String.valueOf(fs.readLine());
+
+        } catch (IOException e) {
+            throw new IOException(&quot;Lỗi IO&quot;);
+        }
+        finally {
+            fs.close();
+        }
+        return res;
+    }
+
+    static String IOExTest() {
+        try {
+            res = IOEx();
+        } catch (Exception e) {return(e.getMessage());};
+
+        return res;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(NPExTest());
+        System.out.println(AIOoBExTest());
+        System.out.println(ArithExTest());
+        System.out.println(FNFExTest());
+        System.out.println(IOExTest());
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

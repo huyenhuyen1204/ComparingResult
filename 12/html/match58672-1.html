@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>31187</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>src/Addition.java</CENTER></H3><HR>
+<PRE>
+public class Addition extends BinaryExpression {
+    private Expression leftAddition;
+    private Expression rightAddition;
+
+    // constructor with 2 parameters left and right
+    public Addition(Expression left, Expression right){
+<A NAME="5"></A>        leftAddition = left;
+        rightAddition = right;
+    }
+    <FONT color="#c8c2a7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match58672-0.html#5',2,'match58672-top.html#5',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>@Override
+    public String toString(){
+        return leftAddition + &quot; + &quot; + rightAddition; // Display the Addtion
+    }
+
+    @Override
+    public double evaluate() {
+        return leftExpression().evaluate() + rightExpression().evaluate();  // Evaluate Addtion
+    }
+
+    @Override
+    public Expression</B></FONT> leftExpression() {
+        return leftAddition;    // get leftAddtion
+    }
+
+    @Override
+    public Expression rightExpression() {
+        return rightAddition;    // get rightAddtion
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>src/BinaryExpression.java</CENTER></H3><HR>
+<PRE>
+public abstract class BinaryExpression extends Expression{
+    protected Expression left;
+    protected Expression right;
+    //constructor with 2 parameters left and right
+    public BinaryExpression(Expression left, Expression right){
+        this.left = left;
+        this.right = right;
+<A NAME="0"></A>    }
+    public BinaryExpression(){}
+
+    public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match58672-0.html#0',2,'match58672-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>void setLeft(Expression left) { this.left = left; }
+    public Expression getLeft() { return left; }
+
+    public void setRight(Expression right) { this.right = right;
+    }</B></FONT>
+    public Expression getRight() { return right; }
+
+    public abstract Expression leftExpression();
+    public abstract Expression rightExpression();
+}
+</PRE>
+<HR>
+<H3><CENTER>src/Division.java</CENTER></H3><HR>
+<PRE>
+public class Division extends BinaryExpression {
+    private Expression leftDivision;
+    private Expression rightDivision;
+
+    // constructor with 2 parameter left and right
+    public Division(Expression left, Expression right){
+        leftDivision = left;
+        rightDivision = right;
+    }
+
+    @Override
+    public String toString(){
+        if(!(rightDivision instanceof Numeral))
+            return leftExpression() + &quot; / &quot; + &quot;(&quot; + rightExpression() + &quot;)&quot;;
+        else if(!(leftDivision instanceof Numeral))
+            return &quot;(&quot; + leftExpression() +&quot;)&quot; + &quot; / &quot; + rightExpression();
+        else
+            return leftExpression() + &quot; * &quot; + rightExpression(); // Display Multiplication
+    }
+
+    @Override
+    public double evaluate() {
+        try {
+            return leftExpression().evaluate() / rightExpression().evaluate();  // Evaluate Division
+        }
+<A NAME="3"></A>        catch (ArithmeticException Err) {
+            System.out.println(&quot;Lỗi chia cho 0&quot;);  // Handle the Exception
+        }
+        <FONT color="#6cc417"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match58672-0.html#3',2,'match58672-top.html#3',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>return -1;
+    }
+
+    @Override
+    public Expression leftExpression() {
+        return leftDivision; // get leftAddtion
+    }
+
+    @Override
+    public Expression rightExpression() {
+        return</B></FONT> rightDivision;   // get rightAddtion
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>src/Expression.java</CENTER></H3><HR>
+<PRE>
+public abstract class Expression {
+    private String expression;
+
+    // 2 Constructors
+<A NAME="4"></A>    public Expression() {//Do nothing/
+    }
+
+    public <FONT color="#151b8d"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match58672-0.html#4',2,'match58672-top.html#4',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>Expression(String expression){
+        this.expression = expression;
+    }
+
+    public String getExpression() {
+        return expression;
+    }
+
+    public void setExpression(String expression) {
+        this.expression = expression;
+    }
+
+    @Override
+    public String toString(){
+        return</B></FONT> expression;
+    }
+    public abstract double evaluate();
+}
+</PRE>
+<HR>
+<H3><CENTER>src/ExpressionTest.java</CENTER></H3><HR>
+<PRE>
+<A NAME="2"></A>public class ExpressionTest {
+    public static void main(String[] args){
+        Expression <FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match58672-0.html#2',2,'match58672-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>x1 = new Numeral(10);
+        Expression x2 = new Numeral(1);
+        Expression x3 = new Numeral(2);
+        Expression x4 = new Numeral(3);
+
+        Expression bPhuong1 = new Square(x1);
+        Expression hieu = new Subtraction(bPhuong1,x2);
+        Expression tich = new Multiplication(x3,x4);
+        Expression tong = new Addition(hieu,tich);
+        Expression bPhuong2 = new Square</B></FONT>(tong);
+        double result = bPhuong2.evaluate();
+        System.out.println(bPhuong2.toString());
+        // System.out.print(&quot;([(((10) ^ 2 + -3) + (5 * -3))) ^ ]2&quot;);
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>src/Numeral.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>import java.lang.*;
+public <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match58672-0.html#1',2,'match58672-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class Numeral extends Expression {
+    private double value;
+    // 2 constructor
+    public Numeral(){
+        value = 0;
+    }
+    public Numeral(double value){
+        this.value = value;
+    }
+
+    public double getValue() {
+        return value;
+    }
+    public void setValue(double value) {
+        this.value = value;
+    }</B></FONT>
+    <font color="#C0C0C0"><EM>@Override
+    public String toString(){
+        return Double.toString(value);
+    }
+
+    @Override
+    public double evaluate(){
+        return value;
+    }
+}</EM></font>
+</PRE>
+
+</BODY>
+</HTML>

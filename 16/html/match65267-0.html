@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>33203</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/Person.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match65267-1.html#0',3,'match65267-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Person implements Comparable&lt;Person&gt; {
+    private String name;
+    private int age;
+    private String address;
+
+    public Person() {
+    }
+
+    public Person(String name, int age, String address) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @Override
+    public int</B></FONT> compareTo(Person o) {
+        int check;
+        if (this.age &lt; o.age)
+            check = -1;
+        else
+            check = 1;
+        return this.name.compareTo(o.name) * 100 + check * 10 + this.name.compareTo(o.name);
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>src/Week11.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>
+import java.util.ArrayList;
+<FONT color="#f63526"><A HREF="javascript:ZweiFrames('match65267-1.html#1',3,'match65267-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+public class Week11 {
+    public static &lt;T extends Comparable&lt;T&gt;&gt; List&lt;T&gt; sortGeneric(List&lt;T&gt; arr) {
+//        ArrayList&lt;T&gt; arrayList = new ArrayList&lt;&gt;();
+//        arrayList = (ArrayList&lt;T&gt;) arr;
+        for (int i = 0; i &lt; arr.size() - 1; i++)    
+            for (int j = i + 1; j &lt; arr.size(); j++)
+                if (arr.get(i).compareTo(arr</B></FONT>.get(j)) &gt; 0)
+                    Collections.swap(arr, i, j);
+
+        return arr;
+    }
+
+    public static void main(String[] args) {
+        Integer[] a = {5, 4, 3, 8, 9};
+        List&lt;Integer&gt; test = Arrays.asList(a);
+        test = sortGeneric(test);
+        for (Integer integer: test) {
+            System.out.println(integer);
+        }
+
+    }
+
+}
+</PRE>
+
+</BODY>
+</HTML>

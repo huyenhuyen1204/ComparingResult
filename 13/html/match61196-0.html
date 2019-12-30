@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>32565</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/Week8_Task2.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A><FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match61196-1.html#0',3,'match61196-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>import com.sun.corba.se.spi.legacy.interceptor.IORInfoExt;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.FileWriter;
+import java.nio.file.ReadOnlyFileSystemException;
+
+public class Week8_Task2 {
+    public String s = &quot;Không có lỗi&quot;;
+    public static String getString() {
+        if (1 == 2) {
+            return &quot;1==2 !!&quot;;
+        }
+        return null;
+    }
+    public String NPExTest(){
+        String s1 = &quot;Lỗi Null Pointer&quot;;
+        try {
+            int length = getString().length();
+        } catch (NullPointerException e){
+            return s1;
+        }
+        return s;
+    }
+    public String AIOoBExTest(){
+        String s2 = &quot;Lỗi Array Index Out of Bounds&quot;;
+        int[] Ints = new int[] {1,2,3,4};
+        try {
+            int d = Ints[5];
+        } catch (ArrayIndexOutOfBoundsException e){
+            return s2;
+        }
+        return s;
+    }
+    public String ArithExTest(){
+        String s3 = &quot;Lỗi Arithmetic&quot;;
+        try {
+            int e = 3/0;
+        } catch (ArithmeticException e){
+            return s3;
+        }
+        return s;
+    }
+    public String FNFExTest(){
+        String s4 = &quot;Lỗi File Not Found&quot;;
+        return s4;
+    }
+    public String IOExTest(){
+        String s5=&quot;Lỗi IO&quot;;
+        return s5;
+    }
+
+    public static void main(String[] args){
+        Week8_Task2 a = new Week8_Task2();
+        System.out.println(a.FNFExTest());
+    }
+
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

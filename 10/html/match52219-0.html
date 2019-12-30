@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>25246</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Circle.java</CENTER></H3><HR>
+<PRE>
+/**
+ * Created by CCNE on 14/10/2019.
+ */
+import java.lang.NoSuchFieldException;
+import java.lang.Math;
+public class Circle extends Shape {
+    protected double radius;
+    public Circle(){}
+    public Circle(double r){
+        <font color="#C0C0C0"><EM>radius = r;
+    }
+    public Circle(double r, String c, boolean f){
+        super(c,f);
+        radius = r;
+    }
+
+    public double getRadius(){
+        return radius;
+    }
+
+    public void setRadius( double r){
+        radius = r;
+<A NAME="2"></A>    }
+
+    public double getArea(){
+        return</EM></font> Math.PI * <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match52219-1.html#2',3,'match52219-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>getRadius() * getRadius();
+    }
+
+    public double getPerimeter(){
+        return 2 * Math.PI * getRadius();
+    }
+
+    public String toString(){
+        return &quot;Circle[radius=&quot; + getRadius() + &quot;,color=&quot; + getColor() + &quot;,filled=&quot; + isFilled() + &quot;]&quot;;
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>Square.java</CENTER></H3><HR>
+<PRE>
+/**
+<A NAME="0"></A> * Created by CCNE on 14/10/2019.
+ */
+import java.lang.NoSuchFieldException;
+public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match52219-1.html#0',3,'match52219-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Square extends Rectangle {
+    public Square(){}
+    public Square(double s){
+        super(s,s);
+    }
+    public Square(double s, String c, boolean f){
+        super(s,s,c,f);
+    }
+
+    public double getSide(){
+        return</B></FONT> super.getWidth();
+    <font color="#C0C0C0"><EM>}
+
+    public void setSide( double s){
+        super.setWidth(s);
+        super.setLength(s);
+    }
+    public void setWidth( double s){
+        super</EM></font>.setWidth(s);
+        super.setLength(s);
+<A NAME="1"></A>    }
+    public void setLength( double s){
+        super.setWidth(s);
+        <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match52219-1.html#1',3,'match52219-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>super.setLength(s);
+    }
+
+    public String toString(){
+        return &quot;Square[size=&quot; + getSide() + &quot;,color=&quot; + getColor() + &quot;,filled=&quot; + isFilled() + &quot;]&quot;;
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

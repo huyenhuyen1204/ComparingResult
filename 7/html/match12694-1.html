@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>16692</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>src/Week4.java</CENTER></H3><HR>
+<PRE>
+public class Week4 {
+/**
+ *
+ * @param a
+ * @param b
+ * @return max of $a and $b
+ */
+public static int max2Int(int a, int b) {
+        if (a&gt;=b) return a; else return b;
+}
+
+/**
+ *
+ * @param arr
+ * @return min of array $arr
+ */
+public static int minArray(int[] arr) {
+        int min = arr[0];
+        int <font color="#C0C0C0"><EM>length = arr.length;
+        for (int i = 0; i &lt; length; i++) {
+                if (arr[i] &lt; min) min = arr[i];
+        }
+        return min;
+}
+
+/**
+ *
+ * @param weight: in kg
+ * @param height: in m
+<A NAME="0"></A> * @return BMI index
+ */
+public static String calculateBMI(double weight, double height) {
+        double BMI = (</EM></font>double) <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match12694-0.html#0',2,'match12694-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>Math.round((weight/(height * height)) *10.0) / 10.0;
+        if(BMI &lt; 18.5) return &quot;Thiếu cân&quot;;
+        if(BMI &gt;= 18.5 &amp;&amp; BMI &lt;= 22.9) return &quot;Bình thường&quot;;
+        if(BMI &gt;= 23.0 &amp;&amp; BMI &lt;= 24.9) return &quot;Thừa cân&quot;;
+        else return &quot;Béo phì&quot;;
+}
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>src/Week4Test.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>import org.junit.Assert;
+<FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match12694-0.html#1',2,'match12694-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>import org.junit.Test;
+public class Week4Test {
+@Test
+public void testMax2Int1(){
+        final int expected = 10;
+        final int actual = Week4.max2Int(4,10);
+        Assert.assertEquals(expected,actual);
+}
+
+@Test
+public void testMax2Int2(){
+        final int expected = 9;
+        final int actual = Week4.max2Int(9,7);
+        Assert.assertEquals(expected,actual);
+}
+
+@Test
+public void testMax2Int3(){
+        final int expected = 900;
+        final int actual = Week4.max2Int(900,10);
+        Assert.assertEquals(expected,actual);
+}
+
+@Test
+public void testMax2Int4(){
+        final int expected = 20;
+        final int actual = Week4.max2Int(15,20);
+        Assert.assertEquals(expected,actual);
+}
+
+@Test
+public void testMax2Int5(){
+        final int expected = 99980;
+        final int actual = Week4.max2Int(99980,400);
+        Assert.assertEquals(expected,actual);
+}
+
+@Test
+<A NAME="2"></A>public void testMinArray1(){
+        final int expected = 19</B></FONT>;
+        final int[] Arr = {19, 20, 32, 40, 42};
+        final int <FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match12694-0.html#2',2,'match12694-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>actual = Week4.minArray(Arr);
+        Assert.assertEquals(expected,actual);
+}
+
+@Test
+<A NAME="3"></A>public void testMinArray2(){
+        final int expected = 8</B></FONT>;
+        final int[] Arr = {8, 10, 10, 8};
+        final int <FONT color="#6cc417"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match12694-0.html#3',2,'match12694-top.html#3',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>actual = Week4.minArray(Arr);
+        Assert.assertEquals(expected,actual);
+}
+
+@Test
+<A NAME="4"></A>public void testMinArray3(){
+        final int expected = 12</B></FONT>;
+        final int[] Arr = {15, 12, 60, 40, 30, 70};
+        final int <FONT color="#151b8d"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match12694-0.html#4',2,'match12694-top.html#4',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>actual = Week4.minArray(Arr);
+        Assert.assertEquals(expected,actual);
+}
+
+@Test
+<A NAME="5"></A>public void testMinArray4(){
+        final int expected = 11</B></FONT>;
+        final int[] Arr = {11, 20, 25, 19, 30, 40};
+        final int <FONT color="#c8c2a7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match12694-0.html#5',2,'match12694-top.html#5',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>actual = Week4.minArray(Arr);
+        Assert.assertEquals(expected,actual);
+}
+
+@Test
+<A NAME="6"></A>public void testMinArray5(){
+        final int expected = 9</B></FONT>;
+        final int[] Arr = {9, 29, 29, 10, 30, 40};
+        final int <FONT color="#50ebec"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match12694-0.html#6',2,'match12694-top.html#6',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>actual = Week4.minArray(Arr);
+        Assert.assertEquals(expected,actual);
+}
+
+@Test
+public void testCalculateBMI1(){
+        final String expected = &quot;Bình thường&quot;;
+        final String actual = Week4.calculateBMI(40, 1.35);
+        Assert.assertEquals(expected,actual);
+}
+
+@Test
+public void testCalculateBMI2(){
+        final String expected = &quot;Bình thường&quot;;
+        final String actual = Week4.calculateBMI(50, 1.5);
+        Assert.assertEquals(expected,actual);
+}
+
+@Test
+public void testCalculateBMI3(){
+        final String expected = &quot;Thiếu cân&quot;;
+        final String actual = Week4.calculateBMI(41.6, 1.5);
+        Assert.assertEquals(expected,actual);
+}
+
+@Test
+public void testCalculateBMI4(){
+        final String expected = &quot;Béo phì&quot;;
+        final String actual = Week4.calculateBMI(60, 1.4);
+
+        Assert.assertEquals(expected,actual);
+}
+
+@Test
+public void testCalculateBMI5(){
+        final String expected = &quot;Bình thường&quot;;
+        final String actual = Week4.calculateBMI(60, 1.65);
+        Assert.assertEquals(expected,actual);
+}
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

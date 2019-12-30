@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>28064</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/Circle.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match70498-1.html#0',3,'match70498-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Circle extends Shape{
+    protected Point center;
+    protected double radius;
+
+    public Circle(){}
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    public Circle(double radius, String color, boolean filled) {
+        super(color, filled);
+        this.radius = radius;
+    }
+
+    public Circle(Point center, double radius, String color, boolean filled) {
+        super(color, filled);
+        this</B></FONT>.center = center;
+        <font color="#C0C0C0"><EM>this.radius = radius;
+    }
+
+    public Point getCenter() {
+        return center;
+    }
+
+    public void setCenter(Point center) {
+        this.center = center;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+<A NAME="1"></A>    public void setRadius(double radius) {
+        this.radius = radius;
+    }</EM></font>
+    <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match70498-1.html#1',3,'match70498-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>@Override
+    public double getArea() {
+        return Math.PI*radius*radius;
+    }
+    @Override
+    public double getPerimeter() {
+        return 2*Math.PI*radius;
+    }
+    @Override
+    public String toString () {
+        return &quot;Circle[center=(&quot; + this.center.getX() + &quot;,&quot; + this.center.getY() + &quot;),radius=&quot; + this</B></FONT>.getRadius() + &quot;,color=&quot; + this.getColor()
+                + &quot;,filled=&quot; + this.isFilled() + &quot;]&quot;;
+    }
+
+    public boolean equals(Object obj) {
+        if (obj instanceof Circle) {
+            Circle circle = (Circle) obj;
+            return this.center.equals(circle.center) &amp;&amp; Math.abs(circle.getRadius() - this.getRadius()) &lt;= 0.001;
+        }
+
+        return false;
+    }
+    public int hashCode() {
+        return super.hashCode();
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>src/Layer.java</CENTER></H3><HR>
+<PRE>
+<font color="#C0C0C0"><EM>import java.util.ArrayList;
+import java.util.List;
+
+public class Layer {
+    private List&lt;Shape&gt; shapes=new ArrayList&lt;&gt;();
+
+    public void addShape(Shape shape) {
+        shapes.add(shape);
+    }
+<A NAME="2"></A>
+    public void removeCircles() {
+        for (int i = 0; i &lt; shapes</EM></font>.size(); i++) {
+            <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match70498-1.html#2',3,'match70498-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>if (shapes.get(i) instanceof Circle) {
+                shapes.remove(i);
+            }
+        }
+    }
+
+<A NAME="3"></A>    public String getInfo() {
+        String s = &quot;Layer of crazy shapes: \n&quot;;
+        for (int i=0;i&lt;shapes.size();i++) {
+            s</B></FONT> = s+<FONT color="#6cc417"><A HREF="javascript:ZweiFrames('match70498-1.html#3',3,'match70498-top.html#3',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>shapes.get(i).toString()+&quot;\n&quot;;
+        }
+        return s;
+    }
+
+    public void removeDuplicates() {
+        for (int i = 0; i &lt; shapes.size()-1; i++) {
+            for (int j = i+1; j &lt; shapes.size(); j++) {
+                if(shapes.get(i).equals(shapes.get(j))) {
+                    shapes.remove(j);
+                    j--;
+                }
+            }
+        }
+    }
+
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

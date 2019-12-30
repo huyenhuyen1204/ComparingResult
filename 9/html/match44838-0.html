@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>22228</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Week6.2/Student.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match44838-1.html#0',3,'match44838-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Student extends Person{
+    private String program;
+    private int year;
+    private double fee;
+
+    public Student(String name, String address, String program, int year, double fee){
+        super(name,address);
+        this.setProgram(program);
+        this.setYear(year);
+        this</B></FONT>.setFee(fee);
+    <font color="#C0C0C0"><EM>}
+
+    public String getProgram(){
+        return program;
+    }
+    public void setProgram(String program){
+        this.program=program;
+    }
+    public int getYear() {
+        return year;
+    }
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public double getFee() {
+        return fee;
+    }
+    public void setFee(double fee) {
+        this.fee = fee;
+    }</EM></font>
+    public String toString(){
+        return &quot;Student[Person[name=&quot;+this.getName()+&quot;,address=&quot;+this.getAddress()+&quot;],program=&quot;+this.getProgram()+&quot;,year=&quot; + year + &quot;,fee=&quot;+ fee+&quot;]&quot;;
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>Week6.2/TestPerson.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>public class TestPerson {
+    public static <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match44838-1.html#1',3,'match44838-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>void main(String[]args){
+        Student s1;
+        s1 = new Student(&quot;thanh binh&quot;,&quot;144 Xuan Thuy&quot;,&quot;QH2018&quot;,100);
+        System.out.println(s1.toString());
+
+        Staff t1= new Staff(&quot;binh thanh&quot;,&quot;144 xuan thuy&quot;,&quot;DHCN&quot;,100);
+        System.out.println(t1.toString());
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

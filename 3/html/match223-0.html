@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>8450</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Student.java</CENTER></H3><HR>
+<PRE>
+
+public class Student {
+    private String name, id, group, email;
+    boolean isAddstring;
+    Student(){
+        name = &quot;Student&quot;;
+        id = &quot;000&quot;;
+        group = &quot;K62CB&quot;;
+        email = &quot;uet@vnu.edu.vn&quot;;
+        isAddstring = false;
+    }
+
+    Student(Student s){
+        name = s.getName();
+        id = s.getId();
+        group = s.getGroup();
+        email = s.getEmail();
+        isAddstring = false;
+    }
+
+    Student(String name, String id, String email){
+        this.name = name;
+        this.id = id;
+        this.group = &quot;K62CB&quot;;
+        this.email = email;
+<A NAME="0"></A>        this.isAddstring = false;
+    }
+
+    public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match223-1.html#0',3,'match223-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>String getName(){
+        return name;
+    }
+    public void setName(String name_)
+    {
+        this.name = name_;
+    }
+
+    public void setGroup(String group_){ this.group = group_; }</B></FONT>
+    public String getGroup(){
+        return group;
+    }
+
+    public boolean getIsAddString(){
+        return isAddstring;
+    }
+    public void setIsAddString(){
+        this.isAddstring = true;
+    <font color="#C0C0C0"><EM>}
+
+    public void setId(String id_){ this.id = id_; }
+    public String getId(){return id;}
+
+    public void setEmail(String email_){this.email = email_;}
+
+    public String getEmail() {return email;}</EM></font>
+
+    String getInfo(){
+        String result = name + &quot; - &quot; + id + &quot; - &quot; + group + &quot; - &quot; + email;
+        return result;
+    }
+}
+
+</PRE>
+<HR>
+<H3><CENTER>StudentManagement.java</CENTER></H3><HR>
+<PRE>
+
+public class StudentManagement {
+    int index;
+    StudentManagement(){
+        index = 0;
+<A NAME="1"></A>    }
+    public static Student[] students = new Student[100];
+
+    public static <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match223-1.html#1',3,'match223-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>boolean sameGroup(Student s1, Student s2)
+    {
+        return s1.getGroup().equals(s2.getGroup());
+    }
+
+    public void addStudent(Student newStudent) {
+        students[index] = newStudent;
+        index++;
+    }
+
+    public String studentsByGroup() {
+
+        String result = &quot;&quot;;
+        for (int i = 0; i &lt; index; i++) {
+            if</B></FONT> (students[i].getIsAddString() == false) {
+                result = result + students[i].getGroup() + &quot;\n&quot;;
+            }
+<A NAME="2"></A>            for (int j = i; j &lt; index; j++) {
+                if (students[j].getIsAddString() == false &amp;&amp; sameGroup(students[i], students[j])) {
+                    result = result + students[j].getInfo() + &quot;\n&quot;;
+                    <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match223-1.html#2',3,'match223-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>students[j].setIsAddString();
+                }
+            }
+        }
+        return result;
+    }
+
+    public void removeStudent(String id) {
+        for(int i=0; i&lt;index; i++){
+            if(students[i].getId().equals(id)){
+                for(int j = i; j&lt;index; j++){
+                    students[j] = students[j+1];
+                }
+                break;
+            }
+        }
+        index--;
+    }
+
+    public static void main(String[] args) {
+
+    }
+}</B></FONT>
+
+</PRE>
+
+</BODY>
+</HTML>

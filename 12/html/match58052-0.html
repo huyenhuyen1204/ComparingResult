@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>30709</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>BinaryExpression.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public abstract <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match58052-1.html#0',3,'match58052-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class BinaryExpression extends Expression
+{
+    protected Expression left;
+    protected Expression right;
+
+    public BinaryExpression(Expression left, Expression right) {
+        this.left = left;
+        this.right = right;
+    }
+
+    public abstract String toString();
+
+    public abstract double evaluate();
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>ExpressionTest.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>import java.sql.SQLInvalidAuthorizationSpecException;
+
+public <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match58052-1.html#1',3,'match58052-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class ExpressionTest
+{
+    public static void main(String[] args) {
+        Expression o1 = new Numeral(10.33);
+        Expression o2 = new Numeral(3);
+        Expression o3 = new Numeral(4);
+        Expression o5 = new Numeral(0);
+
+        Expression o4 = new Addition</B></FONT>(new Subtraction(new Square(o1), o2), new Division(o3, o2));
+        o4 = new Square(o4);
+
+        o5 = new Division(o5, o5);
+
+        System.out.println(o4.toString());
+
+
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

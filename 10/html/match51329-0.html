@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>25944</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Circle.java</CENTER></H3><HR>
+<PRE>
+public class Circle extends Shape {
+    protected double radius;
+    public Circle(){};
+    public Circle(double r)
+    {
+        <font color="#C0C0C0"><EM>this.radius=r;
+    }
+    public Circle(double r, String c, boolean f)
+    {
+        super(c,f);
+        this.radius=r;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+<A NAME="1"></A>    }
+    public double getArea()
+    {
+        return</EM></font> <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match51329-1.html#1',3,'match51329-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>Math.pow(radius,2)*Math.PI;
+    }
+    public double getPerimeter()
+    {
+        return radius*2*Math.PI;
+    }
+    public String toString()
+    {
+        return &quot;Circle[radius=&quot;+radius+&quot;,color=&quot;+super.color+&quot;,filled=&quot;+super.filled+&quot;]&quot;;
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>Square.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match51329-1.html#0',3,'match51329-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Square extends Rectangle {
+    public void setWidth(double w)
+    {
+        super.setWidth(w);
+        super.setLength(w);
+    }
+    public void setLength(double l)
+    {
+        super.setLength(l);
+        super.setWidth(l);
+    }
+    public Square(){};
+    public Square(double side)
+    {
+        super(side,side);
+    }
+    public Square(double side, String c, boolean f)
+    {
+        super(side,side,c,f);
+    }
+    public double getSide()
+    {
+        return super.getLength();
+    }
+    public void setSide(double side)
+    {
+        super.setLength(side);
+        super.setWidth(side);
+    }
+    public String toString()
+    {
+        return &quot;Square[side=&quot;+super.getLength()+&quot;,color=&quot;+super.color+&quot;,filled=&quot;+super.filled+&quot;]&quot;;
+    }
+  /*  public static void main(String[] args)
+    {
+        Circle n = new Circle(5);
+        System.out.println(n.getArea());
+        System.out.println(n.toString());
+    }*/
+
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>33372</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Person.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>
+import java.util.ArrayList;
+<FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match65707-1.html#0',3,'match65707-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>import java.util.Collections;
+import java.util.List;
+
+public class Person implements Comparable&lt;Person&gt;{
+    private String name;
+    private int age;
+    private String address;
+    public Person(){}
+
+    public Person(String  name , int age, String address) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }</B></FONT>
+
+    public <font color="#C0C0C0"><EM>void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }</EM></font>
+
+    public String getName() {
+        return name;
+    }
+
+    public int compareTo(Person person){
+        if(name.equals(person.name)){
+            return age - person.age;
+        }
+        else return name.compareTo(person.name);
+    }
+<A NAME="1"></A>
+    public String toString()
+    {
+        <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match65707-1.html#1',3,'match65707-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>return name+ &quot; , &quot;+ age +&quot; , &quot;+ address;
+    }
+
+    public static void main(String [] args)
+    {
+        Person e1 = new Person(&quot;aTestName&quot;, 34,  &quot;dLastName&quot;);
+        Person e2 = new Person( &quot;aTestName&quot;, 31, &quot;pLastName&quot;);
+        Person e3 = new Person( &quot;aTestName&quot;, 31,&quot;sLastName&quot;);
+        Person e4 = new Person(&quot;dTestName&quot;, 25 , &quot;zLastName&quot;);
+        List&lt;Person&gt; employees = new ArrayList&lt;Person&gt;();
+        employees.add(e2);
+        employees.add(e3);
+        employees.add(e1);
+        employees.add(e4);
+        employees = Week11.sortGeneric(employees);
+        for</B></FONT>(int i=0; i&lt;employees.size(); i++){
+            System.out.println(employees.get(i).toString());
+        }
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

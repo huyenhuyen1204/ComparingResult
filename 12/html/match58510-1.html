@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>26672</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>a/BinaryExpression.java</CENTER></H3><HR>
+<PRE>
+
+
+public abstract class BinaryExpression extends Expression  {
+    protected Expression left;
+<A NAME="1"></A>    protected Expression right;
+    public BinaryExpression(Expression left,Expression right){
+        this.left =left;
+        <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match58510-0.html#1',2,'match58510-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>this.right =right;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;&quot;;
+    }
+
+    @Override
+    public double evaluate() {
+        return</B></FONT> 0;
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>a/Division.java</CENTER></H3><HR>
+<PRE>
+
+
+public class Division extends BinaryExpression {
+    public Division(Expression left,Expression right){
+<A NAME="2"></A>        super(left, right);
+    }
+
+    <FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match58510-0.html#2',2,'match58510-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>@Override
+    public double evaluate()  {
+            double so = super.right.evaluate();
+            if (so == 0) throw new ArithmeticException(&quot;Lỗi chia cho 0&quot;);
+            return</B></FONT> <font color="#C0C0C0"><EM>super.left.evaluate()/super.right.evaluate();
+
+
+    }
+
+    @Override
+    public String toString() {
+        return &quot;(&quot;+super.left.toString()+&quot; / &quot;+super.right.toString()+&quot;)&quot;;
+    }
+}</EM></font>
+</PRE>
+<HR>
+<H3><CENTER>a/ExpressionTest.java</CENTER></H3><HR>
+<PRE>
+
+<A NAME="0"></A>public class ExpressionTest {
+    public static void main(String[] args) {
+        // write your code here
+        Numeral <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match58510-0.html#0',2,'match58510-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>m10 = new Numeral(10);
+        Numeral m3 =new Numeral(3);
+        Numeral m4 = new Numeral(4);
+        Square square1 = new Square(m10);
+        Subtraction subtraction = new Subtraction(square1,m3);
+        Multiplication multiplication =new Multiplication(m4,m3);
+        Addition addition =new Addition(subtraction,multiplication);
+        Square square = new Square</B></FONT>(addition);
+        System.out.println(square.evaluate());
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

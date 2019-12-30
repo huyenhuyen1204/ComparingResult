@@ -1,0 +1,256 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>26860</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/Circle.java</CENTER></H3><HR>
+<PRE>
+import java.awt.*;
+import java.util.Objects;
+
+<A NAME="3"></A>public class Circle extends Shape {
+    protected double radius;
+    protected Point center;
+    public Circle(){super();<FONT color="#6cc417"><A HREF="javascript:ZweiFrames('match69819-1.html#3',3,'match69819-top.html#3',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>}
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    public Circle(double radius,String color, boolean filled) {
+        super(color, filled);
+        this.radius = radius;
+    }
+
+    public Circle( Point center,double radius,String color, boolean filled) {
+        super(color, filled);
+        this</B></FONT>.radius = radius;
+        <font color="#C0C0C0"><EM>this.center = center;
+    }
+
+    public Point getCenter() {
+        return center;
+    }
+
+    public void setCenter(Point center) {
+        this.center = center;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }</EM></font>
+
+    @Override
+    public double getArea() {
+        <font color="#C0C0C0"><EM>return (double)Math.PI* this.getRadius()*this.getRadius();
+    }
+
+    @Override
+    public double getPerimeter() {
+        return 2*(double)Math.PI*this.getRadius();
+    }</EM></font>
+
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Circle circle = (Circle) o;
+//        return Double.compare(circle.radius, radius) == 0 &amp;&amp;
+//                center.equals(circle.center);
+//    }
+//    public boolean equals(Object other){
+//
+//       if(other instanceof Circle){
+//            if(this.getCenter().equals(((Circle)other).getCenter()&amp;&amp;Math.abs(this.getRadius()-((Circle)other).getRadius())&lt;=0.001){
+//                return  true;
+//           }else retun false;
+//
+//       }
+//
+//    }
+<A NAME="4"></A>    public boolean equals(Object other)
+    {
+    if (other instanceof Circle){
+        if (<FONT color="#151b8d"><A HREF="javascript:ZweiFrames('match69819-1.html#4',3,'match69819-top.html#4',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>this.getCenter().equals(((Circle) other).getCenter()) &amp;&amp;
+                Math.abs(this.getRadius() - ((Circle) other).getRadius()) &lt;= 0.001)
+           return true;
+
+    }
+    return false;
+
+    }
+
+    @Override
+    public String toString(){
+        String s3 = &quot;Circle[center=&quot; + this</B></FONT>.getCenter().toString() + &quot;,radius=&quot; + this.getRadius() + &quot;,color=&quot; + super.getColor() + &quot;,filled=&quot; + super.isFilled() + &quot;]&quot;;
+        return s3;
+    }
+
+
+}
+</PRE>
+<HR>
+<H3><CENTER>src/Rectangle.java</CENTER></H3><HR>
+<PRE>
+import java.awt.*;
+<font color="#C0C0C0"><EM>import java.util.Objects;
+
+public class Rectangle extends Shape {
+    protected double width;
+    protected double length;
+    protected Point topLeft;
+
+    public Rectangle() {
+        super();
+    }
+
+    public Rectangle</EM></font>(double width, double length) {
+        <font color="#C0C0C0"><EM>this.width = width;
+        this.length = length;
+    }
+
+    public Rectangle(double width, double length, String color, boolean filled) {
+        super(color, filled);
+        this.width = width;
+        this.length = length;
+    }
+    public Rectangle(Point topLeft,double width, double length, String color, boolean filled){
+        super</EM></font>(color,filled);
+        this.width = width;
+        this.length = length;
+        <font color="#C0C0C0"><EM>this.topLeft = topLeft;
+    }
+
+    public Point getTopLeft() {
+        return topLeft;
+    }
+
+    public void setTopLeft(Point topLeft) {
+        this.topLeft = topLeft;
+    }
+
+
+
+    public double getWidth() {
+        return width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public double getLength() {
+        return length;
+    }</EM></font>
+
+    public void setLength(double length) {
+        this.length = length;
+    }
+
+    @Override
+    public double getArea() {
+        double S =  this.getWidth() * this.getLength();
+        return S;
+    }
+
+    @Override
+    public double getPerimeter() {
+        double P = 2 * (this.getWidth() + this.getLength());
+        return P;
+    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Rectangle rectangle = (Rectangle) o;
+//        return Double.compare(rectangle.width, width) == 0 &amp;&amp;
+//                Double.compare(rectangle.length, length) == 0 &amp;&amp;
+//                topLeft.equals(rectangle.topLeft);
+//    }
+<A NAME="2"></A>    public boolean equals(Object other){
+    if (other instanceof Rectangle){
+        if (this.getTopLeft().equals(((Rectangle) other).getTopLeft()) &amp;&amp;
+                Math.abs(this.getWidth() - <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match69819-1.html#2',3,'match69819-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>((Rectangle) other).getWidth()) &lt;= 0.001 &amp;&amp;
+                Math.abs(this.getLength() - ((Rectangle) other).getLength()) &lt;= 0.001)
+            return true;
+        }
+    return false;
+    }
+
+    @Override
+    public String toString(){
+        String s4 =  &quot;Rectangle[topLeft=&quot; + this.getTopLeft().toString() +
+                &quot;,width=&quot; + this.getWidth() + &quot;,length=&quot; + this</B></FONT>.getLength() +
+                &quot;,color=&quot; + super.getColor() + &quot;,filled=&quot; + super.isFilled() + &quot;]&quot;;
+    return s4;
+    }
+
+}
+</PRE>
+<HR>
+<H3><CENTER>src/Square.java</CENTER></H3><HR>
+<PRE>
+public class Square extends Rectangle {
+    public Square(){super();}
+    public Square(double side){
+        super(side,side);
+    <font color="#C0C0C0"><EM>}
+    public Square(double side,String color, boolean filled){
+        super(side,side, color,filled);
+    }
+    public Square(Point topLeft,double side, String color, boolean filled){
+<A NAME="0"></A>        super(topLeft,side,side,color,filled);
+    }
+    public double getSide(){
+        return</EM></font> <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match69819-1.html#0',3,'match69819-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>super.getWidth();
+    }
+    public void setSide(double side){
+        super.setWidth(side);
+        super.setLength(side);
+    }
+    @Override
+    public void setWidth(double side) {
+        super.setWidth(side);
+        super.setLength(side);
+    }
+
+    @Override
+    public void setLength(double side) {
+        super.setWidth(side);
+        super.setLength(side);
+<A NAME="1"></A>    }
+    public boolean equals(Object other){
+        if</B></FONT> (other instanceof Square){
+            if (<FONT color="#f63526"><A HREF="javascript:ZweiFrames('match69819-1.html#1',3,'match69819-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>super.equals((Rectangle) other))
+                return true;
+        }
+        return false;
+    }
+    @Override
+    public String toString(){
+        String s5 =  &quot;Square[topLeft=&quot; + super.getTopLeft().toString() +
+                &quot;,side=&quot; + this.getSide() + &quot;,color=&quot; + super</B></FONT>.getColor() +
+                &quot;,filled=&quot; + super.isFilled() + &quot;]&quot;;
+        return s5;
+    }
+
+}
+</PRE>
+
+</BODY>
+</HTML>

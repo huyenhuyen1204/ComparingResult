@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>6550</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>StudentManagement.java</CENTER></H3><HR>
+<PRE>
+public class StudentManagement {
+
+<A NAME="0"></A>    Student[] students = new Student[100];
+    int index = 0;
+
+    public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match5340-0.html#0',2,'match5340-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>StudentManagement() {}
+
+    public static boolean sameGroup(Student s1, Student s2) {
+        return s1.getGroup().equals(s2.getGroup()); // xoa dong nay sau khi cai dat
+    }
+
+    public void addStudent(Student newStudent){
+        if (index &lt; 100)
+            students[index++] = newStudent;</B></FONT>
+    <font color="#C0C0C0"><EM>}
+
+    public String studentsByGroup() {
+        String s = &quot;&quot;;
+        boolean[] checked = new boolean[index];
+        for (int i = 0; i &lt; index; i++)
+            checked[i] = false;
+<A NAME="1"></A>        for (int i = 0; i &lt; index; i++)
+        {
+            if</EM></font> (!checked[i]) {
+                String <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match5340-0.html#1',2,'match5340-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>g = students[i].getGroup();
+                s = s + g + &quot;\n&quot;;
+                for (int j = 0; j &lt; index; j++)
+                {
+                    if (<font color="#C0C0C0"><EM>students</B></FONT>[j].getGroup().equals(g))
+                    {
+                        s = s + students[j].getInfo() + &quot;\n&quot;;
+                        checked[j] = true;
+                    }
+                }
+            }
+        }
+	    return s;
+    }
+
+    public void</EM></font> removeStudent(String id) {
+        for (int i = 0; i &lt; index; ++i)
+        {
+            if (students[i].getId().equals(id))
+<A NAME="2"></A>            {
+                int j = i;
+                for (; j &lt; index; j++) {
+                    <FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match5340-0.html#2',2,'match5340-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>students[j] = students[j + 1];
+                }
+                students[--index] = null;
+                i = -1;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+
+
+        Student s7 = new Student(&quot;Nguyen Van E&quot;, &quot;17020002&quot;, &quot;17020001@vnu.edu.vn&quot;);
+        s7.setGroup(&quot;K64CA&quot;);
+        Student s1 = new Student(&quot;Nguyen Van An&quot;, &quot;17020001&quot;, &quot;17020001@vnu.edu.vn&quot;);
+        // Student s2 = new Student();
+        // Student s3 = new Student();
+        Student s4 = new Student</B></FONT>(&quot;Nguyen Van C&quot;, &quot;17020001&quot;, &quot;17020001@vnu.edu.vn&quot;);
+        Student s5 = new Student(&quot;Nguyen Van D&quot;, &quot;17020001&quot;, &quot;17020001@vnu.edu.vn&quot;);
+        Student <font color="#C0C0C0"><EM>s6 = new Student(&quot;Nguyen Van B&quot;, &quot;17020003&quot;, &quot;17020001@vnu.edu.vn&quot;);
+        s6.setGroup(&quot;K63CB&quot;);
+        Student s8 = new Student(&quot;Nguyen Van B&quot;, &quot;17020005&quot;, &quot;17020001@vnu.edu.vn&quot;);
+        s6.setGroup(&quot;K63CB&quot;);
+
+        StudentManagement sm = new StudentManagement();
+
+        sm.addStudent(s1);
+        sm.addStudent(s5);
+        sm.addStudent(s4);
+        // sm.addStudent(s3);
+        sm.addStudent(s7);
+        sm.addStudent(s6);
+        // sm.addStudent(s2); 
+        sm.addStudent(s8);
+
+        System.out.println(sm.studentsByGroup());
+        System.out.println(&quot;------------&quot;);
+        
+        sm.removeStudent(&quot;17020001&quot;);
+        sm.removeStudent(&quot;17020003&quot;);
+        
+        System.out.println(sm</EM></font>.studentsByGroup());
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

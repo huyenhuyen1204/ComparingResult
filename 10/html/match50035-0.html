@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>25249</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>187/Circle.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>public <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match50035-1.html#1',3,'match50035-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Circle extends Shape{
+    protected double radius;
+    public Circle()
+    {
+
+    }
+    public Circle(double radius)
+    {
+        this.radius=radius;
+    }
+    public Circle(double radius,String color,boolean filled)
+    {
+        this.radius=radius;
+        this</B></FONT>.color=color;
+        this.setFilled(filled);
+
+    <font color="#C0C0C0"><EM>}
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+    public double getArea()
+    {
+        return this.radius *this.radius *Math.PI;
+    }
+    public double getPerimeter()
+    {
+
+        return 2*Math.PI*this.radius;
+    }</EM></font>
+    public String toString()
+    {
+
+        return &quot;Circle[radius=&quot;+this.radius+&quot;,color=&quot;+super.getColor()+&quot;,filled=&quot;+super.isFilled()+&quot;]&quot;;
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>187/Square.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public  <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match50035-1.html#0',3,'match50035-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Square extends  Rectangle {
+   public Square()
+   {
+
+   }
+   public  Square(double side)
+   {
+       this.width = this.length =side;
+   }
+   public  Square(double side,String color,boolean filled)
+   {
+       this.width = this.length =side;
+       this.color = color;
+       this.filled = filled;
+   }
+   public  double getSide()
+   {
+       return this.width ;
+   }
+   public void setSide(double side)
+   {
+       this.width= side;
+       this.length=side;
+   }
+    @Override
+    public void setWidth(double side) {
+      this.width=side;
+      this.length=side;
+    }
+    @Override
+    public void setLength(double side) {
+       this.length=side;
+       this.width=side;
+    }
+    @Override
+    public String toString() {
+       return</B></FONT> &quot;Square[side=&quot;+this.getSide()+&quot;,color=&quot;+this.getColor()+&quot;,filled=&quot;+this.isFilled()+&quot;]&quot;;
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

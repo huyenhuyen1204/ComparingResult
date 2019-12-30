@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>21407</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>k2/Staff.java</CENTER></H3><HR>
+<PRE>
+public <font color="#C0C0C0"><EM>class Staff extends Person {
+    private String school;
+    private double pay;
+    public Staff(String name, String address, String school, double pay){
+        super(name, address);
+        this.school = school;
+        this.pay = pay;
+    }
+<A NAME="1"></A>    public String getSchool() {
+        return this.school;
+    }</EM></font>
+    public <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match43809-0.html#1',2,'match43809-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>double getPay() {
+        return this.pay;
+    }
+    public void setPay(double pay) {
+        this.pay = pay;
+    }
+    public void setSchool(String school) {
+        this.school = school;
+    }
+    public String toString() {
+        return &quot;Staff[&quot;+super.toString()+&quot;,school=&quot;+this.school+&quot;,pay=&quot;+this.pay+&quot;]&quot;;
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>k2/Student.java</CENTER></H3><HR>
+<PRE>
+public <font color="#C0C0C0"><EM>class Student extends Person {
+    private String program;
+    private int year;
+    private double fee;
+    public Student(String name, String address, String program, int year, double fee){
+        super(name, address);
+        this.program = program;
+        this.year = year;
+        this.fee = fee;
+    }
+<A NAME="0"></A>    public String getProgram() {
+        return this.program;
+    }</EM></font>
+    public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match43809-0.html#0',2,'match43809-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>double getFee() {
+        return this.fee;
+    }
+    public int getYear() {
+        return this.year;
+    }
+    public void setProgram(String program) {
+        this.program = program;
+    }
+    public void setFee(double fee) {
+        this.fee = fee;
+    }
+    public void setYear(int year) {
+        this.year = year;
+    }
+    public String toString() {
+        return &quot;Student[&quot; + super.toString() + &quot;,program=&quot; + this.program + &quot;,year=&quot; + this.year + &quot;,fee=&quot; + this.fee + &quot;]&quot;;
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

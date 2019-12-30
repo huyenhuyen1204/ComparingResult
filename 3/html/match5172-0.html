@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>9486</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/Student.java</CENTER></H3><HR>
+<PRE>
+public class Student {
+    private String name, id, group, email;
+    // Constructor
+    <font color="#C0C0C0"><EM>Student(){
+        this.name = &quot;Student&quot;;
+        this.id = &quot;000&quot;;
+        this.group = &quot;K62CB&quot;;
+        this.email = &quot;uet@vnu.edu.vn&quot;;
+    }
+
+    Student(String name, String id, String email){
+        this.name = name;
+        this.id = id;
+        this.email = email;
+        this.group = &quot;K62CB&quot;;
+    }
+
+    public Student(String name, String id, String group, String email) {
+        this.name = name;
+        this.id = id;
+        this.group = group;
+<A NAME="0"></A>        this.email = email;
+    }</EM></font>
+
+    <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match5172-1.html#0',3,'match5172-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>Student(Student s){
+        this.name = s.getName();
+        this.id = s.getId();
+        this.email = s.getEmail();
+        this.group = s.getGroup();
+    }</B></FONT>
+
+    // getter, setter
+    public <font color="#C0C0C0"><EM>void setName(String n) { this.name = n; }
+    public String getName() { return this.name; }
+
+    public void setId(String n) { this.id = n; }
+    public String getId() { return this.id; }
+
+    public void setGroup(String n) { this.group = n; }
+    public String getGroup() { return this.group; }
+
+    public void setEmail(String n) { this.email = n; }</EM></font>
+    public String getEmail() { return this.email; }
+
+    public String getInfo(){ return (this.name + &quot; - &quot; + this.id + &quot; - &quot; + this.group + &quot; - &quot; + this.email); }
+}
+</PRE>
+<HR>
+<H3><CENTER>src/StudentManagement.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>public class StudentManagement {
+    private Student[] students = new Student[100];
+    private String[] groupArray= new String[100];
+    private int studentNumber = 0, <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match5172-1.html#1',3,'match5172-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>groupNumber = 0;
+
+
+    public static boolean sameGroup(Student s1, Student s2){
+        return (s1.getGroup().equals(s2.getGroup()));
+    }
+
+    public void addStudent(Student newStudent) {
+        students</B></FONT>[studentNumber] = new Student(newStudent);
+        studentNumber++;
+        boolean add = true;
+        for (String s: groupArray){
+            if(newStudent.getGroup().equals(s)){
+                add = false;
+                break;
+            }
+        }
+        if(add) {
+            groupArray[groupNumber] = newStudent.getGroup();
+            groupNumber++;
+        }
+    }
+
+    public String studentsByGroup(){
+        String res = &quot;&quot;;
+
+        for (String s:  groupArray) {
+            if(s != null){
+                boolean addGroup = true;
+                for (int i = 0; i &lt; studentNumber; i++) {
+                    if( students[i].getGroup() == s ) {
+                        if(addGroup) {
+                            res = res + s + &quot;\n&quot;;
+                            addGroup = false;
+                        }
+                        res = res + students[i].getInfo() + &quot;\n&quot;;
+<A NAME="2"></A>                    }
+                }
+            }
+        <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match5172-1.html#2',3,'match5172-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>}
+        return res;
+    }
+
+    public void removeStudent(String id){
+        for (int i = 0; i &lt; studentNumber; i++) {
+            if(students[i].getId().equals(id)){
+                for (int j = i; j &lt; studentNumber-1; j++) {
+                    students[j] = students[j + 1];
+                }
+                studentNumber--;
+                i--;
+            }
+        }
+    }
+
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

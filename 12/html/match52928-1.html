@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>30542</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Addition.java</CENTER></H3><HR>
+<PRE>
+public class Addition extends BinaryExpression {
+    public Addition(Expression left, Expression right) {
+        super(left, right);
+<A NAME="6"></A>    }
+
+    @Override
+    public <FONT color="#50ebec"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match52928-0.html#6',2,'match52928-top.html#6',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>String toString() {
+        String s1;
+        if (left instanceof Numeral || left instanceof Square)
+            s1 = left.toString();
+        else
+            s1 = &quot;(&quot; + left.toString() +&quot;)&quot;;
+        String s2;
+        if (right instanceof Numeral || right instanceof Square)
+            s2 = right.toString();
+        else
+            s2 = &quot;(&quot; + right.toString() +&quot;)&quot;;
+        return s1 + &quot; + &quot; + s2;
+    }</B></FONT>
+
+    @Override
+    public double evaluate() {
+        return left.evaluate()+right.evaluate();
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>Division.java</CENTER></H3><HR>
+<PRE>
+<A NAME="3"></A><FONT color="#6cc417"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match52928-0.html#3',2,'match52928-top.html#3',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>import java.lang.ArithmeticException;
+
+public class Division extends BinaryExpression {
+    public Division(Expression left, Expression right) {
+        super(left, right);
+        if (right instanceof Numeral) {
+            Numeral numeral = (Numeral)right;
+            if(numeral.evaluate() == 0) throw new ArithmeticException(&quot;Lỗi chia cho 0&quot;);
+        }
+<A NAME="4"></A>    }</B></FONT>
+
+    @Override
+    public <FONT color="#151b8d"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match52928-0.html#4',2,'match52928-top.html#4',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>String toString() {
+        String s1;
+        if (left instanceof Numeral || left instanceof Square)
+            s1 = left.toString();
+        else
+            s1 = &quot;(&quot; + left.toString() +&quot;)&quot;;
+        String s2;
+        if (right instanceof Numeral || right instanceof Square)
+            s2 = right.toString();
+        else
+            s2 = &quot;(&quot; + right.toString() +&quot;)&quot;;
+        return s1 + &quot; / &quot; + s2;
+    }</B></FONT>
+
+    @Override
+    public double evaluate() {
+        return left.evaluate()/right.evaluate();
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>ExpresstionTest.java</CENTER></H3><HR>
+<PRE>
+<A NAME="2"></A>public <FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match52928-0.html#2',2,'match52928-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class ExpresstionTest {
+    public static void main (String[] args){
+        Numeral a1 = new Numeral(10);
+        Numeral a2 = new Numeral(3);
+        Numeral a3 = new Numeral(4);
+        Numeral a4 = new Numeral(0);
+        Square b1 = new Square(a1);
+        Subtraction c1 = new Subtraction(b1,a2);
+        Multiplication d1 = new Multiplication(a2,a3);
+        Addition e1 = new Addition(c1,d1);
+        Square b2 = new Square(e1);
+        try {
+            Division f1 = new Division(a1,a4);
+        }
+        catch (ArithmeticException e){
+            System.out.println(e.getMessage());
+        }
+        System.out.println(b2.toString());
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>Multiplication.java</CENTER></H3><HR>
+<PRE>
+public class Multiplication extends BinaryExpression{
+    public Multiplication(Expression left, Expression right) {
+        super(left, right);
+<A NAME="5"></A>    }
+
+    @Override
+    public <FONT color="#c8c2a7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match52928-0.html#5',2,'match52928-top.html#5',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>String toString() {
+        String s1;
+        if (left instanceof Numeral|| left instanceof Square)
+            s1 = left.toString();
+        else
+            s1 = &quot;(&quot; + left.toString() +&quot;)&quot;;
+        String s2;
+        if (right instanceof Numeral || right instanceof Square)
+            s2 = right.toString();
+        else
+            s2 = &quot;(&quot; + right.toString() +&quot;)&quot;;
+        return s1 + &quot; * &quot; + s2;
+    }</B></FONT>
+
+    @Override
+    public double evaluate() {
+        return right.evaluate()*left.evaluate();
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>Square.java</CENTER></H3><HR>
+<PRE>
+public class Square extends Expression {
+    private Expression expression;
+
+    public Square(Expression expression) {
+        this.expression = expression;
+<A NAME="1"></A>    }
+
+    @Override
+    public <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match52928-0.html#1',2,'match52928-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>String toString() {
+        String s1;
+        if (expression instanceof Numeral)
+            s1 = expression.toString();
+        else
+            s1 =  &quot;(&quot; + expression.toString() + &quot;)&quot;;
+        return &quot;(&quot; + s1 + &quot;) ^ 2&quot;;
+    }</B></FONT>
+
+    @Override
+    public double evaluate() {
+        return expression.evaluate()*expression.evaluate();
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>Subtraction.java</CENTER></H3><HR>
+<PRE>
+public class Subtraction extends BinaryExpression {
+    public Subtraction(Expression left, Expression right) {
+        super(left, right);
+<A NAME="0"></A>    }
+
+    @Override
+    public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match52928-0.html#0',2,'match52928-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>String toString() {
+        String s1;
+        if (left instanceof Numeral || left instanceof Square)
+            s1 = left.toString();
+        else
+            s1 = &quot;(&quot; + left.toString() +&quot;)&quot;;
+        String s2;
+        if (right instanceof Numeral) return s1 + &quot; + -&quot;+right.toString();
+        else if ( right instanceof Square)
+            s2 = right.toString();
+        else
+            s2 = &quot;(&quot; + right.toString() +&quot;)&quot;;
+        return s1 + &quot; - &quot; + s2;
+    }</B></FONT>
+
+    @Override
+    public double evaluate() {
+        return left.evaluate() - right.evaluate();
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

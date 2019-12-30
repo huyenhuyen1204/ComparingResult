@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>9167</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/Student.java</CENTER></H3><HR>
+<PRE>
+public <font color="#C0C0C0"><EM>class Student {
+    private String name;
+    private String id;
+    private String group;
+    private String email;
+    public String getName(){return name;}
+    public void setName(String n){this.name = n;}
+
+    public String getGroup(){return group;}
+    public void setGroup(String group){this.group = group;}
+
+    public String getId(){return id;}
+    public void setId(String id){this.id = id;}
+
+    public String getEmail(){return email;}
+    public void setEmail (String email){this.email = email;}</EM></font>
+
+    public String getInfo(){
+        String info = name + &quot; - &quot; + id + &quot; - &quot; + group + &quot; - &quot; + email;
+        return info;
+    }
+    <font color="#C0C0C0"><EM>Student(){
+        name = &quot;Student&quot;;
+        id = &quot;000&quot;;
+        group = &quot;K62CB&quot;;
+        email = &quot;uet@vnu.edu.vn&quot;;
+    }
+    Student(String name, String id, String email){
+        this.name = name;
+        this.id = id;
+        this.group = &quot;K62CB&quot;;
+<A NAME="0"></A>        this.email = email;
+    }
+    Student(Student s){
+        name</EM></font> = <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match4588-1.html#0',3,'match4588-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>s.getName();
+        id = s.getId();
+        group = s.getGroup();
+        email = s.getEmail();
+    }
+
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>src/StudentManagement.java</CENTER></H3><HR>
+<PRE>
+public class StudentManagement {
+    int present_quantity;
+    Student[] students= new Student[100];
+    StudentManagement(){
+        present_quantity = 0;
+    }
+
+<A NAME="1"></A>    public static boolean sameGroup(Student s1, Student s2){
+        return s1.getGroup().equals(s2.getGroup());
+    }
+    public <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match4588-1.html#1',3,'match4588-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>void addStudent(Student newStudent){
+        students[present_quantity] = newStudent;
+        present_quantity++;
+    }
+<A NAME="2"></A>    public String studentsByGroup(){
+        int[] check_group = new int[100];
+        int count_group = 0</B></FONT>;
+        String <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match4588-1.html#2',3,'match4588-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>s=&quot;&quot;;
+        for(int i = 0; i &lt; present_quantity; i++){
+            count_group = 0;
+            for(int j = i; j &lt; present_quantity; j++){
+                if</B></FONT>(check_group[j] != 1){
+                    if(sameGroup(students[i], students[j]) == true){
+                        check_group[j]=1;
+                        if(count_group &lt; 1){
+                            count_group++;
+                            s = s + students[i].getGroup() + &quot;\n&quot; + students[i].getInfo() + &quot;\n&quot;;
+<A NAME="3"></A>                        } else s = s + students[j].getInfo() + &quot;\n&quot;;
+                    }
+
+                <FONT color="#6cc417"><A HREF="javascript:ZweiFrames('match4588-1.html#3',3,'match4588-top.html#3',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>}
+            }
+        }
+        return s;
+    }
+    public void removeStudent(String id){
+        for(int i = 0; i &lt; present_quantity; i++){
+            if(students[i].getId().equals(id)){
+                for(int j = i; j&lt;present_quantity-1; j++){
+                    students[j] = students[j+1];
+                }present_quantity--;
+                break;
+            }
+        }
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

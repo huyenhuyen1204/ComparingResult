@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>7498</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>src/StudentManagement.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>import java.util.HashSet;
+import java.util.Set;
+
+public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match5354-0.html#0',2,'match5354-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class StudentManagement {
+    static Student [] arr_student=new Student[100];
+    int soSV=0;
+    public static boolean sameGroup(Student s1, Student s2) {
+        if(s1.getGroup().equals(s2.getGroup())) {
+            return true;
+        } else return false;
+    }
+    public void</B></FONT> addStudent(Student newStudent){
+        for(int a = 0; a &lt; arr_student.length ; a++) {
+            if (arr_student[a] == null) {
+                arr_student[a] = newStudent;
+                soSV++;
+                break;
+            }
+        }
+    }
+    public String  studentsByGroup() {
+        String mangsv=&quot;&quot;;
+        String []group=new String[100];
+        int dem=0;
+        group[dem]=arr_student[0].getGroup();
+        for(int <font color="#C0C0C0"><EM>a=1;a&lt;soSV;a++)
+        {
+            for(int b=0;b&lt;=dem;b++)
+            {
+               if(b==dem&amp;&amp;!group[b].equals(arr_student[a].getGroup()))
+               {
+                   dem++;
+                   group</EM></font>[dem]=arr_student[a].getGroup();
+                   break;
+               }
+               else if(group[b].equals(arr_student[a].getGroup())){
+                   break;
+<A NAME="1"></A>               }
+            }
+        }
+        <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match5354-0.html#1',2,'match5354-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>for(int b=0;b&lt;=dem;b++){
+             mangsv += group[b];
+            for(int a=0;a&lt;soSV;a++)
+            {
+                if(arr_student[a].getGroup().equals(group[b])){
+                    mangsv+=&quot;\n&quot;;
+                    mangsv+=arr_student[a].getInfo();
+                }
+            }
+            mangsv+=&quot;\n&quot;;
+        }
+        return mangsv;
+    }
+    public void removeStudent(String id){
+        for(int a=0;a&lt;soSV;a++) {
+                if (arr_student[a].getId().equals(id)) {
+                    for (int b = a</B></FONT>+1; b &lt; soSV; b++) {
+                        arr_student[b-1] = arr_student[b];
+                    }
+                    soSV--;
+                    break;
+                }
+            }
+        }
+    public static void main(String[] args) {
+
+    }
+
+
+
+}
+</PRE>
+
+</BODY>
+</HTML>

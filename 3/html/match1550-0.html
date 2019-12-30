@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>9402</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>StudentManagement.java</CENTER></H3><HR>
+<PRE>
+public class StudentManagement {
+    Student[] students;
+    int countStudents;
+    public StudentManagement(){
+<A NAME="0"></A>        students = new Student[100];
+        countStudents = 0;
+    }
+    public static <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match1550-1.html#0',3,'match1550-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>boolean sameGroup(Student s1, Student s2) {
+        return s1.getGroup().equals(s2.getGroup());
+    }
+
+    public void addStudent(Student newStudent){
+        students[countStudents] = newStudent;
+        countStudents++;
+    }
+
+    public String studentsByGroup() {
+        boolean[] checkGroup = new</B></FONT> boolean[100];
+        String str = &quot;&quot;;
+        <font color="#C0C0C0"><EM>for (int i = 0; i &lt; countStudents; i++) {
+            if(!checkGroup[i]){
+                str += students[i].getGroup() + &quot;\n&quot;;
+                for(int j = i; j &lt; countStudents; j++){
+                    if(sameGroup(students[i], students[j])){
+                        checkGroup</EM></font>[j] = true;
+                        str += students[j].getInfo() + &quot;\n&quot;;
+                    }
+<A NAME="1"></A>                }
+            }
+            checkGroup[i] = false;
+        <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match1550-1.html#1',3,'match1550-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>}
+        return str;
+    }
+
+    public void removeStudent(String id) {
+        for (int i = 0; i &lt; countStudents; i++) {
+            if (students[i].getId().equals(id)) {
+                for (int j = i; j &lt; countStudents; j++)
+                    students[j] = students[j + 1];
+                countStudents--;
+                break;
+            }
+        }
+    }
+    public void</B></FONT> displayStudent(){
+        for(int i = 0; i &lt; countStudents; i++){
+            System.out.println(students[i].getInfo());
+        }
+    }
+
+
+    public static void main(String[] args) {
+//        Student sv1 = new Student(&quot;Anh&quot;, &quot;123&quot;, &quot;anhtuanng@gmail.com&quot;);
+//        Student sv2 = new Student(&quot;Cuong&quot;, &quot;123&quot;, &quot;cuongng@gmail.com&quot;);
+//        Student sv3 = new Student();
+//        StudentManagement sm = new StudentManagement();
+//        sv3.setName(&quot;Ahihi&quot;);
+//        sv3.setId(&quot;124&quot;);
+//        sv3.setGroup(&quot;K63CB&quot;);
+//        sv3.setEmail(&quot;djsidjs@gmail.com&quot;);
+//        Student sv4 = new Student(&quot;Bao&quot;, &quot;124&quot;, &quot;sdfuefhd@gmail.com&quot;);
+//        sm.addStudent(sv1);
+//        sm.addStudent(sv2);
+//        sm.addStudent(sv3);
+//        sm.addStudent(sv4);
+//        Student sv5 = new Student(&quot;Hai&quot;, &quot;125&quot;, &quot;dfdfdfdfdgdgr@gmail.com&quot;);
+//        sm.addStudent(sv5);
+//        sm.removeStudent(&quot;123&quot;);
+//        System.out.println(sv1.getInfo());
+//        System.out.println(sv2.getInfo());
+//        System.out.println(sv3.getInfo());
+//        System.out.println();
+//        sm.displayStudent();
+//        System.out.println();
+//        System.out.println(&quot;Bella&quot;);
+//        System.out.println(sm.studentsByGroup());
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

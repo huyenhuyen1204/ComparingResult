@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>4025</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Circle.java</CENTER></H3><HR>
+<PRE>
+public class Circle {
+  protected final double PI = 3.14f;
+<A NAME="1"></A>  private double radius = 1.0;
+  
+  private String color = &quot;red&quot;;
+  public <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match40618-1.html#1',3,'match40618-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>double getRadius() {
+	return radius;
+  }
+  public void setRadius(double radius) {
+	this.radius = radius;
+  }
+  public String getColor() {
+	return this.color;
+  }
+  public void setColor(String color) {
+	this.color = color;
+  }</B></FONT>
+  public Circle() {
+	  
+  }
+  public Circle(double radius) {
+	  this.radius = radius;
+  }
+  public Circle(double radius,String color) {
+	  this.radius = radius;
+	  this.color = color;
+  }
+  public double getArea() {
+	  return (double)Math.round(this.radius*PI*this.radius*100)/100;
+  }
+  public String toString() {
+	  return &quot;Circle[radius=&quot;+this.radius+&quot;,&quot;+&quot;color=&quot;+this.color+&quot;]&quot;;
+  }
+  
+}
+</PRE>
+<HR>
+<H3><CENTER>Cylinder.java</CENTER></H3><HR>
+<PRE>
+public class Cylinder extends Circle{
+	private double height =1.0;
+
+	public double getHeight() {
+		return height;
+	}
+
+	public void setHeight(double height) {
+		this.height = height;
+	}
+	public Cylinder() {
+		
+	}
+	public Cylinder(double height) {
+		<font color="#C0C0C0"><EM>this.height = height;
+	}
+	public Cylinder(double height,double radius) {
+		super(radius);
+		this.height =height;
+	}
+	public Cylinder(double height, double radius, String color) {
+		super(radius,color);
+<A NAME="0"></A>		this.height = height;
+	}
+	public String</EM></font> toString() {
+		String s = <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match40618-1.html#0',3,'match40618-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>super.toString();
+		return &quot;Cylinder[&quot; + s + &quot;,height=&quot; + this.height + &quot;]&quot;;
+	}
+	public double getVolume() {
+		double area = (double)Math.round(super.getArea()* this.height*100)/100;
+		return area;
+				
+	}
+	public double getArea() {
+		return (double)Math.round((2*super</B></FONT>.getArea()+ 2*PI*getRadius()*this.height)*100)/100;
+		
+	}
+
+}
+</PRE>
+
+</BODY>
+</HTML>

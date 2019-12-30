@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>1942</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Fraction.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A><FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match5787-0.html#0',2,'match5787-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>import static java.lang.Math.abs;
+
+public class Fraction {
+    private int  numerator;
+    private int denominator=1;
+
+    public int getNumerator(){ return numerator;}
+    public int getDenominator(){
+            return denominator;
+    }
+
+    public void setNumerator(int numerator){ this.numerator = numerator;}
+    public void setDenominator(int denominator) {
+        if (denominator != 0)
+            this.denominator = denominator;
+    }
+    Fraction(){
+
+    }
+    Fraction(int numerator, int denominator){
+        this.numerator = numerator;
+        this.setDenominator(denominator);
+    }
+
+    public Fraction reduce(){
+        Fraction fraction = new Fraction();
+            int tu = this.getNumerator();
+            int mau = this.getDenominator();
+            int ucln = 0;
+            int tu1 = abs(tu);
+            int mau1 = abs(mau);
+            while ((tu1 * mau1) != 0) {
+                if (tu1 &gt; mau1) {
+                    tu1 %= mau1;
+                } else {
+                    mau1 %= tu1;
+                }
+            }
+            ucln = tu1 + mau1;
+            int tuSo = 0;
+            int mauSo = 0;
+            if (tu * mau &lt; 0){
+                tuSo = - abs(tu/ucln);
+                mauSo = abs(mau/ucln);
+            }
+            if(tu * mau &gt; 0){
+                tuSo = abs(tu/ucln);
+                mauSo = abs(mau/ucln);
+            }
+            fraction.setNumerator(tuSo);
+            fraction.setDenominator(mauSo);
+            return fraction;
+    }
+    public Fraction add(Fraction f){
+        Fraction fraction = new Fraction();
+        fraction.setNumerator(this.numerator*f.denominator + f.numerator*this.denominator);
+        fraction.setDenominator( this.denominator*f.denominator);
+        if(fraction.getNumerator() != 0){
+            fraction.reduce();
+        }
+        return fraction;
+    }
+    public Fraction subtract(Fraction f) {
+        Fraction fraction = new Fraction();
+        fraction.setNumerator(this.numerator*f.denominator - f.numerator*this.denominator);
+        fraction.setDenominator(this.denominator*f.denominator);
+        if(fraction.getNumerator() != 0){
+            fraction.reduce();
+        }
+        return fraction;
+    }
+    public Fraction multiply(Fraction f){
+        Fraction fraction = new Fraction();
+        fraction.setNumerator(this.numerator*f.numerator);
+        fraction.setDenominator(this.denominator*f.denominator);
+        if(fraction.getNumerator() != 0){
+            fraction.reduce();
+        }
+        return fraction;
+    }
+    public Fraction divide(Fraction f){
+        Fraction fraction = new Fraction();
+        fraction.setNumerator(this.numerator*f.denominator);
+        fraction.setDenominator(this.denominator*f.numerator);
+        if(fraction.getNumerator() != 0){
+            fraction.reduce();
+        }
+        return fraction;
+    }
+    public boolean equals(Object obj){
+        if(obj instanceof Fraction) {
+            if (this.numerator * ((Fraction) obj).getDenominator() == ((Fraction) obj).getNumerator() * this.denominator)
+                return true;
+        }
+        return false;
+    }
+    public static void main(String[] args){
+//        Fraction ps1 = new Fraction(1,-2);
+//        Fraction ps2 = new Fraction(-5, 10);
+//        Fraction ps3 = new Fraction(2,-4);
+//        Fraction ps4 = new Fraction(-5, -10);
+//        Fraction ps5 = new Fraction(0,5);
+//        Fraction ps6 = new Fraction(5, 0);
+//        Fraction ps7 = new Fraction(0, 0);
+//        Fraction test = new Fraction();
+//        test = ps7.reduce();
+//        System.out.println(test.getNumerator() + &quot;/&quot; + test.getDenominator());
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>33352</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/Person.java</CENTER></H3><HR>
+<PRE>
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+<A NAME="0"></A>
+import static javax.print.attribute.standard.MediaSizeName.A;
+
+public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match65587-1.html#0',3,'match65587-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Person implements Comparable&lt;Person&gt; {
+    //public T person;
+    public String name;
+    public int age;
+    public String address;
+
+    /*public void addPerson(T person){
+        this.person= person;
+    }*/
+
+    public Person(){
+
+    }
+
+    public Person(String name, int age, String address){
+        this.name= name;
+        this.age= age;
+        this.address= address;
+    }</B></FONT>
+
+    public <font color="#C0C0C0"><EM>String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }</EM></font>
+
+
+    public int compareTo(Person person){
+        int value = this.getName().compareTo(person.getName());
+        if(value!= 0){
+            return value;
+        }
+        else{
+            value = this.getAge()- person.getAge();
+            return value;
+        }
+    }
+
+}
+</PRE>
+<HR>
+<H3><CENTER>src/Week11.java</CENTER></H3><HR>
+<PRE>
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+<font color="#C0C0C0"><EM>import java.util.List;
+import java.util.Scanner;
+
+public class Week11 {
+    public static &lt;T extends Comparable&lt;T&gt;&gt; List&lt;T&gt; sortGeneric (List&lt;T&gt; a){
+        Collections.sort(a);
+        return a;
+<A NAME="1"></A>    }</EM></font>
+
+    private static final Scanner in = new Scanner(System.in);
+    public static <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match65587-1.html#1',3,'match65587-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>void main(String[] args) throws IOException {
+        List&lt;String&gt; str = new ArrayList&lt;String&gt;();
+        str.add(&quot;ckdf&quot;);
+        str.add(&quot;dsad&quot;);
+        str.add(&quot;adf&quot;);
+        str.add(&quot;basa&quot;);
+        List&lt;String&gt; str1 = sortGeneric(str);
+        for(int i = 0; i&lt; str1.size(); i ++){
+            System.out.println(str1.get(i));
+        }
+        List&lt;Person&gt; personList = new ArrayList&lt;Person&gt;();
+        Person person1 = new Person(&quot;Nguyen A&quot;, 22,&quot;Ho Tung Mau&quot;);
+        Person person2 = new Person(&quot;Nguyen A&quot;, 20,&quot;Xuan Thuy&quot;);
+        Person person3 = new Person(&quot;Le B&quot;, 20, &quot;Pham Hung&quot;);
+        personList.add(person1);
+        personList.add(person2);
+        personList.add(person3);
+
+        List&lt;Person&gt; people = sortGeneric(personList);
+
+        for(Person person: people){
+            System.out.println(&quot;Person:&quot;+person.getAge()+&quot; / &quot;+person.getName());
+        }
+     }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

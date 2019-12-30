@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>31940</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>BinaryExpression.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public abstract <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match58748-1.html#0',3,'match58748-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class BinaryExpression extends Expression {
+    protected Expression left;
+    protected Expression right;
+    public BinaryExpression(Expression l, Expression r) {
+        this.left = l;
+        this.right = r;
+    }
+
+    @Override
+    public String toString() {
+        return null;
+    }
+
+    @Override
+    public double evaluate() {
+        return 0;
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>Division.java</CENTER></H3><HR>
+<PRE>
+public class Division extends BinaryExpression {
+    @Override
+    public String toString() {
+        return &quot;(&quot; + left.toString() + &quot; / &quot; + right.toString() + &quot;)&quot;;
+<A NAME="1"></A>    }
+
+    @Override
+    public <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match58748-1.html#1',3,'match58748-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>double evaluate() {
+        if (right.evaluate() == 0)
+            throw new java.lang.ArithmeticException(&quot;Lỗi chia cho 0&quot;);
+        else
+            return left.evaluate() / right.evaluate();
+    }</B></FONT>
+    public Division(Expression l, Expression r){
+        super(l,r);
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

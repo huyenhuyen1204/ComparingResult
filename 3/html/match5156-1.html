@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>10790</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Student.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match5156-0.html#0',2,'match5156-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class Student {
+
+    private String name;
+    private String id;
+    private String email;
+    private String group;
+    
+    public String getName(){
+        return name;
+    }
+    public String getId(){
+        return id;
+    }
+    
+    public String getEmail(){
+        return email;
+    }
+    public String getGroup(){
+        return group;
+    }
+    
+    public void setName(String name){
+        this.name = name;
+    }
+    public void setId(String id){
+        this.id = id;
+    }
+    
+    public void setEmail(String email){
+        this</B></FONT>.email = email;
+    <font color="#C0C0C0"><EM>}
+    public void setGroup(String group){
+        this.group = group;
+    }
+    
+    Student() {
+        this.name = &quot;Student&quot;;
+        this.id = &quot;000&quot;;
+        this.group = &quot;K63CB&quot;;
+        this.email = &quot;uet@vnu.edu.vn&quot;;
+    }
+
+    /**
+     * Constructor 2
+     * @param n
+     * @param sid
+     * @param em
+     */
+    Student(String name, String id, String email) {
+        this.name = name;
+        this.id = id;
+        this.email = email;
+        this.group = &quot;K63CB&quot;;
+    }
+
+    /**
+     * Constructor 3
+     * @param s
+     */
+    Student(Student s) {
+        this.name = s.name;
+        this.id = s.id;
+        this.group = s.group;
+        this.email = s.email;
+    }
+
+    String getInfo() {
+        String info;
+        info = this.name + &quot; - &quot; + this.id + &quot; - &quot; + this.group + &quot; - &quot; + this.email;
+        return info; // xoa dong nay sau khi cai dat
+    }
+}</EM></font>
+</PRE>
+<HR>
+<H3><CENTER>StudentManagement.java</CENTER></H3><HR>
+<PRE>
+public class StudentManagement {
+
+    // TODO: khai bao thuoc tinh students la array chua cac doi tuong thuoc lop Student (max. 100)
+    private Student[]students = new Student[100];
+    private int length = 0;
+   
+    public static boolean sameGroup(Student s1, Student s2) {
+        // TODO:
+        return s1.getGroup().equals(s2.getGroup()); // xoa dong nay sau khi cai dat
+    }
+
+    public void addStudent(Student newStudent){
+        if(length &lt; 100){
+            students[length] = newStudent;
+            length++;
+        }
+    }
+
+    public String studentsByGroup() {
+        
+        boolean[]printer = new boolean[length];
+        for(int i = 0;i &lt; length; i++){
+            printer[i] = false;
+        }
+        
+        String tempGroup = &quot;&quot;;
+        for(int i = 0;i &lt; length; i++){
+            if(!printer[i]){
+                tempGroup = tempGroup + students[i].getGroup() + &quot;\n&quot;;
+                tempGroup = tempGroup + students[i].getInfo() + &quot;\n&quot;;
+                printer[i] = true;
+                <font color="#C0C0C0"><EM>for(int a = i + 1; a &lt; length; a++){
+                    if(sameGroup(students[i],students[a])){
+                        tempGroup = tempGroup + students[a].getInfo() + &quot;\n&quot;;
+                        printer[a] = true;
+                    }
+                }
+            }
+            
+
+        }
+	return tempGroup;
+<A NAME="1"></A>    }
+
+    public void</EM></font> removeStudent(String id) {
+        <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match5156-0.html#1',2,'match5156-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>for(int i = 0;i &lt; length; i++){
+            if(id.equals(students[i].getId())) {
+                for(int a = i; a &lt; length - 1; a++){
+                    students[a] = students[a + 1];
+                }
+                students</B></FONT>[length] = null;
+                length--;
+            }
+        } 
+    }
+
+    public static void main(String[] args) {
+        // TODO:
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

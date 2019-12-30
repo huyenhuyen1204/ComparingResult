@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>17983</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Week4Test.java</CENTER></H3><HR>
+<PRE>
+<A NAME="4"></A><A NAME="3"></A><A NAME="2"></A><A NAME="1"></A><A NAME="0"></A><<FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match26114-1.html#0',3,'match26114-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>/B></FONT><FONT color="#151b8d"><A HREF="javascript:ZweiFrames('match26114-1.html#4',3,'match26114-top.html#4',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B></B></FONT><FONT color="#6cc417"><A HREF="javascript:ZweiFrames('match26114-1.html#3',3,'match26114-top.html#3',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B></B></FONT><FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match26114-1.html#2',3,'match26114-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B></B></FONT><FONT color="#f63526"><A HREF="javascript:ZweiFrames('match26114-1.html#1',3,'match26114-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B></B></FONT>
+import junit.framework.Assert;
+import org.junit.Test;
+
+public class Week4Test {
+    @Test
+    public void testMax2Int1()
+    {
+        Week4 text=new Week4();
+        int i=Week4.max2Int(3, 5);
+        Assert.assertEquals(5,i);
+    }
+
+    @Test
+    public void testMax2Int2()
+    {
+        Week4 text=new Week4();
+        int i=Week4.max2Int(-9, 0);
+        Assert.assertEquals(0,i);
+    }
+
+    @Test
+    public void testMax2Int3()
+    {
+        Week4 text=new Week4();
+        int i=Week4.max2Int(8, 1002);
+        Assert.assertEquals(1002,i);
+    }
+
+    @Test
+    public void testMax2Int4()
+    {
+        Week4 text=new Week4();
+        int i=Week4.max2Int(2, 2);
+        Assert.assertEquals(2,i);
+    }
+
+    @Test
+    public void testMax2Int5()
+    {
+        Week4 text=new Week4();
+        int i=Week4.max2Int(123, 321);
+        Assert.assertEquals(321,i);
+    }
+
+    @Test
+    public void testMinArray1()
+    {
+        int[] arr={2,5,8,9,1};
+        Week4 text=new Week4();
+        int i=Week4.minArray(arr);
+        Assert.assertEquals(1,i);
+    }
+
+    @Test
+    public void testMinArray2()
+    {
+        int[] arr={4,67,234,5421,678};
+        Week4 text=new Week4();
+        int i=Week4.minArray(arr);
+        Assert.assertEquals(4,i);
+    }
+
+    @Test
+    public void testMinArray3()
+    {
+        int[] arr={22,33};
+        Week4 text=new Week4();
+        int i=Week4.minArray(arr);
+        Assert.assertEquals(22,i);
+    }
+
+    @Test
+    public void testMinArray4()
+    {
+        int[] arr={1};
+        Week4 text=new Week4();
+        int i=Week4.minArray(arr);
+        Assert.assertEquals(1,i);
+    }
+
+    @Test
+    public void testMinArray5()
+    {
+        int[] arr={9,8,7,6,5,4,3};
+        Week4 text=new Week4();
+        int i=Week4.minArray(arr);
+        Assert.assertEquals(3,i);
+    }
+
+    @Test
+    public void testCalculateBMI1()
+    {
+        double a=45,b=1.7;
+        Week4 text=new Week4();
+        String s=Week4.calculateBMI(a, b);
+        Assert.assertEquals(&quot;Thiếu cân&quot;,s);
+    }
+    @Test
+    public void testCalculateBMI2()
+    {
+        double a=55,b=1.7;
+        Week4 text=new Week4();
+        String s=Week4.calculateBMI(a, b);
+        Assert.assertEquals(&quot;Bình thường&quot;,s);
+    }
+
+    @Test
+    public void testCalculateBMI3()
+    {
+        double a=62,b=1.61;
+        Week4 text=new Week4();
+        String s=Week4.calculateBMI(a, b);
+        Assert.assertEquals(&quot;Thừa cân&quot;,s);
+    }
+
+    @Test
+    public void testCalculateBMI4()
+    {
+        double a=60,b=1.65;
+        Week4 text=new Week4();
+        String s=Week4.calculateBMI(a, b);
+        Assert.assertEquals(&quot;Bình thường&quot;,s);
+    }
+
+    @Test
+    public void testCalculateBMI5()
+    {
+        double a=82,b=1.7;
+        Week4 text=new Week4();
+        String s=Week4.calculateBMI(a, b);
+        Assert.assertEquals(&quot;Béo phì&quot;,s);
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

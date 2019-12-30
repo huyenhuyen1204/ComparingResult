@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>12239</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Fraction.java</CENTER></H3><HR>
+<PRE>
+public class Fraction {
+
+    private int numerator;
+    private int denominator;
+
+    public <font color="#C0C0C0"><EM>int getNumerator(){
+        return numerator;
+    }
+
+    public void setNumerator(int numerator){
+        this.numerator = numerator;
+    }
+
+    public int getDenominator(){
+        return denominator;
+    }
+
+    public void setDenominator(int denominator){
+        if (denominator != 0)
+            this.denominator = denominator;
+        else</EM></font>
+            this.denominator = 1;
+    }
+
+    Fraction(){
+        this.denominator = 1;
+    }
+
+    Fraction(int numerator, int denominator){
+        this.setNumerator(numerator);
+        if(denominator !=0)
+            this.setDenominator(denominator);
+        else
+            this.denominator = 1;
+    }
+
+    public static int gcd(int a, int b){
+        while (a != b){
+            if (a &gt; b)
+                a -= b;
+            else
+<A NAME="0"></A>                b -= a;
+        }
+        return a;
+    <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6196-0.html#0',2,'match6196-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>}
+
+    public Fraction reduce(){
+        int a = Math.abs(this.numerator);
+        int b = Math.abs(this.denominator);
+        int c = gcd(a,b);
+        Fraction f = new Fraction(this.numerator/c, this.denominator/c);
+        return f;
+    }
+
+    public Fraction add(Fraction other){
+        int a = other.numerator*this.denominator + other.denominator*this.numerator;
+        int b = other.denominator*this.denominator;
+        other = new Fraction(a,b);
+        other.reduce();
+        return other;
+    }
+
+    Fraction subtract(Fraction other){
+        int a = this.numerator*other.denominator - this.denominator*other.numerator;
+        int b = other.denominator*this.denominator;
+        other = new Fraction(a,b);
+        other.reduce();
+        return other;
+    }
+
+    Fraction multiply(Fraction other){
+        int a = other.numerator*this.numerator;
+        int b = other.denominator*this.denominator;
+        other = new Fraction(a,b);
+        other.reduce();
+        return other;
+    }
+
+    Fraction divide(Fraction other){
+        if(other.denominator != 0){
+            int a = this.numerator * other.denominator;
+            int b = this.denominator * other.numerator;
+            other = new Fraction(a, b);
+            other.reduce();
+            return other;
+        }
+        else
+            return null;
+    }
+
+    public boolean equals(Object obj){
+        if(obj instanceof Fraction) {
+            Fraction other = (Fraction) obj;
+            if(other.reduce().numerator*this.reduce().denominator == other.reduce().denominator*this.reduce().numerator){
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public static void</B></FONT> main(String[] args){
+
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

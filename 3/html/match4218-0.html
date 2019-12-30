@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>11197</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/StudentManagement.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match4218-1.html#0',3,'match4218-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class StudentManagement {
+
+    private static final int len = 100;
+    private int size = 0;
+    private Student[] students = new Student[len];
+
+    public static boolean sameGroup(Student s1, Student s2) {
+        return (s1.getGroup().equals(s2.getGroup()));
+    }
+
+    public void addStudent(Student newStudent) {
+        if (size + 1 &lt; len) {
+            students[size] = newStudent;
+            ++size;
+        }
+    }
+
+<A NAME="1"></A>    public String studentsByGroup() {
+        if (size == 0) return &quot;&quot;;
+        String result = &quot;&quot;</B></FONT>;
+        boolean[] <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match4218-1.html#1',3,'match4218-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>isOut = new boolean[size];
+        String curGroup;
+        for (int cur = 0; cur &lt; size; cur++) {
+            if (!isOut[cur]) {
+                curGroup = students</B></FONT>[cur].getGroup();
+                result = result + curGroup + &quot;\n&quot;;
+                for (int i = cur; i &lt; size; ++i) {
+                    if (!isOut[i] &amp;&amp; curGroup.equals(<font color="#C0C0C0"><EM>students[i].getGroup())) {
+                        result = result + students[i].getInfo() + &quot;\n&quot;;
+                        isOut[i] = true;
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
+    public void</EM></font> removeStudent(String id) {
+        for (int i = 0; i &lt; size; i++) {
+            if (id.equals(students[i].getId())) {
+                --size;
+                for (int j = i; j &lt; size; ++j) {
+                    students[j] = students[j + 1];
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

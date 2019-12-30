@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>32366</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Evaluate.java</CENTER></H3><HR>
+<PRE>
+<A NAME="3"></A><FONT color="#6cc417"><A HREF="javascript:ZweiFrames('match54235-1.html#3',3,'match54235-top.html#3',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+public class Evaluate {
+    public static void evaluateAndPrintResult(String s) {
+        String[] str = s.split(&quot;\\s+&quot;);
+        Queue&lt;String&gt; q = new LinkedList&lt;&gt;();
+        q.addAll(Arrays.asList(str));
+        Stack&lt;String&gt; ops = new Stack&lt;&gt;();
+        Stack&lt;Double&gt; vals = new Stack&lt;&gt;();
+        while (!q.isEmpty()) { // Read token, push if operator.
+            String token = q.poll();
+            if (token.equals(&quot;(&quot;)) {
+            } else if (token.equals(&quot;+&quot;)) {
+                ops.push(token);
+            } else if (token.equals(&quot;-&quot;)) {
+                ops.push(token);
+            } else if (token.equals(&quot;*&quot;)) {
+                ops.push(token);
+            } else if (token.equals(&quot;/&quot;)) {
+                ops.push(token);
+            } else if (token.equals(&quot;sqrt&quot;)) {
+                ops.push(token);
+            } else if (token.equals(&quot;)&quot;)) { // Pop, evaluate, and push result if token is &quot;)&quot;.
+                // Replace the top exp with it' result.
+                double v = vals.pop();
+                String op = ops.pop();
+                if (op.equals(&quot;+&quot;)) {
+                    v = vals.pop() + v;
+                } else if (op.equals(&quot;-&quot;)) {
+                    v = vals.pop() - v;
+                } else if (op.equals(&quot;*&quot;)) {
+                    v = vals.pop() * v;
+                } else if (op.equals(&quot;/&quot;)) {
+                    v = vals.pop() / v;
+                } else if (op.equals(&quot;^&quot;)) {
+                    v = Math.sqrt(v);
+                }
+                vals.push(v);
+            } else {
+                // Token not operator or paren: push double value.
+                vals.push(Double.parseDouble(token));
+            }
+        }
+        System.out.println(vals.pop());
+    }
+
+
+    public static void main(String[] args) {
+        evaluateAndPrintResult(&quot;( ( 1 + 2 ) * 3 )&quot;);
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>ExpressionTest.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>
+
+public <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match54235-1.html#1',3,'match54235-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class ExpressionTest  {
+    public static void main(String[] args) {
+
+        Expression a= new Numeral(10);
+        Expression b= new Square(a);
+
+        Expression c= new Numeral(-3);
+        Expression d= new Addition(b,c);
+
+        Expression e= new Numeral(4);
+        Expression f= new Numeral(3);
+        Expression g= new Multiplication(e,f);
+
+        Expression s= new Addition(d, g);
+        Expression result= new Square(s);
+        System.out.println(result.toString());
+        System.out.println(result.evaluate());
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>Numeral.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>
+
+public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match54235-1.html#0',3,'match54235-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Numeral extends Expression {
+    private double value;
+    public Numeral(double value){
+        this.value = value;
+
+    }
+    public Numeral(){}
+    @Override
+    public String toString() {
+        return  (int) value + &quot;&quot;;
+    }
+
+    @Override
+    public double evaluate() {
+        return (int) value;
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>Square.java</CENTER></H3><HR>
+<PRE>
+<A NAME="2"></A>
+
+public <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match54235-1.html#2',3,'match54235-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Square extends Expression {
+    private Expression expression;
+    public Square(Expression expression){
+        this.expression =expression;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;(&quot;+this.expression+&quot;) ^ 2&quot;;
+    }
+
+    @Override
+    public double evaluate() {
+        return expression.evaluate()*expression.evaluate();
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

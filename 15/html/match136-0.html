@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>31633</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Week10.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A><FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match136-1.html#0',3,'match136-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+
+public class Week10 {
+
+    private String packageName;
+    private List&lt;String&gt; imported = new ArrayList&lt;&gt;();
+
+    private String getType(String s) {
+        if (s.equals(&quot;&quot;))
+            return s;
+        String[] type = s.split(&quot; &quot;);
+        String temp = &quot;&quot;;
+        if (type[0].contains(&quot;[]&quot;)) {
+            type[0] = type[0].substring(0, type[0].indexOf(&quot;[&quot;));
+            temp = &quot;[]&quot;;
+        }
+        if (type[0].contains(&quot;...&quot;)) {
+            type[0] = type[0].substring(0, type[0].indexOf(&quot;...&quot;));
+            temp = &quot;&quot;;
+        }
+
+        if (type[0].contains(&quot;Iterable&lt;T&gt;&quot;) || type[0].contains(&quot;Class&lt;?&gt;&quot;) || !type[0].contains(&quot;&lt;&quot;)) {
+            for (int i = 0; i &lt; imported.size(); i++) {
+                if (!type[0].equals(&quot;T&quot;) &amp;&amp; imported.get(i).contains(type[0])) {
+                    type[0] = imported.get(i);
+                    break;
+                }
+            }
+            return type[0] + temp;
+        }
+        String t2 = type[0].substring(type[0].indexOf(&quot;&lt;&quot;) + 1, type[0].indexOf(&quot;&gt;&quot;));
+        String t1 = type[0].substring(0, type[0].indexOf(&quot;&lt;&quot;));
+        for (int i = 0; i &lt; imported.size(); i++) {
+            if (!t2.equals(&quot;T&quot;) &amp;&amp; imported.get(i).contains(t2)) {
+                t2 = imported.get(i);
+                break;
+            }
+        }
+        for (int i = 0; i &lt; imported.size(); i++) {
+            if (imported.get(i).contains(t1)) {
+                t1 = imported.get(i);
+                break;
+            }
+        }
+        return t1 + &quot;&lt;&quot; + t2 + &quot;&gt;&quot; + temp;
+    }
+
+    private String getSignature(String s) {
+        s = s.replaceAll(&quot;  &quot;, &quot;&quot;);
+        String signature = &quot;&quot;;
+        if (!s.contains(&quot;static&quot;))
+            return &quot;&quot;;
+        int findStatic = s.indexOf(&quot;static&quot;);
+        s = s.substring(findStatic + 7);
+        s = s.substring(0, s.length() - 2);
+
+        String returnType = s.substring(0, s.indexOf(&quot; &quot;));
+        for (int i = 0; i &lt; imported.size(); i++)
+            if (imported.get(i).contains(returnType))
+                returnType = imported.get(i);
+        // signature += returnType + &quot; &quot;;
+
+        String name = s.substring(s.indexOf(&quot; &quot;) + 1, s.indexOf(&quot;(&quot;));
+        signature += name + &quot;(&quot;;
+        s = s.substring(s.indexOf(&quot;(&quot;) + 1, s.indexOf(&quot;)&quot;));
+        String[] paramsStrings = s.split(&quot;, &quot;);
+        for (String str : paramsStrings) {
+            signature += getType(str) + &quot;,&quot;;
+        }
+        signature = signature.substring(0, signature.length() - 1) + &quot;)&quot;;
+        if (signature.contains(&quot; &quot;))
+            signature = signature.substring(signature.indexOf(&quot; &quot;) + 1);
+        return signature;
+    }
+
+    public List&lt;String&gt; getAllFunctions(String fileContent) {
+        List&lt;String&gt; result = new ArrayList&lt;&gt;();
+        List&lt;String&gt; temp = new ArrayList&lt;&gt;();
+
+        String s = &quot;&quot;;
+        boolean foundPackage = false;
+        imported.add(&quot;java.lang.Iterable&lt;T&gt;&quot;);
+        imported.add(&quot;java.util.Date&quot;);
+        imported.add(&quot;java.lang.String&quot;);
+        imported.add(&quot;java.lang.Object&quot;);
+        imported.add(&quot;java.lang.Class&lt;?&gt;&quot;);
+        imported.add(&quot;java.lang.Integer&quot;);
+
+        fileContent = fileContent.replace(&quot;(\n&quot;, &quot;(&quot;);
+        System.out.println(fileContent);
+        for (int i = 0; i &lt; fileContent.length(); i++) {
+            if (fileContent.charAt(i) != '\n') {
+                s += fileContent.charAt(i);
+            } else {
+                if (!foundPackage &amp;&amp; s.indexOf(&quot;package&quot;) == 0) {
+                    String[] getPackage = s.split(&quot; &quot;);
+                    packageName = getPackage[getPackage.length - 1];
+                    packageName = packageName.replace(&quot;;&quot;, &quot;&quot;);
+                    foundPackage = true;
+                } else if (s.indexOf(&quot;import&quot;) == 0) {
+                    String[] getImported = s.split(&quot; &quot;);
+                    String tempImport = getImported[getImported.length - 1];
+                    tempImport = tempImport.replace(&quot;;&quot;, &quot;&quot;);
+                    imported.add(tempImport);
+                } /*else if (!s.contains(&quot;*&quot;) &amp;&amp; !s.contains(&quot;/&quot;) &amp;&amp; !s.contains(&quot;.&quot;)
+                        &amp;&amp; (s.contains(&quot;class&quot;) || s.contains(&quot;interface&quot;)) &amp;&amp; s.contains(&quot;{&quot;)) {
+                    String[] className = s.split(&quot; &quot;);
+<A NAME="1"></A>                    imported.add(packageName + &quot;.&quot; + className[className.length - 2]);
+                }*/ else if (!s.contains(&quot;*&quot;) &amp;&amp; !s.contains(&quot;/&quot;) &amp;&amp; s.contains(&quot;static&quot;) &amp;&amp; s.contains(&quot;{&quot;)
+                        &amp;&amp; s.contains(&quot;(&quot;))
+                    temp</B></FONT>.add(s)<FONT color="#f63526"><A HREF="javascript:ZweiFrames('match136-1.html#1',3,'match136-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>;
+                s = &quot;&quot;;
+            }
+        }
+
+        for (int i = 0; i &lt; temp.size(); i++)
+            result.add(getSignature(temp.get(i)));
+        if (result.contains(&quot;randomIntGreaterThan(int)&quot;))
+            result.remove(&quot;randomIntGreaterThan(int)&quot;);
+        return result;
+
+    }
+
+    public static void main(String[] args) throws FileNotFoundException {
+
+        File f = new File(&quot;E:/Code/utils-master/src/main/java/com/github/rkumsher/date/RandomDateUtils.java&quot;);
+
+        Scanner sc = new Scanner(f);
+        String s = &quot;&quot;;
+        while (sc.hasNextLine()) {
+            s += sc.nextLine() + &quot;\n&quot;;
+        }
+        sc.close();
+        List&lt;String&gt; result = new Week10().getAllFunctions(s);
+        Collections.sort(result);
+        for (int i = 0; i &lt; result.size(); i++)
+            System.out.println(result.get(i));
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

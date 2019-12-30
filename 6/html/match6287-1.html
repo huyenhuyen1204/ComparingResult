@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>15191</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Fraction.java</CENTER></H3><HR>
+<PRE>
+/**
+ * Created by CCNE on 23/09/2019.
+ */
+public class Fraction {
+    private int numerator;
+    private int denominator = 1;
+
+    //cac ham khoi tao
+    public Fraction(int numerator, int denominator) {
+        this.numerator = numerator;
+        if(denominator != 0)
+            this.denominator = denominator;
+    }
+
+
+    public <font color="#C0C0C0"><EM>int getNumerator() {
+        return numerator;
+    }
+
+    public void setNumerator(int numerator) {
+        this.numerator = numerator;
+    }
+
+    public int getDenominator() {
+        return denominator;
+    }
+
+    public void setDenominator(int denominator) {
+        if(denominator != 0)
+            this</EM></font>.denominator = denominator;
+    }
+
+    public int gcd(int a, int b) {
+        if(b==0) return a;
+        else return gcd(b,a%b);
+    <font color="#C0C0C0"><EM>}
+
+    public Fraction reduce() {
+        int uoc_chung = gcd(numerator, denominator);
+        this.numerator /= uoc_chung;
+        this.denominator /= uoc_chung;
+        return  this;
+    }
+<A NAME="0"></A>
+    //cac phuong thuc cong, tru, nhan, chia
+    public Fraction</EM></font> add(Fraction fraction) {
+        <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6287-0.html#0',2,'match6287-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>this.numerator = this.numerator * fraction.getDenominator() + this.denominator * fraction.getNumerator();
+        this.denominator = this.denominator * fraction.getDenominator();
+        //reduce();
+        return this.reduce();
+    }
+
+    public Fraction subtract(Fraction fraction) {
+        this.numerator = this.numerator * fraction.getDenominator() - this.denominator * fraction.getNumerator();
+        this.denominator = this.denominator * fraction.getDenominator();
+        //reduce();
+        return this.reduce();
+    }
+
+    public Fraction multiply(Fraction fraction) {
+        this.numerator = this.numerator * fraction.getNumerator();
+        this.denominator = this.denominator * fraction.getDenominator();
+        //reduce();
+        return this.reduce();
+    }
+
+    public Fraction divide(Fraction fraction) {
+        if(fraction.getNumerator() == 0)
+            return this;
+        else {
+            this.numerator = this.numerator * fraction.getDenominator();
+            this.denominator = this.denominator * fraction.getNumerator();
+            //reduce();
+            return this.reduce();
+        }
+    }</B></FONT>
+
+    public void getFraction() {
+        reduce();
+        System.out.println(this.numerator + &quot;/&quot; + this.denominator);
+    }
+
+    public boolean equals(Object obj) {
+<A NAME="1"></A>        if (obj instanceof Fraction) {
+
+            Fraction other = (Fraction) obj;
+            <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6287-0.html#1',2,'match6287-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>if( this.numerator * other.getDenominator() - this.denominator * other.getNumerator() == 0 )
+                return true;
+            else return false;
+        }
+        else return false;
+    }</B></FONT>
+}
+</PRE>
+
+</BODY>
+</HTML>

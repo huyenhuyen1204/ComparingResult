@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>19735</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/Person.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match44835-1.html#0',3,'match44835-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Person {
+    private String name;
+    private String address;
+    public Person(){}
+    public Person(String _name,String _address){
+        name = _name;
+        address = _address;
+    }</B></FONT>
+    public <font color="#C0C0C0"><EM>String getName(){return name;}
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress(){return address;}</EM></font>
+    public void setAddress(String _address){
+        address = _address;
+    }
+
+    public String toString() {
+        return &quot;Person[name=&quot; + getName() + &quot;,address=&quot; + getAddress() + &quot;]&quot;;
+    }
+    public static void main(String[] args){
+        Person a = new Person(&quot;bang&quot;,&quot;hai duong&quot;);
+        Person b = new Person();
+        System.out.println(a.toString());
+        System.out.println(b.toString());
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>src/Staff.java</CENTER></H3><HR>
+<PRE>
+public class Staff extends Person{
+    private String school;
+    private double pay;
+    public Staff(String _name,String _address,String _school,double _pay){
+        setName(_name);
+        <font color="#C0C0C0"><EM>setAddress(_address);
+        school = _school;
+        pay = _pay;
+    }
+
+    public String getSchool() {
+        return school;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
+
+    public double getPay() {
+        return pay;
+    }
+
+    public void setPay(double pay) {
+        this.pay = pay;
+    }</EM></font>
+    public String toString(){
+        return &quot;Staff[&quot; +super.toString() + &quot;,school=&quot; + getSchool() +
+<A NAME="2"></A>                &quot;,pay=&quot; + String.valueOf(getPay()) + &quot;]&quot;;
+    }
+
+    public static <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match44835-1.html#2',3,'match44835-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>void main(String[] args) {
+        Staff a = new Staff(&quot;bang&quot;,&quot;hp&quot;,&quot;uet&quot;,3444);
+        System.out.println(a.toString());
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>src/Student.java</CENTER></H3><HR>
+<PRE>
+public class Student extends Person {
+    private String program;
+    private int year;
+    private double fee;
+    public Student(String _name,String _address,String _program, int _year, double _fee){
+        this.setName(_name);
+        <font color="#C0C0C0"><EM>this.setAddress(_address);
+       program = _program;
+        year = _year;
+       fee = _fee;
+    }
+    public String getProgram(){
+        return  program;
+    }
+    public  void setProgram(String a){
+        program = a;
+    }
+
+    public int getYear() {
+        return year;
+    }
+    public void setYear(int a){
+        year = a;
+    }
+
+    public double getFee() {
+        return fee;
+    }
+
+    public void setFee(double fee) {
+        this.fee = fee;
+    }</EM></font>
+    public String toString(){
+        return &quot;Student[&quot; + super.toString() + &quot;,program=&quot; + getProgram() +
+<A NAME="1"></A>                &quot;,year=&quot; + String.valueOf(getYear()) + &quot;,fee=&quot; + String.valueOf(getFee()) + &quot;]&quot;;
+    }
+
+    public static <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match44835-1.html#1',3,'match44835-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>void main(String[] args) {
+        Student a = new Student(&quot;bang&quot;,&quot;sa&quot;,&quot;fit&quot;,4,500);
+        System.out.println(a.toString());
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

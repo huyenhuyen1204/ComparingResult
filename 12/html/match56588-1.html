@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>29625</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>BinaryExpression.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public abstract <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match56588-0.html#0',2,'match56588-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class BinaryExpression extends Expression {
+    protected Expression left;
+    protected Expression right;
+
+    public BinaryExpression(Expression left, Expression right) {
+        this.left = left;
+        this.right = right;
+    }
+
+    @Override
+    abstract public String toString();
+
+    @Override
+    abstract public double evaluate();
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>ExpressionTest.java</CENTER></H3><HR>
+<PRE>
+<A NAME="2"></A>
+public <FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match56588-0.html#2',2,'match56588-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class ExpressionTest {
+    public static void main(String arg[]) {
+        Numeral ten = new Numeral(10);
+        Numeral three = new Numeral(3);
+        Numeral negaThree = new Numeral(-3);
+        Numeral four = new Numeral(4);
+        Square square1 = new Square(ten);
+        Addition addition1 = new Addition(square1, negaThree);
+        Multiplication multiplication = new Multiplication(four, three);
+        Addition addition2 = new Addition(addition1, multiplication);
+        Square total = new Square(addition2);
+        System.out.print(total</B></FONT>.toString());
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>Square.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>public class Square extends Expression {
+    private Expression expression;
+
+    public <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match56588-0.html#1',2,'match56588-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>Square(Expression expression) {
+        this.expression = expression;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;(&quot; + this.expression + &quot;) ^ 2&quot;;
+    }
+
+    @Override
+    public double evaluate() {
+        return</B></FONT> this.expression.evaluate()*this.expression.evaluate();
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

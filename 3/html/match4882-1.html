@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>10982</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>StudentManagement.java</CENTER></H3><HR>
+<PRE>
+
+public class StudentManagement {
+    static int i = 0;
+    static Student[] students = new Student[100];
+
+    public StudentManagement() {
+    }
+
+    static boolean sameGroup(Student s1, Student s2) {
+        return s1.getGroup().equals(s2.getGroup());
+    }
+
+    public static void addStudent(Student newStudent) {
+        students[i] = newStudent;
+        ++i;
+    }
+
+
+<A NAME="0"></A>    public static String studentsByGroup() {
+        String print = students[0].getGroup()+&quot;\n&quot;+ students[0].getInfo()+&quot;\n&quot;;
+        int[] flag = new int[100];
+        <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match4882-0.html#0',2,'match4882-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>flag[0]= 1;
+        for(int j=0; j&lt;i;j++)
+        {
+            for(int k =j+1; k&lt;i;k++){
+                if(students[j].getInfo().equals(students[k].getInfo())){
+                    flag[k]=1;
+                }
+            }
+        }
+        for(int j =0; j&lt;i;j++)
+        {
+            if(flag[j]==0)
+            {
+                print =print+ students[j].getGroup() + &quot;\n&quot; + students[j].getInfo() + &quot;\n&quot;;
+                flag[j] = 1;
+            }</B></FONT>
+            <font color="#C0C0C0"><EM>for (int k = 1; k &lt; i; k++)
+            {
+                if (sameGroup(students[j], students[k])&amp;&amp; flag[k]==0) {
+                    print =print+ students[k].getInfo() + &quot;\n&quot;;
+<A NAME="1"></A>                    flag[k] = 1;
+                }
+            }</EM></font>
+        <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match4882-0.html#1',2,'match4882-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>}
+        return print;
+    }
+    public static void removeStudent(String id) {
+        for(int j = 0; j &lt; i; ++j) {
+            if (students[j].getId().equals(id)) {
+                for(int k = j; k &lt; i - 1; ++k) {
+                    students[k] = students[k + 1];
+                }
+
+                --i;
+            }
+        }
+
+    }
+
+    public static void main(String[] args) {
+
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

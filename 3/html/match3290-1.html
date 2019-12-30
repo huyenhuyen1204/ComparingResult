@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>8248</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>src/StudentManagement.java</CENTER></H3><HR>
+<PRE>
+//package com.company;
+
+public class StudentManagement {
+
+    Student[] students = new Student[100];
+    int n = 0;
+
+<A NAME="0"></A>    String[] allG = new String[100];
+    int m = 0;
+    int k;
+    public static <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match3290-0.html#0',2,'match3290-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>boolean sameGroup(Student s1, Student s2) {
+
+        return (s1.getGroup().equals( s2.getGroup()));
+    }
+
+    public void addStudent(Student newStudent){
+
+        students[n++] = newStudent;
+    }
+
+    public String studentsByGroup() {
+        String kq = &quot;&quot;</B></FONT>;
+
+        //allG[0] = students[0].getGroup();
+
+        for (int i = 0; i&lt;n; i++) {
+            if (i==0) allG[m] = students[i].getGroup();
+             k = 0;
+            for (int j =0; j&lt;=m; j++) {
+                if (students[i].getGroup() == allG[j]) {
+                    k++;
+                }
+            }
+                if (k==0) {
+                    m++;
+                    allG[m] = students[i].getGroup();
+                }
+
+
+        }
+
+        for (int i = 0; i&lt;=m; i++) {
+            kq = kq + allG[i] + &quot;\n&quot;;
+<A NAME="1"></A>            for (int j = 0; j&lt;n; j++) {
+                if (allG[i] == students[j].getGroup() ) {
+                    kq = kq + students[j].getInfo() + &quot;\n&quot;;
+                <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match3290-0.html#1',2,'match3290-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>}
+            }
+        }
+        return kq;
+    }
+
+    public void removeStudent(String id) {
+
+        for(int i = 0; i&lt;n;i++) {
+            if(students[i].getId().equals(id)) {
+                n--;
+                for (int j = i ; j&lt;n; j++) {
+                    i++;
+                    students[j] = students[i];
+                }
+                break;
+            }
+
+        }
+
+
+    }</B></FONT>
+
+    public static void main(String[] args) {
+
+    }
+
+
+}
+</PRE>
+
+</BODY>
+</HTML>

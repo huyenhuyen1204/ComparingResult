@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>25355</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Circle.java</CENTER></H3><HR>
+<PRE>
+public class Circle extends Shape{
+    protected double radius;
+
+    public Circle(){}
+
+    public Circle(double radius) {
+        <font color="#C0C0C0"><EM>this.radius = radius;
+    }
+
+    public Circle(double radius, String color, boolean filled) {
+        super(color, filled);
+        this.radius = radius;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double radius) {
+<A NAME="3"></A>        this.radius = radius;
+    }</EM></font>
+
+    <FONT color="#6cc417"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match49625-0.html#3',2,'match49625-top.html#3',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>@Override
+    public double getArea() {
+        return radius*radius*Math.PI;
+    }
+
+    @Override
+    public double getPerimeter() {
+        return 2*radius*Math.PI;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Circle[radius=&quot;+radius+&quot;,color=&quot;+color+&quot;,filled=&quot;+filled+&quot;]&quot;;
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>Rectangle.java</CENTER></H3><HR>
+<PRE>
+public class Rectangle extends Shape{
+    protected double width;
+    protected double length;
+
+    public Rectangle(double width, double length) {
+        this.width = width;
+        this.length = length;
+    }
+
+    public Rectangle(double width, double length, String color, boolean filled) {
+        super(color, filled);
+        this.width = width;
+        this.length = length;
+    }
+
+    public Rectangle(String color, boolean filled) {
+        super(color, filled);
+    }
+
+    public Rectangle() {<font color="#C0C0C0"><EM>}
+
+    public double getWidth() {
+        return width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public double getLength() {
+        return length;
+    }
+
+    public void setLength(double length) {
+<A NAME="2"></A>        this.length = length;
+    }</EM></font>
+
+    <FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match49625-0.html#2',2,'match49625-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>@Override
+    public double getArea() {
+        return width*length;
+    }
+
+    @Override
+    public double getPerimeter() {
+        return 2*(width + length);
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Rectangle[width=&quot;+width+&quot;,length=&quot;+length+&quot;,color=&quot;+color+&quot;,filled=&quot;+filled+&quot;]&quot;;
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>Square.java</CENTER></H3><HR>
+<PRE>
+public class Square extends Rectangle{
+
+    public Square(){}
+
+    public Square(double side) {
+        width = side;
+        length = side;
+    }
+
+    public Square(double side, String color, boolean filled) {
+        super(color, filled);
+        width = side;
+        length = side;
+    }
+
+    public double getSide() {
+        return width;
+    }
+
+    public void setSide(double side) {
+        width = side;
+        length = side;
+    }
+
+    @Override
+    public void setWidth(double side) {
+        this.setSide(side);
+    }
+
+    @Override
+    public void setLength(double side) {
+        this.setSide(side);
+    }
+
+<A NAME="0"></A>    @Override
+    public String toString() {
+        return &quot;Square[side=&quot;+getSide()+&quot;,color=&quot;+color+&quot;,filled=&quot;+filled+&quot;]&quot;;
+    <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match49625-0.html#0',2,'match49625-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>}
+
+    public static void main(String[] args) {
+        Shape s1 = new Circle(5.5, &quot;RED&quot;, false);
+        System.out.println(s1);
+        System.out.println(s1.getArea());
+        System.out.println(s1.getPerimeter());
+        System.out.println(s1.getColor());
+        System.out.println(s1.isFilled());
+        //System.out.println(s1.getRadius()); // compile time error
+
+        Circle c1 = (Circle)s1; // ep kieu cho s1 thanh Circle
+        System.out.println(c1);
+        System.out.println(c1.getArea());
+        System.out.println(c1.getPerimeter());
+        System.out.println(c1.getColor());
+        System.out.println(c1.isFilled());
+        System.out.println(c1.getRadius());
+
+        //Shape s2 = new Shape(); // loi abstract
+
+        Shape s3 = new Rectangle(1.0, 2.0, &quot;RED&quot;, false);
+        System.out.println(s3);
+        System.out.println(s3.getArea());
+        System.out.println(s3.getPerimeter());
+        System.out.println(s3.getColor());
+        //System.out.println(s3.getLength()); // compile time error
+
+        Rectangle r1 = (Rectangle)s3;
+        System.out.println(r1);
+        System.out.println(r1.getArea());
+        System.out.println(r1.getColor());
+        System.out.println(r1.getLength());
+
+        Shape s4 = new Square(6.6, &quot;BLUE&quot;, true);
+        System.out.println(s4);
+        System.out.println(s4.getArea());
+        System.out.println(s4.getColor());
+        //System.out.println(s4.getSide());// compile time error
+
+        Rectangle r2 = (Rectangle)s4;
+        System.out.println(r2);
+        System.out.println(r2.getArea());
+        System.out.println(r2.getColor());
+<A NAME="1"></A>        //System.out.println(r2.getSide());// rectangle ko co method getSide
+        System.out.println(r2</B></FONT>.getLength());
+
+        Square <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match49625-0.html#1',2,'match49625-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>sq1 = (Square)r2;// up casting
+        System.out.println(sq1);
+        System.out.println(sq1.getArea());
+        System.out.println(sq1.getColor());
+        System.out.println(sq1.getSide());
+        System.out.println(sq1</B></FONT>.getLength());
+
+        Rectangle s = new Rectangle(10, 9, &quot;YELLOW&quot;, false);
+        System.err.println(s.toString());
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

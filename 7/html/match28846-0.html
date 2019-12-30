@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>18106</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/Week4.java</CENTER></H3><HR>
+<PRE>
+//package com.company;
+
+import java.lang.Math;
+
+public class Week4 {
+    public static int max2Int(int a, int b) {
+        return Math.max(a, b);
+    <font color="#C0C0C0"><EM>}
+
+    public static int minArray(int[] arr) {
+        int min = arr[0];
+        for (int i = 0; i &lt; arr.length ; ++i) {
+            if (arr[i] &lt; min) min = arr[i];
+        }
+        return min;
+    }
+
+    public static String calculateBMI(double weight, double height) {
+        String s</EM></font>;
+        double BMI;
+        BMI = weight/Math.pow(height, 2);
+        if ((double)Math.round(BMI*10)/10 &lt; 18.5)
+            s = &quot;Thiếu cân&quot;;
+<A NAME="0"></A>        else if (Math.round(BMI*10)/10 &lt; 23)
+            s = &quot;Bình thường&quot;;
+        else if (Math.round(BMI*10)/10 &lt; 25)
+            <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match28846-1.html#0',3,'match28846-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>s = &quot;Thừa cân&quot;;
+        else
+            s = &quot;Béo phì&quot;;
+        return s;
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>src/Week4Test.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>//package com.company;
+
+<FONT color="#f63526"><A HREF="javascript:ZweiFrames('match28846-1.html#1',3,'match28846-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>import org.junit.jupiter.api.Test;
+
+public class Week4Test {
+    @Test
+    public void testMax2Int1(){}
+
+    @Test
+    public void testMax2Int2(){}
+
+    @Test
+    public void testMax2Int3(){}
+
+    @Test
+    public void testMax2Int4(){}
+
+    @Test
+    public void testMax2Int5(){}
+
+    @Test
+    public void testMinArray1(){}
+
+    @Test
+    public void testMinArray2(){}
+
+    @Test
+    public void testMinArray3(){}
+
+    @Test
+    public void testMinArray4(){}
+
+    @Test
+    public void testMinArray5(){}
+
+    @Test
+    public void testCalculateBMI1(){}
+
+    @Test
+    public void testCalculateBMI2(){}
+
+    @Test
+    public void testCalculateBMI3(){}
+
+    @Test
+    public void testCalculateBMI4(){}
+
+    @Test
+    public void testCalculateBMI5(){}
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>30554</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/Division.java</CENTER></H3><HR>
+<PRE>
+
+public <font color="#C0C0C0"><EM>class Division extends BinaryExpression{
+
+    public Division(Expression left, Expression right){
+	super(left, right);
+    }
+
+    @Override
+    public String toString() {
+        return &quot;(&quot; + this.left.toString() + &quot; / &quot; + this</EM></font>.right.toString() + &quot;)&quot;;
+<A NAME="3"></A>    }
+
+    @Override
+    public <FONT color="#6cc417"><A HREF="javascript:ZweiFrames('match56746-1.html#3',3,'match56746-top.html#3',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>double evaluate() {
+    if(this.right.evaluate() == 0){
+	throw new java.lang.ArithmeticException(&quot;Lỗi chia cho 0&quot;);
+    }
+	else return this.left.evaluate() / this.right.evaluate();
+    }	
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>src/ExpressionTest.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>public class ExpressionTest {
+
+    public static <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match56746-1.html#1',3,'match56746-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>void main(String[] args){
+
+       Expression numberal = new Numeral(10);
+<A NAME="2"></A>       Expression a = new Square(numberal);
+       Expression numberal1 = new Numeral(5);
+       Expression addition = new Addition</B></FONT>(a, new Numeral(-3));
+       Expression mul = new Multiplication(numberal1, new <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match56746-1.html#2',3,'match56746-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>Numeral(-3));
+       Expression add = new Addition(addition, mul);
+       Expression square = new Square(add);
+       System.out.println(square</B></FONT>.toString()); 
+       Expression division = new Division(numberal, new Numeral(0));
+       System.out.println(division);
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>src/Numeral.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match56746-1.html#0',3,'match56746-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Numeral extends Expression {
+    
+    private double value;
+    
+    public Numeral(double value){
+        this.value = value;
+    }
+    
+    public Numeral(){}
+    
+    public double getValue() {
+	return value;
+    }</B></FONT>
+
+    public void setValue(double value) {
+	this.value = value;
+    }
+    
+    @Override
+    public String toString(){        
+        return String.valueOf((int)this.value);
+    }
+    
+    @Override
+    public double evaluate(){
+        return this.value;
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

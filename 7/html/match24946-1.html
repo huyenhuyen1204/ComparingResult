@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>1503</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>java/Week4Test.java</CENTER></H3><HR>
+<PRE>
+import org.junit.Assert;
+import org.junit.Test;
+<A NAME="0"></A>
+public class Week4Test {
+    @Test
+    public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match24946-0.html#0',2,'match24946-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>void testMax2Int1(){
+        Assert.assertEquals(5,Week4.max2Int(5,4));
+    }
+
+   @Test
+    public void testMax2Int2(){
+       Assert.assertEquals(7,Week4.max2Int(5,7));
+   }
+
+    @Test
+    public void testMax2Int3(){Assert.assertEquals(5,Week4.max2Int(5,-9));}
+
+    @Test
+    public void testMax2Int4(){Assert.assertEquals(5,Week4.max2Int(5,-4));}
+
+    @Test
+    public void testMax2Int5(){Assert.assertEquals(5,Week4.max2Int(5,0));}
+
+    @Test
+    public void testMinArray1(){
+        int a[]=new int</B></FONT>[3];
+<A NAME="1"></A>        a[0]=1;
+        a[1]=2;
+        a[2]=4;
+        <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match24946-0.html#1',2,'match24946-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>Assert.assertEquals(1,Week4.minArray(a));
+    }
+
+    @Test
+    public void testMinArray2(){
+        int a[]=new int</B></FONT>[3];
+<A NAME="2"></A>        a[0]=1;
+        a[1]=2;
+        a[2]=4;
+        <FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match24946-0.html#2',2,'match24946-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>Assert.assertEquals(1,Week4.minArray(a));}
+
+    @Test
+    public void testMinArray3(){   int a[]=new int</B></FONT>[3];
+<A NAME="3"></A>        a[0]=1;
+        a[1]=-2;
+        a[2]=4;
+        <FONT color="#6cc417"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match24946-0.html#3',2,'match24946-top.html#3',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>Assert.assertEquals(-2,Week4.minArray(a));}
+
+    @Test
+    public void testMinArray4(){
+        int a[]=new int</B></FONT>[3];
+<A NAME="4"></A>        a[0]=1;
+        a[1]=2;
+        a[2]=-4;
+        <FONT color="#151b8d"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match24946-0.html#4',2,'match24946-top.html#4',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>Assert.assertEquals(-4,Week4.minArray(a));
+    }
+
+    @Test
+    public void testMinArray5(){
+        int a[]=new int</B></FONT>[3];
+<A NAME="5"></A>        a[0]=-1;
+        a[1]=2;
+        a[2]=4;
+        <FONT color="#c8c2a7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match24946-0.html#5',2,'match24946-top.html#5',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>Assert.assertEquals(-1,Week4.minArray(a));
+    }
+
+    @Test
+    public void testCalculateBMI1(){
+        Assert.assertEquals(&quot;Bình thường&quot;,Week4.calculateBMI(50,1.6));
+    }
+
+    @Test
+    public void testCalculateBMI2(){
+        Assert.assertEquals(&quot;Béo phì&quot;,Week4.calculateBMI(70,1.67));
+    }
+
+    @Test
+    public void testCalculateBMI3(){
+        Assert.assertEquals(&quot;Thiếu cân&quot;,Week4.calculateBMI(45,1.6));
+
+    }
+
+    @Test
+    public void testCalculateBMI4(){
+        Assert.assertEquals(&quot;Thừa cân&quot;,Week4.calculateBMI(60,1.6));
+
+    }
+
+    @Test
+    public void testCalculateBMI5(){
+        Assert.assertEquals(&quot;Bình thường&quot;,Week4.calculateBMI(47.36,1.6));
+
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

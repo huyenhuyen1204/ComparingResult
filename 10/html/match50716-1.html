@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>23534</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>src0/Circle.java</CENTER></H3><HR>
+<PRE>
+public class Circle extends Shape {
+    protected double radius;
+    final double pi=Math.PI;
+    public Circle(){}
+    public Circle(double r) {
+        <font color="#C0C0C0"><EM>radius=r;
+    }
+    public Circle(double r,String s,boolean a) {
+        super(s,a);
+        radius=r;
+    }
+    public double getRadius() {
+        return radius;
+    }
+<A NAME="2"></A>    public void setRadius(double a) {
+        radius=a;
+    }</EM></font>
+    <FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match50716-0.html#2',2,'match50716-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>@Override
+    public double getArea() {
+        return pi*radius*radius;
+        //throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public double getPerimeter() {
+        return pi*2*radius;
+        //throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
+    public String toString() {
+        return &quot;Circle[radius=&quot;+getRadius()+&quot;,color=&quot;+getColor()+&quot;,filled=&quot;+isFilled()+&quot;]&quot;;
+        //throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); //To change body of generated methods, choose Tools | Templates.
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>src0/Rectangle.java</CENTER></H3><HR>
+<PRE>
+public class Rectangle extends Shape {
+    protected double width;
+    protected double length;
+    public Rectangle(){}
+    public Rectangle(double w,double l){
+        <font color="#C0C0C0"><EM>width=w;
+        length=l;
+    }
+    public Rectangle(double w,double l,String color,boolean a){
+        super(color,a);
+        width=w;
+        length=l;
+    }
+    public double getWidth() {
+        return width;
+    }
+    public void setWidth(double a) {
+        width=a;
+    }
+    public double getLength() {
+        return length;
+    }
+<A NAME="1"></A>    public void setLength(double a) {
+        length=a;
+    }</EM></font>
+    <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match50716-0.html#1',2,'match50716-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>@Override
+    public double getArea() {
+        return width*length;
+        //throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public double getPerimeter() {
+        return 2*(width+length);
+        //throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); //To change body of generated methods, choose Tools | Templates.
+    }
+    public String toString() {
+        return &quot;Rectangle[width=&quot;+getWidth()+
+                &quot;,length=&quot;+getLength()+&quot;,color=&quot;+getColor()+&quot;,filled=&quot;+isFilled()+&quot;]&quot;;
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>src0/Square.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match50716-0.html#0',2,'match50716-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class Square extends Rectangle {
+    public Square(){};
+    public Square(double s){
+        super(s, s);
+        width=s;
+    }
+    public Square(double s,String c,boolean f){
+        super(s,s,c, f);
+    }
+    public double getSide() {
+        return getWidth();
+    }
+    public void setSide(double s) {
+        width=s;
+        length</B></FONT>=s;
+    <font color="#C0C0C0"><EM>}
+    public void setWidth(double a) {
+        setSide(a);
+    }
+    public void setLength(double a) {
+        setSide(a);
+    }</EM></font>
+    public String toString() {
+        return &quot;Square[side=&quot;+getSide()+&quot;,color=&quot;+getColor()+&quot;,filled=&quot;+isFilled()+&quot;]&quot;;
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

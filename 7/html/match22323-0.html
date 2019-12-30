@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>1616</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Week4.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>//package com.company;
+public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match22323-1.html#0',3,'match22323-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Week4 {
+
+    public static int max2Int(int a, int b) {
+        if ( a&gt;=b) return a;
+        else return b;
+    }
+
+    public static int minArray(int[] arr) {
+        int length = arr</B></FONT>.length;
+        int <font color="#C0C0C0"><EM>min = arr[0];
+        for (int i=0;i&lt;length;i++) {
+            if (arr[i]&lt;min) min=arr[i];
+        }
+        return min;
+    }
+
+    public static String calculateBMI(double weight, double height) {
+        double BMI ;
+        BMI</EM></font> = weight/(height*height);
+        BMI = (double) Math.round(BMI*100)/100;
+        if (BMI &lt; 18.5) return &quot;Thiếu cân&quot;;
+        if (BMI&gt;=18.5 &amp;&amp; BMI&lt;23) return &quot;Bình thường&quot;;
+        if (BMI &gt;=23 &amp;&amp; BMI&lt;25) return &quot;Thừa cân&quot;;
+        if (BMI&gt;=25) return &quot;Béo phì&quot;;
+        return null;
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>Week4Test.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>//package com.company;
+<FONT color="#f63526"><A HREF="javascript:ZweiFrames('match22323-1.html#1',3,'match22323-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>import org.junit.Test;
+import static org.junit.Assert.*;
+public class Week4Test {
+<A NAME="2"></A>    @Test
+    public void testMax2Int1(){
+        Week4 week4 = new Week4</B></FONT>();
+        int x = <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match22323-1.html#2',3,'match22323-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>week4.max2Int(5,6);
+        assertEquals(6,x);
+    }
+<A NAME="3"></A>    @Test
+    public void testMax2Int2(){
+        Week4 week4 = new Week4();
+        int x = <FONT color="#6cc417"><A HREF="javascript:ZweiFrames('match22323-1.html#3',3,'match22323-top.html#3',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>week4</B></FONT>.max2Int(7,6);
+        assertEquals(7,x);
+    }
+<A NAME="4"></A>    @Test
+    public void testMax2Int3(){
+        Week4 week4 = new Week4();
+        int x = <FONT color="#151b8d"><A HREF="javascript:ZweiFrames('match22323-1.html#4',3,'match22323-top.html#4',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>week4</B></FONT>.max2Int(4,6);
+        assertEquals(6,x);
+    }
+<A NAME="5"></A>    @Test
+    public void testMax2Int4(){
+        Week4 week4 = new Week4();
+        int x = <FONT color="#c8c2a7"><A HREF="javascript:ZweiFrames('match22323-1.html#5',3,'match22323-top.html#5',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>week4</B></FONT>.max2Int(3,6);
+        assertEquals(6,x);
+    }
+<A NAME="6"></A>    @Test
+    public void testMax2Int5(){
+        Week4 week4 = new Week4();
+        int x = <FONT color="#50ebec"><A HREF="javascript:ZweiFrames('match22323-1.html#6',3,'match22323-top.html#6',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>week4</B></FONT>.max2Int(2,6);
+        assertEquals(6,x);
+    }
+
+    @Test
+<A NAME="7"></A>    public void testMinArray1(){
+        Week4 week4 =new Week4();
+        int[] arr = new</B></FONT> int[] {2,1,23,4,5};
+        int min = <FONT color="#c58917"><A HREF="javascript:ZweiFrames('match22323-1.html#7',3,'match22323-top.html#7',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>week4.minArray(arr);
+        assertEquals(1,min);}
+<A NAME="8"></A>    @Test
+    public void testMinArray2(){        Week4 week4 =new Week4</B></FONT>();
+        int[] arr = new int[] {2,1,23,4,5};
+        int min = <FONT color="#bce954"><A HREF="javascript:ZweiFrames('match22323-1.html#8',3,'match22323-top.html#8',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>week4.minArray(arr);
+        assertEquals(1,min);}
+
+<A NAME="9"></A>    @Test
+    public void testMinArray3(){        Week4 week4 =new Week4</B></FONT>();
+        int[] arr = new int[] {2,1,23,4,5};
+        int min = <FONT color="#f88017"><A HREF="javascript:ZweiFrames('match22323-1.html#9',3,'match22323-top.html#9',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>week4.minArray(arr);
+        assertEquals(1,min);}
+
+<A NAME="10"></A>    @Test
+    public void testMinArray4(){        Week4 week4 =new Week4</B></FONT>();
+        int[] arr = new int[] {2,1,23,4,5};
+        int min = <FONT color="#b041ff"><A HREF="javascript:ZweiFrames('match22323-1.html#10',3,'match22323-top.html#10',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>week4.minArray(arr);
+        assertEquals(1,min);}
+
+<A NAME="11"></A>    @Test
+    public void testMinArray5(){        Week4 week4 =new Week4</B></FONT>();
+        int[] arr = new int[] {2,1,23,4,5};
+        int min = <FONT color="#571b7e"><A HREF="javascript:ZweiFrames('match22323-1.html#11',3,'match22323-top.html#11',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>week4.minArray(arr);
+        assertEquals(1,min);}
+
+<A NAME="12"></A>    @Test
+    public void testCalculateBMI1(){
+        Week4 week4 =new Week4</B></FONT>();
+        String str = <FONT color="#3b9c9c"><A HREF="javascript:ZweiFrames('match22323-1.html#12',3,'match22323-top.html#12',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>week4.calculateBMI(40,1.6);
+        assertEquals(&quot;Thiếu cân&quot;,str);
+    }
+
+<A NAME="13"></A>    @Test
+    public void testCalculateBMI2(){
+        Week4 week4 =new Week4</B></FONT>();
+        String str = <FONT color="#842dce"><A HREF="javascript:ZweiFrames('match22323-1.html#13',3,'match22323-top.html#13',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>week4.calculateBMI(40,1.6);
+        assertEquals(&quot;Thiếu cân&quot;,str);
+    }
+
+<A NAME="14"></A>    @Test
+    public void testCalculateBMI3(){
+        Week4 week4 =new Week4</B></FONT>();
+        String str = <FONT color="#f52887"><A HREF="javascript:ZweiFrames('match22323-1.html#14',3,'match22323-top.html#14',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>week4.calculateBMI(40,1.6);
+        assertEquals(&quot;Thiếu cân&quot;,str);
+    }
+
+<A NAME="15"></A>    @Test
+    public void testCalculateBMI4(){
+        Week4 week4 =new Week4</B></FONT>();
+        String str = <FONT color="#3bb9ff"><A HREF="javascript:ZweiFrames('match22323-1.html#15',3,'match22323-top.html#15',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>week4.calculateBMI(40,1.6);
+        assertEquals(&quot;Thiếu cân&quot;,str);
+    }
+
+    @Test
+    public void testCalculateBMI5(){
+        Week4 week4 =new Week4</B></FONT>();
+        String str = week4.calculateBMI(40,1.6);
+        assertEquals(&quot;Thiếu cân&quot;,str);
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

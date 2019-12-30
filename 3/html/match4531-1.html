@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>6815</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>zip/StudentManagement.java</CENTER></H3><HR>
+<PRE>
+import java.util.ArrayList;
+	
+<A NAME="0"></A>public class StudentManagement {
+	private static final int MAX = 100;
+
+	Student[] <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match4531-0.html#0',2,'match4531-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>students = new Student[MAX];
+	private int length = 0;
+
+	public static boolean sameGroup(Student s1, Student s2) {
+		return s1.getGroup().compareTo(s2.getGroup()) == 0;
+	}
+
+	public void</B></FONT> addStudent(Student newStudent) {
+		// if new length is smaller than maximum of array
+		if (length + 1 &lt;= MAX) {
+			students[length] = newStudent;
+			length += 1;
+		} else {
+			// System.out.println(&quot;Oh no!&quot;);
+		}
+	}
+
+	private ArrayList&lt;String&gt; getGroups() {
+		ArrayList&lt;String&gt; result = new ArrayList&lt;String&gt;();
+		for (int i = 0; i &lt; length; i++) {
+			boolean is_existed = false;
+			String this_group = students[i].getGroup();
+			for (String grouped_str: result) {
+				// System.out.println(this_group + ' ' + grouped_str);
+				if (this_group.compareTo(grouped_str) == 0) {
+					is_existed = true;
+					break;
+				}
+			}
+			if (!is_existed) {
+				result.add(this_group);
+			}
+		}
+		return result;
+	}
+
+	public String studentsByGroup() {
+		ArrayList&lt;String&gt; all_groups = getGroups();
+<A NAME="1"></A>
+		String result = &quot;&quot;;
+		for (String group: all_groups) {
+			<FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match4531-0.html#1',2,'match4531-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>result += group + &quot;\n&quot;;
+			for (int i = 0; i &lt; length; i++) {
+				if (students[i].getGroup().compareTo(group) == 0) {
+					result += students[i].getInfo() + &quot;\n&quot;;
+				}
+			}
+		}
+		return result;
+	}
+<A NAME="2"></A>
+	public void</B></FONT> removeStudent(String id) {
+		if (length &gt; 0) {
+			<FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match4531-0.html#2',2,'match4531-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>for (int i = 0; i &lt; length; i++)
+				if (students[i].getId().compareTo(id) == 0) {
+					// erase student i
+					for (int j = i+1; j &lt; length; j++)
+						students[j-1] = students[j];</B></FONT>
+
+					length -= 1;
+					break;
+				}
+		} else {
+			// System.out.println(&quot;Oh no!&quot;);
+		}
+	}
+
+	public static void main(String[] args) {
+		/*
+		StudentManagement uet = new StudentManagement();
+
+		Student studentA = new Student(&quot;Nguyen Van An&quot;, &quot;17020001&quot;, &quot;17020001@vnu.edu.vn&quot;);
+		studentA.setGroup(&quot;K62CC&quot;);
+
+		Student studentB = new Student(&quot;Nguyen Van B&quot;, &quot;17020002&quot;, &quot;17020002@vnu.edu.vn&quot;);
+		studentB.setGroup(&quot;K62CC&quot;);
+
+		Student studentC = new Student(&quot;Nguyen Van C&quot;, &quot;17020003&quot;, &quot;17020003@vnu.edu.vn&quot;);
+
+		Student studentD = new Student(&quot;Nguyen Van D&quot;, &quot;17020004&quot;, &quot;17020004@vnu.edu.vn&quot;);
+
+		uet.addStudent(studentA);
+		uet.addStudent(studentB);
+		uet.addStudent(studentC);
+		uet.addStudent(studentD);
+
+		System.out.print(uet.studentsByGroup());
+		*/
+	}
+}
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>28511</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Addition.java</CENTER></H3><HR>
+<PRE>
+public class Addition extends BinaryExpression {
+	public Addition(Expression left, Expression right) {
+		super(left, right);
+<A NAME="1"></A>	}
+
+	public String toString() {
+		<FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match58248-0.html#1',2,'match58248-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>return &quot;(&quot; + left.toString() + &quot; + &quot; + right.toString() + &quot;)&quot;;
+	}
+
+	public double evaluate() {
+		return left.evaluate() + right.evaluate();
+	}
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>ExpressionTest.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match58248-0.html#0',2,'match58248-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class ExpressionTest {
+	public static void main(String[] args) throws Exception {
+		Expression zero = new Numeral(0);
+		Expression number = new Numeral(1);
+		Expression number1 = new Numeral(1.5);
+		Expression number2 = new Numeral(2.5);
+		Expression add1 = new Addition</B></FONT>(number1, number2);
+		System.out.println(add1.toString());
+		System.out.println(add1.evaluate());
+		Expression square = new Square(number);
+		Expression add2 = new Addition(square, add1);
+		System.out.println(add2.toString());
+		System.out.println(add2.evaluate());
+
+		Expression sub = new Subtraction(square, add1);
+		System.out.println(sub.toString());
+		System.out.println(sub.evaluate());
+
+		Expression mul = new Multiplication(square, add1);
+		System.out.println(mul.toString());
+		System.out.println(mul.evaluate());
+
+		Expression div = new Division(square, zero);
+		System.out.println(div.toString());
+		
+		try {
+			System.out.println(div.evaluate());
+		} catch(ArithmeticException e) {
+			System.out.println(e);
+		}
+	}
+}
+</PRE>
+<HR>
+<H3><CENTER>Multiplication.java</CENTER></H3><HR>
+<PRE>
+<A NAME="3"></A>public <FONT color="#6cc417"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match58248-0.html#3',2,'match58248-top.html#3',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class Multiplication extends BinaryExpression {
+	public Multiplication(Expression left, Expression right) {
+		super(left, right);
+	}
+
+	public String toString() {
+		return &quot;(&quot; + left.toString() + &quot; * &quot; + right.toString() + &quot;)&quot;;
+	}
+
+	public double evaluate() {
+		return left.evaluate() * right.evaluate();
+	}
+
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>Subtraction.java</CENTER></H3><HR>
+<PRE>
+<A NAME="2"></A>public <FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match58248-0.html#2',2,'match58248-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class Subtraction extends BinaryExpression {
+	public Subtraction(Expression left, Expression right) {
+		super(left, right);
+	}
+
+	public String toString() {
+		return &quot;(&quot; + left.toString() + &quot; - &quot; + right.toString() + &quot;)&quot;;
+	}
+
+	public double evaluate() {
+		return left.evaluate() - right.evaluate();
+	}
+
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

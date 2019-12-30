@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>24173</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/Circle.java</CENTER></H3><HR>
+<PRE>
+<A NAME="4"></A>public <FONT color="#151b8d"><A HREF="javascript:ZweiFrames('match45494-1.html#4',3,'match45494-top.html#4',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Circle extends Shape{
+    protected double radius;
+    public Circle(){}
+    public Circle(double radius){
+        this.radius = radius;
+    }
+    public Circle(double radius, String color, boolean filled){
+        this.radius = radius;
+        this</B></FONT>.color = color;
+        <font color="#C0C0C0"><EM>this.filled = filled;
+    }
+    public double getRadius(){
+        return radius;
+    }
+    public void setRadius(double radius){
+        this.radius = radius;
+    }</EM></font>
+    @Override
+    public double getArea(){
+        return Math.PI*radius*radius;
+    }
+    @Override
+    public double getPerimeter(){
+        return 2*Math.PI*radius;
+    }
+    @Override
+    public String toString(){
+        return &quot;Circle[radius=&quot;+radius+&quot;,color=&quot;+color+&quot;,filled=&quot;+filled+&quot;]&quot;;
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>src/Rectangle.java</CENTER></H3><HR>
+<PRE>
+<A NAME="2"></A>public <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match45494-1.html#2',3,'match45494-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Rectangle extends Shape {
+    protected double width;
+    protected double length;
+    public Rectangle(){}
+    public Rectangle(double width, double length){
+        this.width = width;
+        this.length = length;
+    }
+    public Rectangle(double width, double length, String color, boolean filled){
+        this.width = width;
+        this</B></FONT>.length = length;
+        <font color="#C0C0C0"><EM>this.color = color;
+        this.filled = filled;
+    }
+    public double getWidth(){
+        return width;
+    }
+    public void setWidth(double width){
+        this.width = width;
+    }
+    public double getLength(){
+        return length;
+    }
+<A NAME="3"></A>    public void setLength(double length) {
+        this.length = length;
+    }</EM></font>
+    <FONT color="#6cc417"><A HREF="javascript:ZweiFrames('match45494-1.html#3',3,'match45494-top.html#3',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>@Override
+    public double getArea(){
+        return width*length;
+    }
+    @Override
+    public double getPerimeter(){
+        return (width+length)*2;
+    }
+    @Override
+    public String toString(){
+        return &quot;Rectangle[width=&quot;+width+&quot;,length=&quot;+length+&quot;,color=&quot;+color+&quot;,filled=&quot;+filled+&quot;]&quot;;
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>src/Square.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match45494-1.html#0',3,'match45494-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Square extends Rectangle {
+    public Square(){}
+    public Square(double side){
+        this.width = side;
+        this.length = side;
+    }
+    public Square(double side, String color, boolean filled){
+        this.length = side;
+        this.width = side;
+        this.color = color;
+        this.filled = filled;
+<A NAME="1"></A>    }
+    public double getSide(){
+        return</B></FONT> length;
+    <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match45494-1.html#1',3,'match45494-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>}
+    public void setSide(double side){
+        this.width = side;
+        this.length = side;
+    }
+    @Override
+    public void</B></FONT> setWidth(double side){
+        this.width = side;
+        this.length = side;
+    }
+    @Override
+    public void setLength(double side){
+        this.length = side;
+        this.width = side;
+    }
+    @Override
+    public String toString(){
+        return &quot;Square[side=&quot;+length+&quot;,color=&quot;+color+&quot;,filled=&quot;+filled+&quot;]&quot;;
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

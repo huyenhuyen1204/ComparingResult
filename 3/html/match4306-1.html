@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>11100</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>StudentManagement.java</CENTER></H3><HR>
+<PRE>
+
+
+/**
+ * Created by CCNE on 16/09/2019.
+<A NAME="0"></A> */
+public class StudentManagement {
+    public int length = 0;
+    private Student [] <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match4306-0.html#0',2,'match4306-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>students = new Student[100];
+    public static boolean sameGroup(Student s1, Student s2){
+        return s1.getGroup().equals(s2.getGroup());
+    }
+    public void addStudent(Student newStudent){
+        if(length &lt; 100){
+            students[length] = newStudent;
+            length++;
+        }
+<A NAME="1"></A>    }
+    public void</B></FONT> removeStudent(String id){
+        if(length &gt; 0){
+            <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match4306-0.html#1',2,'match4306-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>for(int i  = 0 ; i &lt; length ; i++){
+                if(id.equals(students[i].getId())){
+                    for(int j = i   ; j &lt; length -1 ; j++)
+                        students[j] = students[j+1];
+                }}
+            length--;
+            if(id.equals(students[length - 1].getId()))
+                length--;</B></FONT>
+        }}
+
+    public String studentsByGroup(){
+        String str =&quot;&quot;;
+        String <font color="#C0C0C0"><EM>newGroup = &quot;&quot;;
+        for(int i = 0 ; i &lt; length ; i++){
+            if(!newGroup.contains(students[i].getGroup())){
+<A NAME="2"></A>                newGroup</EM></font> += students[i].getGroup();
+                str += students[i].getGroup() + &quot;\n&quot; + students[i].getInfo() + &quot;\n&quot;;
+            }
+            <FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match4306-0.html#2',2,'match4306-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>if( i &lt; length - 1 ){
+                for(int j = i + 1 ; j &lt; length ; j++){
+                    if(sameGroup(students[i],students[j]))
+                        str += students[j].getInfo() + &quot;\n&quot;;
+                }
+            }</B></FONT>
+        }
+        return str;
+    }
+
+
+}
+</PRE>
+
+</BODY>
+</HTML>

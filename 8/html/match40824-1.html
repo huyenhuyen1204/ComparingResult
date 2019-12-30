@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>18564</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>src/Circle.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match40824-0.html#0',2,'match40824-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class Circle {
+    private double radius = 1.0;
+    private String color = &quot;red&quot;;
+    final protected double  PI = 3.14;
+    //getter of color//
+    public String getColor() {
+        return color;
+    }
+    //setter of color//
+    public void setColor(String color) {
+        this.color = color;
+    }
+    //getter of radius//
+    public double getRadius() {
+        return radius;
+    }
+    //setter of radius//
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+    public Circle(){
+    }
+    public Circle</B></FONT>(double radius){
+        <font color="#C0C0C0"><EM>this.radius = radius;
+    }
+    public Circle(double radius, String color){
+        this.radius = radius;
+        this.color = color;
+    }
+    public double getArea(){
+        return radius*radius*PI;
+    }</EM></font>
+
+    @Override
+    public String toString() {
+        return &quot;Circle[&quot; +
+                &quot;radius=&quot; + radius +
+                &quot;,color=&quot; + color +
+                ']';
+    }
+
+}
+</PRE>
+
+</BODY>
+</HTML>

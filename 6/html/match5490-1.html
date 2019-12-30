@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>12385</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Fraction.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match5490-0.html#0',2,'match5490-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class Fraction {
+    private int numerator;
+    private int denominator;
+    public Fraction(){
+        this.numerator=0;
+        this.denominator=1;
+    }
+
+    public Fraction(int numerator, int denominator) {
+        this.denominator = denominator;
+        this.numerator = numerator;
+        if(denominator==0) this.denominator=1;
+    }
+
+    public int getDenominator() {
+        return denominator;
+    }
+
+    public void setDenominator(int denominator) {
+        this.denominator = denominator;
+        if(denominator==0) this.denominator=1;
+    }
+
+    public int getNumerator() {
+        return numerator;
+    }
+
+    public void setNumerator(int numerator) {
+        this.numerator = numerator;
+    }
+
+    public Fraction reduce() {
+        int r = 1;
+        int a = this.numerator;
+        int b = this.denominator;
+        while (r != 0) {
+            r = a % b;
+            a = b;
+            b = r;
+        }
+        this.numerator = this.numerator / a;
+        this.denominator = this.denominator / a;
+        return this;
+
+    }
+
+    public Fraction add(Fraction a) {
+        int x, y;
+        y = this.denominator * a.denominator;
+        x = this.numerator * a.denominator + a.numerator * this.denominator;
+        this.numerator = x;
+        this.denominator = y;
+        return this;
+    }
+
+    public Fraction subtract(Fraction a) {
+        int x, y;
+        y = this.denominator * a.denominator;
+        x = this.numerator * a.denominator - a.numerator * this.denominator;
+        this.numerator = x;
+        this.denominator = y;
+        return this;
+    }
+
+    public Fraction multiply(Fraction a) {
+        this.numerator = this.numerator * a.numerator;
+        this.denominator = this.denominator * a.denominator;
+        return this;
+    }
+
+    public Fraction divide(Fraction a) {
+        this.numerator = this.numerator * a.denominator;
+        this.denominator = this.denominator * a.numerator;
+        return this;
+    }
+
+    public boolean equals(Object obj) {
+        if (obj instanceof Fraction) {
+
+            Fraction other = (Fraction) obj;
+            int x, y;
+            x = this.numerator * other.denominator;
+            y = other.numerator * this.denominator;
+            if (x == y) return true;
+        }
+        return false;
+
+
+    }
+
+    public static void main(String[] args) {
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

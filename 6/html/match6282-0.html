@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>13335</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/Fraction.java</CENTER></H3><HR>
+<PRE>
+public class Fraction {
+    private int numerator, denominator;
+
+    public void setDenominator(int denominator_) {
+        if (denominator_ != 0)
+            this.denominator = denominator_;
+        else this.denominator = 1;
+    }
+<A NAME="0"></A>
+    public int getDenominator() {
+        return denominator;
+    <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match6282-1.html#0',3,'match6282-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>}
+
+    public int getNumerator() {
+        return numerator;
+    }
+
+    public void setNumerator(int numerator_) {
+        this.numerator = numerator_;
+    }
+
+    public Fraction(int numerator_, int denominator_){
+        this.numerator = numerator_;
+        if (denominator_ != 0)
+            this.denominator = denominator_;
+        else this.denominator = 1;
+    }
+
+    public Fraction(Fraction f_){
+        this</B></FONT>.numerator = f_.numerator;
+        if (f_.denominator != 0)
+            this.denominator = f_.denominator;
+        else this.denominator = 1;
+    }
+
+    public Fraction reduce(){
+        int a = this.numerator;
+        int b = this.denominator;
+        int temp = 1;
+        while (b!=0)
+        {
+            temp = a%b;
+            a = b;
+            b = temp;
+        }
+        if (a!=0) {
+            this.numerator = this.numerator / a;
+            this.denominator = this.denominator / a;
+        }
+        if (this.denominator &lt; 0)
+        {
+            this.numerator = - this.numerator;
+            this.denominator = - this.denominator;
+        }
+        return this;
+    }
+
+    public Fraction add(Fraction f){
+        int a = this.numerator;
+        int b = this.denominator;
+        this.denominator = b * f.denominator;
+        this.numerator = a * f.denominator + f.numerator * b;
+        this.reduce();
+        return this;
+    }
+
+<A NAME="1"></A>    public Fraction subtract(Fraction f){
+        int a = this.numerator;
+        int b = this.denominator;
+        <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match6282-1.html#1',3,'match6282-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>this.denominator = b * f.denominator;
+        this.numerator = a * f.denominator - f.numerator * b;
+        this.reduce();
+        return this;
+    }
+
+    public Fraction multiply(Fraction f){
+        this.denominator = this.denominator * f.denominator;
+        this.numerator = this.numerator * f.numerator;
+        this.reduce();
+        return this;
+    }
+
+    public Fraction divide(Fraction f){
+        this.denominator = this.denominator * f.numerator;
+        this.numerator = this.numerator * f.denominator;
+        this.reduce();
+        return this;
+    }
+
+    public boolean equals(Object obj){
+        if</B></FONT> (obj instanceof Fraction){
+<A NAME="2"></A>            Fraction other = (Fraction) obj;
+            Fraction f = new Fraction(this.numerator, this.denominator);
+            f.subtract(other);
+            <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match6282-1.html#2',3,'match6282-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>if (f.numerator == 0) return true;
+            else return false;
+        }
+        else return false;
+    }
+
+//    public static void main(String[] args) {
+//        Fraction c = new Fraction(9,12);
+//        c.reduce();
+//        Fraction d = new Fraction(4,5);
+//        if (c.equals(d)) System.out.println(&quot;Bang nhau&quot;);
+//        else System.out.println(&quot;Khong bang nhau&quot;);
+//        c = c.subtract(d);
+//        System.out.println(c.numerator);
+//        System.out.println(c.denominator);
+//    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

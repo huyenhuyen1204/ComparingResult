@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>33217</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/Person.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>import java.util.List;
+
+public class Person&lt;T&gt; implements Comparable&lt;Person&gt; {
+    private String <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match65765-1.html#0',3,'match65765-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>name;
+    private int age;
+    private String address;
+
+    public Person() {
+    }
+
+    public Person(String name, int age, String address) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this</B></FONT>.age = age;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;(name=&quot; + '&quot;' + name + '&quot;' + &quot;,age=&quot; + age + &quot;,address=&quot; + address + &quot;)&quot;;
+    }
+
+<A NAME="1"></A>    @Override
+    public int compareTo(Person o) {
+        if(this.getName().compareTo(o.getName()) == 0) {
+            return <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match65765-1.html#1',3,'match65765-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>this.getAge() - o.getAge();
+        }
+        else return this.getName().compareTo(o.getName());
+    }</B></FONT>
+
+    public static &lt;T extends Comparable&lt;? super T&gt;&gt; void sort(List&lt;T&gt; list) {
+        list.sort(null);
+    }
+}
+
+</PRE>
+
+</BODY>
+</HTML>

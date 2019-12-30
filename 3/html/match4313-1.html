@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>10567</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>StudentManagement.java</CENTER></H3><HR>
+<PRE>
+public class StudentManagement {
+
+    Student[] <font color="#C0C0C0"><EM>students = new Student[100];
+    int count = 0;
+
+    public void addStudent(Student newStudent){
+        this.students[count++] = newStudent;
+    }
+
+    public static boolean sameGroup(Student s1, Student s2){
+        return s1.getGroup().equals(s2.getGroup());
+    }</EM></font>
+
+    public <font color="#C0C0C0"><EM>String studentsByGroup(){
+<A NAME="0"></A>        String ans = &quot;&quot;;
+        for(int i = 0; i&lt;count; i++){
+            if (!ans.contains(students[i].getGroup())){
+                ans</EM></font> += <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match4313-0.html#0',2,'match4313-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>students[i].getGroup() + &quot;\n&quot;;
+                for (int j = i ; j &lt; count; j++){
+                    if (sameGroup(students[i], students[j])) ans += students[j].getInfo() + &quot;\n&quot;;
+                }
+            }
+        }
+        return ans;
+    }
+
+    public void removeStudent(String id){
+        for(int i = 0; i &lt; count; i++){
+            if (students[i].getId().equals(id)){
+                for (int j = i; j &lt; count - 1; j++){
+                    students[j] = students[j+1];
+                }</B></FONT>
+                students[--count] = null;
+                break;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        /*Student x = new Student();
+        StudentManagement a = new StudentManagement();
+        int l=a.students.length;
+        for(int i=0;i&lt;10;i++){
+            a.students[i] = new Student();
+            a.students[i].setId(Integer.toString(i+1));
+            if(i&lt;=3) a.students[i].setGroup(&quot;alo alo&quot;);
+            else if(i&lt;=6) a.students[i].setGroup(&quot;1234&quot;);
+            else a.students[i].setGroup(&quot;ahihi&quot;);
+            a.count++;
+        }
+        a.students[2].setId(&quot;5&quot;);
+        a.removeStudent(&quot;5&quot;);
+        System.out.println(a.studentsByGroup());*/
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

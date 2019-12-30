@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>7860</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/Student.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match4108-1.html#0',3,'match4108-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Student {
+    private String name;
+    private String id;
+    private String group;
+    private String email;
+
+    public String getName(){
+        return name;
+    }
+    public String getId(){
+        return id;
+    }
+    public String getGroup(){
+        return group;
+    }
+    public String getEmail(){ return email;    }
+    public void setName(String n){
+        this.name = n;
+    }
+    public void setId(String n){
+        this.id = n;
+    }
+    public void setGroup(String n){
+        this</B></FONT>.group = n;
+    <font color="#C0C0C0"><EM>}
+    public void setEmail(String n){
+        this.email = n;
+    }
+    public Student(){
+        name = &quot;Student&quot;;
+        id = &quot;000&quot;;
+        group = &quot;K62CB&quot;;
+        email = &quot;uet@vnu.edu.vn&quot;;
+    }
+    public Student(String name, String id, String email){
+        this.name = name;
+        this.id = id;
+        this.group = &quot;K62CB&quot;;
+<A NAME="1"></A>        this.email = email;
+    }
+    public Student(Student s){
+        this</EM></font>.name = <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match4108-1.html#1',3,'match4108-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>s.getName();
+        this.id = s.getId();
+        this.group = s.getGroup();
+        this.email = s.getEmail();
+    }
+    String</B></FONT> getInfo() {
+        String temp;
+        temp = name + &quot; - &quot; + id + &quot; - &quot; + group + &quot; - &quot; + email;
+        return temp;
+    }
+}
+
+</PRE>
+<HR>
+<H3><CENTER>src/StudentManagement.java</CENTER></H3><HR>
+<PRE>
+public class StudentManagement {
+    public Student[] students = new Student[100];
+    public int length =0;
+    public static boolean sameGroup(Student s1, Student s2) {
+        if (s1.getGroup().equals(s2.getGroup()))return true;
+        else return false;
+    }
+
+    public void addStudent(Student newStudent){
+        students[length] = newStudent;
+        length++;
+    }
+
+    public String studentsByGroup() {
+        String[] arrtemp = new String[100];
+        int i, j;
+        int dem = 1;
+        arrtemp[0] = this.students[0].getGroup();
+        int tam = 2;
+        for (i = 1; i &lt; length; i++) {
+            for (j = 0; j &lt; i; j++) {
+                if (this.students[j].getGroup().equals(this.students[i].getGroup())) {
+                    tam = 0;
+                    break;
+                } else
+                    tam = 1;
+            }
+            if (tam == 1) {
+                arrtemp[dem] = this.students[j].getGroup();
+                dem++;
+            }
+        }
+        String print = &quot;&quot;;
+<A NAME="2"></A>        for (int e = 0; e &lt; dem; e++) {
+            print += arrtemp[e] + &quot;\n&quot;;
+            for (int f = 0; f &lt; length; f++) {
+                if (arrtemp[e].equals(<FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match4108-1.html#2',3,'match4108-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>this.students[f].getGroup())) {
+                    print += this.students[f].getInfo() + &quot;\n&quot;;
+                }
+            }
+        }
+        return print;
+    }
+<A NAME="3"></A>
+    public void</B></FONT> removeStudent(String id) {
+        int i;
+        for (<FONT color="#6cc417"><A HREF="javascript:ZweiFrames('match4108-1.html#3',3,'match4108-top.html#3',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>i = 0; i &lt; length; i++) {
+            if (students[i].getId().equals(id)) {
+                for (int j = i; j &lt; length-1; j++)
+                    students[j] = students[j + 1];</B></FONT>
+                length--;
+            }
+        <font color="#C0C0C0"><EM>}
+    }
+
+    public static void main(String[] args)
+    {
+        Student n = new Student();
+        StudentManagement m = new StudentManagement();
+        n.setName(&quot;Nguyen Van A&quot;);
+        n.setId(&quot;17020001&quot;);
+        n.setGroup(&quot;K62CC&quot;);
+        n</EM></font>.setEmail(&quot;17020001@vnu.edu.vn&quot;);
+        Student n1 = new Student();
+        n1.setName(&quot;Nguyen Van B&quot;);
+        n1.setId(&quot;17020004&quot;);
+        n1.setGroup(&quot;K62CC&quot;);
+        n1.setEmail(&quot;1702000@vnu.edu.vn&quot;);
+        Student n2 = new Student();
+        n2.setName(&quot;Nguyen Van C&quot;);
+        n2.setId(&quot;17020002&quot;);
+        n2.setGroup(&quot;K62CB&quot;);
+        <font color="#C0C0C0"><EM>n2.setEmail(&quot;1700001@vnu.edu.vn&quot;);
+        Student n3 = new Student();
+        n3.setName(&quot;Nguyen Van An&quot;);
+        n3.setId(&quot;17020003&quot;);
+        n3.setGroup(&quot;K62CD&quot;);
+        n3.setEmail(&quot;17020001@vnu.edu.vn&quot;);
+        m.addStudent(n);
+        m.addStudent(n2);
+        m.addStudent(n1);
+        m.addStudent(n3);
+        m.removeStudent(&quot;17020001&quot;);
+        System.out.println(m</EM></font>.studentsByGroup());
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,286 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>2953</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Circle.java</CENTER></H3><HR>
+<PRE>
+/**
+ * @author Nguyen Quang Huy
+ * @version 1.0
+ * @since 12/08/2019
+ */
+public class Circle extends Shape {
+    protected double radius;
+
+    /**
+     * Phuong thuc khoi tao khong tham so
+     */
+    public Circle() {
+    }
+
+    /**
+     * Phuong thuc khoi tao co tham so
+     * @param radius
+     */
+    public Circle(double radius) {
+        <font color="#C0C0C0"><EM>this.radius = radius;
+    }
+
+    /**
+     * Phuong thuc khoi tao co tham so
+     * @param color
+     * @param filled
+     * @param radius
+     */
+    public Circle(double radius, String color, boolean filled) {
+        super(color, filled);
+        this.radius = radius;
+    }
+
+    /**
+     * Getter cho radius
+     * @return ban kinh hinh tron
+     */
+    public double getRadius() {
+        return radius;
+    }
+
+    /**
+     * Setter cho radius
+     * @param radius
+     */
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }</EM></font>
+
+    @Override
+    public double getArea() {
+<A NAME="2"></A>        return Math.PI * getRadius() * getRadius();
+    }
+
+    <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match48845-1.html#2',3,'match48845-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>@Override
+    public double getPerimeter() {
+        return 2 * Math.PI * getRadius();
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Circle[&quot; +
+                &quot;radius=&quot; + radius +
+                &quot;,color=&quot; + super.color +
+                &quot;,filled=&quot; + super.filled +
+                ']';
+    }</B></FONT>
+}
+</PRE>
+<HR>
+<H3><CENTER>Rectangle.java</CENTER></H3><HR>
+<PRE>
+/**
+ * @author Nguyen Quang Huy
+<A NAME="1"></A> * @version 1.0
+ * @since 12/08/2019
+ */
+public <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match48845-1.html#1',3,'match48845-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Rectangle extends Shape {
+    protected double width;
+    protected double length;
+
+    /**
+     * Phuong thuc khoi tao khong tham so
+     */
+    public Rectangle() {
+    }
+
+    /**
+     * Phuong thuc khoi tao co tham so
+     * @param side
+     */
+    public Rectangle(double side) {
+        this.length = side;
+        this.width = side;
+    }
+
+    /**
+     * Phuong thuc khoi tao co tham so
+     * @param width
+     * @param length
+     */
+    public Rectangle(double width, double length) {
+        this.width = width;
+        this</B></FONT>.length = length;
+    <font color="#C0C0C0"><EM>}
+
+    /**
+     * Phuong thuc khoi tao co tham so
+     * @param side
+     * @param color
+     * @param filled
+     */
+    public Rectangle(double side, String color, boolean filled) {
+        super(color, filled);
+        this.length = side;
+        this.width = side;
+    }
+
+    /**
+     * Phuong thuc khoi tao co tham so
+     * @param width
+     * @param length
+     * @param color
+     * @param filled
+     */
+    public Rectangle(double width, double length, String color, boolean filled) {
+        super(color, filled);
+        this.width = width;
+        this.length = length;
+    }
+
+    /**
+     * Getter cho width
+     * @return chieu rong hinh chu nhat
+     */
+    public double getWidth() {
+        return width;
+    }
+
+    /**
+     * Setter cho width
+     * @param width
+     */
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    /**
+     * Getter cho length
+     * @return chieu dai hinh chu nhat
+     */
+    public double getLength() {
+        return length;
+    }
+
+    /**
+     * Setter cho length
+     * @param length
+     */
+    public void setLength(double length) {
+        this.length = length;
+    }</EM></font>
+
+    @Override
+    public double getArea() {
+        return getWidth() * getLength();
+    }
+
+    @Override
+    public <font color="#C0C0C0"><EM>double getPerimeter() {
+        return 2 * getWidth() + 2 * getLength();
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Rectangle[&quot; +
+                &quot;width=&quot; + width +
+                &quot;,length=&quot; + length +
+                &quot;,color=&quot; + super.color +
+                &quot;,filled=&quot; + super.filled +
+                ']';
+    }
+}</EM></font>
+</PRE>
+<HR>
+<H3><CENTER>Square.java</CENTER></H3><HR>
+<PRE>
+/**
+ * @author Nguyen Quang Huy
+ * @version 1.0
+ * @since 12/08/2019
+ */
+public class Square extends Rectangle {
+    /**
+     * Phuong thuc khoi tao khong tham so
+     */
+    public Square() {
+    }
+
+    /**
+     * Phuong thuc khoi tao co tham so
+     * @param side
+     */
+    public Square(double side) {
+        super(side);
+    <font color="#C0C0C0"><EM>}
+
+    /**
+     * Phuong thuc khoi tao co tham so
+     * @param side
+     * @param color
+     * @param filled
+     */
+    public Square(double side, String color, boolean filled) {
+        super(side, color, filled);
+    }
+
+    /**
+     * Getter cho side
+     * @return do dai canh hinh vuong
+     */
+    public double getSide() {
+        return super.length;
+    }
+
+    /**
+     * Setter cho side
+<A NAME="0"></A>     * @param side
+     */
+    public void</EM></font> setSide(double side) {
+        <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match48845-1.html#0',3,'match48845-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>super.width = side;
+        super.length = side;
+    }
+
+    /**
+     * Setter cho length
+     * @param length
+     */
+    @Override
+    public void setLength(double length) {
+        super.length = length;
+        super.width = length;
+    }
+
+    /**
+     * Setter cho width
+     * @param width
+     */
+    @Override
+    public void setWidth(double width) {
+        super.width = width;
+        super.length = width;
+    }
+
+    @Override
+    public String toString() {
+        return</B></FONT> &quot;Square[&quot; +
+                &quot;side=&quot; + super.length +
+                &quot;,color=&quot; + super.color +
+                &quot;,filled=&quot; + super.filled +
+                &quot;]&quot;;
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

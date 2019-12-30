@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>10729</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>StudentManagement.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public class StudentManagement {
+    public static <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match4849-0.html#0',2,'match4849-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>boolean sameGroup(Student s1, Student s2)
+    {
+        if(s2.getGroup().equals(s1.getGroup()))return true;
+        else return false;
+    }</B></FONT>
+     Student[] <font color="#C0C0C0"><EM>students= new Student[100];
+     int number=0;
+    public void addStudent(Student newStudent)
+    {
+        students[number]=newStudent;
+        number++;
+<A NAME="1"></A>    }
+    public String</EM></font> studentsByGroup()
+    {
+        int[] <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match4849-0.html#1',2,'match4849-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>test=new int[number];
+        for(int i=0;i&lt;number;i++) test[i]=0;
+        String newlist=&quot;&quot;;
+        for(int i=0;i&lt;number;i++)
+        {
+            if(test[i]==0)
+            {
+                String g=students[i].getGroup();
+                newlist</B></FONT>+=g+&quot;\n&quot;;
+                newlist+=students[i].getInfo()+&quot;\n&quot;;
+                test[i]=1;
+                for(int j=i+1;j&lt;number;j++)
+                {
+                    if(students[j].getGroup().equals(g)&amp;&amp;test[j]==0)
+                    {
+                        newlist+=students[j].getInfo();
+                        newlist+=&quot;\n&quot;;
+                        <font color="#C0C0C0"><EM>test[j]=1;
+                    }
+                }
+
+            }
+        }
+        return newlist;
+
+<A NAME="2"></A>    }
+    public void</EM></font> removeStudent(String id)
+    {
+        <FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match4849-0.html#2',2,'match4849-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>for(int i=0;i&lt;number;i++)
+        {
+            if(students[i].getId().equals(id))
+            {
+                for(int j=i;j&lt;number-1;j++)
+                students[j]=students[j+1];
+                number--;
+            }
+        }
+    }</B></FONT>
+}
+</PRE>
+
+</BODY>
+</HTML>

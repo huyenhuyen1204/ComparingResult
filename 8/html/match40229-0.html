@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>19588</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Circle.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>public <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match40229-1.html#1',3,'match40229-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Circle {
+    private double radius = 1.0;
+    private String color = &quot;red&quot;;
+    protected static final double PI = 3.14;
+
+    public Circle(){
+    }
+
+    public Circle</B></FONT>(double radius){
+        <font color="#C0C0C0"><EM>this.radius = radius;
+    }
+
+    public Circle(double _radius, String _color){
+        this.radius = _radius;
+        this.color = _color;
+    }
+
+    public double getRadius() {
+        return this.radius;
+    }</EM></font>
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
+    public String getColor() {
+        return this.color;
+    <font color="#C0C0C0"><EM>}
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public double getArea(){
+        return this.radius*this.radius*PI;
+    }
+
+    public String toString(){
+        return &quot;Circle[radius=&quot; + this.radius + &quot;,color=&quot; + this.color + &quot;]&quot;;
+    }   
+    // public static void main(String[] args) {
+    //     Circle test = new Circle(10.4, &quot;black&quot;);
+    //     System.out.println(test.getArea());
+    //     System.out.println(test.toString());
+    // }
+}</EM></font>
+</PRE>
+<HR>
+<H3><CENTER>Cylinder.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match40229-1.html#0',3,'match40229-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Cylinder extends Circle{
+    private double height = 1.0;
+
+    public Cylinder (){
+    }
+
+    public Cylinder (double radius){
+        setRadius(radius);
+    }
+
+    public Cylinder (double radius, double height){
+        setRadius(radius);
+        this.height = height;
+    }
+
+    public Cylinder (double radius, double height, String color){
+        setRadius</B></FONT>(radius);
+        <font color="#C0C0C0"><EM>setColor(color);
+        this.height = height;
+    }
+
+    public double getHeight() {
+        return this.height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }</EM></font>
+
+    public <font color="#C0C0C0"><EM>double getVolume(){
+        return super.getArea()*height;
+    }
+
+    @Override
+    public String toString(){
+        return &quot;Cylinder[&quot; + super.toString() + &quot;,height=&quot; + this.height + &quot;]&quot;;
+    }</EM></font>
+
+    @Override
+    public double getArea(){
+        return super.getArea()*2 + getRadius()*2*PI*this.height;
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

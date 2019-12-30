@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>20443</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Cylinder.java</CENTER></H3><HR>
+<PRE>
+
+
+public class Cylinder extends Circle{
+    private double height = 1.0;
+    public Cylinder(){};
+    public Cylinder(double _radius){
+        this.setRadius(_radius);
+    }
+    public Cylinder(double _radius, double _height){
+        setRadius(_radius);
+        height = _height;
+    }
+    public Cylinder(double _radius, double _height, String _color){
+        setRadius(_radius);
+<A NAME="0"></A>        height = _height;
+        setColor(_color);
+    }
+    public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match32063-1.html#0',3,'match32063-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>double getHeight(){
+        return height;
+    }
+    public void setHeight(double _height){
+        height = _height;
+    }
+    public double getVolume(){
+        return getRadius</B></FONT>()*PI*height*getRadius();
+    }
+
+<A NAME="1"></A>    @Override
+    public String toString() {
+        super.toString();
+        return &quot;Cylinder[&quot; + <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match32063-1.html#1',3,'match32063-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>super.toString() + &quot;,height=&quot;+ height + &quot;]&quot;;
+    }
+
+    @Override
+    public double getArea() {
+        return 2*PI*getRadius()*getRadius() + 2*PI*getRadius()*height;
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

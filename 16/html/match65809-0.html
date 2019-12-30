@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>32107</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Week11.java</CENTER></H3><HR>
+<PRE>
+import java.util.*;
+
+class StudentComparator&lt;T&gt; implements Comparator&lt;T&gt; {
+    
+<A NAME="0"></A>    @Override
+    public int compare(T o3, T o4) {
+        Person o1= (Person)o3;
+        Person <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match65809-1.html#0',3,'match65809-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>o2= (Person)o4;
+        if(o1.getName().equals(o2.getName())){
+            return o1.getAge()-o2</B></FONT>.getAge();
+        }
+        else return o1.getName().compareTo(o2.getName());
+    }
+}
+public class Week11 implements Comparable {
+
+    public static  &lt;T extends Comparable&gt; List&lt;T&gt; sortGeneric(List&lt;T&gt; arr) {
+        if(arr.get(0) instanceof Person){
+            Collections.sort(arr,new StudentComparator());
+        }else{
+            for (int i = 0; i &lt; arr.size() - 1; i++) {
+<A NAME="1"></A>                for (int j = i + 1; j &lt; arr.size(); j++) {
+                    int b = arr.get(i).compareTo(arr.get(j));
+                    if (b &gt; 0) {
+                        T <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match65809-1.html#1',3,'match65809-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>a = arr.get(j);
+                        arr.set(j, arr.get(i));
+                        arr.set(i, a);
+                    }
+                }
+            }</B></FONT>
+        }
+
+        return arr;
+    }
+
+
+
+//    public static void main(String[] args) {
+//        List&lt;Integer &gt; arr=new ArrayList&lt;Integer&gt;();
+//        arr.add(3);
+//        arr.add(4);
+//        arr.add(1);
+//        arr.add(2);
+//        arr=Week11.sortGeneric(arr);
+//        for (int i: arr){
+//            System.out.println(i);
+//        }
+//        List&lt;String&gt; arr1= new ArrayList&lt;&gt;();
+//        arr1.add(&quot;a&quot;);
+//        arr1.add(&quot;b&quot;);
+//        arr1.add(&quot;d&quot;);
+//        arr1.add(&quot;c&quot;);
+//        arr1=Week11.sortGeneric(arr1);
+//        for (String i: arr1){
+//            System.out.println(i);
+//        }
+//        List&lt;Person&gt; person = new ArrayList&lt;&gt;();
+//        person.add(new Person(&quot;Nguyen A&quot;, 22, &quot;quat lam&quot;));
+//        person.add(new Person(&quot;Nguyen A&quot;, 20, &quot;quat lam&quot;));
+//        person.add(new Person(&quot;Le B&quot;, 20, &quot;quat lam&quot;));
+//        person= Week11.sortGeneric(person);
+//        for(Person i: person){
+//            System.out.println(i.getName());
+//        }
+//    }
+
+    @Override
+    public int compareTo(Object o) {
+<A NAME="2"></A>        return 0;
+    }
+}
+<FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match65809-1.html#2',3,'match65809-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Person  implements Comparable{
+    private String name;
+    private  int age;
+    private  String address;
+
+    public Person(){}
+
+    public Person(String name, int age, String address) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+<A NAME="3"></A>    }</B></FONT>
+
+
+    public <FONT color="#6cc417"><A HREF="javascript:ZweiFrames('match65809-1.html#3',3,'match65809-top.html#3',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getAddress() {
+<A NAME="4"></A>        return address;
+    }</B></FONT>
+
+    public <FONT color="#151b8d"><A HREF="javascript:ZweiFrames('match65809-1.html#4',3,'match65809-top.html#4',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }</B></FONT>
+
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

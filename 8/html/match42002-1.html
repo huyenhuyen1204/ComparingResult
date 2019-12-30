@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>13749</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Circle.java</CENTER></H3><HR>
+<PRE>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+import java.util.*;
+
+/**
+<A NAME="1"></A> *
+ * @author TA
+ */
+public <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match42002-0.html#1',2,'match42002-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class Circle {
+    protected final double PI = 3.14;
+    private double radius = 1.0;
+    private String color = &quot;red&quot;;
+    
+    public Circle() {
+    }
+    public Circle</B></FONT>(double radius) {
+        <font color="#C0C0C0"><EM>this.radius = radius;
+    }
+    public Circle(double radius, String color) {
+        this.radius = radius;
+        this.color = color;
+    }
+    public double getRadius() {
+        return this.radius;
+    }</EM></font>
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+    public String getColor() {
+        return this.color;
+    <font color="#C0C0C0"><EM>}
+    public void setColor(String color) {
+        this.color = color;
+    }
+    public double getArea() {
+        return PI*radius*radius;
+    }
+    public String</EM></font> toString() {
+        String str = &quot;Circle[radius=&quot;;
+        str = str + Double.toString(radius);
+        str = str + &quot;,color=&quot; + this.color +&quot;]&quot;;
+        return str;
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>Cylinder.java</CENTER></H3><HR>
+<PRE>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
+/**
+<A NAME="0"></A> *
+ * @author TA
+ */
+public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match42002-0.html#0',2,'match42002-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class Cylinder extends Circle {
+    private double height = 1.0;
+    
+    public Cylinder() {
+    }
+    public Cylinder(double radius) {
+        this.setRadius(radius);
+    }
+    public Cylinder(double radius, double height) {
+        this.setRadius(radius);
+        this.height = height;
+    }
+    public Cylinder(double radius, double height, String color) {
+        this.setRadius(radius);
+        this.height = height;
+        this.setColor(color);
+    }
+    public double getHeight() {
+        return this.height;
+    }
+    public void setHeight(double height) {
+        this</B></FONT>.height = height;
+    }
+    public double getVolume() {
+        return super.getArea()*this.height;
+    } 
+    public String toString() {
+        String str = &quot;Cylinder[&quot;;
+        str = str + super.toString() + &quot;,height=&quot;;
+        str = str + Double.toString(this.height) + &quot;]&quot;;
+        return str;
+    }
+    public double getArea() {
+        return 2*super.getArea() + height*2*PI*this.getRadius();
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

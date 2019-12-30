@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>8731</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>StudentManagement.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A><FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match4027-1.html#0',3,'match4027-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>import java.util.Scanner;
+
+public class StudentManagement {
+    private Student[] students;
+    private int number;
+    StudentManagement() {
+        students = new Student[100];
+        number = 0;
+    }
+
+    StudentManagement (Student[] students, int number) {
+        this.students = students;
+        this.number = number;
+    }
+
+    public static boolean sameGroup (Student s1, Student s2) {
+        return s1.getGroup().equals(s2.getGroup());
+    }
+
+    public void addStudent (Student newStudent) {
+        students[number] = newStudent;
+        number++;
+    }
+
+    public String</B></FONT> studentsByGroup() {
+<A NAME="1"></A>        String[] groups = new String[number];
+
+        int idx = 0;
+        <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match4027-1.html#1',3,'match4027-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>groups[idx] = students[0].getGroup();
+        for (int i = 1; i &lt; number; i++)
+            if (!students[i].getGroup().equals(groups[idx])) {
+                idx++;
+                groups[idx] = students[i].getGroup();
+            }</B></FONT>
+
+        StringBuilder print = new StringBuilder();
+        for (int i = 0; i &lt;= idx; i++) {
+            if (groups[i] != &quot;&quot;) {
+                print.append(groups[i]).append(&quot;\n&quot;);
+                for (int j = 0; j &lt; number; j++)
+                    if (students[j].getGroup().equals(groups[i]))
+                        print.append(students[j].getInfo()).append(&quot;\n&quot;);
+            }
+        }
+        return print.toString();
+    <font color="#C0C0C0"><EM>}
+
+    public void removeStudent (String id) {
+        int idx = 0;
+        for (int i = 0; i &lt; number; i++)
+            if (students[i].getId().equals(id)) {
+                idx = i;
+                break;
+            }</EM></font>
+        for (int i = idx; i &lt; number-1; i++) {
+            students[i] = students[i+1];
+        }
+        students[number-1].setName(&quot;&quot;);
+        students[number-1].setId(&quot;&quot;);
+        students[number-1].setGroup(&quot;&quot;);
+        students[number-1].setEmail(&quot;&quot;);
+        number--;
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

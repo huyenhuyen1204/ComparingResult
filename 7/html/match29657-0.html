@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>17721</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Week4Test.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A><FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match29657-1.html#0',3,'match29657-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>import org.junit.Assert;
+import org.junit.Test;
+
+public class Week4Test {
+    @Test
+    public void testMax2Int1(){
+        Week4 test = new Week4();
+
+        Assert.assertEquals(3, test.max2Int(3, 1));
+
+    }
+
+    @Test
+    public void testMax2Int2(){
+        Week4 test = new Week4();
+        Assert.assertEquals(0, test.max2Int(0, -5));
+    }
+
+    @Test
+    public void testMax2Int3(){
+        Week4 test = new Week4();
+        Assert.assertEquals(20, test.max2Int(5, 20));
+    }
+
+    @Test
+    public void testMax2Int4(){
+        Week4 test = new Week4();
+
+        Assert.assertEquals(15, test.max2Int(-5, 15));
+    }
+
+    @Test
+    public void testMax2Int5(){
+        Week4 test = new Week4();
+        Assert.assertEquals(50, test.max2Int(-5, 50));
+    }
+
+    @Test (expected = IllegalStateException.class)
+<A NAME="1"></A>    public void testMinArray1(){
+        int[] arr = {</B></FONT>};
+        Week4 test = new Week4();
+        IllegalStateException <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match29657-1.html#1',3,'match29657-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>empty = new IllegalStateException();
+        Assert.assertSame(empty, test.minArray(arr));
+    }
+<A NAME="2"></A>
+    @Test
+    public void testMinArray2(){
+        int[] arr = <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match29657-1.html#2',3,'match29657-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>{</B></FONT>-1, 5, 7, 8, 9, 8};
+
+        Week4 test = new Week4();
+
+        Assert.assertEquals(-1, test.minArray(arr));
+    }
+<A NAME="3"></A>
+    @Test
+    public void testMinArray3(){
+        int[] arr = <FONT color="#6cc417"><A HREF="javascript:ZweiFrames('match29657-1.html#3',3,'match29657-top.html#3',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>{</B></FONT>0, -2, 5, 7, 8, 9, 8};
+
+        Week4 test = new Week4();
+
+        Assert.assertEquals(-2, test.minArray(arr));
+    }
+<A NAME="4"></A>
+    @Test
+    public void testMinArray4(){
+        int[] arr = <FONT color="#151b8d"><A HREF="javascript:ZweiFrames('match29657-1.html#4',3,'match29657-top.html#4',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>{</B></FONT>-1, -5, 7, 8, 9, 8};
+
+        Week4 test = new Week4();
+
+        Assert.assertEquals(-5, test.minArray(arr));
+    }
+<A NAME="5"></A>
+    @Test
+    public void testMinArray5(){
+        int[] arr = <FONT color="#c8c2a7"><A HREF="javascript:ZweiFrames('match29657-1.html#5',3,'match29657-top.html#5',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>{</B></FONT>5, 5, 7, 8, 9, 8, 10};
+
+        Week4 test = new Week4();
+
+        Assert.assertEquals(5, test.minArray(arr));
+    }
+
+    @Test
+    public void</B></FONT> testCalculateBMI1(){
+
+    }
+
+    @Test
+    public void testCalculateBMI2(){}
+
+    @Test
+    public void testCalculateBMI3(){}
+
+    @Test
+    public void testCalculateBMI4(){}
+
+    @Test
+    public void testCalculateBMI5(){}
+}
+</PRE>
+
+</BODY>
+</HTML>

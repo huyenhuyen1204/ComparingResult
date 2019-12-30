@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>4537</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>BinaryExpression.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>//package com.company;
+
+abstract public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match58260-1.html#0',3,'match58260-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class BinaryExpression extends Expression {
+    protected Expression left;
+    protected Expression right;
+    public BinaryExpression(Expression left,Expression right){
+        this.left=left;this.right=right;
+    }
+    @Override
+    abstract public String toString();</B></FONT>
+    abstract public double evaluate();
+}
+</PRE>
+<HR>
+<H3><CENTER>ExpressionTest.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>//package com.company;
+public <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match58260-1.html#1',3,'match58260-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class ExpressionTest {
+    public static void main(String[]args){
+        Numeral n1 = new Numeral(10.0);
+        Numeral n2 = new Numeral(3);
+        Numeral n3 = new Numeral(4);
+        Numeral n4 = new Numeral(3);
+        Square s1 = new Square(n1);
+        Multiplication m1= new Multiplication(n3,n4);
+        Subtraction s11= new Subtraction(s1,n2);
+        Addition a1= new Addition(m1,s11);
+         Square s2= new Square(a1);
+        System.out.println(s2.evaluate());
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

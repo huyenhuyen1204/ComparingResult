@@ -1,0 +1,294 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>25894</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Point.java</CENTER></H3><HR>
+<PRE>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+//package square;
+
+public <font color="#C0C0C0"><EM>class Point {
+    private double x;
+    private double y;
+
+    public Point(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+    
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+    public double distance(Point k){
+        return Math.sqrt((this.x-k.x)*(this.x-k.x)+(this.y-k.y)*(this.y-k.y));  
+    } 
+
+    @Override
+    public int</EM></font> hashCode() {
+        int hash = 7;
+<A NAME="4"></A>        hash = 11 * hash + (int) (Double.doubleToLongBits(this.x) ^ (Double.doubleToLongBits(this.x) &gt;&gt;&gt; 32));
+        hash = 11 * hash + (int) (Double.doubleToLongBits(this.y) ^ (Double.doubleToLongBits(this.y) &gt;&gt;&gt; 32));
+        return hash;
+    <FONT color="#151b8d"><A HREF="javascript:ZweiFrames('match71565-1.html#4',3,'match71565-top.html#4',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>}
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Point other = (Point) obj;
+        if (Double.doubleToLongBits(this.x) != Double.doubleToLongBits(other.x)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.y) != Double.doubleToLongBits(other.y)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String</B></FONT> toString() {
+        return &quot;(&quot;+this.x+&quot;,&quot;+this.y+&quot;)&quot;;
+    }
+    
+   
+}
+</PRE>
+<HR>
+<H3><CENTER>Rectangle.java</CENTER></H3><HR>
+<PRE>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+// square;
+
+import java.util.Objects;
+
+public class Rectangle extends Shape {
+    protected double width;
+    protected double length;
+    protected Point topLeft;
+    
+
+    public Rectangle() {
+    }
+
+    public Rectangle(double width, double length) {
+        this.width = width;
+        this.length = length;
+    }
+    public Rectangle(double width, double length,String color,boolean filled){
+        this.width = width;
+        this.length = length;
+        this.color=color;
+        this.filled=filled;
+        
+    }
+    public Rectangle(Point n,double width, double length,String color,boolean filled){
+        this.topLeft=n;
+        this.width = width;
+        this.length = length;
+        this.color=color;
+        <font color="#C0C0C0"><EM>this.filled=filled;
+        
+        
+    }
+    public double getWidth() {
+        return this.width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public double getLength() {
+        return length;
+    }
+
+    public void setLength(double lenggth) {
+        this.length = lenggth;
+        
+    }
+
+    public Point getTopLeft() {
+        return topLeft;
+    }</EM></font>
+
+    public void setTopLeft(Point topLeft) {
+<A NAME="2"></A>        this.topLeft = topLeft;
+    }
+    
+    <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match71565-1.html#2',3,'match71565-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>@Override
+     public double getArea(){
+         return (double)this.length*this.width;
+        
+    }
+    @Override
+    public double getPerimeter(){
+        return (double)this.length*2+this.width*2;
+        
+    }
+
+  
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Rectangle other = (Rectangle) obj;
+        if (Double.doubleToLongBits(this.width) != Double.doubleToLongBits(other.width)) {
+            return false;
+        }
+<A NAME="3"></A>        if</B></FONT> (Double.doubleToLongBits(this.length) != Double.doubleToLongBits(other.length)) {
+            return false;
+        }
+        if (!<FONT color="#6cc417"><A HREF="javascript:ZweiFrames('match71565-1.html#3',3,'match71565-top.html#3',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>Objects.equals(this.topLeft, other.topLeft)) {
+            return false;
+        }
+        return true;
+    }
+    
+    @Override
+    public String toString() {
+        return &quot;Rectangle[topLeft=(&quot;+topLeft.getX()+&quot;,&quot;+topLeft</B></FONT>.getY() + &quot;),width=&quot; + width + &quot;,length=&quot; + length 
+                +&quot;,color=&quot;+this.color+&quot;,filled=&quot;+this.filled+']';
+    }
+    
+}
+</PRE>
+<HR>
+<H3><CENTER>Square.java</CENTER></H3><HR>
+<PRE>
+
+//package square;
+import java.util.Objects;
+
+public class Square extends Rectangle {
+    public Square() {
+        
+    }
+    
+    public Square(double side) {
+        this.width=side;
+        this.length=side;
+    }
+
+    public Square(double side, String color, boolean filled) { 
+        this.color=color;
+        this.width=side;
+        this.length=side;
+        this.filled=filled;
+    }
+    public Square(Point a,double side, String color, boolean filled) { 
+        this.color=color;
+        this.width=side;
+        this.length=side;
+        this.filled=filled;
+        this.topLeft=a;
+    }
+    
+    public double getSide() {
+        return this.getWidth();
+    }
+    
+<A NAME="0"></A>   @Override
+    public void setWidth(double side) {
+        super.setWidth(side);
+        <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match71565-1.html#0',3,'match71565-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>super.setLength(side);
+    }
+
+   
+    public void setSide(double side){
+        this.length= side;
+        this.width=side;
+    }
+
+    @Override
+    public void</B></FONT> setLength(double side) {
+        super.setLength(side);
+        super.setWidth(side);
+    }
+
+    @Override
+    public String toString(){
+        return &quot;Square[topLeft=(&quot;+topLeft.getX()+&quot;,&quot;+topLeft.getY()+&quot;)&quot;+ &quot;,side=&quot;+this.getLength()+&quot;,color=&quot;+this.getColor()+
+                &quot;,filled=&quot;+this.isFilled()+&quot;]&quot;;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        <font color="#C0C0C0"><EM>if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+<A NAME="1"></A>            return false;
+        }
+        final Square other = (</EM></font>Square) obj;
+        <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match71565-1.html#1',3,'match71565-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>if (Double.doubleToLongBits(this.width) != Double.doubleToLongBits(other.width)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.length) != Double.doubleToLongBits(other.length)) {
+            return false;
+        }
+        if (!Objects</B></FONT>.equals(this.topLeft, other.topLeft)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+    
+
+    
+}
+</PRE>
+
+</BODY>
+</HTML>

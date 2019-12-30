@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>27691</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>BinaryExpression.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>
+
+public abstract <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match55454-0.html#0',2,'match55454-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class BinaryExpression extends  Expression {
+    protected Expression left;
+    protected Expression right;
+
+    public BinaryExpression(Expression left, Expression right) {
+        this.left = left;
+        this.right = right;
+    }
+
+    @Override
+    public String</B></FONT> toString() {
+        return null;
+    }
+
+    @Override
+    public double evaluate() {
+        return 0;
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>ExpressionTest.java</CENTER></H3><HR>
+<PRE>
+
+<A NAME="2"></A>
+import java.sql.SQLOutput;
+
+public <FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match55454-0.html#2',2,'match55454-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class ExpressionTest {
+    public static void main(String[] args) {
+<A NAME="3"></A>        Numeral numeral = new Numeral(10);
+        Numeral numeral1 = new Numeral(2);
+        Numeral numeral2 = new Numeral</B></FONT>(3);
+        Numeral numeral3 = new <FONT color="#6cc417"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match55454-0.html#3',2,'match55454-top.html#3',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>Numeral(4);
+        Numeral numeral4 = new Numeral(3);
+        Numeral numeral5 = new Numeral(2);
+        Square square = new Square</B></FONT>(numeral);
+        Subtraction subtraction = new Subtraction(square,numeral2);
+        Multiplication multiplication = new Multiplication(numeral3, numeral4);
+        Addition addition = new Addition(subtraction, multiplication);
+        Square square1 = new Square(addition);
+        System.out.println(square1.evaluate());
+    }
+
+}
+</PRE>
+<HR>
+<H3><CENTER>Numeral.java</CENTER></H3><HR>
+<PRE>
+
+public class Numeral extends Expression {
+    private double value;
+    public Numeral() {
+
+    }
+    public Numeral(double value) {
+<A NAME="1"></A>        this.value = value;
+    }
+
+    <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match55454-0.html#1',2,'match55454-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>@Override
+    public String toString() {
+        return (int)value + &quot;&quot;;
+    }
+
+    @Override
+    public double evaluate() {
+        return value;
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

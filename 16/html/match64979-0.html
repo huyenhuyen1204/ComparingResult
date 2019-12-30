@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>33395</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/Person.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match64979-1.html#0',3,'match64979-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Person implements Comparable&lt;Person&gt; {
+    private int age;
+    private String name;
+    private String address;
+    public Person(){}
+    public Person(int age, String name, String address) {
+        this.age = age;
+        this.name = name;
+        this.address = address;
+    }</B></FONT>
+
+    public <font color="#C0C0C0"><EM>int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress(){
+        return address;
+    }
+    public void setAddress(String address) {
+<A NAME="1"></A>        this.address = address;
+    }</EM></font>
+
+    public <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match64979-1.html#1',3,'match64979-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>int compareTo(Person p){
+        if(!name.equals(p.name)){
+            return (name.compareTo(p.name));
+        }
+        else{   if (age &gt; p.age){
+            return 1;
+        }   else{
+            return -1;
+        }
+        }
+    }
+}</B></FONT>
+//    import java.util.Comparator;
+//    public class StudentIdComparator implements Comparator&lt;Student&gt; {
+//
+//        @Override
+//        public int compare(Student o1, Student o2) {
+//            // sort student's id by DESC
+//            return o2.getName().compareTo(o1.getName());
+//        }
+//
+//    }
+</PRE>
+<HR>
+<H3><CENTER>src/Week11.java</CENTER></H3><HR>
+<PRE>
+<A NAME="2"></A>import java.util.List;
+
+public class Week11 {
+    public static &lt;T extends Comparable&gt; List&lt;T&gt; sortGeneric(List&lt;<FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match64979-1.html#2',3,'match64979-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>T&gt; arr){
+        for (int i = 0; i &lt; arr.size() - 1; i++){
+<A NAME="3"></A>            for (int j = i + 1; j &lt; arr.size(); j++){
+                if (arr.get(i).compareTo(arr.get(j)) &gt; 0){
+                    T temp = arr</B></FONT>.get(i);
+                    <FONT color="#6cc417"><A HREF="javascript:ZweiFrames('match64979-1.html#3',3,'match64979-top.html#3',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>arr.set(i, arr.get(j));
+                    arr.set(j, temp);
+                }
+            }
+        }
+        return arr;
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

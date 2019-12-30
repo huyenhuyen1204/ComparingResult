@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>28573</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Expression.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>public abstract <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match58835-1.html#1',3,'match58835-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Expression {
+    public abstract String toString();
+    public abstract double evaluate();
+    public static void main (String[] args) {
+//        Expression newExpression = new Square(new Addition(new Addition(new Square(new Numeral(10)), new Numeral(-3)), new Multiplication(new Numeral(4), new Numeral(3))));
+        Expression new1 = new Division(new Numeral</B></FONT>(2), new Numeral(0));
+//        System.out.println(newExpression.toString());
+        System.out.println(new1.evaluate());
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>Numeral.java</CENTER></H3><HR>
+<PRE>
+public class Numeral extends Expression {
+    private double value;
+    public Numeral(double value) {
+        this.value = value;
+    }
+    public Numeral() {
+<A NAME="0"></A>    }
+    @Override
+    public String toString() {
+        <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match58835-1.html#0',3,'match58835-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>if(value == Math.round(value)) return String.valueOf(Math.round(value));
+        return String.valueOf(value);
+    }
+    @Override
+    public double evaluate() {
+        return value;
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

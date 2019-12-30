@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>9655</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>student/Student.java</CENTER></H3><HR>
+<PRE>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+<A NAME="0"></A>//package student;
+
+
+public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match2975-1.html#0',3,'match2975-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Student 
+{
+    private String name = &quot;Nguyen Van An&quot;;
+    private String id =&quot;17020001&quot;;
+    private String group =&quot;K62CC&quot;;
+    private String email =&quot;17020001@vnu.edu.vn&quot;</B></FONT>;
+    
+    public <font color="#C0C0C0"><EM>String getName()
+    {
+        return name;
+    }
+    public void setName(String n)
+    {
+        this.name = n;
+    }
+    public String getId()
+    {
+        return id;
+    }
+    public void setId(String n)
+    {
+        this.id = n;
+    }
+    public String getGroup()
+    {
+        return group;
+    }
+    public void setGroup(String n)
+    {
+        this.group = n;
+    }
+    public String getEmail()
+    {
+        return email;
+    }
+    public void setEmail(String n)
+    {
+        this.email = n;
+    }</EM></font>
+    public String getInfo()
+    {
+        return name + &quot; - &quot; + id + &quot; - &quot; + group + &quot; - &quot; + email;
+    }
+    <font color="#C0C0C0"><EM>Student()
+    {
+        this.name =&quot;Student&quot;;
+        this.id =&quot;000&quot;;
+        this.email =&quot;uet@vnu.edu.vn&quot;;
+        this.group =&quot;K62CB&quot;;
+    }
+    Student(String name, String id, String email)
+    {
+        this.name =name;
+        this.id =id;
+        this.email =email;
+        this.group =&quot;K62CB&quot;;
+    }
+    Student(Student s)
+    {
+        this.name =s.name;
+        this.email =s.email;
+        this.group =s.group;
+        this.id =s.id;
+    }</EM></font>
+    
+    
+    
+}
+</PRE>
+<HR>
+<H3><CENTER>student/StudentManagement.java</CENTER></H3><HR>
+<PRE>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+//package student;
+<A NAME="1"></A>
+
+
+public <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match2975-1.html#1',3,'match2975-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class StudentManagement 
+{
+    Student[] students = new Student[100];
+    int number=0;
+    public static boolean sameGroup(Student s1, Student s2)
+    {
+        return s1.getGroup().equals(s2.getGroup());      
+    }
+    public void addStudent(Student newStudent)
+    {
+       Student add= new Student(newStudent);
+       students[number]=add;
+       number++;
+    }
+    public String studentsByGroup()
+    {
+        String Danhsach=&quot;&quot;;
+        for(int i=0; i&lt; number; i++)
+        {
+            Danhsach=Danhsach+ students</B></FONT>[i].getGroup()+&quot;\n&quot;;
+            <font color="#C0C0C0"><EM>Danhsach=Danhsach+students[i].getInfo()+&quot;\n&quot;;
+            for(int j=i+1; j&lt;number;j++)
+            {
+<A NAME="2"></A>                if(sameGroup(students[i],students[j]))
+                {
+                    Danhsach=Danhsach+students</EM></font>[j].getInfo()+&quot;\n&quot;;
+                    Student <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match2975-1.html#2',3,'match2975-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>temp =students[j];
+                    for(int k=j;k&gt;=i+2;k--)
+                    {
+                       students[k]=students[k-1];
+                    }
+                    students[i+1]= temp;
+                    i++;
+                }
+                else 
+                {
+                    j++;
+                }
+            }
+        }
+        return Danhsach;
+    }
+    public void removeStudent(String id)
+    {
+        for(int i=0;i&lt;number;i++)
+        {
+            if(students[i].getId().equals(id))
+            {
+                for(int j=i;j&lt;number-1;j++)
+                {
+                    students[j]=students[j+1];
+                }
+                number--;
+            }
+        }
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

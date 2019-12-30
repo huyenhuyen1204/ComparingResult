@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>8470</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>hhh/Student.java</CENTER></H3><HR>
+<PRE>
+
+
+
+
+public class Student {
+    private String name;
+    private String id;
+    private String group;
+    private String email;
+
+    public <font color="#C0C0C0"><EM>Student(String name, String ID, String email) {
+        this.name = name;
+        this.id = ID;
+        this.email = email;
+        this.group = &quot;K62CB&quot;;
+    }
+
+    public Student() 
+    {
+        this.id = &quot;000&quot;;
+        this.email = &quot;uet@vnu.edu.vn&quot;;
+        this.group = &quot;K62CB&quot;;
+        this.name = &quot;Student&quot;;
+    }
+    
+
+    public Student(Student s) {
+        this.name = s.name;
+        this.email = s.email;
+        this.group = s.group;
+        this.id = s.id;
+    }
+    
+    public String</EM></font> getInfo()
+    {
+<A NAME="0"></A>        return name + &quot; - &quot; + id + &quot; - &quot; + group + &quot; - &quot; +email; 
+    }
+
+    public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match4285-0.html#0',2,'match4285-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>String getName() {
+        return name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }</B></FONT>
+    
+    
+    
+}
+</PRE>
+<HR>
+<H3><CENTER>hhh/StudentManagement.java</CENTER></H3><HR>
+<PRE>
+
+
+
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+
+
+
+public class StudentManagement {
+    ArrayList&lt;Student&gt; student = new ArrayList&lt;&gt;();
+    Student[] students = new Student[100];
+    public void addStudent(Student newStudent)
+    {
+        student.add(newStudent);
+        for(int i = 0; i &lt; student.size(); i++)
+        {
+                students[i] = student.get(i);
+        }
+    }
+    public static boolean sameGroup(Student a, Student b)
+    {
+        return (a.getGroup().equals(b.getGroup()));
+    }
+    public String studentsByGroup()
+    {
+        LinkedHashSet&lt;String&gt; a = new LinkedHashSet&lt;&gt;();
+        for(Student i : student)
+        {
+            if(!a.contains(i.getGroup())) a.add(i.getGroup());
+        }
+        String s = &quot;&quot;;
+        for(String i : a)
+        {
+<A NAME="1"></A>            s = s + i + &quot;\n&quot;;
+            for(Student j : student)
+            {
+                <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match4285-0.html#1',2,'match4285-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>if(j.getGroup().equals(i))
+                    s = s + j.getInfo() + &quot;\n&quot;;
+            }
+        }
+        return s;
+    }
+    public void removeStudent(String id)
+    {
+        for(int i = 0</B></FONT>; i &lt; student.size(); i++)
+        {
+            if(id.equals(student.get(i).getId()))
+            {
+                student.remove(student.remove(i));
+            }
+        }
+        for(int i = 0; i &lt; student.size(); i++)
+        {
+                students[i] = student.get(i);
+        }
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

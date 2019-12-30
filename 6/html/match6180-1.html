@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>14324</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Fraction.java</CENTER></H3><HR>
+<PRE>
+public class Fraction {
+    private int numerator, denominator;
+
+    <font color="#C0C0C0"><EM>int getNumerator() {
+        return numerator;
+    }
+
+    void setNumerator(int x) {
+        numerator = x;
+    }
+
+    int getDenominator() {
+        return denominator;
+    }
+<A NAME="0"></A>
+    void setDenominator(int x) {
+        if (x != 0)
+            denominator</EM></font> = x<FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6180-0.html#0',2,'match6180-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>;
+    }
+
+    int gcd(int a, int b) {
+        if (a &lt; b)
+            return gcd(b, a);
+        return (b == 0 ? a : gcd(b, a % b));
+    }
+
+    Fraction() {
+        denominator = 1;
+    }
+
+    Fraction(int x, int y) {
+        if (y != 0) {
+            numerator = x;
+            denominator = y;
+        } else {
+            if (denominator == 0)
+                denominator = 1;
+        }
+    }
+
+    Fraction reduce() {
+        Fraction tmp = new Fraction(numerator, denominator);
+        int x = gcd(tmp.numerator, tmp.denominator);
+        tmp.numerator /= x;
+        tmp</B></FONT>.denominator /= x;
+        <font color="#C0C0C0"><EM>numerator = tmp.numerator;
+        denominator = tmp.denominator;
+        return this;
+    }
+
+    Fraction add(Fraction a) {
+        Fraction tmp = new Fraction(this.numerator * a.denominator + this.denominator * a.numerator, this.denominator * a.denominator);
+        numerator = tmp.numerator;
+        denominator = tmp.denominator;
+        return</EM></font> this.reduce();
+    }
+
+    Fraction subtract(Fraction a) {
+        Fraction tmp = new Fraction(-1 * a.numerator, a.denominator);
+        return add(tmp);
+    <font color="#C0C0C0"><EM>}
+
+    Fraction multiply(Fraction a) {
+        Fraction tmp = new Fraction(this.numerator * a.numerator, this.denominator * a.denominator);
+        numerator = tmp.numerator;
+        denominator = tmp.denominator;
+        return this;
+<A NAME="1"></A>    }
+
+    Fraction</EM></font> divide(Fraction a) {
+        <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6180-0.html#1',2,'match6180-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>if (a.getNumerator() == 0)
+            return this;
+        Fraction tmp = new Fraction(a.denominator, a.numerator);
+        return multiply(tmp);
+    }
+
+    public boolean equals(Object obj) {
+        if (obj instanceof Fraction) {
+            Fraction other = (Fraction) obj;
+            return (this.reduce().getNumerator() == other.reduce().getNumerator() &amp;&amp; this.reduce().getDenominator() == other.reduce().getDenominator());
+        }
+        return false;
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

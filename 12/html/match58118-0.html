@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>30145</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Division.java</CENTER></H3><HR>
+<PRE>
+<A NAME="2"></A>public <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match58118-1.html#2',3,'match58118-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Division extends BinaryExpression {
+
+    public Division(Expression left, Expression right) {
+        super(left, right);
+    }
+
+    @Override
+    public double evaluate() throws ArithmeticException {
+        double leftValue = left</B></FONT>.evaluate();
+        double rightValue = right.evaluate();
+
+<A NAME="3"></A>        if (rightValue == 0) {
+            throw new ArithmeticException(&quot;Lỗi chia cho 0&quot;);
+        }
+        <FONT color="#6cc417"><A HREF="javascript:ZweiFrames('match58118-1.html#3',3,'match58118-top.html#3',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>return leftValue / rightValue;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;(&quot; + left.toString() + &quot; / &quot; + right.toString() + &quot;)&quot;;
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>ExpressionTest.java</CENTER></H3><HR>
+<PRE>
+import org.junit.*;
+import static org.junit.Assert.*;
+
+<A NAME="0"></A>public class ExpressionTest {
+
+    @Test
+    public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match58118-1.html#0',3,'match58118-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>void test() {
+        Expression expr = new Square(new Addition(new Addition(new Square(new Numeral(10)), new Numeral(-3)), new Multiplication(new Numeral(4), new Numeral(3))));
+        assertEquals(expr</B></FONT>.toString(), &quot;((((10) ^ 2 + -3) + (4 * 3))) ^ 2&quot;);
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>Square.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>public <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match58118-1.html#1',3,'match58118-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Square extends Expression {
+
+    private Expression expression;
+
+    public Square(Expression expression) {
+        this.expression = expression;
+    }
+
+    @Override
+    public double evaluate() {
+        double exprValue = expression.evaluate();
+        return exprValue * exprValue;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;(&quot; + expression</B></FONT>.toString() + &quot;) ^ 2&quot;;
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

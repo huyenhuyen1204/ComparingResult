@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>30955</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>BinaryExpression.java</CENTER></H3><HR>
+<PRE>
+public abstract class BinaryExpression extends Expression {
+    protected Expression left;
+    protected Expression right;
+    protected String leftString;
+    protected String rightString;
+
+
+
+    public BinaryExpression(Expression left, Expression right) {
+        this.left = new Numeral(left.evaluate());
+        this.right = new Numeral(right.evaluate());
+        this.leftString = left.toString();
+        this.rightString = right.toString();
+    }
+
+
+<A NAME="0"></A>
+    @Override
+    public String toString() {
+        <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match52358-1.html#0',3,'match52358-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>return this.leftString + &quot; &quot; + this.rightString;
+    }
+
+    @Override
+    public double evaluate() {
+        return this.right.evaluate() + this.left.evaluate();
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>ExpressionTest.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>public class ExpressionTest {
+    Numeral <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match52358-1.html#1',3,'match52358-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>muoi = new Numeral(10);
+    Numeral hai = new Numeral(2);
+    Numeral ba = new Numeral(3);
+    Numeral bon = new Numeral(4);
+
+
+    Multiplication mul1 = new Multiplication(muoi, muoi);
+    Subtraction sub1 = new Subtraction(mul1, ba);
+    Multiplication mul2 = new Multiplication(bon, ba);
+    Addition add2 = new Addition(sub1, mul2);
+    Multiplication mul3 = new Multiplication</B></FONT>(add2, add2);
+
+    public String toString() {
+        System.out.println(mul3.evaluate());
+        return &quot; &quot;;
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>Multiplication.java</CENTER></H3><HR>
+<PRE>
+public class Multiplication extends BinaryExpression {
+    public Multiplication(Expression left, Expression right) {
+        super(left, right);
+<A NAME="4"></A>    }
+    @Override
+    public String toString() {
+        <FONT color="#151b8d"><A HREF="javascript:ZweiFrames('match52358-1.html#4',3,'match52358-top.html#4',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>return &quot;(&quot;+ this.leftString + &quot; * &quot; + this.rightString + &quot;)&quot;;
+    }
+
+    @Override
+    public double evaluate() {
+        return this.left.evaluate() * this.right.evaluate();
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>Square.java</CENTER></H3><HR>
+<PRE>
+public class Square extends Expression {
+    private Expression expression;
+    private String expressionString;
+
+    public Square(Expression expression) {
+        this.expression = new Numeral(expression.evaluate());
+        this.expressionString = expression.toString();
+    }
+
+    public void setSquare(Expression expression) {
+        this.expression = new Numeral(expression.evaluate());
+    }
+
+    public Expression getSquare() {
+        return expression;
+    }
+<A NAME="3"></A>
+    @Override
+    public String toString() {
+        <FONT color="#6cc417"><A HREF="javascript:ZweiFrames('match52358-1.html#3',3,'match52358-top.html#3',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>return &quot;(&quot; + this.expressionString + &quot;) ^ 2&quot; ;
+    }
+
+    @Override
+    public double evaluate() {
+        return this.expression.evaluate()*this.expression.evaluate();
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>Subtraction.java</CENTER></H3><HR>
+<PRE>
+public class Subtraction extends BinaryExpression{
+    public Subtraction(Expression left, Expression right) {
+        super(left, right);
+<A NAME="2"></A>    }
+    @Override
+    public String toString() {
+        <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match52358-1.html#2',3,'match52358-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>return &quot;(&quot; + this.leftString + &quot; - &quot; + this.rightString + &quot;)&quot;;
+    }
+
+    @Override
+    public double evaluate() {
+        return this.left.evaluate() - this.right.evaluate();
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

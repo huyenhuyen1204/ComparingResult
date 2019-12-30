@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>2985</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>src/Fraction.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A><FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match5813-0.html#0',2,'match5813-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>import static java.lang.Math.abs;
+
+public class Fraction {
+    private int  numerator;
+    private int denominator=1;
+
+    public int getNumerator(){
+        return numerator;}
+    public int getDenominator(){
+        return denominator;
+    }
+
+    public void setNumerator(int numerator){ this.numerator = numerator;}
+    public void setDenominator(int denominator) {
+        if (denominator != 0)
+            this.denominator = denominator;
+    }
+
+    Fraction(){
+    }
+    Fraction(int numerator, int denominator){
+        this.numerator = numerator;
+        this.setDenominator(denominator);
+    }
+
+<A NAME="1"></A>    public int</B></FONT> ucln(int temp1, int temp2) {
+
+        temp1 = abs(temp1);
+        <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match5813-0.html#1',2,'match5813-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>temp2 = abs(temp2);
+
+        while (temp1 != temp2) {
+            if (temp1 &gt; temp2) {
+                temp1 -= temp2;
+            } else {
+                temp2 -= temp1;
+            }
+        }</B></FONT>
+        return temp1;
+
+    }
+
+
+<A NAME="2"></A>    public Fraction reduce(){
+        int uc = ucln(this.getNumerator(), this.getDenominator());
+        this.setNumerator(this.getNumerator() / uc);
+        <FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match5813-0.html#2',2,'match5813-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>this.setDenominator(this.getDenominator() / uc);
+        return this;
+    }
+
+
+    public Fraction add(Fraction f){
+        Fraction fraction = new Fraction();
+        fraction.setNumerator(this.numerator*f.denominator + f.numerator*this.denominator);
+        fraction.setDenominator( this.denominator*f.denominator);
+        if(fraction.getNumerator() != 0){
+            fraction.reduce();
+        }
+        return fraction;
+    }
+    public Fraction subtract(Fraction f) {
+        Fraction fraction = new Fraction();
+        fraction.setNumerator(this.numerator*f.denominator - f.numerator*this.denominator);
+        fraction.setDenominator(this.denominator*f.denominator);
+        if(fraction.getNumerator() != 0){
+            fraction.reduce();
+        }
+        return fraction;
+    }
+
+    public Fraction multiply(Fraction f){
+        Fraction fraction = new Fraction();
+        fraction.setNumerator(this.numerator*f.numerator);
+        fraction.setDenominator(this.denominator*f.denominator);
+        if(fraction.getNumerator() != 0){
+            fraction.reduce();
+        }
+        return fraction;
+    }
+
+    public Fraction divide(Fraction f){
+        Fraction fraction = new Fraction();
+        fraction.setNumerator(this.numerator*f.denominator);
+        fraction.setDenominator(this.denominator*f.numerator);
+        if(fraction.getNumerator() != 0){
+            fraction.reduce();
+        }
+        return fraction;
+    }
+
+    public boolean equals(Object obj){
+        if(obj instanceof Fraction) {
+            if (this.numerator * ((Fraction) obj).getDenominator() == ((Fraction) obj).getNumerator() * this.denominator)
+                return true;
+        }
+        return false;
+    }
+
+    public static void</B></FONT> main(String[] args){
+       Fraction ps1 = new Fraction(1,-2);
+        Fraction ps2 = new Fraction(-5, 10);
+      Fraction ps3 = new Fraction(2,-4);
+       Fraction ps4 = new Fraction(-5, -10);
+        Fraction ps5 = new Fraction(0,5);
+        Fraction ps6 = new Fraction(5, 0);
+        Fraction ps7 = new Fraction(0, 0);
+        Fraction test = new Fraction(-1445,10);
+        test.reduce();
+
+        System.out.println(test.getNumerator() + &quot;/&quot; + test.getDenominator());
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

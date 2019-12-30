@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>33383</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>src/Person.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match65569-0.html#0',2,'match65569-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class Person implements Comparable&lt;Person&gt;{
+    private String name;
+    private int age;
+    private String address;
+
+    public Person(){
+
+    }
+
+    public Person(String name, int age, String address) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }</B></FONT>
+
+    public <font color="#C0C0C0"><EM>String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }</EM></font>
+
+    public int compareTo(Person other) {
+        if (this.name.compareTo(other.name) == 0) {
+            if (this.age == other.age) {
+                if (this.address.compareTo(other.address) == 0) return 0;
+                return this.address.compareTo(other.address);
+            }
+            return (this.age &gt; other.age ? 1 : -1);
+        }
+        return this.name.compareTo(other.name);
+    }
+
+}
+</PRE>
+<HR>
+<H3><CENTER>src/Week11.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>import java.util.ArrayList;
+<FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match65569-0.html#1',2,'match65569-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>import java.util.List;
+
+public class Week11 {
+    public static &lt;T extends Comparable&lt;T&gt;&gt; List&lt;T&gt; sortGeneric(List&lt;T&gt; arr) {
+        for (int i = 0; i &lt; arr.size(); i++) {
+            for (int j = i + 1; j &lt; arr.size(); j++)
+                if (arr.get(i).compareTo(arr.get(j)) &gt; 0) {
+                    T tmp = arr.get(i);
+                    arr.set(i, arr.get(j));
+                    arr.set(j, tmp);
+                }
+        }
+        return arr;
+    }
+    /*public static void main(String[] args){
+        List&lt;Person&gt; arr = new ArrayList&lt;Person&gt;();
+        arr.add(new Person(&quot;Nguyen A&quot;, 22, &quot;abc&quot;));
+        arr.add(new Person(&quot;Nguyen A&quot;, 20, &quot;def&quot;));
+        arr.add(new Person(&quot;Le B&quot;, 20, &quot;asd&quot;));
+        arr = sortGeneric(arr);
+        for (Person i : arr)
+            System.out.print(i.getName() + &quot; &quot; + i.getAge() + &quot; &quot; + i.getAddress() + '\n');
+    }*/
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

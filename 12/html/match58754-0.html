@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>30886</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>ExpressionTest.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match58754-1.html#0',3,'match58754-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class ExpressionTest {
+    public static void main(String[] args) {
+        Expression a=new Numeral(10);
+        Expression b=new Numeral(-3);
+        Expression c=new Numeral(4);
+        Expression d=new Numeral(3);
+        Expression e=new Numeral(2);
+        Expression f=new Numeral(0);
+        Square square= new Square</B></FONT>(a);
+        System.out.println(square.toString());
+        Addition addition= new Addition(square,b);
+<A NAME="1"></A>        Multiplication multiplication= new Multiplication(c,e);
+        System.out.println(addition.toString());
+        System.out.println(multiplication.toString());
+        Addition <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match58754-1.html#1',3,'match58754-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>addition1= new Addition(addition,multiplication);
+       Square square1=new Square(addition);
+        System.out.println(square1.toString());
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

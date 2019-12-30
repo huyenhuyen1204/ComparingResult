@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>9175</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>StudentManagement.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>import java.util.Scanner;
+
+public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match4793-1.html#0',3,'match4793-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class StudentManagement {
+    public static Student [] students = new Student[100];
+    public  int i = 0;
+
+    public static  boolean sameGroup(Student s1, Student s2) {
+        return s1.getGroup().equals(s2.getGroup());
+    }
+
+    public  void addStudent(Student newStudent){
+        students[i] = newStudent;
+        i++;
+    }
+
+    public  String studentsByGroup(){
+//        String gr = &quot;&quot;;
+//        for (int j = 0 ; j &lt; i; j++) {
+//            if(j!= 0 &amp;&amp; sameGroup(students[j],students[0]) == true) continue;
+//            else {
+//                gr = gr + students[j].getGroup() + &quot;\n&quot;;
+//                for (int k = j; k &lt; i; k++) {
+//                    if (sameGroup(students[k], students[j]) == true) gr = gr + students[k].getInfo() + &quot;\n&quot;;
+//                }
+//            }
+//        }
+        String gr = &quot;&quot;;
+        String[] hadGroup = new</B></FONT> String[50];
+        int m = 0;
+        int flag = 0;
+        for (int <font color="#C0C0C0"><EM>j = 0 ; j &lt; i; j++) {
+            for(int l = 0; l &lt;m ; l++){
+                if(students[j].getGroup().equals(hadGroup[l])){
+                    flag=1;
+                    break;
+                }
+            }
+            if</EM></font>(flag == 1) {
+                flag = 0;
+                continue;
+            }
+            else {
+                gr = gr + students[j].getGroup() + &quot;\n&quot;;
+<A NAME="1"></A>                <font color="#C0C0C0"><EM>hadGroup[m] = students[j].getGroup();
+                m++;
+                for (int k = j; k &lt; i; k++) {
+                    if (sameGroup(students[k], students[j]) == true) gr = gr + students</EM></font>[k].getInfo() + &quot;\n&quot;<FONT color="#f63526"><A HREF="javascript:ZweiFrames('match4793-1.html#1',3,'match4793-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>;
+                }
+                flag = 0;
+            }
+        }
+
+        return gr;
+    }
+
+    public void removeStudent(String id) {
+        for(int j=0; j&lt;i; j++){
+            if(students[j].getId().equals(id)){
+                for(int k = j; k&lt;i-1; k++) students[k] = students[k+1];</B></FONT>
+                i--;
+                break;
+            }
+        }
+    }
+    public static void main(String[] args) {
+
+    }
+
+}
+</PRE>
+
+</BODY>
+</HTML>

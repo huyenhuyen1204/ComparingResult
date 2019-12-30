@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>4956</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/Square.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public class Square extends Expression{
+    private Expression expression;
+
+    public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match54869-1.html#0',3,'match54869-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>Square(Expression expression) {
+        this.expression = expression;
+    }
+
+    public Expression getExpression() {
+        return expression;
+    }
+
+    public void setExpression(Expression expression) {
+        this.expression = expression;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;(&quot;+getExpression().toString()+&quot;)&quot;+&quot; ^ 2&quot;;
+    }
+
+    @Override
+    public double evaluate() {
+        return getExpression</B></FONT>().evaluate()*getExpression().evaluate();
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>src/main.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>public class main {
+    public static void main(String[] args){
+<A NAME="2"></A>        Expression <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match54869-1.html#1',3,'match54869-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>a=new Numeral(12);
+        Expression b=new Numeral(0);
+        Addition c=new Addition</B></FONT>(a,a);
+        Addition x=new <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match54869-1.html#2',3,'match54869-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>Addition(c,b);
+        Expression d=new Square(x);
+        Division b1=new Division(a,b);
+        System.out.println(b1.evaluate());
+
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

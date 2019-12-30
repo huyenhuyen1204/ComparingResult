@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>1763</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Student.java</CENTER></H3><HR>
+<PRE>
+/**
+ * Bai tap tuan 2
+<A NAME="0"></A> * @author Nguyen Quang Huy
+ * @since 7/7/2019
+ */
+public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match4135-1.html#0',3,'match4135-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Student {
+    private String name, id, group, email;
+
+    /**
+     * Getter cho name, id, group, email
+     */
+
+    public String getName() {
+        return name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * Setter cho name, id, group, email
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setGroup(String group) {
+        this</B></FONT>.group = group;
+    <font color="#C0C0C0"><EM>}
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * Phuong thuc khoi tao khong co tham so
+     */
+    public Student() {
+        this.name = &quot;Student&quot;;
+        this.id = &quot;000&quot;;
+        this.group = &quot;K62CB&quot;;
+        this.email = &quot;uet@vnu.edu.vn&quot;;
+    }
+
+    /**
+     * Phuong thuc khoi tao co tham so
+     * @param name
+     * @param id
+     * @param email
+     */
+    public Student(String name, String id, String email) {
+        this.name = name;
+        this.id = id;
+        this.group = &quot;K62CB&quot;;
+        this.email = email;
+    }
+    /**
+     * Phuong thuc khoi tao co tham so
+     * @param name
+     * @param group
+     * @param id
+     * @param email
+     */
+    public Student(String name, String id, String group, String email) {
+        this.name = name;
+        this.id = id;
+        this.group = group;
+        this.email = email;
+    }</EM></font>
+    /**
+     * Phuong thuc khoi tao sao chep
+     * @param s
+     */
+    public Student(Student s) {
+        this.name = s.name;
+        this.id = s.id;
+        this.group = s.group;
+        this.email = s.email;
+    }
+
+    /**
+     * Getter cho info
+     */
+    public String getInfo(){
+        return getName() + &quot; - &quot; + getId() + &quot; - &quot; + getGroup() + &quot; - &quot; + getEmail();
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>StudentManagement.java</CENTER></H3><HR>
+<PRE>
+/**
+ * Bai tap tuan 2
+ * @author Nguyen Quang Huy
+ * @since 7/7/2019
+ */
+public class StudentManagement {
+    Student[] students = new Student[100];
+    int length = 0;
+    /**
+     * Ham kiem tra hai sinh vien cung lop
+     * @param s1
+     * @param s2
+     * @return true hoac false
+     */
+    public static boolean sameGroup(Student s1, Student s2){
+       return s1.getGroup().equalsIgnoreCase(s2.getGroup());
+    }
+
+    /**
+     * Them hoc sinh vao danh sach hoc sinh
+     * @param newStudent
+     */
+    public void addStudent(Student newStudent){
+        students[length++] = newStudent;
+    }
+
+    /**
+     * Sap xep hoc sinh theo lop va thu tu
+     * @return danh sach hoc sinh
+     */
+    public String studentsByGroup(){
+        String temp = new String();
+        boolean <font color="#C0C0C0"><EM>visited[] = new boolean[length];
+        for (int i = 0; i &lt; length; i++){
+            visited[i] = false;
+        }
+
+        for (int i = 0; i &lt; length; i++){
+            if(!visited[i])
+                temp += students</EM></font>[i].getGroup() + &quot;\n&quot; + students[i].getInfo() + &quot;\n&quot;;
+<A NAME="1"></A>            for (int j = i + 1; j &lt; length; j++){
+                if(sameGroup(students[i], students[j])) {
+                    visited[j] = true;
+                    <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match4135-1.html#1',3,'match4135-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>temp += students[j].getInfo() + &quot;\n&quot;;
+                }
+            }
+        }
+
+        return temp;
+    }
+
+    /**
+     * Xoa hoc sinh ra khoi danh sach
+     * @param id
+     */
+    public void removeStudent(String id){
+<A NAME="2"></A>        for (int i = 0; i &lt; length; i++){
+            if(students</B></FONT>[i].getId().equals(id)) {
+                length = length - 1;
+                <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match4135-1.html#2',3,'match4135-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>for (int j = i; j &lt; length; j++) {
+                    i++;
+                    students[j] = students[i];
+                }
+                break;
+            }
+        }
+    }</B></FONT>
+
+    public static void main(String[] args) {
+
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

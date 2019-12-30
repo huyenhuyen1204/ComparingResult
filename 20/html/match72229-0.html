@@ -1,0 +1,372 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>25885</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Circle.java</CENTER></H3><HR>
+<PRE>
+
+import java.util.Objects;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+public class Circle extends Shape{
+    protected Point center;
+    protected double radius;
+    public Circle()
+    {
+    }
+
+    public Point getCenter() {
+        return center;
+    }
+
+<A NAME="4"></A>    public void setCenter(Point center) {
+        this.center = center;
+    }
+    public <FONT color="#151b8d"><A HREF="javascript:ZweiFrames('match72229-1.html#4',3,'match72229-top.html#4',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>Circle(double radius)
+    {
+        this.radius=radius;
+    }
+    public Circle(double radius,String color,boolean filled)
+    {
+        super(color,filled);
+        this.radius=radius;
+    }
+    public Circle(Point center,double radius,String color,boolean filled)
+    {
+        super(color,filled);
+        this</B></FONT>.radius=radius;
+        this.center=center;
+    }
+    public <font color="#C0C0C0"><EM>double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+    @Override
+    public double</EM></font> getArea()
+    {
+        double x=Math.PI*radius*radius;
+        return x;
+    }
+    @Override
+    public double getPerimeter()
+    {
+         double y=2*Math.PI*radius;
+         return y;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 59 * hash + Objects.hashCode(this.center);
+        hash = 59 * hash + (int) (Double.doubleToLongBits(this.radius) ^ (Double.doubleToLongBits(this.radius) &gt;&gt;&gt; 32));
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Circle other = (Circle) obj;
+        if (Double.doubleToLongBits(this.radius) != Double.doubleToLongBits(other.radius)) {
+<A NAME="5"></A>            return false;
+        }
+        if (!Objects.equals(this.center, other.center)) {
+            <FONT color="#c8c2a7"><A HREF="javascript:ZweiFrames('match72229-1.html#5',3,'match72229-top.html#5',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>return false;
+        }
+        return true;
+    }
+    @Override
+    public String toString() {
+        return &quot;Circle[center=(&quot;+center.getX()+','+center.getY() + &quot;),radius=&quot; + radius + &quot;,color=&quot; + color +&quot;,filled=&quot;+filled+']';
+    }</B></FONT>
+}
+
+</PRE>
+<HR>
+<H3><CENTER>Point.java</CENTER></H3><HR>
+<PRE>
+
+public <font color="#C0C0C0"><EM>class Point {
+    private double x;
+    private double y;
+    public Point(double x,double y)
+    {
+        this.x=x;
+        this.y=y;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+    public double</EM></font> distance(Point M) 
+    {
+        double m=1.0*Math.sqrt((this.x-M.x)*(this.x-M.x)-(this.y-M.y)*(this.y-M.y));
+        return m;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+<A NAME="3"></A>        hash = 37 * hash + (int) (Double.doubleToLongBits(this.x) ^ (Double.doubleToLongBits(this.x) &gt;&gt;&gt; 32));
+        hash = 37 * hash + (int) (Double.doubleToLongBits(this.y) ^ (Double.doubleToLongBits(this.y) &gt;&gt;&gt; 32));
+        return hash;
+    <FONT color="#6cc417"><A HREF="javascript:ZweiFrames('match72229-1.html#3',3,'match72229-top.html#3',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>}
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Point other = (Point) obj;
+        if (Double.doubleToLongBits(this.x) != Double.doubleToLongBits(other.x)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.y) != Double.doubleToLongBits(other.y)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String</B></FONT> toString() {
+        return &quot;(&quot;+x+','+y+&quot;)&quot;;
+    }
+
+}
+</PRE>
+<HR>
+<H3><CENTER>Rectangle.java</CENTER></H3><HR>
+<PRE>
+
+import java.util.Objects;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+public class Rectangle extends Shape{
+    protected Point topLeft;
+    protected double width;
+    protected double length;
+    public Rectangle()
+    {}
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+<A NAME="2"></A>        hash = 83 * hash + Objects.hashCode(this.topLeft);
+        hash = 83 * hash + (int) (Double.doubleToLongBits(this.width) ^ (Double.doubleToLongBits(this.width) &gt;&gt;&gt; 32));
+        hash = 83 * hash + (int) (Double.doubleToLongBits(this.length) ^ (Double.doubleToLongBits(this.length) &gt;&gt;&gt; 32));
+        <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match72229-1.html#2',3,'match72229-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Rectangle other = (Rectangle) obj;
+        if (Double.doubleToLongBits(this.width) != Double.doubleToLongBits(other.width)) {
+            return false;
+        }
+        if</B></FONT> (Double.doubleToLongBits(this.length) != Double.doubleToLongBits(other.length)) {
+            return false;
+        }
+        if (!Objects.equals(this.topLeft, other.topLeft)) {
+            return false;
+        }
+        return true;
+    }
+    public Rectangle(double width,double length)
+    {
+        this.width=width;
+        <font color="#C0C0C0"><EM>this.length=length;
+    }
+
+    public Point getTopLeft() {
+        return topLeft;
+    }
+
+    public void setTopLeft(Point topLeft) {
+        this.topLeft = topLeft;
+    }</EM></font>
+    public <font color="#C0C0C0"><EM>Rectangle(double width,double length,String color,boolean filled)
+    {
+        super(color,filled);
+        this.width=width;
+        this.length=length;
+    }
+    public Rectangle(Point topLeft,double width,double length,String color,boolean filled)
+    {
+        super(color,filled);
+        this.topLeft=topLeft;
+        this</EM></font>.width=width;
+        <font color="#C0C0C0"><EM>this.length=length;
+    }
+    public double getWidth() {
+        return width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public double getLength() {
+        return length;
+    }
+
+    public void setLength(double length) {
+        this.length = length;
+    }</EM></font>
+    @Override
+    public double getArea()
+    {
+        double x=(double)(width*length);
+        return x;
+    }
+    @Override
+    public double getPerimeter()
+    {
+        double x=(double)(2*(width+length));
+        return x;
+    }
+    @Override
+    public String toString() {
+        return &quot;Rectangle[topLeft=(&quot;+topLeft.getX()+','+topLeft.getY() + &quot;),width=&quot; + width + &quot;,length=&quot; + length +&quot;,color=&quot;+color+&quot;,filled=&quot; +filled+']';
+    }
+}
+
+</PRE>
+<HR>
+<H3><CENTER>Square.java</CENTER></H3><HR>
+<PRE>
+
+import java.util.Objects;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+public class Square extends Rectangle{
+    public Square(){
+    }
+    public Square(double side)
+    {
+        super(side,side);
+    <font color="#C0C0C0"><EM>}
+    public Square(double side,String color,boolean filled)
+    {
+        super(side,side,color,filled);
+    }
+    public Square(Point topLeft,double side,String color,boolean filled)
+    {
+        super(topLeft,side,side,color,filled);
+    }
+    public double getSide()
+    {
+        return width;
+    }
+    public void setSide(double side)
+    {
+        setWidth(side);
+        setLength(side);
+    }</EM></font>
+    @Override
+    public void setWidth(double side) {
+        super.setWidth(side);
+        super.setLength(side);
+    }
+    @Override
+    public void setLength(double side) {
+        super.setWidth(side);
+        super.setLength(side);
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        <font color="#C0C0C0"><EM>if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+<A NAME="0"></A>            return false;
+        }
+        final Rectangle other = (</EM></font>Rectangle) obj;
+        <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match72229-1.html#0',3,'match72229-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>if (Double.doubleToLongBits(this.width) != Double.doubleToLongBits(other.width)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.length) != Double.doubleToLongBits(other.length)) {
+<A NAME="1"></A>            return false;
+        }
+        if (!Objects</B></FONT>.equals(this.topLeft, other.topLeft)) {
+            <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match72229-1.html#1',3,'match72229-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>return false;
+        }
+        return true;
+    }
+    @Override
+    public String toString() {
+        return &quot;Square[topLeft=(&quot;+topLeft.getX()+','+topLeft.getY() + &quot;),side=&quot;+getSide()+&quot;,color=&quot;+color+&quot;,filled=&quot;+filled+']';
+    }</B></FONT>
+}
+
+</PRE>
+
+</BODY>
+</HTML>

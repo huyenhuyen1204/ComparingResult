@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>32449</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Person.java</CENTER></H3><HR>
+<PRE>
+public class Person implements Comparable&lt;Person&gt;  {
+    private String name;
+    private int age;
+    private String address;
+
+    public Person() {
+
+    }
+
+    public Person(String name, int age, String address) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }
+
+    public <font color="#C0C0C0"><EM>String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+<A NAME="0"></A>
+    @Override
+    public String</EM></font> toString() {
+        <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match65068-1.html#0',3,'match65068-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>return name + &quot; &quot; + age + &quot; &quot; + address + &quot;\n&quot;;
+    }
+
+    @Override
+    public int compareTo(Person n) {
+        if(!this.name.equals(n.getName())) {
+            return this.name.compareTo(n.getName());
+        } else return this.age - n.getAge();
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>Week11.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A><FONT color="#f63526"><A HREF="javascript:ZweiFrames('match65068-1.html#1',3,'match65068-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>import java.util.List;
+public class Week11 {
+    public static &lt; T extends Comparable&lt;T&gt; &gt; List&lt;T&gt; sortGeneric(List&lt;T&gt; list) {
+        int n = list.size();
+
+        for (int i = 0 ; i &lt; n; i++) {
+            for (int j = n - 1; j &gt; i; j--) {
+                if(list.get(j).compareTo(list.get(i)) &lt; 0) {
+                    T temp = list.get(i);
+                    list.set(i, list.get(j));
+                    list.set(j, temp);
+                }
+            }
+        }
+        return list;
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

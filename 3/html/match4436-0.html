@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>9387</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/StudentManagement.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>import java.util.*;
+
+public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match4436-1.html#0',3,'match4436-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class StudentManagement {
+    private Student[] students;
+    private int numStudents;
+
+    public StudentManagement() {
+        students = new Student[100];
+        numStudents = 0;
+    }
+
+    public void addStudent(Student newStudent) {
+        students[numStudents++] = newStudent;
+    }
+
+    public void removeStudent(String id) {
+        for (int i = 0; i &lt; numStudents; ++i)
+            if (students[i].getId().equals(id)) {
+                for (int j = i; j &lt; numStudents - 1; ++j) {
+                    students[j] = students[j + 1];
+                }
+                students[--numStudents] = null;
+                break;
+            }
+    }
+    public static boolean sameGroup(Student s1, Student s2) {
+        return s1.getGroup().equals(s2.getGroup());
+    }
+
+    public String studentsByGroup() {
+        StringBuilder SList = new StringBuilder();
+        String[] groups = new String[100];
+        int numGroups = 0;
+        for (int i = 0</B></FONT>; i &lt; numStudents; ++i) {
+            boolean <font color="#C0C0C0"><EM>check = false;
+            for (int j = 0; j &lt; numGroups; ++j)
+                if (students[i].getGroup().equals(groups[j])) {
+                    check = true;
+<A NAME="1"></A>                    break;
+                }
+            if</EM></font> (!check) {
+                <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match4436-1.html#1',3,'match4436-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>groups[numGroups++] = students[i].getGroup();
+                SList.append(groups[numGroups - 1]);
+                SList.append('\n');
+                for (int j = i; j &lt; numStudents; ++j)
+                    if (students[j].getGroup().equals(groups[numGroups - 1])) {
+                        SList.append(students[j].getInfo());
+                        SList.append('\n');
+                    }
+            }
+        }
+        return SList.toString();
+    }
+
+    public static void</B></FONT> main(String[] args) {
+        Student <font color="#C0C0C0"><EM>student17020001 = new Student(&quot;Nguyen Van An&quot;, &quot;17020001&quot;, &quot;17020001@vnu.edu.vn&quot;);
+        student17020001.setGroup(&quot;K62CC&quot;);
+
+        Student student17020002 = new Student(&quot;Nguyen Van B&quot;, &quot;17020002&quot;, &quot;17020002@vnu.edu.vn&quot;);
+        student17020002.setGroup(&quot;K62CC&quot;);
+
+        Student student17020003 = new Student(&quot;Nguyen Van C&quot;, &quot;17020003&quot;, &quot;17020003@vnu.edu.vn&quot;);
+        student17020003</EM></font>.setGroup(&quot;K62CB&quot;);
+
+        Student student17020004 = new Student(&quot;Nguyen Van D&quot;, &quot;17020004&quot;, &quot;17020004@vnu.edu.vn&quot;);
+        student17020004.setGroup(&quot;K62CB&quot;);
+
+        Student <font color="#C0C0C0"><EM>dumpStudent = new Student();
+
+        StudentManagement studentManagement = new StudentManagement();
+        studentManagement.addStudent(student17020001);
+        studentManagement.addStudent(student17020002);
+        studentManagement.addStudent(dumpStudent);
+        studentManagement.addStudent(student17020003);
+        studentManagement.addStudent(student17020004);
+        studentManagement.removeStudent(dumpStudent.getId());
+        System</EM></font>.out.println(studentManagement.studentsByGroup());
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

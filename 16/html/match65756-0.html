@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>32020</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>week11/Person.java</CENTER></H3><HR>
+<PRE>
+//package Generic.week11;
+
+import java.util.*;
+<A NAME="0"></A>
+public class Person {
+    private String name;
+    private int <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match65756-1.html#0',3,'match65756-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>age;
+    private String address;
+    public Person() {
+
+    }
+
+    public Person(String name, int age, String address) {
+        this.address = address;
+        this.age = age;
+        this.name = name;
+    }</B></FONT>
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getName() {
+        return this.name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String StringAge() {
+        return age + &quot;&quot;;
+    }
+
+    public String toString() {
+        return &quot;(name”&quot; + this.getName() + &quot;”, age=&quot; + this.getAge()+&quot;, address=&quot; + this.getAddress()+&quot;)&quot;;
+    }
+
+
+    public boolean compareTo(Object person) {
+        Person per = (Person) person;
+        if(this.getName().compareTo(per.getName()) == 0){
+            if(this.StringAge().compareTo(per.StringAge()) &gt; 0) {
+                return true;
+            }else {
+                return false;
+            }
+        }else if(this.getName().compareTo(per.getName()) &gt; 0) {
+            return true;
+        }else {
+            return false;
+        }
+
+
+    }
+//    public static &lt;t&gt; List&lt;t&gt; sortGeneric(List&lt;t&gt; arr) {
+////        for(int i=0 ; i&lt;arr.size() ; i++) {
+////            for(int j=i+1 ; j&lt;arr.size(); j++){
+////                if(arr.get(i).equals(arr.get(j))) {
+////                    t temp1 = arr.get(i);
+////                    arr.set(i, arr.get(j));
+////                    arr.set(j,temp1);
+////                }
+////            }
+////        }
+////        return arr;
+////    }
+
+
+
+
+}
+
+
+</PRE>
+<HR>
+<H3><CENTER>week11/Week11.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>//package Generic.week11;
+
+<FONT color="#f63526"><A HREF="javascript:ZweiFrames('match65756-1.html#1',3,'match65756-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>import java.util.ArrayList;
+import java.util.List;
+
+public class Week11  {
+    public static &lt;t&gt; List&lt;t&gt; sortGeneric(List&lt;t&gt; arr) {
+<A NAME="2"></A>        for(int i=0 ; i&lt;arr.size() ; i++) {
+            for(int j=i+1 ; j&lt;arr.size(); j++){
+                if(arr</B></FONT>.get(i).toString().compareTo(arr.get(j).toString()) &gt; 0) {
+                    t <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match65756-1.html#2',3,'match65756-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>temp1 = arr.get(i);
+                    arr.set(i, arr.get(j));
+                    arr.set(j,temp1);
+                }
+            }
+        }
+        return arr;
+    }
+//    public static void main(String args[]) {
+//        Person person = new Person(&quot;Nguyen A&quot;, 22, &quot;123&quot;);
+//        Person per2 =new Person(&quot;Nguyen B&quot;, 22, &quot;123&quot;);
+//        Person per3 = new Person(&quot;Nguyen A&quot;, 21, &quot;122&quot;);
+//        int i1 = 10;
+//        int i2 = 12;
+//        int i3 = 13;
+//
+//        List&lt;Integer&gt; listInteger = new ArrayList&lt;Integer&gt;();
+//        listInteger.add(i1);
+//        listInteger.add(i3);
+//        listInteger.add(i2);
+//
+//        listInteger = Week11.sortGeneric(listInteger);
+//        for(int i=0; i&lt;listInteger.size(); i++) {
+//            System.out.println(listInteger.get(i));
+//        }
+//
+//        List&lt;Person&gt; list = new ArrayList&lt;Person&gt;();
+//        list.add(person);
+//        list.add(per2);
+//        list.add(per3);
+//
+//        list = Week11.sortGeneric(list);
+//        for(int i=0; i&lt;list.size(); i++) {
+//            System.out.println(list.get(i).toString());
+//        }
+//    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

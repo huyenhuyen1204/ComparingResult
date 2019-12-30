@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>14977</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Fraction.java</CENTER></H3><HR>
+<PRE>
+
+public class Fraction {
+    private int numerator;
+    private int denominator;
+
+    public <font color="#C0C0C0"><EM>int getNumerator(){
+        return numerator;
+    }
+    public void setNumerator(int numerator){
+        this.numerator=numerator;
+    }
+
+    public int getDenominator(){
+        return denominator;
+    }
+<A NAME="0"></A>    public void setDenominator(int denominator){
+        if(denominator==0) this.denominator =1;
+        else</EM></font>
+            <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6091-0.html#0',2,'match6091-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>this.denominator=denominator;
+    }
+
+    Fraction(){
+        this.numerator=0;
+        this.denominator=1;
+    }
+    Fraction(int numerator, int denominator){
+        if(denominator==0) this.denominator=1;
+        else {
+            this.numerator = numerator;
+            this.denominator = denominator;
+        }
+    }
+
+
+    public static int getUCLN(int a, int b){
+        if(b==0) return a;
+        else return getUCLN(b, a%b);</B></FONT>
+    <font color="#C0C0C0"><EM>}
+
+    public Fraction reduce(){
+        int n = getUCLN(this.numerator, this.denominator);
+        this.numerator=this.numerator/n;
+        this.denominator=this.denominator/n;
+        return this;
+<A NAME="1"></A>    }
+
+    public Fraction</EM></font> add(Fraction fraction){
+        int <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6091-0.html#1',2,'match6091-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>n=(this.denominator * fraction.getDenominator())/getUCLN(this.denominator, fraction.getDenominator());
+        int x2 = n/fraction.getDenominator();
+        int x1 = n/this.denominator;
+        Fraction other= new Fraction();
+        other.numerator=this.numerator*x1 + fraction.getNumerator()*x2;
+        other.denominator=this.denominator*x1;
+        return other;
+    }
+    public Fraction subtract(Fraction fraction){
+        int n=(this.denominator * fraction.getDenominator())/getUCLN(this.denominator, fraction.getDenominator());
+        int x2 = n/fraction.getDenominator();
+        int x1 = n/this.denominator;
+        Fraction other= new Fraction();
+        other.numerator=this.numerator*x1 - fraction.getNumerator()*x2;
+        other.denominator=this.denominator*x1;
+        return other;
+    }
+    public Fraction multiply(Fraction fraction){
+        Fraction other = new Fraction();
+        other.numerator=this.numerator * fraction.getNumerator();
+        other.denominator=this.denominator * fraction.getDenominator();
+        return other;
+    }
+    public Fraction divide(Fraction fraction){
+        Fraction other = new Fraction();
+        if(fraction.denominator==0 || fraction.numerator==0) return this;
+        else {
+            other.numerator = this.numerator * fraction.getDenominator();
+            other.denominator = this.denominator * fraction.getNumerator();
+            return other;
+        }
+    }
+    public boolean equals(Object obj){
+        if (obj instanceof Fraction) {
+            Fraction other = (Fraction) obj;
+            if(this.numerator*other.getDenominator()-this.denominator*other.getNumerator()==0) return true;
+            else return false;
+        }
+        else return false;
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

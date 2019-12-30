@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>17374</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Week4Test.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A><FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match11975-0.html#0',2,'match11975-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>import org.junit.Test;
+import org.junit.Assert;
+
+public class Week4Test {
+    @Test
+    public void testMax2Int1(){
+        Assert.assertEquals(5, Week4.max2Int(5, 4));
+    }
+
+    @Test
+    public void testMax2Int2(){
+        Assert.assertEquals(7, Week4.max2Int(5, 7));
+    }
+
+    @Test
+    public void testMax2Int3(){
+        Assert.assertEquals(5, Week4.max2Int(5, 2));
+    }
+
+    @Test
+    public void testMax2Int4(){
+        Assert.assertEquals(2, Week4.max2Int(2, 1));
+    }
+
+    @Test
+    public void testMax2Int5(){
+        Assert.assertEquals(6, Week4.max2Int(6, 4));
+    }
+
+    @Test
+    public void testMinArray1(){
+        int arr[] = {1,2,3,4,5};
+        Assert.assertEquals(1, Week4.minArray(arr));
+    }
+
+    @Test
+    public void testMinArray2(){
+        int arr[] = {7,2,3,4,5};
+        Assert.assertEquals(2, Week4.minArray(arr));
+    }
+
+    @Test
+    public void testMinArray3(){
+        int arr[] = {1,2,7, 2 ,4,5};
+        Assert.assertEquals(1, Week4.minArray(arr));
+    }
+
+    @Test
+    public void testMinArray4(){
+        int arr[] = {7,9,3,4,5};
+        Assert.assertEquals(3, Week4.minArray(arr));
+    }
+
+    @Test
+    public void testMinArray5(){
+        int arr[] = {8,7,3,4,5};
+        Assert.assertEquals(3, Week4.minArray(arr));
+    }
+
+    @Test
+    public void</B></FONT> testCalculateBMI1(){
+        double w = 50;
+        double h = 5;
+        Assert.assertEquals(&quot;Thiếu cân&quot;, Week4.calculateBMI(50, 5));
+    }
+
+    @Test
+    public void testCalculateBMI2(){
+        double w = 50;
+        double h = 10;
+        Assert.assertEquals(&quot;Thiếu cân&quot;, Week4.calculateBMI(50, 10));
+    }
+
+    @Test
+    public void testCalculateBMI3(){
+        double w = 5;
+        double h = 5;
+        Assert.assertEquals(&quot;Thiếu cân&quot;, Week4.calculateBMI(5, 5));
+    }
+
+    @Test
+    public void testCalculateBMI4(){
+        double w = 100;
+        double h = 5;
+        Assert.assertEquals(&quot;Thiếu cân&quot;, Week4.calculateBMI(100, 5));
+    }
+
+    @Test
+    public void testCalculateBMI5(){
+        double w = 1000;
+        double h = 5;
+        Assert.assertEquals(&quot;Béo phì&quot;, Week4.calculateBMI(1000, 5));
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

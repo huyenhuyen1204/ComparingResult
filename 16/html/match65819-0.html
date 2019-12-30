@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>5526</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Week11/Person.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>import java.util.ArrayList;
+import java.util.*;
+
+public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match65819-1.html#0',3,'match65819-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class Person implements Comparable&lt;Person&gt;{
+    private String name;
+    private int age;
+    private String address;
+
+    public Person(){}
+
+    public Person(String name, int age, String address){
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }</B></FONT>
+    public <font color="#C0C0C0"><EM>String getName(){
+        return name;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+    public int getAge(){
+        return age;
+    }
+    public void setAge(int age){
+        this.age = age;
+    }
+    public String getAddress(){
+        return address;
+    }
+    public void setAddress(String address){
+        this.address = address;
+<A NAME="1"></A>    }</EM></font>
+    public int compareTo(Person other) {
+        if(name.compareTo(other.getName()) != 0)
+            return name.compareTo(other.getName())<FONT color="#f63526"><A HREF="javascript:ZweiFrames('match65819-1.html#1',3,'match65819-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>;
+        if(age &gt; other.getAge()) return 1;
+        if(age &lt; other.getAge()) return -1;
+        return 0;
+    }
+    /*public static void main(String[] args) {
+        List&lt;Person&gt; list= new ArrayList&lt;Person&gt;();
+        list.add(new Person(&quot;a&quot;,1,&quot;a&quot;));
+        list.add(new Person(&quot;b&quot;,1,&quot;b&quot;));
+        list.add(new Person(&quot;a&quot;,2,&quot;b&quot;));
+        list = Week11.sortGeneric(list);
+        for(Person val: list) System.out.println(val.name + val.age + val.address);
+    }*/
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

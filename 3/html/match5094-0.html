@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>8052</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/StudentManagement.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>public <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match5094-1.html#0',3,'match5094-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>class StudentManagement {
+    Student[] students = new Student[100];
+    int n = 0;
+
+    public static boolean sameGroup(Student s1, Student s2) {
+        if(s1.getGroup().equals(s2.getGroup()))return true;
+        else return false;
+    }
+
+    public void addStudent(Student newStudent){
+        students</B></FONT>[n] = newStudent;
+        n++;
+    }
+
+    public String studentsByGroup(){
+        String[] group = new String[100];
+
+        group[0] = students[0].getGroup();
+        int k = 1;
+        for(int i = 1; i &lt; n; i++){
+            boolean <font color="#C0C0C0"><EM>giongnhau = false;
+            for(int j = 0; j &lt; k; j++){
+                if(students[i].getGroup().equals(group[j])) {
+                    giongnhau = true;
+                    break;
+                }
+            }
+<A NAME="1"></A>            if</EM></font>(giongnhau == false) {
+                group[k] = students[i].getGroup();
+                k++;
+            <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match5094-1.html#1',3,'match5094-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>}
+        }
+
+        String s = &quot;&quot;;
+        for(int i = 0; i &lt; k; i++){
+            s = s + group[i];
+            for(int j = 0; j &lt; n; j++) {
+                if (group[i].equals(students[j].getGroup())) {
+                    s</B></FONT> =s + &quot;\n&quot;;
+                    s = s + students[j].getInfo();
+<A NAME="2"></A>                }
+            }
+            s =s + &quot;\n&quot;;
+        <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match5094-1.html#2',3,'match5094-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>}
+        return s;
+    }
+
+    public void removeStudent(String id) {
+    for(int i = 0; i &lt; n; i++){
+        if(id.equals(students[i].getId())) {
+            n--;
+            for(int j = i</B></FONT>; j &lt; n; j++) {
+                students[j].setName(students[j + 1].getName());
+<A NAME="3"></A>                students[j].setId(students[j + 1].getId());
+                students[j].setGroup(students[j + 1].getGroup());
+                students[j].setEmail(students[j + 1].getEmail());
+            <FONT color="#6cc417"><A HREF="javascript:ZweiFrames('match5094-1.html#3',3,'match5094-top.html#3',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>}
+        }
+    }
+    }
+
+    public static void main(String[] args) {
+        Student s1 = new Student</B></FONT>();
+        s1.setName(&quot;Nguyen Van An&quot;);
+        s1.setId(&quot;17020001&quot;);
+        s1.setGroup(&quot;K62CC&quot;);
+        s1.setEmail(&quot;17020001@vnu.edu.vn&quot;);
+        Student s2 = new Student();
+        s2.setName(&quot;Nguyen Van B&quot;);
+        s2.setId(&quot;17020002&quot;);
+        s2.setGroup(&quot;K62CC&quot;);
+        s2.setEmail(&quot;17020002@vnu.edu.vn&quot;);
+        Student s3 = new Student();
+        s3.setName(&quot;Nguyen Van C&quot;);
+        s3.setId(&quot;17020003&quot;);
+        s3.setGroup(&quot;K62CB&quot;);
+        s3.setEmail(&quot;17020003@vnu.edu.vn&quot;);
+        Student s4 = new Student();
+        s4.setName(&quot;Nguyen Van D&quot;);
+        s4.setId(&quot;17020004&quot;);
+        s4.setGroup(&quot;K62CB&quot;);
+        <font color="#C0C0C0"><EM>s4.setEmail(&quot;17020004@vnu.edu.vn&quot;);
+
+        StudentManagement sv = new StudentManagement();
+        sv.addStudent(s1);
+        sv.addStudent(s2);
+        sv.addStudent(s3);
+        sv.addStudent(s4);
+
+        sv.removeStudent(&quot;17020001&quot;);
+        System.out.print(sv</EM></font>.studentsByGroup());
+    }
+
+}
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>28798</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>Division.java</CENTER></H3><HR>
+<PRE>
+public class Division extends BinaryExpression {
+    public Division(Expression left, Expression right) {
+        super(left, right);
+    }
+
+    @Override
+    public double evaluate() throws java.lang.ArithmeticException{
+<A NAME="0"></A>        if (right.evaluate() == 0){
+            throw new java.lang.ArithmeticException(&quot;Lỗi chia cho 0&quot;);
+        }
+	<FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match57825-0.html#0',2,'match57825-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>return left.evaluate() / right.evaluate();
+    }
+
+    @Override
+    public String toString() {
+        return &quot;(&quot;+left + &quot; / &quot; + right+&quot;)&quot;;
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>ExpressionTest.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A>public <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match57825-0.html#1',2,'match57825-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class ExpressionTest {
+    public static void main(String[] args) {
+        Expression t1 = new Numeral(10);
+        Expression t2 = new Square(t1);
+        Expression t3 = new Numeral(-3);
+        Expression t4 = new Addition(t2, t3);
+        Expression t5 = new Numeral(4);
+        Expression t6 = new Numeral(3);
+        Expression t7 = new Multiplication(t5, t6);
+        Expression t8 = new Addition(t4, t7);
+        Expression t9 = new Square(t8);
+        System.out.println(t9);
+        System</B></FONT>.out.println(t9.evaluate());
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

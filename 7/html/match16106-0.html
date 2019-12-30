@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>4442</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>java/Week4Test.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A><FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match16106-1.html#0',3,'match16106-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class Week4Test {
+    @Test
+    public void testMax2Int1() {
+        int max = Week4.max2Int(1, 2);
+        assertEquals(&quot;max of 1 and 2 must be 2&quot;, 2, max);
+    }
+
+
+    @Test
+    public void testMax2Int2() {
+        int max = Week4.max2Int(12, 123);
+        assertEquals(&quot;max of 12 and 123 must be 123&quot;, 123, max);
+    }
+
+    @Test
+    public void testMax2Int3() {
+        int max = Week4.max2Int(-123, 123);
+        assertEquals(&quot;max of- 123 and 123 must be 123&quot;, 123, max);
+    }
+
+    @Test
+    public void testMax2Int4() {
+        int max = Week4.max2Int(1212314, 34553);
+        assertEquals(&quot;max of- 123 and 123 must be 123&quot;, 1212314, max);
+    }
+
+    @Test
+    public void testMax2Int5() {
+        int max = Week4.max2Int(999, 10000);
+        assertEquals(&quot;max of- 123 and 123 must be 123&quot;, 10000, max);
+    }
+
+<A NAME="1"></A>    @Test
+    public void testMinArray1() {
+        int[] intArray = new int</B></FONT>[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match16106-1.html#1',3,'match16106-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>min = Week4.minArray(intArray);
+        assertEquals(&quot;minArray1 must be: 1&quot;, 1, min);
+    }
+
+<A NAME="2"></A>    @Test
+    public void testMinArray2() {
+        int[] intArray = new int</B></FONT>[]{100, 2121, 3123, 452, 5235, 652, 725, 8235, 924, 10245};
+        int <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match16106-1.html#2',3,'match16106-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>min = Week4.minArray(intArray);
+        assertEquals(&quot;minArray2 must be: 100&quot;, 100, min);
+    }
+
+<A NAME="3"></A>    @Test
+    public void testMinArray3() {
+        int[] intArray = new int</B></FONT>[]{0, -1, 4552, -999, 2121, 3123, 452, 5235, 652, 725, 8235, 924, 10245};
+        int <FONT color="#6cc417"><A HREF="javascript:ZweiFrames('match16106-1.html#3',3,'match16106-top.html#3',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>min = Week4.minArray(intArray);
+        assertEquals(&quot;minArray3 must be: 100&quot;, -999, min);
+    }
+
+<A NAME="4"></A>    @Test
+    public void testMinArray4() {
+        int[] intArray = new int</B></FONT>[]{823459, -1, 4552, 999, 64, 3123, 452, 3456, 662, 888, 123, 35632, 10245};
+        int <FONT color="#151b8d"><A HREF="javascript:ZweiFrames('match16106-1.html#4',3,'match16106-top.html#4',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>min = Week4.minArray(intArray);
+        assertEquals(&quot;minArray4 must be: -1&quot;, -1, min);
+    }
+
+<A NAME="5"></A>    @Test
+    public void testMinArray5() {
+        int[] intArray = new int</B></FONT>[]{231, 1231, 4552123, 23, 64, 123, 64776, 34555, 622345, 5681, 123655, 123, 35632, 10245};
+        int <FONT color="#c8c2a7"><A HREF="javascript:ZweiFrames('match16106-1.html#5',3,'match16106-top.html#5',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>min = Week4.minArray(intArray);
+        assertEquals(&quot;minArray4 must be: -1&quot;, 23, min);
+    }
+
+    @Test
+    public void testCalculateBMI1() {
+        double weight = 60;
+        double height = 1.6;
+        String kq = Week4.calculateBMI(weight, height);
+        assertEquals(&quot;BMI1 must be: Thừa cân&quot;, &quot;Thừa cân&quot;, kq);
+    }
+
+    @Test
+    public void testCalculateBMI2() {
+        double weight = 60;
+        double height = 1.65;
+        String kq = Week4.calculateBMI(weight, height);
+        assertEquals(&quot;BMI2 must be: Bình thường&quot;, &quot;Bình thường&quot;, kq);
+    }
+
+    @Test
+    public void testCalculateBMI3() {
+        double weight = 60;
+        double height = 1.85;
+        String kq = Week4.calculateBMI(weight, height);
+        assertEquals(&quot;BMI3 must be: Thiếu cân&quot;, &quot;Thiếu cân&quot;, kq);
+    }
+
+    @Test
+    public void testCalculateBMI4() {
+        double weight = 80;
+        double height = 1.65;
+        String kq = Week4.calculateBMI(weight, height);
+        assertEquals(&quot; BMI4 must be: Béo phì&quot;, &quot;Béo phì&quot;, kq);
+    }
+
+    @Test
+    public void testCalculateBMI5() {
+        double weight = 70;
+        double height = 1.75;
+        String kq = Week4.calculateBMI(weight, height);
+        assertEquals(&quot; BMI4 must be: Bình thường&quot;, &quot;Bình thường&quot;, kq);
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

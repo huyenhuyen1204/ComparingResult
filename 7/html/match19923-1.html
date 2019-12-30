@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>17392</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>src/Week4Test.java</CENTER></H3><HR>
+<PRE>
+import org.junit.Test;
+import org.junit.Assert;
+
+<A NAME="0"></A>public class Week4Test {
+    Week4 tester = new Week4();
+    @Test
+    public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match19923-0.html#0',2,'match19923-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>void testMax2Int1(){
+        int a = 2;
+        int b = 3;
+        Assert.assertEquals(b, tester.max2Int(a, b));
+<A NAME="1"></A>    }</B></FONT>
+
+    @Test
+    public <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match19923-0.html#1',2,'match19923-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>void testMax2Int2(){
+        int a = 5;
+        int b = 4;
+        Assert.assertEquals(a, tester.max2Int(a, b));
+    }
+
+    @Test
+    public void testMax2Int3(){
+        int a = -1;
+        int b = 3;
+        Assert.assertEquals(b, tester.max2Int(a, b));
+    }
+
+    @Test
+    public void testMax2Int4(){
+        int a = 2;
+        int b = 0;
+        Assert.assertEquals(a, tester.max2Int(a, b));
+    }
+
+    @Test
+    public void testMax2Int5(){
+        int a = 1;
+        int b = 1;
+        Assert.assertEquals(b, tester.max2Int(a, b));
+    }
+
+    @Test
+    public void testMinArray1(){
+        int[] array = {1, 2, 3, -1};
+        Assert.assertEquals(-1, tester.minArray(array));
+    }
+
+    @Test
+    public void testMinArray2(){
+        int[] array = {-2, 0, -9, 10};
+        Assert.assertEquals(-9, tester.minArray(array));
+    }
+
+    @Test
+    public void testMinArray3(){
+        int[] array = {1, 2, 3, 4, 5, 6, 7, 0};
+        Assert.assertEquals(0, tester.minArray(array));
+    }
+
+    @Test
+    public void testMinArray4(){
+        int[] array = {-9, -8, -7, 0, -10, 8};
+        Assert.assertEquals(-10, tester.minArray(array));
+    }
+
+    @Test
+    public void testMinArray5(){
+        int[] array = {1, 2, 7, 10, 38};
+        Assert.assertEquals(1, tester.minArray(array));
+    }
+
+    @Test
+    public void testCalculateBMI1(){
+        double height = 1.8;
+        double weight = 30;
+        Assert.assertEquals(&quot;Thiếu cân&quot;, tester.calculateBMI(weight, height));
+    }
+
+    @Test
+    public void testCalculateBMI2(){
+        double height = 1.5;
+        double weight = 55;
+        Assert.assertEquals(&quot;Thừa cân&quot;, tester.calculateBMI(weight, height));
+    }
+
+    @Test
+    public void testCalculateBMI3(){
+        double height = 1.8;
+        double weight = 40;
+        Assert.assertEquals(&quot;Thiếu cân&quot;, tester.calculateBMI(weight, height));
+    }
+
+    @Test
+    public void testCalculateBMI4(){
+        double height = 1.5;
+        double weight = 60;
+        Assert.assertEquals(&quot;Béo phì&quot;, tester.calculateBMI(weight, height));
+    }
+
+    @Test
+    public void testCalculateBMI5(){
+        double height = 1.81;
+        double weight = 70;
+        Assert.assertEquals(&quot;Bình thường&quot;, tester.calculateBMI(weight, height));
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

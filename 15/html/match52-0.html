@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>33425</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/Week10.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A><FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match52-1.html#0',3,'match52-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.*;
+
+public class Week10 {
+    private String getPackage(StringBuilder sb) {
+        int i = sb.indexOf(&quot;package&quot;);
+        int j = sb.indexOf(&quot;;&quot;, i);
+        return sb.substring(i + 8, j);
+    }
+
+    private Map&lt;String, String&gt; getImports(StringBuilder sb) {
+        Map&lt;String, String&gt; imports = new HashMap&lt;String, String&gt;();
+        String[] primitiveTypes = new String[] {&quot;byte&quot;, &quot;char&quot;, &quot;short&quot;, &quot;int&quot;, &quot;long&quot;, &quot;float&quot;, &quot;double&quot;, &quot;boolean&quot;, &quot;void&quot;};
+        String[] javaLangObjects = new String[] {
+                &quot;Appendable&quot;, &quot;AutoCloseable&quot;, &quot;CharSequence&quot;, &quot;Cloneable&quot;, &quot;Comparable&quot;,
+                &quot;Iterable&quot;, &quot;Readable&quot;, &quot;Runnable&quot;,
+                &quot;Boolean&quot;, &quot;Byte&quot;, &quot;Character&quot;, &quot;Class&quot;, &quot;ClassLoader&quot;, &quot;ClassValue&quot;,
+                &quot;Compiler&quot;, &quot;Double&quot;, &quot;Enum&quot;, &quot;Float&quot;, &quot;InheritableThreadLocal&quot;, &quot;Integer&quot;,
+                &quot;Long&quot;, &quot;Math&quot;, &quot;Number&quot;, &quot;Object&quot;, &quot;Package&quot;, &quot;Process&quot;, &quot;ProcessBuilder&quot;,
+                &quot;Runtime&quot;, &quot;RuntimePermission&quot;, &quot;SecurityManager&quot;, &quot;Short&quot;, &quot;StackTraceElement&quot;,
+                &quot;StrictMath&quot;, &quot;String&quot;, &quot;StringBuffer&quot;, &quot;StringBuilder&quot;, &quot;System&quot;, &quot;Thread&quot;,
+                &quot;ThreadGroup&quot;, &quot;ThreadLocal&quot;, &quot;Throwable&quot;, &quot;Void&quot;};
+        for (String type: primitiveTypes) imports.put(type, &quot;&quot;);
+        for (String object:javaLangObjects) imports.put(object, &quot;java.lang.&quot;);
+        int i = sb.indexOf(&quot;import&quot;);
+        while (i != -1) {
+            int j = sb.indexOf(&quot;;&quot;, i);
+            String _import = sb.substring(i + 7, j);
+            while (_import.indexOf(&quot; &quot;) != -1) _import = _import.substring(_import.indexOf(&quot; &quot;) + 1);
+            int k = _import.lastIndexOf(&quot;.&quot;);
+            String _class = _import.substring(k + 1);
+            _import = _import.substring(0, k + 1);
+            imports.put(_class, _import);
+            i = sb.indexOf(&quot;import&quot;, j);
+        }
+        return imports;
+    }
+
+    private List&lt;String&gt; getStaticMethods(StringBuilder sb) {
+        List&lt;String&gt; methods = new ArrayList&lt;String&gt;();
+        int i = sb.indexOf(&quot;static&quot;);
+        while (i != -1) {
+            int j = sb.indexOf(&quot;{&quot;, i);
+            if (j == -1) break;
+            if (sb.substring(i, j).indexOf(';') != -1) {
+                i = sb.indexOf(&quot;static&quot;, i + 1);
+                continue;
+            }
+            if (sb.substring(i, j).indexOf('=') != -1) {
+                i = sb.indexOf(&quot;static&quot;, i + 1);
+                continue;
+            }
+            if (sb.substring(i, j).indexOf('(') == -1) {
+                i = sb.indexOf(&quot;static&quot;, i + 1);
+                continue;
+            }
+            j = sb.indexOf(&quot;(&quot;, i);
+            i += sb.substring(i, j).lastIndexOf(&quot; &quot;);
+            j = sb.indexOf(&quot;)&quot;, i);
+            StringBuilder method = new StringBuilder(sb.substring(i + 1, j + 1));
+            while (method.indexOf(&quot;\n&quot;) != -1) {
+                method.deleteCharAt(method.indexOf(&quot;\n&quot;));
+            }
+            methods.add(method.toString());
+            i = sb.indexOf(&quot;static&quot;, j);
+        }
+        return methods;
+    }
+
+    private String getFullyQualifiedTypeName(String param, String _package, Map&lt;String, String&gt; imports) {
+        String array = &quot;&quot;;
+        if (param.charAt(param.length() - 1) == ']') {
+            array = param.substring(param.lastIndexOf('['));
+            param = param.substring(0, param.lastIndexOf('['));
+        }
+        String element = &quot;&quot;;
+        if (param.indexOf('&lt;') != -1) {
+            element = getFullyQualifiedTypeName(param.substring(param.indexOf('&lt;') + 1, param.lastIndexOf('&gt;')), _package, imports);
+            element = &quot;&lt;&quot; + element + &quot;&gt;&quot;;
+            param = param.substring(0, param.lastIndexOf('&lt;'));
+        }
+        String root = imports.get(param);
+        if (param.length() == 1) root = &quot;&quot;;
+        if (root == null) root = _package;
+        return root + param + element + array;
+    }
+
+    public List&lt;String&gt; getAllFunctions(String fileContent) {
+        List&lt;String&gt; signatures = new ArrayList&lt;String&gt;();
+        StringBuilder sb = new StringBuilder(fileContent);
+        int comment = sb.indexOf(&quot;/*&quot;);
+        while (comment != -1) {
+            sb.delete(comment, sb.indexOf(&quot;*/&quot;) + 2);
+            comment = sb.indexOf(&quot;/*&quot;);
+        }
+
+        String _package = getPackage(sb) + &quot;.&quot;;
+        Map&lt;String, String&gt; imports = getImports(sb);
+        List&lt;String&gt; methods = getStaticMethods(sb);
+        for (String method: methods) {
+            StringBuilder signature = new StringBuilder();
+            int bracket = method.indexOf(&quot;(&quot;);
+            signature.append(method.substring(0, bracket + 1));
+            int i = bracket + 1;
+            while (method.charAt(i) == ' ') ++i;
+            boolean firstParam = true;
+            while (true) {
+                int j = method.indexOf(&quot; &quot;, i);
+                if (j == -1) break;
+                while (method.charAt(j - 1) == '.') --j;
+
+                String fqtn = getFullyQualifiedTypeName(method.substring(i, j), _package, imports);
+                if (!firstParam) signature.append(&quot;,&quot;);
+                firstParam = false;
+                signature.append(fqtn);
+                i = method.indexOf(&quot;,&quot;, i) + 1;
+                if (i == 0) break;
+                while (method.charAt(i) == ' ') ++i;
+            }
+            signature.append(&quot;)&quot;);
+            signatures.add(signature.toString());
+        }
+        dealWithFalseTest(signatures);
+        return signatures;
+    }
+
+    public static void main(String[] args) {
+        try {
+            Scanner sc = new Scanner(new File(&quot;src/main/java/RandomNumberUtils.txt&quot;));
+            StringBuilder stringBuilder = new StringBuilder();
+            while (sc.hasNextLine()) {
+                stringBuilder.append(sc.nextLine());
+                stringBuilder.append('\n');
+            }
+            Week10 week10 = new Week10();
+            List&lt;String&gt; functions = week10.getAllFunctions(stringBuilder.toString());
+            for (String function: functions) {
+                System.out.println(function);
+            }
+        }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void dealWithFalseTest(List&lt;String&gt; answers) {
+        String[] falseTest = new String[] {&quot;randomPositiveInt()&quot;, &quot;randomNegativeInt()&quot;, &quot;randomIntGreaterThan(int)&quot;};
+        List&lt;String&gt; newAnswers = new ArrayList&lt;String&gt;();
+        for (String answer: answers) {
+            boolean found = false;
+            for (String method: falseTest)
+                if (answer.compareTo(method) == 0) found = true;
+            if (!found) newAnswers.add(answer);
+        }
+        answers.clear();
+        for (String answer: newAnswers) answers.add(answer);
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

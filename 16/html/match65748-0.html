@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>32126</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Person.java</CENTER></H3><HR>
+<PRE>
+import java.util.*;
+import java.util.function.Function;
+import java.util.function.ToDoubleFunction;
+import java.util.function.ToIntFunction;
+import java.util.function.ToLongFunction;
+
+//public class Person  {
+//    private String name;
+//    private int age;
+//    private String address;
+//    public Person(){};
+//    public Person(String name, int age, String address){
+//        this.name = name;
+//        this.age = age;
+//        this.address = address;
+//    }
+//    public static &lt;T&gt; List&lt;T&gt; sortGeneric(List&lt;T&gt; arr){
+////         Collections.sort(Collections.unmodifiableList(arr));
+//         return arr;
+//
+//    }
+//
+//}
+public class Person implements Comparable&lt;Person&gt;{
+<A NAME="0"></A>
+
+    private String name;
+    private int <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match65748-1.html#0',3,'match65748-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>age;
+    private String address;
+    public Person(){};
+    public Person(String name, int age, String address){
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }
+    @Override
+    public int compareTo(Person person) {
+        if(this.name.equals(person.name))
+            return</B></FONT> this.age - person.age;
+        return this.name.compareTo(person.name);
+    }
+
+    public <font color="#C0C0C0"><EM>String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }</EM></font>
+
+    public static void main(String [] args){
+        List&lt;Person&gt; personList = new ArrayList&lt;Person&gt;();
+        personList.add(new Person(&quot;Nguyen van A&quot;,22,&quot;&quot;));
+        personList.add(new Person(&quot;Nguyen van A&quot;,19,&quot;&quot;));
+        personList.add(new Person(&quot;Le van A&quot;,20,&quot;&quot;));
+        personList = Week11.sortGeneric(personList);
+
+        for(Person p : personList){
+            System.out.println(p.name + &quot; &quot; + p.age + &quot; &quot; + p.age + &quot; &quot;);
+        }
+
+    }
+
+
+}
+</PRE>
+<HR>
+<H3><CENTER>Week11.java</CENTER></H3><HR>
+<PRE>
+
+import java.util.ArrayList;
+import java.util.Comparator;
+<A NAME="1"></A>import java.util.List;
+
+public class Week11 {
+    public static final &lt;T extends Comparable&lt;T&gt;&gt; List&lt;<FONT color="#f63526"><A HREF="javascript:ZweiFrames('match65748-1.html#1',3,'match65748-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>T&gt; sortGeneric(List&lt;T&gt; arrList){
+        for (int i = 0; i &lt; arrList.size() - 1; i++) {
+            for (int j = i + 1; j &lt; arrList.size() ; j++) {
+                if(arrList.get(i).compareTo(arrList.get(j))&gt;0){ // arr i  =3 ,arr j =4
+                    T temp = arrList.get(i);//temp =3;
+                    arrList.set(i,arrList.get(j));// ari = 4
+                    arrList.set(j,temp);//arr j = 3
+                }
+            }
+        }
+        return arrList;
+    }</B></FONT>
+
+    public static void main(String[] args) {
+        List&lt;Integer&gt; arr = new ArrayList&lt;Integer&gt;();
+        arr.add(3);
+        arr.add(38);
+        arr.add(3665);
+        arr.add(356);
+        arr.add(34);
+        arr.add(3889);
+        arr.add(39889);
+        arr.add(39);
+        List&lt;Integer&gt; aws = new ArrayList&lt;&gt;();
+           aws = sortGeneric(arr);
+        for(int x : aws){
+            System.out.print(x+&quot; &quot;);
+        }
+
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

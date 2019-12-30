@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>17539</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>src/Week4Test.java</CENTER></H3><HR>
+<PRE>
+import org.junit.Test;
+    public class Week4Test {
+        private Week4 week4;
+        public void init(){
+<A NAME="0"></A>            week4= new Week4();
+        }
+        @Test
+        public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match19548-0.html#0',2,'match19548-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>void testMax2Int1(){
+            assertEquals(3, week4.max2Int(1,3));
+        }
+
+        @Test
+        public void testMax2Int2(){
+            assertEquals(3, week4.max2Int(2,3));
+        }
+
+        @Test
+        public void testMax2Int3(){
+            assertEquals(4, week4.max2Int(1,4));
+        }
+
+        @Test
+        public void testMax2Int4(){
+            assertEquals(4, week4.max2Int(3,4));
+        }
+
+        @Test
+        public void testMax2Int5(){
+            assertEquals(4, week4.max2Int(2,4));
+        }
+<A NAME="1"></A>
+        @Test
+        public void testMinArray1(){
+            int[] a=<FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match19548-0.html#1',2,'match19548-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>{</B></FONT>4,6,8};
+            assertEquals(4, week4.minArray(a));
+        }
+<A NAME="2"></A>
+        @Test
+        public void testMinArray2(){
+            int[] a=<FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match19548-0.html#2',2,'match19548-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>{</B></FONT>4,6,10};
+            assertEquals(4, week4.minArray(a));
+        }
+<A NAME="3"></A>
+        @Test
+        public void testMinArray3(){
+            int[] a=<FONT color="#6cc417"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match19548-0.html#3',2,'match19548-top.html#3',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>{</B></FONT>4,6,12};
+            assertEquals(4, week4.minArray(a));
+        }
+<A NAME="4"></A>
+        @Test
+        public void testMinArray4(){
+            int[] a=<FONT color="#151b8d"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match19548-0.html#4',2,'match19548-top.html#4',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>{</B></FONT>4,6,14};
+            assertEquals(4, week4.minArray(a));
+        }
+<A NAME="5"></A>
+        @Test
+        public void testMinArray5(){
+            int[] a=<FONT color="#c8c2a7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match19548-0.html#5',2,'match19548-top.html#5',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>{</B></FONT>4,6,100};
+            assertEquals(4, week4.minArray(a));
+        }
+
+        @Test
+        public void testCalculateBMI1(){
+            assertEquals(&quot;Thiếu cân&quot;,Week4.calculateBMI(40, 1.7));
+        }
+
+        @Test
+        public void testCalculateBMI2(){
+            assertEquals(&quot;Thiếu cân&quot;,Week4.calculateBMI(50,1.7));
+        }
+
+        @Test
+        public void testCalculateBMI3(){
+            assertEquals(&quot;Bình thường&quot;,Week4.calculateBMI(60, 1.7));
+        }
+
+        @Test
+        public void testCalculateBMI4(){
+            assertEquals(&quot;Thừa cân&quot;,Week4.calculateBMI(70, 1.7));
+        }
+
+        @Test
+        public void testCalculateBMI5(){
+            assertEquals(&quot;Béo phì&quot;,Week4.calculateBMI(80, 1.7));
+        }
+    }</B></FONT>
+
+</PRE>
+
+</BODY>
+</HTML>

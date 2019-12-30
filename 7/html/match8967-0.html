@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>18296</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Week4Test.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A><FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match8967-1.html#0',3,'match8967-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+// dung phuong thuc assertEquals(): So sánh 2 giá trị để kiểm tra bằng nhau. Test sẽ được chấp nhận nếu các giá trị bằng nhau
+public class Week4Test {
+    @Test
+    public void testmax2Int1(){
+        int n = Week4.max2Int(1, 2);
+        assertEquals(2, n);
+    }
+    @Test
+    public void testmax2Int2(){
+        int n = Week4.max2Int(3, 4);
+        assertEquals(4, n);
+    }
+    @Test
+    public void testmax2Int3(){
+        int n = Week4.max2Int(5, 6);
+        assertEquals(6, n);
+    }
+    @Test
+    public void testmax2Int4(){
+        int n = Week4.max2Int(7, 8);
+        assertEquals(8, n);
+    }
+    @Test
+    public void testmax2Int5(){
+        int n = Week4.max2Int(9, 10);
+        assertEquals(10, n);
+    }
+    @Test
+<A NAME="1"></A>    public void testminArray1(){
+        int[] a = new</B></FONT> int[1];
+        a[0] = 1;
+        int <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match8967-1.html#1',3,'match8967-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>n = Week4.minArray(a);
+        assertEquals(1 , n);
+    }
+    @Test
+    public void testminArray2(){
+<A NAME="2"></A>        int[] a = new</B></FONT> int[2];
+        a[0] = 1;
+        a[1] = 2;
+        int <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match8967-1.html#2',3,'match8967-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>n = Week4.minArray(a);
+        assertEquals(1 , n);
+    }
+    @Test
+    public void testminArray3(){
+        int[] a = new</B></FONT> int[3];
+<A NAME="3"></A>        a[0] = 1;
+        a[1] = 2;
+        a[2] = 3;
+        int <FONT color="#6cc417"><A HREF="javascript:ZweiFrames('match8967-1.html#3',3,'match8967-top.html#3',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>n = Week4.minArray(a);
+        assertEquals(1 , n);
+    }
+    @Test
+    public void testminArray4(){
+        int[] a = new</B></FONT> int[4];
+        a[0] = 1;
+<A NAME="4"></A>        a[1] = 2;
+        a[2] = 3;
+        a[3] = 4;
+        int <FONT color="#151b8d"><A HREF="javascript:ZweiFrames('match8967-1.html#4',3,'match8967-top.html#4',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>n = Week4.minArray(a);
+        assertEquals(1 , n);
+    }
+    @Test
+    public void testminArray5(){
+        int[] a = new</B></FONT> int[5];
+        a[0] = 1;
+        a[1] = 2;
+<A NAME="5"></A>        a[2] = 3;
+        a[3] = 4;
+        a[4] = 5;
+        int <FONT color="#c8c2a7"><A HREF="javascript:ZweiFrames('match8967-1.html#5',3,'match8967-top.html#5',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>n = Week4.minArray(a);
+        assertEquals(1 , n);
+    }
+    @Test
+<A NAME="6"></A>    public void testCalculateBMI1(){
+        double weight = 60</B></FONT>;
+        double height = 1.70;
+        String <FONT color="#50ebec"><A HREF="javascript:ZweiFrames('match8967-1.html#6',3,'match8967-top.html#6',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>n = Week4.calculateBMI(weight, height);
+        assertEquals(&quot;bình thường&quot;, n);
+    }
+    @Test
+<A NAME="7"></A>    public void testCalculateBMI2(){
+        double weight = 50</B></FONT>;
+        double height = 1.75;
+        String <FONT color="#c58917"><A HREF="javascript:ZweiFrames('match8967-1.html#7',3,'match8967-top.html#7',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>n = Week4.calculateBMI(weight, height);
+        assertEquals(&quot;thiếu cân&quot;, n);
+    }
+    @Test
+    public void testCalculateBMI3(){
+        double weight = 50</B></FONT>;
+        double height = 1.60;
+        String n = Week4.calculateBMI(weight, height);
+        assertEquals(&quot;bình thường&quot;, n);
+    }
+    @Test
+    public void testCalculateBMI4(){
+        double weight = 60;
+        double height = 1.50;
+        String n = Week4.calculateBMI(weight, height);
+        assertEquals(&quot;béo phì&quot;, n);
+    }
+    @Test
+    public void testCalculateBMI5(){
+        double weight = 70;
+        double height = 1.72;
+        String n = Week4.calculateBMI(weight, height);
+        assertEquals(&quot;thừa cân&quot;, n);
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

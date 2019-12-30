@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>30161</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/Week8_Task2.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>import java.io.File;
+<FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match61406-1.html#0',3,'match61406-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+public class Week8_Task2 {
+    public static void NPEx() throws NullPointerException
+    {
+        String a= null;
+        System.out.println(a.toString());
+    }
+    public static String NPExTest()
+    {
+        String s = &quot;Không có lỗi&quot;;
+        try {
+            NPEx();
+        }
+        catch (NullPointerException e)
+        {
+            s = &quot;Lỗi Null Pointer&quot;;
+        }
+        return s ;
+    }
+    public static void AIOoBEx() throws ArrayIndexOutOfBoundsException
+    {
+<A NAME="1"></A>        int [] a = new int</B></FONT>[10];
+        for (int i = 0 ; i &lt; 10 ; i ++) a[i] = i ;
+        System.out.println(a[10]);
+    <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match61406-1.html#1',3,'match61406-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>}
+    public static String AIOoBExTest()
+    {
+        String s = &quot;Không có lỗi&quot;;
+        try {
+            AIOoBEx();
+
+        }
+        catch (ArrayIndexOutOfBoundsException e)
+        {
+            s = &quot;Lỗi Array Index Out of Bounds&quot;;
+        }
+        return s ;
+    }
+<A NAME="2"></A>    public static void</B></FONT> ArithEx() throws ArithmeticException
+    {
+        System.out.println(1/0);
+    <FONT color="#77bfc7"><A HREF="javascript:ZweiFrames('match61406-1.html#2',3,'match61406-top.html#2',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>}
+    public static String ArithExTest()
+    {
+        String s =  &quot;Không có lỗi&quot;;
+        try {
+            ArithEx();
+
+
+        }
+        catch (ArithmeticException e)
+        {
+            s = &quot;Lỗi Arithmetic&quot;;
+        }
+        return s ;
+    }
+    public static  void FNFEx()throws FileNotFoundException
+    {
+        String  s = new String</B></FONT>();
+<A NAME="3"></A>        File file = new File(&quot;&quot;);
+        PrintWriter out = new PrintWriter(file);
+        out.println(s);
+    <FONT color="#6cc417"><A HREF="javascript:ZweiFrames('match61406-1.html#3',3,'match61406-top.html#3',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>}
+    public static String FNFExTest()
+    {
+        String s = &quot;Không có lỗi&quot;;
+        try {
+            FNFEx();
+        }
+        catch (FileNotFoundException e){
+            s = &quot;Lỗi File Not Found&quot;;
+        }
+        return s;
+    }
+    public static void IOEx()throws IOException
+<A NAME="4"></A>    {
+        File file = new File</B></FONT>(&quot;&quot;);
+        PrintWriter out = new PrintWriter(file);
+    <FONT color="#151b8d"><A HREF="javascript:ZweiFrames('match61406-1.html#4',3,'match61406-top.html#4',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>}
+    public static String IOExTest()
+    {
+        String s = &quot;Không có lỗi&quot;;
+        try {
+            FNFEx();
+        }
+        catch (IOException e)
+        {
+            s = &quot;Lỗi IO&quot;;
+
+        }
+        return  s;
+    }
+    //public static void main(String [] args)
+   // {
+     //  System.out.println(Week8_Task2.FNFExTest());
+       //System.out.println(Week8_Task2.IOExTest());
+   // }
+
+
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

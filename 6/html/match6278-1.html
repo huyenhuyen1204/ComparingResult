@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>12081</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>src/Fraction.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A>
+
+public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6278-0.html#0',2,'match6278-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>class Fraction {
+    private int numerator, denominator;
+
+    public Fraction(int a, int b) {
+        if(b == 0){
+            b = 1;
+        }
+        this.numerator = a;
+        this.denominator = b;
+    }
+
+    public Fraction() {
+        this.numerator = 0;
+        this.denominator = 1;
+    }</B></FONT>
+
+    public int getNumerator() {
+        return numerator;
+    }
+
+    public int getDenominator() {
+        return denominator;
+    }
+
+    public void setNumerator(int numerator) {
+        this.numerator = numerator;
+    }
+
+    public void setDenominator(int denominator) {
+        if(denominator == 0){
+            return;
+        }
+        this.denominator = denominator;
+    }
+
+    public Fraction reduce() {
+        int a = this.numerator;
+        int b = this.denominator;
+        int UCLN = 0;
+        if (a == 0) {
+            UCLN = a;
+        } else {
+            while (a != b) {
+                if (a &gt; b) {
+                    a -= b;
+                } else if (a &lt; b) {
+                    b -= a;
+                }
+<A NAME="1"></A>            }
+            UCLN = a;
+        }
+        <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6278-0.html#1',2,'match6278-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>if(UCLN == 0)UCLN = 1;
+        this.numerator = this.numerator / UCLN;
+        this.denominator = this.denominator / UCLN;
+        return this;
+    }
+
+    public Fraction add(Fraction x) {
+        this.numerator = this.numerator * x.denominator + x.numerator * this.denominator;
+        this.denominator = this.denominator * x.denominator;
+        //reduce();
+        return this;
+    }
+
+    public Fraction subtract(Fraction x) {
+        this.numerator = this.numerator * x.denominator - x.numerator * this.denominator;
+        this.denominator = this.denominator * x.denominator;
+        //reduce();
+        return this;
+    }
+
+    public Fraction multiply(Fraction x) {
+        this.numerator = this.numerator * x.numerator;
+        this.denominator = this.denominator * x.denominator;
+        //reduce();
+        return this;
+    }
+
+    public Fraction divide(Fraction x) {
+        if(x.equals(new Fraction(0,1))){
+            return</B></FONT> this;
+        }
+<A NAME="2"></A>        this.numerator = this.numerator * x.denominator;
+        this.denominator = this.denominator * x.numerator;
+        //reduce();
+        <FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6278-0.html#2',2,'match6278-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>return this;
+    }
+
+    public boolean equals(Object obj) {
+        if (obj instanceof Fraction) {
+            Fraction other = (Fraction) obj;
+            reduce();
+            other.reduce();
+            if (this.numerator == other.numerator &amp;&amp; this.denominator == other.denominator) return true;
+            else return false;
+        }
+        return false;
+    }</B></FONT>
+
+
+    public static void main(String[] args) {
+        Fraction a = new Fraction(0, 2);
+        Fraction b = new Fraction(0, 13);
+        a.divide(b);
+        System.out.print(a.getNumerator() + &quot;/&quot; + a.getDenominator());
+    }
+}
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>2814</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>src/Person.java</CENTER></H3><HR>
+<PRE>
+public class Person {
+    private String name;
+    private String address;
+    public Person(){};
+    public <font color="#C0C0C0"><EM>Person(String name,String address){
+        this.name=name;
+        this.address=address;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setName(String name) {
+<A NAME="0"></A>        this.name = name;
+    }</EM></font>
+
+    public <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match44007-0.html#0',2,'match44007-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>void setAddress(String address) {
+        this.address = address;
+    }
+    public String toString(){
+        return &quot;Person[name=&quot;+getName()+&quot;,address=&quot;+getAddress()+&quot;]&quot;;
+    }
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>src/Staff.java</CENTER></H3><HR>
+<PRE>
+public class Staff extends Person {
+    private String school;
+<A NAME="2"></A>    private double pay;
+    public Staff(String name,String address,String school,double pay){
+        super.setName(name);
+        <FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match44007-0.html#2',2,'match44007-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>super.setAddress(address);
+        this.school=school;
+        this.pay=pay;
+    }
+
+    public String getSchool() {
+        return school;
+    }
+
+    public double getPay() {
+        return pay;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
+
+    public void setPay(double pay) {
+        this.pay = pay;
+    }
+    public String toString(){
+        return &quot;Staff[&quot;+super.toString()+&quot;,school=&quot;+getSchool()+&quot;,pay=&quot;+getPay</B></FONT>()+&quot;]&quot;;
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>src/Student.java</CENTER></H3><HR>
+<PRE>
+public class Student extends Person {
+        private String program;
+        private double fee;
+        private int year;
+        public Student(String name,String address,String program,int year,double fee){
+            super.setName(name);
+            super.setAddress(address);
+            this.program=program;
+            this.fee=fee;
+<A NAME="1"></A>            this.year=year;
+        }
+
+        public <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match44007-0.html#1',2,'match44007-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>String getProgram() {
+            return program;
+        }
+
+        public double getFee() {
+            return fee;
+        }
+
+        public void setProgram(String Program) {
+            this</B></FONT>.program = Program;
+        <font color="#C0C0C0"><EM>}
+
+        public void setFee(double fee) {
+            this.fee = fee;
+        }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public String toString(){
+            return</EM></font> &quot;Student[&quot;+super.toString()+&quot;,program=&quot;+getProgram()+&quot;,year=&quot;+getYear()+&quot;,fee=&quot;+getFee()+&quot;]&quot;;
+        }
+}
+</PRE>
+
+</BODY>
+</HTML>

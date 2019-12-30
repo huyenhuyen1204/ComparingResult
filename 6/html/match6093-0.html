@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>12615</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>src/Fraction.java</CENTER></H3><HR>
+<PRE>
+public class Fraction{
+
+    private int numerator;
+    private int denominator;
+
+    public <font color="#C0C0C0"><EM>int getNumerator() {
+        return this.numerator ;
+    }
+    public void setNumerator(int _numerator) {
+        this.numerator = _numerator;
+    }
+    public int getDenominator() {
+        return this.denominator;
+    }
+<A NAME="0"></A>    public void setDenominator(int _denominator){
+        if( _denominator != 0) {
+            this</EM></font>.denominator = _denominator;
+        <FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match6093-1.html#0',3,'match6093-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>}
+    }
+    
+    Fraction() {
+        this.denominator = 1;
+    }
+    Fraction(int numerator, int denominator){
+        if(denominator != 0){
+            this.numerator = numerator;
+            this.denominator = denominator;
+        } else {
+            this.numerator = numerator;
+            this.denominator = 1;
+        }
+        
+    }
+
+    public static int gcd(int a, int b){
+        while(b!=0){
+            int temp = b;
+            b = a%b;
+            a = temp;
+        }</B></FONT>
+        <font color="#C0C0C0"><EM>return a;
+    }
+
+    public Fraction reduce(){
+        int _gcd = gcd(this.numerator, this.denominator);
+        this.numerator = this.numerator/ _gcd;
+        this.denominator = this.denominator/ _gcd;
+        return this;
+<A NAME="1"></A>    }
+
+    public Fraction</EM></font> add(Fraction other){
+        int <FONT color="#f63526"><A HREF="javascript:ZweiFrames('match6093-1.html#1',3,'match6093-top.html#1',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>add_denominator = this.denominator*other.getDenominator();
+        int add_numerator = this.numerator*other.getDenominator() + this.denominator*other.getNumerator();    
+        this.numerator = add_numerator;
+        this.denominator = add_denominator;
+        return this;    
+    }
+
+    public Fraction subtract(Fraction other) {
+        int sub_denominator = this.denominator*other.getDenominator();
+        int sub_numerator = this.numerator*other.getDenominator() - this.denominator*other.getNumerator();
+        this.numerator = sub_numerator;
+        this.denominator = sub_denominator;
+        return this;
+    }
+
+    public Fraction multiply(Fraction other) {
+        int mul_numerator = this.numerator*other.getNumerator();
+        int mul_denominator = this.denominator*other.getDenominator();
+        this.numerator = mul_numerator;
+        this.denominator = mul_denominator;
+        return this;
+    }
+
+    public Fraction divide(Fraction other) {
+        if(other.getNumerator() == 0){
+            return this;
+        } else {
+            int div_numerator = this.numerator*other.getDenominator();
+            int div_denominator = this.denominator*other.getNumerator();
+            this.numerator = div_numerator;
+            this.denominator = div_denominator;
+            return this;
+        }
+    }
+
+    public boolean equals(Object obj) {
+        boolean check = true;
+        if( obj instanceof Fraction == false ) {
+            check = false;
+        } 
+        else if( obj instanceof Fraction == true ) {
+            Fraction other = (Fraction) obj;
+            
+            this.reduce();
+            other.reduce();
+            if(this.numerator/other.getNumerator() == this.denominator/other.getDenominator()){
+                check = true;
+            }
+            else check = false;
+        }
+        return check;
+    }
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>

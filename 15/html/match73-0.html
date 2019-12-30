@@ -1,0 +1,378 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>33212</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<HR>
+<H3><CENTER>Week10.java</CENTER></H3><HR>
+<PRE>
+<A NAME="0"></A><FONT color="#0000ff"><A HREF="javascript:ZweiFrames('match73-1.html#0',3,'match73-top.html#0',1)"><IMG SRC="forward.gif" ALT="other" BORDER="0" ALIGN="right"></A><B>import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Week10 {
+    private static Map&lt;String, String&gt; importMap = new HashMap&lt;&gt;();
+
+    private static String conventSource(String content){
+        StringBuilder res = new StringBuilder(content);
+        Map&lt;String, String&gt; map = new HashMap&lt;&gt;();
+        map.put(&quot;/*&quot;, &quot;*/&quot;);
+        map.put(&quot;//&quot;, &quot;\n&quot;);
+        map.forEach((k, v) -&gt; {
+            int x = res.indexOf(k);
+            while (x &gt; 0) {
+                int y = res.indexOf(v, x);
+                if (y &gt; 0) res.delete(x, y + v.length());
+                else break;
+                x = res.indexOf(k, x);
+            }
+        });
+        return res.toString();
+    }
+
+    private static String packageName = &quot;&quot;;
+
+    private static void getImportLib(String content){
+        String importRegex = &quot;import ([^\\s]+\\.([^\\s.]+));&quot;;
+
+        Matcher matcher1 = Pattern.compile(importRegex).matcher(content);
+        while (matcher1.find()) {
+            importMap.put(matcher1.group(2), matcher1.group(1));
+        }
+        Scanner scanner = new Scanner(javaLang);
+        while (scanner.hasNextLine()) {
+            String[] lines = scanner.nextLine().split(&quot; &quot;);
+            if (lines.length == 2)
+                importMap.put(lines[0], lines[1]);
+        }
+    }
+
+    private static void getPackageName(String content) {
+        String packageRegex = &quot;package ([^\\s]+);&quot;;
+        Matcher matcher = Pattern.compile(packageRegex).matcher(content);
+        if (matcher.find()) packageName = matcher.group(1);
+    }
+
+    public static List&lt;String&gt; getAllFunctions(String fileContent) {
+        String res = conventSource(fileContent);
+        getImportLib(res);
+        getPackageName(res);
+
+        String methodRegex = &quot; static [^(\\s)]+(&lt;.*&gt;)* ([^(\\s)]+)\\([\\n|\\r]*(.*?)\\)&quot;;
+        Pattern staticMethod = Pattern.compile(methodRegex);
+        Matcher matcher = staticMethod.matcher(res);
+        List&lt;String&gt; sMed = new ArrayList&lt;&gt;();
+        while(matcher.find()) {
+            System.out.println(matcher.group(0));
+            String tmp = String.format(&quot;%s(%s)&quot;, matcher.group(2), foo(matcher.group(3)));
+            sMed.add(tmp);
+        }
+        String mRegex = &quot; static &lt;(.+)&gt; [^(\\s)]+ ([^(\\s)]+)\\((.*?)\\)&quot;;
+        matcher = Pattern.compile(mRegex).matcher(res);
+        while (matcher.find()) {
+            importMap.put(matcher.group(1), matcher.group(1));
+            String tmp = String.format(&quot;%s(%s)&quot;, matcher.group(2), foo(matcher.group(3)));
+            sMed.add(tmp);
+        }
+        return sMed;
+    }
+
+    private static String foo(String string) {
+        if (string.equals(&quot;&quot;)) return string;
+        StringBuilder res = new StringBuilder();
+        String[] args = string.split(&quot;[,]&quot;);
+        for (String arg : args) {
+            String tmp = arg.trim().split(&quot;\\s++&quot;)[0];
+            if (tmp.endsWith(&quot;[]&quot;)) {
+                tmp = tmp.replace(&quot;[]&quot;, &quot;&quot;);
+                if (importMap.containsKey(tmp)) res.append(importMap.get(tmp)).append(&quot;[],&quot;);
+                else res.append(packageName).append(&quot;.&quot;).append(tmp).append(&quot;[]&quot;).append(&quot;,&quot;);
+            } else if (tmp.endsWith(&quot;...&quot;)) {
+                tmp = tmp.replace(&quot;...&quot;, &quot;&quot;);
+                if (importMap.containsKey(tmp)) res.append(importMap.get(tmp)).append(&quot;,&quot;);
+                else res.append(packageName).append(&quot;.&quot;).append(tmp).append(&quot;,&quot;);
+            } else if (tmp.endsWith(&quot;&gt;&quot;)) {
+                String x = &quot;?&quot;;
+                String regex = &quot;&lt;(.+)&gt;&quot;;
+                Matcher matcher = Pattern.compile(regex).matcher(tmp);
+                if (matcher.find() &amp;&amp; !matcher.group(1).equals(x)) x = foo(matcher.group(1));
+                tmp = tmp.replaceAll(&quot;&lt;(.*)&gt;&quot;, &quot;&quot;);
+
+                if (importMap.containsKey(tmp)) res.append(importMap.get(tmp)).append(&quot;&lt;&quot;).append(x).append(&quot;&gt;,&quot;);
+                else res.append(packageName).append(&quot;.&quot;).append(tmp).append(&quot;&lt;?&gt;,&quot;);
+            } else {
+                if (importMap.containsKey(tmp)) res.append(importMap.get(tmp)).append(&quot;,&quot;);
+                else res.append(packageName).append(&quot;.&quot;).append(tmp).append(&quot;,&quot;);
+            }
+        }
+        if (res.length() &gt; 1 &amp;&amp; res.charAt(res.length() - 1) == ',') res.deleteCharAt(res.length() - 1);
+        return res.toString();
+    }
+
+    public static void main(String[] args) throws IOException {
+        System.out.println(getAllFunctions(new String(Files.readAllBytes(Paths.get(&quot;D:\\IdeaProjects\\OOP\\src\\test.txt&quot;)))));
+    }
+
+    private static final String javaLang =
+                    &quot;AbstractMethodError java.lang.AbstractMethodError\n&quot; +
+                    &quot;AbstractStringBuilder java.lang.AbstractStringBuilder\n&quot; +
+                    &quot;Annotation java.lang.annotation.Annotation\n&quot; +
+                    &quot;AnnotationFormatError java.lang.annotation.AnnotationFormatError\n&quot; +
+                    &quot;AnnotationTypeMismatchException java.lang.annotation.AnnotationTypeMismatchException\n&quot; +
+                    &quot;Documented java.lang.annotation.Documented\n&quot; +
+                    &quot;ElementType java.lang.annotation.ElementType\n&quot; +
+                    &quot;IncompleteAnnotationException java.lang.annotation.IncompleteAnnotationException\n&quot; +
+                    &quot;Inherited java.lang.annotation.Inherited\n&quot; +
+                    &quot;Native java.lang.annotation.Native\n&quot; +
+                    &quot;package-info java.lang.annotation.package-info\n&quot; +
+                    &quot;Repeatable java.lang.annotation.Repeatable\n&quot; +
+                    &quot;Retention java.lang.annotation.Retention\n&quot; +
+                    &quot;RetentionPolicy java.lang.annotation.RetentionPolicy\n&quot; +
+                    &quot;Target java.lang.annotation.Target\n&quot; +
+                    &quot;Appendable java.lang.Appendable\n&quot; +
+                    &quot;ApplicationShutdownHooks java.lang.ApplicationShutdownHooks\n&quot; +
+                    &quot;ArithmeticException java.lang.ArithmeticException\n&quot; +
+                    &quot;ArrayIndexOutOfBoundsException java.lang.ArrayIndexOutOfBoundsException\n&quot; +
+                    &quot;ArrayStoreException java.lang.ArrayStoreException\n&quot; +
+                    &quot;AssertionError java.lang.AssertionError\n&quot; +
+                    &quot;AssertionStatusDirectives java.lang.AssertionStatusDirectives\n&quot; +
+                    &quot;AutoCloseable java.lang.AutoCloseable\n&quot; +
+                    &quot;Boolean java.lang.Boolean\n&quot; +
+                    &quot;BootstrapMethodError java.lang.BootstrapMethodError\n&quot; +
+                    &quot;Byte java.lang.Byte\n&quot; +
+                    &quot;Character java.lang.Character\n&quot; +
+                    &quot;CharacterData java.lang.CharacterData\n&quot; +
+                    &quot;CharacterData00 java.lang.CharacterData00\n&quot; +
+                    &quot;CharacterData01 java.lang.CharacterData01\n&quot; +
+                    &quot;CharacterData02 java.lang.CharacterData02\n&quot; +
+                    &quot;CharacterData0E java.lang.CharacterData0E\n&quot; +
+                    &quot;CharacterDataLatin1 java.lang.CharacterDataLatin1\n&quot; +
+                    &quot;CharacterDataPrivateUse java.lang.CharacterDataPrivateUse\n&quot; +
+                    &quot;CharacterDataUndefined java.lang.CharacterDataUndefined\n&quot; +
+                    &quot;CharacterName java.lang.CharacterName\n&quot; +
+                    &quot;CharSequence java.lang.CharSequence\n&quot; +
+                    &quot;Class java.lang.Class\n&quot; +
+                    &quot;ClassCastException java.lang.ClassCastException\n&quot; +
+                    &quot;ClassCircularityError java.lang.ClassCircularityError\n&quot; +
+                    &quot;ClassFormatError java.lang.ClassFormatError\n&quot; +
+                    &quot;ClassLoader java.lang.ClassLoader\n&quot; +
+                    &quot;ClassLoaderHelper java.lang.ClassLoaderHelper\n&quot; +
+                    &quot;ClassNotFoundException java.lang.ClassNotFoundException\n&quot; +
+                    &quot;ClassValue java.lang.ClassValue\n&quot; +
+                    &quot;Cloneable java.lang.Cloneable\n&quot; +
+                    &quot;CloneNotSupportedException java.lang.CloneNotSupportedException\n&quot; +
+                    &quot;Comparable java.lang.Comparable\n&quot; +
+                    &quot;Compiler java.lang.Compiler\n&quot; +
+                    &quot;ConditionalSpecialCasing java.lang.ConditionalSpecialCasing\n&quot; +
+                    &quot;Deprecated java.lang.Deprecated\n&quot; +
+                    &quot;Double java.lang.Double\n&quot; +
+                    &quot;Enum java.lang.Enum\n&quot; +
+                    &quot;EnumConstantNotPresentException java.lang.EnumConstantNotPresentException\n&quot; +
+                    &quot;Error java.lang.Error\n&quot; +
+                    &quot;Exception java.lang.Exception\n&quot; +
+                    &quot;ExceptionInInitializerError java.lang.ExceptionInInitializerError\n&quot; +
+                    &quot;Float java.lang.Float\n&quot; +
+                    &quot;FunctionalInterface java.lang.FunctionalInterface\n&quot; +
+                    &quot;IllegalAccessError java.lang.IllegalAccessError\n&quot; +
+                    &quot;IllegalAccessException java.lang.IllegalAccessException\n&quot; +
+                    &quot;IllegalArgumentException java.lang.IllegalArgumentException\n&quot; +
+                    &quot;IllegalMonitorStateException java.lang.IllegalMonitorStateException\n&quot; +
+                    &quot;IllegalStateException java.lang.IllegalStateException\n&quot; +
+                    &quot;IllegalThreadStateException java.lang.IllegalThreadStateException\n&quot; +
+                    &quot;IncompatibleClassChangeError java.lang.IncompatibleClassChangeError\n&quot; +
+                    &quot;IndexOutOfBoundsException java.lang.IndexOutOfBoundsException\n&quot; +
+                    &quot;InheritableThreadLocal java.lang.InheritableThreadLocal\n&quot; +
+                    &quot;InstantiationError java.lang.InstantiationError\n&quot; +
+                    &quot;InstantiationException java.lang.InstantiationException\n&quot; +
+                    &quot;ClassDefinition java.lang.instrument.ClassDefinition\n&quot; +
+                    &quot;ClassFileTransformer java.lang.instrument.ClassFileTransformer\n&quot; +
+                    &quot;IllegalClassFormatException java.lang.instrument.IllegalClassFormatException\n&quot; +
+                    &quot;Instrumentation java.lang.instrument.Instrumentation\n&quot; +
+                    &quot;UnmodifiableClassException java.lang.instrument.UnmodifiableClassException\n&quot; +
+                    &quot;Integer java.lang.Integer\n&quot; +
+                    &quot;InternalError java.lang.InternalError\n&quot; +
+                    &quot;InterruptedException java.lang.InterruptedException\n&quot; +
+                    &quot;AbstractValidatingLambdaMetafactory java.lang.invoke.AbstractValidatingLambdaMetafactory\n&quot; +
+                    &quot;BoundMethodHandle java.lang.invoke.BoundMethodHandle\n&quot; +
+                    &quot;CallSite java.lang.invoke.CallSite\n&quot; +
+                    &quot;ConstantCallSite java.lang.invoke.ConstantCallSite\n&quot; +
+                    &quot;DelegatingMethodHandle java.lang.invoke.DelegatingMethodHandle\n&quot; +
+                    &quot;DirectMethodHandle java.lang.invoke.DirectMethodHandle\n&quot; +
+                    &quot;DontInline java.lang.invoke.DontInline\n&quot; +
+                    &quot;ForceInline java.lang.invoke.ForceInline\n&quot; +
+                    &quot;InfoFromMemberName java.lang.invoke.InfoFromMemberName\n&quot; +
+                    &quot;InjectedProfile java.lang.invoke.InjectedProfile\n&quot; +
+                    &quot;InnerClassLambdaMetafactory java.lang.invoke.InnerClassLambdaMetafactory\n&quot; +
+                    &quot;InvokeDynamic java.lang.invoke.InvokeDynamic\n&quot; +
+                    &quot;InvokerBytecodeGenerator java.lang.invoke.InvokerBytecodeGenerator\n&quot; +
+                    &quot;Invokers java.lang.invoke.Invokers\n&quot; +
+                    &quot;LambdaConversionException java.lang.invoke.LambdaConversionException\n&quot; +
+                    &quot;LambdaForm java.lang.invoke.LambdaForm\n&quot; +
+                    &quot;LambdaFormBuffer java.lang.invoke.LambdaFormBuffer\n&quot; +
+                    &quot;LambdaFormEditor java.lang.invoke.LambdaFormEditor\n&quot; +
+                    &quot;LambdaMetafactory java.lang.invoke.LambdaMetafactory\n&quot; +
+                    &quot;MemberName java.lang.invoke.MemberName\n&quot; +
+                    &quot;MethodHandle java.lang.invoke.MethodHandle\n&quot; +
+                    &quot;MethodHandleImpl java.lang.invoke.MethodHandleImpl\n&quot; +
+                    &quot;MethodHandleInfo java.lang.invoke.MethodHandleInfo\n&quot; +
+                    &quot;MethodHandleNatives java.lang.invoke.MethodHandleNatives\n&quot; +
+                    &quot;MethodHandleProxies java.lang.invoke.MethodHandleProxies\n&quot; +
+                    &quot;MethodHandles java.lang.invoke.MethodHandles\n&quot; +
+                    &quot;MethodHandleStatics java.lang.invoke.MethodHandleStatics\n&quot; +
+                    &quot;MethodType java.lang.invoke.MethodType\n&quot; +
+                    &quot;MethodTypeForm java.lang.invoke.MethodTypeForm\n&quot; +
+                    &quot;MutableCallSite java.lang.invoke.MutableCallSite\n&quot; +
+                    &quot;package-info java.lang.invoke.package-info\n&quot; +
+                    &quot;ProxyClassesDumper java.lang.invoke.ProxyClassesDumper\n&quot; +
+                    &quot;SerializedLambda java.lang.invoke.SerializedLambda\n&quot; +
+                    &quot;SimpleMethodHandle java.lang.invoke.SimpleMethodHandle\n&quot; +
+                    &quot;Stable java.lang.invoke.Stable\n&quot; +
+                    &quot;SwitchPoint java.lang.invoke.SwitchPoint\n&quot; +
+                    &quot;TypeConvertingMethodAdapter java.lang.invoke.TypeConvertingMethodAdapter\n&quot; +
+                    &quot;VolatileCallSite java.lang.invoke.VolatileCallSite\n&quot; +
+                    &quot;WrongMethodTypeException java.lang.invoke.WrongMethodTypeException\n&quot; +
+                    &quot;Iterable java.lang.Iterable\n&quot; +
+                    &quot;LinkageError java.lang.LinkageError\n&quot; +
+                    &quot;Long java.lang.Long\n&quot; +
+                    &quot;BufferPoolMXBean java.lang.management.BufferPoolMXBean\n&quot; +
+                    &quot;ClassLoadingMXBean java.lang.management.ClassLoadingMXBean\n&quot; +
+                    &quot;CompilationMXBean java.lang.management.CompilationMXBean\n&quot; +
+                    &quot;GarbageCollectorMXBean java.lang.management.GarbageCollectorMXBean\n&quot; +
+                    &quot;LockInfo java.lang.management.LockInfo\n&quot; +
+                    &quot;ManagementFactory java.lang.management.ManagementFactory\n&quot; +
+                    &quot;ManagementPermission java.lang.management.ManagementPermission\n&quot; +
+                    &quot;MemoryManagerMXBean java.lang.management.MemoryManagerMXBean\n&quot; +
+                    &quot;MemoryMXBean java.lang.management.MemoryMXBean\n&quot; +
+                    &quot;MemoryNotificationInfo java.lang.management.MemoryNotificationInfo\n&quot; +
+                    &quot;MemoryPoolMXBean java.lang.management.MemoryPoolMXBean\n&quot; +
+                    &quot;MemoryType java.lang.management.MemoryType\n&quot; +
+                    &quot;MemoryUsage java.lang.management.MemoryUsage\n&quot; +
+                    &quot;MonitorInfo java.lang.management.MonitorInfo\n&quot; +
+                    &quot;OperatingSystemMXBean java.lang.management.OperatingSystemMXBean\n&quot; +
+                    &quot;PlatformComponent java.lang.management.PlatformComponent\n&quot; +
+                    &quot;PlatformLoggingMXBean java.lang.management.PlatformLoggingMXBean\n&quot; +
+                    &quot;PlatformManagedObject java.lang.management.PlatformManagedObject\n&quot; +
+                    &quot;RuntimeMXBean java.lang.management.RuntimeMXBean\n&quot; +
+                    &quot;ThreadInfo java.lang.management.ThreadInfo\n&quot; +
+                    &quot;ThreadMXBean java.lang.management.ThreadMXBean\n&quot; +
+                    &quot;Math java.lang.Math\n&quot; +
+                    &quot;NegativeArraySizeException java.lang.NegativeArraySizeException\n&quot; +
+                    &quot;NoClassDefFoundError java.lang.NoClassDefFoundError\n&quot; +
+                    &quot;NoSuchFieldError java.lang.NoSuchFieldError\n&quot; +
+                    &quot;NoSuchFieldException java.lang.NoSuchFieldException\n&quot; +
+                    &quot;NoSuchMethodError java.lang.NoSuchMethodError\n&quot; +
+                    &quot;NoSuchMethodException java.lang.NoSuchMethodException\n&quot; +
+                    &quot;NullPointerException java.lang.NullPointerException\n&quot; +
+                    &quot;Number java.lang.Number\n&quot; +
+                    &quot;NumberFormatException java.lang.NumberFormatException\n&quot; +
+                    &quot;Object java.lang.Object\n&quot; +
+                    &quot;OutOfMemoryError java.lang.OutOfMemoryError\n&quot; +
+                    &quot;Override java.lang.Override\n&quot; +
+                    &quot;package-info java.lang.package-info\n&quot; +
+                    &quot;Package java.lang.Package\n&quot; +
+                    &quot;Process java.lang.Process\n&quot; +
+                    &quot;ProcessBuilder java.lang.ProcessBuilder\n&quot; +
+                    &quot;ProcessEnvironment java.lang.ProcessEnvironment\n&quot; +
+                    &quot;ProcessImpl java.lang.ProcessImpl\n&quot; +
+                    &quot;Readable java.lang.Readable\n&quot; +
+                    &quot;Finalizer java.lang.ref.Finalizer\n&quot; +
+                    &quot;FinalizerHistogram java.lang.ref.FinalizerHistogram\n&quot; +
+                    &quot;FinalReference java.lang.ref.FinalReference\n&quot; +
+                    &quot;PhantomReference java.lang.ref.PhantomReference\n&quot; +
+                    &quot;Reference java.lang.ref.Reference\n&quot; +
+                    &quot;ReferenceQueue java.lang.ref.ReferenceQueue\n&quot; +
+                    &quot;SoftReference java.lang.ref.SoftReference\n&quot; +
+                    &quot;WeakReference java.lang.ref.WeakReference\n&quot; +
+                    &quot;AccessibleObject java.lang.reflect.AccessibleObject\n&quot; +
+                    &quot;AnnotatedArrayType java.lang.reflect.AnnotatedArrayType\n&quot; +
+                    &quot;AnnotatedElement java.lang.reflect.AnnotatedElement\n&quot; +
+                    &quot;AnnotatedParameterizedType java.lang.reflect.AnnotatedParameterizedType\n&quot; +
+                    &quot;AnnotatedType java.lang.reflect.AnnotatedType\n&quot; +
+                    &quot;AnnotatedTypeVariable java.lang.reflect.AnnotatedTypeVariable\n&quot; +
+                    &quot;AnnotatedWildcardType java.lang.reflect.AnnotatedWildcardType\n&quot; +
+                    &quot;Array java.lang.reflect.Array\n&quot; +
+                    &quot;Constructor java.lang.reflect.Constructor\n&quot; +
+                    &quot;Executable java.lang.reflect.Executable\n&quot; +
+                    &quot;Field java.lang.reflect.Field\n&quot; +
+                    &quot;GenericArrayType java.lang.reflect.GenericArrayType\n&quot; +
+                    &quot;GenericDeclaration java.lang.reflect.GenericDeclaration\n&quot; +
+                    &quot;GenericSignatureFormatError java.lang.reflect.GenericSignatureFormatError\n&quot; +
+                    &quot;InvocationHandler java.lang.reflect.InvocationHandler\n&quot; +
+                    &quot;InvocationTargetException java.lang.reflect.InvocationTargetException\n&quot; +
+                    &quot;MalformedParameterizedTypeException java.lang.reflect.MalformedParameterizedTypeException\n&quot; +
+                    &quot;MalformedParametersException java.lang.reflect.MalformedParametersException\n&quot; +
+                    &quot;Member java.lang.reflect.Member\n&quot; +
+                    &quot;Method java.lang.reflect.Method\n&quot; +
+                    &quot;Modifier java.lang.reflect.Modifier\n&quot; +
+                    &quot;package-info java.lang.reflect.package-info\n&quot; +
+                    &quot;Parameter java.lang.reflect.Parameter\n&quot; +
+                    &quot;ParameterizedType java.lang.reflect.ParameterizedType\n&quot; +
+                    &quot;Proxy java.lang.reflect.Proxy\n&quot; +
+                    &quot;ReflectAccess java.lang.reflect.ReflectAccess\n&quot; +
+                    &quot;ReflectPermission java.lang.reflect.ReflectPermission\n&quot; +
+                    &quot;Type java.lang.reflect.Type\n&quot; +
+                    &quot;TypeVariable java.lang.reflect.TypeVariable\n&quot; +
+                    &quot;UndeclaredThrowableException java.lang.reflect.UndeclaredThrowableException\n&quot; +
+                    &quot;WeakCache java.lang.reflect.WeakCache\n&quot; +
+                    &quot;WildcardType java.lang.reflect.WildcardType\n&quot; +
+                    &quot;ReflectiveOperationException java.lang.ReflectiveOperationException\n&quot; +
+                    &quot;Runnable java.lang.Runnable\n&quot; +
+                    &quot;Runtime java.lang.Runtime\n&quot; +
+                    &quot;RuntimeException java.lang.RuntimeException\n&quot; +
+                    &quot;RuntimePermission java.lang.RuntimePermission\n&quot; +
+                    &quot;SafeVarargs java.lang.SafeVarargs\n&quot; +
+                    &quot;SecurityException java.lang.SecurityException\n&quot; +
+                    &quot;SecurityManager java.lang.SecurityManager\n&quot; +
+                    &quot;Short java.lang.Short\n&quot; +
+                    &quot;Shutdown java.lang.Shutdown\n&quot; +
+                    &quot;StackOverflowError java.lang.StackOverflowError\n&quot; +
+                    &quot;StackTraceElement java.lang.StackTraceElement\n&quot; +
+                    &quot;StrictMath java.lang.StrictMath\n&quot; +
+                    &quot;String java.lang.String\n&quot; +
+                    &quot;StringBuffer java.lang.StringBuffer\n&quot; +
+                    &quot;StringBuilder java.lang.StringBuilder\n&quot; +
+                    &quot;StringCoding java.lang.StringCoding\n&quot; +
+                    &quot;StringIndexOutOfBoundsException java.lang.StringIndexOutOfBoundsException\n&quot; +
+                    &quot;SuppressWarnings java.lang.SuppressWarnings\n&quot; +
+                    &quot;System java.lang.System\n&quot; +
+                    &quot;Terminator java.lang.Terminator\n&quot; +
+                    &quot;Thread java.lang.Thread\n&quot; +
+                    &quot;ThreadDeath java.lang.ThreadDeath\n&quot; +
+                    &quot;ThreadGroup java.lang.ThreadGroup\n&quot; +
+                    &quot;ThreadLocal java.lang.ThreadLocal\n&quot; +
+                    &quot;Throwable java.lang.Throwable\n&quot; +
+                    &quot;TypeNotPresentException java.lang.TypeNotPresentException\n&quot; +
+                    &quot;UnknownError java.lang.UnknownError\n&quot; +
+                    &quot;UnsatisfiedLinkError java.lang.UnsatisfiedLinkError\n&quot; +
+                    &quot;UnsupportedClassVersionError java.lang.UnsupportedClassVersionError\n&quot; +
+                    &quot;UnsupportedOperationException java.lang.UnsupportedOperationException\n&quot; +
+                    &quot;VerifyError java.lang.VerifyError\n&quot; +
+                    &quot;VirtualMachineError java.lang.VirtualMachineError\n&quot; +
+                    &quot;Void java.lang.Void\n&quot; +
+                    &quot;int int\n&quot; +
+                    &quot;long long\n&quot; +
+                    &quot;double double\n&quot; +
+                    &quot;char char\n&quot; +
+                    &quot;boolean boolean\n&quot; +
+                    &quot;byte byte\n&quot; +
+                    &quot;short short\n&quot; +
+                    &quot;float float&quot;;
+}</B></FONT>
+</PRE>
+
+</BODY>
+</HTML>
